@@ -20,7 +20,7 @@ jobs:
 
       - name: Download Godot 4.7
         run: |
-          wget https://github.com
+          wget https://github.com/godotengine/godot/releases/download/4.7-stable/Godot_v4.7-stable_macos.universal.zip
           unzip Godot_v4.7-stable_macos.universal.zip -d godot
           sudo mv godot/Godot.app /Applications/Godot.app
           sudo ln -s /Applications/Godot.app/Contents/MacOS/Godot /usr/local/bin/godot
@@ -28,7 +28,7 @@ jobs:
       - name: Download Godot 4.7 Export Templates
         run: |
           mkdir -p ~/Library/Application\ Support/Godot/export_templates/4.7.stable
-          wget https://github.com
+          wget https://github.com/godotengine/godot/releases/download/4.7-stable/Godot_v4.7-stable_export_templates.tpz
           
           tar -xzf Godot_v4.7-stable_export_templates.tpz -C ~/Library/Application\ Support/Godot/export_templates/4.7.stable
           

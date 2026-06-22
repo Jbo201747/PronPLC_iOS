@@ -40,7 +40,7 @@ jobs:
         run: mkdir -p build
 
       - name: Export iOS project
-        run: godot --headless --export-release "iOS" "build/Pronoun Palace.xcodeproj"
+        run: godot --headless --export-debug "iOS" "build/Pronoun Palace.xcodeproj"
 
       - name: Build iOS project
         run: |

@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://bmvqlf540pjtm"]
+
+[ext_resource type="PackedScene" uid="uid://5vx1ueimmtca" path="res://source/enemies/sprites/dew_jubilist_sprite.tscn" id="1"]
+[ext_resource type="Texture2D" uid="uid://bydcctjcn8hvn" path="res://arte/enemies/dew_jubajalist.png" id="2"]
+
+[node name="DewJubajalistSprite" unique_id=1707346575 instance=ExtResource("1")]
+
+[node name="Sprite" parent="." index="0" unique_id=968026568]
+texture = ExtResource("2")

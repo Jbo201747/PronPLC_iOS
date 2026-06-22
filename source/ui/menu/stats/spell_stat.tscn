@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://cygwfgm3xai0o"]
+
+[ext_resource type="PackedScene" uid="uid://blrduicvvw1fq" path="res://source/ui/menu/generic/menu_stat.tscn" id="1"]
+[ext_resource type="Texture2D" uid="uid://co4vnbyn7dd6h" path="res://arte/ui/spell_stat_icons.png" id="2"]
+
+[node name="SpellStat" unique_id=301375696 instance=ExtResource("1")]
+custom_minimum_size = Vector2(40, 0)
+texture = ExtResource("2")
+hv_frames = Vector2i(4, 1)
+
+[node name="MenuIcon" parent="." index="0" unique_id=7840853]
+texture = ExtResource("2")
+hv_frames = Vector2i(4, 1)

@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://ds1oi0mtire8h"]
+
+[ext_resource type="Script" uid="uid://c2r5ymj86soya" path="res://source/minigames/fish_launcher.gd" id="1"]
+
+[node name="FishLauncher" type="Node2D" unique_id=2013434808]
+script = ExtResource("1")

@@ -1,0 +1,490 @@
+[gd_scene format=3 uid="uid://dt2be1wikfttk"]
+
+[ext_resource type="Script" uid="uid://0sini1towgcf" path="res://source/main.gd" id="1"]
+[ext_resource type="Script" uid="uid://domm5aeb1drrg" path="res://source/background/background.gd" id="2"]
+[ext_resource type="Resource" uid="uid://6jpqh1iygn3g" path="res://data/backgrounds/act_1/background.tres" id="3"]
+[ext_resource type="Texture2D" uid="uid://de1iobl12lqrk" path="res://arte/backgrounds/guidelines.png" id="4"]
+[ext_resource type="Script" uid="uid://dubnpmj08f6jd" path="res://source/ui/shake_camera.gd" id="5"]
+[ext_resource type="PackedScene" uid="uid://qkqysh25kn7r" path="res://source/ui/battle_timer.tscn" id="6"]
+[ext_resource type="Script" uid="uid://bkuxusir1pw4m" path="res://source/spell/spell_container.gd" id="7"]
+[ext_resource type="PackedScene" uid="uid://c2oso7j5byhn5" path="res://source/tile/tile_board.tscn" id="8"]
+[ext_resource type="PackedScene" uid="uid://dre045to15bcg" path="res://source/ui/addict_timer.tscn" id="9"]
+[ext_resource type="PackedScene" uid="uid://pofaiw6s2usv" path="res://source/word_builder/word_builder.tscn" id="10"]
+[ext_resource type="PackedScene" uid="uid://bxrqriyosnkyj" path="res://source/battle_unit/battle_unit_bar.tscn" id="11"]
+[ext_resource type="PackedScene" uid="uid://he4ysnrw8fiq" path="res://source/ui/intents/intent_container.tscn" id="12"]
+[ext_resource type="FontFile" uid="uid://2h7fup58h8vn" path="res://fonts/Suwannaphum-Bold.ttf" id="13"]
+[ext_resource type="Script" uid="uid://cfpkpmdehkp8u" path="res://source/ui/generic/shadow_cloner.gd" id="14"]
+[ext_resource type="PackedScene" uid="uid://n4a2hehqjidc" path="res://source/ui/pause_button.tscn" id="15"]
+[ext_resource type="PackedScene" uid="uid://cowvth8saavlo" path="res://source/ui/submit_button.tscn" id="16"]
+[ext_resource type="PackedScene" uid="uid://csgn8nfshiq3c" path="res://source/ui/menu/generic/menu_controller.tscn" id="17"]
+[ext_resource type="PackedScene" uid="uid://c1ka8ny4n6b75" path="res://source/spell/spell_select.tscn" id="18"]
+[ext_resource type="PackedScene" uid="uid://ccig44le2jca0" path="res://source/ui/spells/spell_banner.tscn" id="19"]
+[ext_resource type="PackedScene" uid="uid://b3vuat3ydphsn" path="res://source/ui/menu/summary/summary_menu.tscn" id="20"]
+[ext_resource type="PackedScene" uid="uid://b7ukwmrstrrfp" path="res://source/ui/menu/generic/multi_panel_menu.tscn" id="21"]
+[ext_resource type="PackedScene" uid="uid://j2lt1nn07la8" path="res://source/ui/menu/buttons/menu_label_button.tscn" id="22"]
+[ext_resource type="PackedScene" uid="uid://bcbv0t5n3n151" path="res://source/ui/menu/settings/settings_menu.tscn" id="23"]
+[ext_resource type="PackedScene" uid="uid://b50abti2bvkif" path="res://source/ui/screen_wipe.tscn" id="24"]
+[ext_resource type="PackedScene" uid="uid://bayy57vdoc8ej" path="res://source/ui/cutscenes/cutscene_player.tscn" id="25"]
+
+[sub_resource type="Animation" id="Animation_sm8so"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BlackBarBottom:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 270)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BlackBarTop:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -42)]
+}
+
+[sub_resource type="Animation" id="Animation_vjn7t"]
+resource_name = "hide"
+length = 0.5
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BlackBarTop:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.37892917, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -42)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BlackBarBottom:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.37892917, 1),
+"update": 0,
+"values": [Vector2(0, 228), Vector2(0, 270)]
+}
+
+[sub_resource type="Animation" id="Animation_d4qgt"]
+resource_name = "show"
+length = 0.5
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BlackBarTop:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.37892917, 1),
+"update": 0,
+"values": [Vector2(0, -42), Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BlackBarBottom:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.37892917, 1),
+"update": 0,
+"values": [Vector2(0, 270), Vector2(0, 228)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vjn7t"]
+_data = {
+&"RESET": SubResource("Animation_sm8so"),
+&"hide": SubResource("Animation_vjn7t"),
+&"show": SubResource("Animation_d4qgt")
+}
+
+[node name="Main" type="Node2D" unique_id=180122661]
+script = ExtResource("1")
+metadata/_edit_lock_ = true
+
+[node name="Background" type="CanvasLayer" parent="." unique_id=1398110411]
+layer = -100
+script = ExtResource("2")
+layers = ExtResource("3")
+metadata/_custom_type_script = "uid://domm5aeb1drrg"
+
+[node name="Guidelines" type="Sprite2D" parent="." unique_id=447696539]
+visible = false
+modulate = Color(1, 1, 1, 0.278431)
+texture = ExtResource("4")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="ShakeCamera" type="Camera2D" parent="." unique_id=884474577]
+unique_name_in_owner = true
+script = ExtResource("5")
+metadata/_custom_type_script = "uid://dubnpmj08f6jd"
+
+[node name="UnitLayer" type="CanvasLayer" parent="." unique_id=1359211988]
+layer = -3
+follow_viewport_enabled = true
+
+[node name="PlayerMarker" type="Marker2D" parent="UnitLayer" unique_id=399467008]
+unique_name_in_owner = true
+position = Vector2(82, 187)
+
+[node name="EnemyMarker" type="Marker2D" parent="UnitLayer" unique_id=63096223]
+unique_name_in_owner = true
+position = Vector2(392, 187)
+
+[node name="BackgroundParticleContainer" type="Node2D" parent="UnitLayer" unique_id=1834456843]
+unique_name_in_owner = true
+z_index = 50
+
+[node name="ShadowLayer" type="CanvasLayer" parent="." unique_id=454252746]
+layer = -2
+follow_viewport_enabled = true
+
+[node name="ShadowGroup" type="CanvasGroup" parent="ShadowLayer" unique_id=654842931]
+unique_name_in_owner = true
+self_modulate = Color(1, 1, 1, 0.23921569)
+
+[node name="GameUILayer" type="CanvasLayer" parent="." unique_id=1903357470]
+layer = -1
+
+[node name="BattleTimer" parent="GameUILayer" unique_id=2106493120 instance=ExtResource("6")]
+offset_right = 40.0
+
+[node name="SpellContainer" type="Marker2D" parent="GameUILayer" unique_id=529483024]
+unique_name_in_owner = true
+position = Vector2(240, 270)
+script = ExtResource("7")
+metadata/_edit_lock_ = true
+
+[node name="TileBoard" parent="GameUILayer" unique_id=1619504647 instance=ExtResource("8")]
+unique_name_in_owner = true
+position = Vector2(240, 169)
+
+[node name="AddictTimer" parent="GameUILayer/TileBoard/BoardPosition" parent_id_path=PackedInt32Array(1619504647, 1855108311) index="0" unique_id=1635435939 instance=ExtResource("9")]
+unique_name_in_owner = true
+z_index = 1
+offset_left = -20.0
+offset_top = -71.0
+offset_right = 18.0
+offset_bottom = -52.879997
+
+[node name="WordBuilder" parent="GameUILayer" unique_id=952275895 instance=ExtResource("10")]
+unique_name_in_owner = true
+metadata/_edit_lock_ = true
+
+[node name="PlayerInfoBar" parent="GameUILayer" unique_id=809456881 instance=ExtResource("11")]
+unique_name_in_owner = true
+position = Vector2(82, 213)
+
+[node name="EnemyInfoBar" parent="GameUILayer" unique_id=692483891 instance=ExtResource("11")]
+unique_name_in_owner = true
+position = Vector2(392, 213)
+
+[node name="EnemyIntentContainer" parent="GameUILayer" unique_id=112413146 instance=ExtResource("12")]
+unique_name_in_owner = true
+realign_with_word_length = true
+
+[node name="PlayerIntentContainer" parent="GameUILayer" unique_id=1343093857 instance=ExtResource("12")]
+unique_name_in_owner = true
+realign_with_word_length = true
+
+[node name="ProjectileContainer" type="Node2D" parent="GameUILayer" unique_id=1220023750]
+unique_name_in_owner = true
+
+[node name="ActTitle" type="Node2D" parent="GameUILayer" unique_id=1195948819]
+position = Vector2(240, 66)
+
+[node name="CenterContainer" type="CenterContainer" parent="GameUILayer/ActTitle" unique_id=1275074864]
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+use_top_left = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GameUILayer/ActTitle/CenterContainer" unique_id=2117470445]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = -4
+
+[node name="ActTitle" type="Label" parent="GameUILayer/ActTitle/CenterContainer/VBoxContainer" unique_id=1227757816]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("13")
+text = "Act I"
+horizontal_alignment = 1
+vertical_alignment = 2
+visible_characters_behavior = 1
+
+[node name="ShadowCloner" type="Node2D" parent="GameUILayer/ActTitle/CenterContainer/VBoxContainer/ActTitle" unique_id=104775095]
+position = Vector2(2, 2)
+script = ExtResource("14")
+metadata/_custom_type_script = "uid://cfpkpmdehkp8u"
+
+[node name="ActSubtitle" type="Label" parent="GameUILayer/ActTitle/CenterContainer/VBoxContainer" unique_id=2075774873]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("13")
+theme_override_font_sizes/font_size = 10
+text = "The Slums"
+horizontal_alignment = 1
+vertical_alignment = 2
+visible_characters_behavior = 1
+
+[node name="ShadowCloner" type="Node2D" parent="GameUILayer/ActTitle/CenterContainer/VBoxContainer/ActSubtitle" unique_id=2123303326]
+position = Vector2(2, 2)
+script = ExtResource("14")
+metadata/_custom_type_script = "uid://cfpkpmdehkp8u"
+
+[node name="VersusLabel" type="Label" parent="GameUILayer" unique_id=214290957]
+unique_name_in_owner = true
+visible = false
+offset_top = 50.0
+offset_right = 480.0
+offset_bottom = 74.0
+pivot_offset = Vector2(240, 12)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("13")
+theme_override_font_sizes/font_size = 12
+text = "Lexicographer vs Dew Jubilist"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ShadowCloner" type="Node2D" parent="GameUILayer/VersusLabel" unique_id=660518283]
+position = Vector2(2, 2)
+script = ExtResource("14")
+metadata/_custom_type_script = "uid://cfpkpmdehkp8u"
+
+[node name="PauseButton" parent="GameUILayer" unique_id=1283866523 instance=ExtResource("15")]
+unique_name_in_owner = true
+position = Vector2(8, 230)
+
+[node name="SubmitButton" parent="GameUILayer" unique_id=788419884 instance=ExtResource("16")]
+unique_name_in_owner = true
+position = Vector2(440, 230)
+
+[node name="TileContainer" type="Node2D" parent="GameUILayer" unique_id=1946577172 groups=["particle_target"]]
+unique_name_in_owner = true
+
+[node name="BlackBars" type="Node2D" parent="GameUILayer" unique_id=1341788656]
+visible = false
+
+[node name="BlackBarTop" type="ColorRect" parent="GameUILayer/BlackBars" unique_id=1857190518]
+offset_top = -42.0
+offset_right = 480.0
+color = Color(0, 0, 0, 1)
+
+[node name="BlackBarBottom" type="ColorRect" parent="GameUILayer/BlackBars" unique_id=1505309538]
+offset_top = 270.0
+offset_right = 480.0
+offset_bottom = 311.99994
+color = Color(0, 0, 0, 1)
+
+[node name="AnimPlayer" type="AnimationPlayer" parent="GameUILayer/BlackBars" unique_id=1529571125]
+libraries/ = SubResource("AnimationLibrary_vjn7t")
+
+[node name="HUDLayer" type="CanvasLayer" parent="." unique_id=1601018930]
+
+[node name="GameMenuController" parent="HUDLayer" unique_id=1269495504 instance=ExtResource("17")]
+unique_name_in_owner = true
+blocks_input = false
+metadata/_edit_lock_ = true
+
+[node name="MinigameContainer" type="Node2D" parent="HUDLayer" unique_id=180249185]
+unique_name_in_owner = true
+
+[node name="SpellSelect" parent="HUDLayer" unique_id=594844951 instance=ExtResource("18")]
+unique_name_in_owner = true
+can_close = false
+metadata/_edit_lock_ = true
+
+[node name="SpellBanner" parent="HUDLayer" unique_id=251565393 instance=ExtResource("19")]
+unique_name_in_owner = true
+position = Vector2(240, 0)
+
+[node name="GameTooltips" type="Control" parent="HUDLayer" unique_id=530533761 groups=["game_tooltips_parent"]]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="SummaryMenu" parent="HUDLayer" unique_id=1669539744 instance=ExtResource("20")]
+unique_name_in_owner = true
+offset_top = 556.0
+offset_bottom = 556.0
+can_close = false
+metadata/_edit_lock_ = true
+
+[node name="InputWall" type="Control" parent="HUDLayer" unique_id=1031838609]
+unique_name_in_owner = true
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 480.0
+offset_bottom = 270.0
+
+[node name="MenuLayer" type="CanvasLayer" parent="." unique_id=1524182727]
+unique_name_in_owner = true
+layer = 2
+follow_viewport_enabled = true
+
+[node name="MenuWall" type="ColorRect" parent="MenuLayer" unique_id=1764708895]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
+z_index = -5
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.39215687)
+metadata/_edit_lock_ = true
+
+[node name="AboveMenuWall" type="Control" parent="MenuLayer" unique_id=1835352224]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+mouse_filter = 2
+
+[node name="MenuController" parent="MenuLayer" unique_id=1611070572 instance=ExtResource("17")]
+unique_name_in_owner = true
+metadata/_edit_lock_ = true
+
+[node name="PauseMenu" parent="MenuLayer" unique_id=574455430 instance=ExtResource("21")]
+unique_name_in_owner = true
+no_back_button = true
+can_close = false
+metadata/_edit_lock_ = true
+
+[node name="ResumeButton" parent="MenuLayer/PauseMenu" unique_id=87354898 groups=["focus_exclude"] instance=ExtResource("22")]
+layout_mode = 0
+offset_left = 47.0
+offset_top = 534.0
+offset_right = 47.0
+offset_bottom = 534.0
+text = "menu/pause/resume"
+glyph_action = &"menu_back"
+metadata/_edit_lock_ = true
+
+[node name="Label" parent="MenuLayer/PauseMenu/ResumeButton/HoverOffset/Panel/MarginContainer/VBoxContainer" parent_id_path=PackedInt32Array(87354898, 210692313) index="0" unique_id=244723960]
+text = "Resume"
+
+[node name="ActionGlyph" parent="MenuLayer/PauseMenu/ResumeButton/HoverOffset/Panel" parent_id_path=PackedInt32Array(87354898, 1166464853) index="4" unique_id=1185166845]
+offset_left = -5.0
+offset_right = 11.0
+action = &"menu_back"
+
+[node name="OptionsMenu" parent="MenuLayer/PauseMenu" unique_id=120263053 instance=ExtResource("23")]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+offset_left = 145.0
+offset_top = 538.0
+offset_right = 145.0
+offset_bottom = 538.0
+metadata/_edit_lock_ = true
+
+[node name="QuitButton" parent="MenuLayer/PauseMenu" unique_id=526045457 groups=["focus_exclude"] instance=ExtResource("22")]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 333.0
+offset_top = 534.0
+offset_right = 333.0
+offset_bottom = 534.0
+text = "menu/pause/save_and_quit"
+action = &"menu_extra_button"
+metadata/_edit_lock_ = true
+
+[node name="MenuTooltips" type="Control" parent="MenuLayer" unique_id=196668063 groups=["menu_tooltips_parent"]]
+layout_mode = 3
+anchors_preset = 0
+mouse_filter = 2
+
+[node name="ScreenWipe" type="CanvasLayer" parent="." unique_id=1111119993]
+layer = 10
+
+[node name="ScreenWipe" parent="ScreenWipe" unique_id=275668474 instance=ExtResource("24")]
+unique_name_in_owner = true
+z_index = 200
+
+[node name="Cutscene" parent="ScreenWipe" unique_id=783394940 groups=["cutscene"] instance=ExtResource("25")]
+unique_name_in_owner = true
+visible = false
+z_index = 201
+track_cutscene_viewed = true
+
+[connection signal="pressed" from="GameUILayer/PauseButton" to="." method="_on_pause_button_pressed"]
+[connection signal="pressed" from="GameUILayer/SubmitButton" to="GameUILayer/WordBuilder" method="_on_submit_button_pressed"]
+[connection signal="completed" from="HUDLayer/SpellSelect" to="." method="_on_spell_select_completed"]
+[connection signal="finished" from="HUDLayer/SummaryMenu" to="." method="_on_summary_menu_finished"]
+[connection signal="start_appearing" from="MenuLayer/PauseMenu" to="." method="_on_pause_menu_start_appearing"]
+[connection signal="start_appearing" from="MenuLayer/PauseMenu" to="." method="check_menu_wall"]
+[connection signal="start_disappearing" from="MenuLayer/PauseMenu" to="." method="_on_pause_menu_start_disappearing"]
+[connection signal="start_disappearing" from="MenuLayer/PauseMenu" to="." method="check_menu_wall"]
+[connection signal="pressed" from="MenuLayer/PauseMenu/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="MenuLayer/PauseMenu/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="start_appearing" from="MenuLayer/PauseMenu/QuitButton" to="." method="_on_quit_button_start_appearing"]
+
+[editable path="GameUILayer/TileBoard"]
+[editable path="MenuLayer/PauseMenu/ResumeButton"]

@@ -1,0 +1,189 @@
+:lexicographer:
+	:title:
+		{"Lexicographer" not global.steam_inactive}{"Lexicographarr" if global.steam_inactive}
+
+	:name:
+		{"Wryn Nguyen" if trans}{"Wilson Nguyen" not trans}
+
+	:description:
+		A private dissident of the Party.
+		Professionally compiles simplified dictionaries.
+
+	:spell_description:
+		Remove tiles from the board.
+
+	:info_title:
+		Info
+
+	:info:
+		The default experience.
+
+	:sex:
+		{"F" if trans}{"M" not trans}
+
+	:pronouns:
+		she/her
+
+	:height:
+		5-10
+
+	:weight:
+		{"144" if trans}{"142" not trans}
+
+	:occupation:
+		BUREAU OF INFO.
+
+	:credit:
+		Cadence Petersen
+
+:child:
+	:title:
+		Child
+
+	:name:
+		{"Guy Young" if trans}{"Ashleigh Young" not trans}
+
+	:description:
+		The property of two{"" if trans}{" loving" not trans} parents.
+		Made an unauthorized decision over {"his" if trans}{"her" not trans} own body.
+
+	:spell_description:
+		Submit multiple words using spaces.
+
+	:info_title:
+		Info
+
+	:info:
+		Less health, no random crits.
+
+	:sex:
+		{"M" if trans}{"F" not trans}
+
+	:pronouns:
+		he/him
+
+	:height:
+		{"5-1" if trans}{"4-11" not trans}
+
+	:weight:
+		{"72" if trans}{"68" not trans}
+
+	:occupation:
+		N/A
+
+	:credit:
+		B.
+
+:jubilist:
+	:title:
+		Jubilist
+
+	:name:
+		{"V" if trans}{"Vivian Quynh" not trans}
+
+	:description:
+		A member of a vague, disorganized resistance group.
+		Enacts praxis through individuation and consumption.
+
+	:spell_description:
+		Spells are randomized each battle.
+
+	:info_title:
+		Info
+
+	:info:
+		Choose between different categories of spells.
+
+	:sex:
+		{"X" if trans}{"F" not trans}
+
+	:pronouns:
+		they/them
+
+	:height:
+		6-1
+
+	:weight:
+		{"143" if trans}{"142" not trans}
+
+	:occupation:
+		BUREAU OF RECORDS
+
+	:credit:
+		Hazel Fackler
+
+:fisher:
+	:title:
+		Fisher
+
+	:name:
+		{"Leslie Stone" if trans}{"William Stone" not trans}
+
+	:description:
+		A downwardly mobile gillnetter.
+		Determined to rejoin the bureaucrat class.
+
+	:spell_description:
+		Fish for tiles and crits.
+
+	:info_title:
+		Info
+
+	:info:
+		Less tiles, no random crits.
+
+	:sex:
+		{"F" if trans}{"M" not trans}
+
+	:pronouns:
+		she/they
+
+	:height:
+		5-8
+
+	:weight:
+		{"160" if trans}{"158" not trans}
+
+	:occupation:
+		LIMESTOCK CO.
+
+	:credit:
+		redoplus
+
+:addict:
+	:title:
+		Addict
+
+	:name:
+		{"Valence [img align=center,center width=30 height=1.2em]res://arte/ui/redact.png[/img]" if trans}{"Martha [img align=center,center width=38 height=1.2em]res://arte/ui/redact.png[/img]" not trans}
+
+	:description:
+		A disgraced member of the Inner Party.
+		Happily {"divorced" if trans}{"married" not trans}.
+
+	:spell_description:
+		Add bombs and accelerate time.
+
+	:info_title:
+		Info
+
+	:info:
+		2-minute turn limit. Wildcards instead of crits.
+
+	:sex:
+		{"M" if trans}{"F" not trans}
+
+	:pronouns:
+		he/him
+
+	:height:
+		{"5-6" not trans}{"[img align=center,center width=13 height=1.2em]res://arte/ui/redact.png[/img]" if trans}
+
+	:weight:
+		{"134" if trans}{"136" not trans}
+
+	:occupation:
+		[img align=center,center width=70% height=1.2em]res://arte/ui/redact.png[/img]
+
+	:credit:
+		RENREN

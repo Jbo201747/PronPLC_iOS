@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://blawn3u2gfjxu"]
+
+[node name="VoiceCreditRow" type="HBoxContainer" unique_id=379948351]
+custom_minimum_size = Vector2(0, 120)
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = -40

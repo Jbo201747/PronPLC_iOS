@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://c4s1883m8pbwj"]
+
+[ext_resource type="PackedScene" uid="uid://djaen2qr5hdtv" path="res://source/enemies/sprites/people_sprite.tscn" id="1"]
+[ext_resource type="Texture2D" uid="uid://bpwa6s2w3dq8m" path="res://arte/enemies/decedent.png" id="2"]
+
+[node name="DecedentSprite" unique_id=902974871 instance=ExtResource("1")]
+global_pitch_scale = 0.9
+
+[node name="Sprite" parent="." index="0" unique_id=1679266327]
+texture = ExtResource("2")

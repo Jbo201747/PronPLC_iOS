@@ -1,0 +1,117 @@
+[gd_scene format=3 uid="uid://c5b7lvbrglom8"]
+
+[ext_resource type="Script" uid="uid://b3ipign7y3nf1" path="res://source/ui/menu/generic/sectioned_panel.gd" id="1"]
+[ext_resource type="Script" uid="uid://qsah8n51ryuk" path="res://source/ui/generic/linked_scroll_container.gd" id="2"]
+[ext_resource type="Script" uid="uid://gjnwvvxuqoj1" path="res://source/ui/menu/generic/alternating_page_box.gd" id="3"]
+[ext_resource type="Script" uid="uid://cw2qwpr8h1p5x" path="res://source/ui/generic/controllable_scroll_container.gd" id="4"]
+[ext_resource type="Script" uid="uid://ensvjeg1gdv7" path="res://source/ui/menu/generic/dotted_line_box.gd" id="5"]
+
+[node name="SectionedPanel" type="Control" unique_id=1400204219 node_paths=PackedStringArray("alternating_page_box", "dotted_line_box", "scroll", "contents_box")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1")
+alternating_page_box = NodePath("PageMask/MarginContainer/LinkedScrollContainer/MarginContainer/AlternatingPageBox")
+dotted_line_box = NodePath("MainMask/MarginContainer/ScrollContainer/MarginContainer/DottedLineBox")
+scroll = NodePath("MainMask/MarginContainer/ScrollContainer")
+contents_box = NodePath("MainMask/MarginContainer/ScrollContainer/MarginContainer/ContentsBox")
+
+[node name="PageMask" type="Panel" parent="." unique_id=711574092]
+unique_name_in_owner = true
+clip_children = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_type_variation = &"MenuTicketBottomMaskNoAA"
+
+[node name="MarginContainer" type="MarginContainer" parent="PageMask" unique_id=1817193018]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 10
+
+[node name="LinkedScrollContainer" type="ScrollContainer" parent="PageMask/MarginContainer" unique_id=769014987 node_paths=PackedStringArray("other_scroll_container")]
+clip_contents = false
+layout_mode = 2
+script = ExtResource("2")
+other_scroll_container = NodePath("../../../MainMask/MarginContainer/ScrollContainer")
+metadata/_custom_type_script = "uid://qsah8n51ryuk"
+
+[node name="MarginContainer" type="MarginContainer" parent="PageMask/MarginContainer/LinkedScrollContainer" unique_id=1393533725]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_top = -8
+theme_override_constants/margin_bottom = -10
+
+[node name="AlternatingPageBox" type="VBoxContainer" parent="PageMask/MarginContainer/LinkedScrollContainer/MarginContainer" unique_id=1381074398 node_paths=PackedStringArray("source_boxes")]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+script = ExtResource("3")
+first_panel_extra_size = 8
+last_panel_extra_size = 10
+source_boxes = [NodePath("../../../../../MainMask/MarginContainer/ScrollContainer/MarginContainer/ContentsBox")]
+metadata/_custom_type_script = "uid://gjnwvvxuqoj1"
+
+[node name="MainMask" type="Panel" parent="." unique_id=402416624]
+unique_name_in_owner = true
+clip_children = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_type_variation = &"MenuTicketBottomMask"
+
+[node name="MarginContainer" type="MarginContainer" parent="MainMask" unique_id=147788459]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 10
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MainMask/MarginContainer" unique_id=384839278]
+clip_contents = false
+layout_mode = 2
+horizontal_scroll_mode = 0
+script = ExtResource("4")
+metadata/_custom_type_script = "uid://cw2qwpr8h1p5x"
+
+[node name="MarginContainer" type="MarginContainer" parent="MainMask/MarginContainer/ScrollContainer" unique_id=454863863]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="ContentsBox" type="VBoxContainer" parent="MainMask/MarginContainer/ScrollContainer/MarginContainer" unique_id=828913805]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+
+[node name="DottedLineBox" type="VBoxContainer" parent="MainMask/MarginContainer/ScrollContainer/MarginContainer" unique_id=2070376067 node_paths=PackedStringArray("source_boxes")]
+layout_mode = 2
+script = ExtResource("5")
+source_boxes = [NodePath("../ContentsBox")]
+metadata/_custom_type_script = "uid://ensvjeg1gdv7"

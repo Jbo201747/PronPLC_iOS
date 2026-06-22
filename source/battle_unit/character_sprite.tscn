@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://df0y8827mq6rd"]
+
+[ext_resource type="PackedScene" uid="uid://dmg180a1myio" path="res://source/battle_unit/battle_unit_sprite.tscn" id="1"]
+[ext_resource type="Script" uid="uid://bblu85fqu2dd7" path="res://source/battle_unit/character_sprite.gd" id="2"]
+
+[node name="BattleUnitSprite" unique_id=1356876798 instance=ExtResource("1")]
+script = ExtResource("2")
+trans_texture = null
+base_texture = null
+alt_trans_texture = null
+alt_base_texture = null
+is_trans = false
+trans_pitch_scale = 1.0
+base_pitch_scale = 1.0
+
+[node name="Sprite" type="Sprite2D" parent="." index="0" unique_id=579701046]
+position = Vector2(-5, 7)
+offset = Vector2(-1, -51)
+hframes = 4
+vframes = 2
+
+[node name="ProjectileMarker" type="Marker2D" parent="." index="7" unique_id=149246220]
+unique_name_in_owner = true
+position = Vector2(-1, -59)
+
+[node name="SpeechBubbleMarker" type="Marker2D" parent="." index="8" unique_id=841627286]
+unique_name_in_owner = true
+position = Vector2(-9, -165)
+
+[node name="PhotoMarker" type="Marker2D" parent="." index="9" unique_id=1237116361]
+unique_name_in_owner = true
+position = Vector2(-50, -112)
+
+[node name="AnvilMarker" type="Marker2D" parent="." index="10" unique_id=1532403582]
+unique_name_in_owner = true
+position = Vector2(0, -99)

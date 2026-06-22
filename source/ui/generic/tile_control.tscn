@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://b6gg0hhet0u5"]
+
+[ext_resource type="Script" uid="uid://bxxdb40xrxqdw" path="res://source/ui/generic/tile_control.gd" id="1"]
+
+[node name="TileControl" type="Control" unique_id=136196372]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 3
+anchors_preset = 0
+size_flags_vertical = 4
+script = ExtResource("1")
+
+[node name="TileMarker" type="Marker2D" parent="." unique_id=2066017629]
+unique_name_in_owner = true
+position = Vector2(16, 15)

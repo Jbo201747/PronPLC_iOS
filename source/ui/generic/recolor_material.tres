@@ -1,0 +1,6 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://bk6ge7t7flj8m"]
+
+[ext_resource type="Shader" uid="uid://c1wxear0euba5" path="res://source/ui/generic/recolor.gdshader" id="1"]
+
+[resource]
+shader = ExtResource("1")

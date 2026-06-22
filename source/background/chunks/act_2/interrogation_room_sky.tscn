@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://bwd13d12fgx1d"]
+
+[ext_resource type="PackedScene" uid="uid://b3i1vst4708al" path="res://source/background/chunks/base/sprite_chunk.tscn" id="1"]
+[ext_resource type="Texture2D" uid="uid://csamva70jtenw" path="res://arte/backgrounds/act_2/interrogation_room_sky.png" id="2"]
+
+[node name="BackgroundChunk" unique_id=894028390 instance=ExtResource("1")]
+
+[node name="Sprite2D" parent="." index="0" unique_id=174746349]
+position = Vector2(0, -135)
+texture = ExtResource("2")
+centered = false

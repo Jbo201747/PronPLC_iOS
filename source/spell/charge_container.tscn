@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cgq3pkee1s88m"]
+
+[ext_resource type="Script" uid="uid://tfd7vjrkevv8" path="res://source/spell/charge_container.gd" id="1"]
+
+[node name="ChargeContainer" type="Marker2D" unique_id=32266831]
+script = ExtResource("1")

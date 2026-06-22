@@ -1,0 +1,92 @@
+[gd_scene format=3 uid="uid://cs52ap4sy0spu"]
+
+[ext_resource type="Script" uid="uid://bsqibr4dgehl3" path="res://source/ui/menu/generic/menu_panel.gd" id="1"]
+[ext_resource type="Script" uid="uid://cfpkpmdehkp8u" path="res://source/ui/generic/shadow_cloner.gd" id="2"]
+
+[sub_resource type="Animation" id="Animation_t6m3g"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PositionRoot:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_iy1r5"]
+resource_name = "appear"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PositionRoot:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3),
+"transitions": PackedFloat32Array(0.30778608, 2.0705302, 1),
+"update": 0,
+"values": [Vector2(0, -249), Vector2(0, 4), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_regpd"]
+resource_name = "disappear"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PositionRoot:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3),
+"transitions": PackedFloat32Array(0.3077861, 2.0705302, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 4), Vector2(0, -249)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fd5xj"]
+_data = {
+&"RESET": SubResource("Animation_t6m3g"),
+&"appear": SubResource("Animation_iy1r5"),
+&"disappear": SubResource("Animation_regpd")
+}
+
+[node name="BigMenuPanel" type="Control" unique_id=1499490309 node_paths=PackedStringArray("anim", "panel")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1")
+anim = NodePath("AnimationPlayer")
+panel = NodePath("PositionRoot/Panel")
+full_screen_menu = true
+
+[node name="PositionRoot" type="Control" parent="." unique_id=1793859846]
+anchors_preset = 0
+mouse_filter = 2
+
+[node name="Panel" type="Panel" parent="PositionRoot" unique_id=1955025572]
+layout_mode = 0
+offset_left = 130.0
+offset_top = -6.0
+offset_right = 351.0
+offset_bottom = 230.0
+mouse_filter = 2
+theme_type_variation = &"MenuTicket"
+
+[node name="ShadowCloner" type="Node2D" parent="PositionRoot/Panel" unique_id=2013959773]
+position = Vector2(2, 2)
+script = ExtResource("2")
+metadata/_custom_type_script = "uid://cfpkpmdehkp8u"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1745252111]
+libraries/ = SubResource("AnimationLibrary_fd5xj")

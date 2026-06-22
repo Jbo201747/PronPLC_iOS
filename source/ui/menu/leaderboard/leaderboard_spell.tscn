@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://exwn6extpup8"]
+
+[ext_resource type="Script" uid="uid://dik2uobnyrswc" path="res://source/ui/menu/leaderboard/leaderboard_spell.gd" id="1"]
+[ext_resource type="PackedScene" uid="uid://b8wqs3a6tthoa" path="res://source/spell/spell_sprite.tscn" id="2"]
+[ext_resource type="PackedScene" uid="uid://dat3nkol372xh" path="res://source/ui/menu/generic/menu_page_shadow.tscn" id="3"]
+[ext_resource type="PackedScene" uid="uid://dgtvtcn5lo1dl" path="res://source/ui/tooltip/menu_tooltip_collision.tscn" id="4"]
+[ext_resource type="Script" uid="uid://7xvadspst3p5" path="res://source/ui/generic/hover_handler.gd" id="5"]
+
+[node name="LeaderboardSpell" type="Control" unique_id=1916671193]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 3
+anchors_preset = 0
+mouse_filter = 2
+script = ExtResource("1")
+
+[node name="SpellSprite" parent="." unique_id=1448247384 instance=ExtResource("2")]
+unique_name_in_owner = true
+
+[node name="ShadowCloner" parent="SpellSprite" unique_id=255702735 node_paths=PackedStringArray("clone_offset") instance=ExtResource("3")]
+position = Vector2(2, 2)
+clone_offset = NodePath("..")
+awaiting_reparent = true
+
+[node name="MenuTooltipCollision" parent="." unique_id=245942413 instance=ExtResource("4")]
+unique_name_in_owner = true
+custom_maximum_size = Vector2(20, -1)
+layout_mode = 0
+offset_left = 6.0
+offset_right = 26.0
+offset_bottom = 32.0
+mouse_filter = 1
+position_offset = Vector2(0, -1)
+
+[node name="HoverHandler" type="Node2D" parent="." unique_id=1816842532 node_paths=PackedStringArray("hovering", "source")]
+script = ExtResource("5")
+hovering = NodePath("../SpellSprite")
+source = NodePath("../MenuTooltipCollision")
+hovered_position = Vector2(0, -2)
+use_focus = false
+metadata/_custom_type_script = "uid://7xvadspst3p5"

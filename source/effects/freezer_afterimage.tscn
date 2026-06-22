@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://bic8ng0dgq2xe"]
+
+[ext_resource type="PackedScene" uid="uid://c403grwnqk45u" path="res://source/effects/afterimage.tscn" id="1"]
+[ext_resource type="Texture2D" uid="uid://b8du7qe1f5pbq" path="res://arte/enemies/freezer_afterimage.png" id="2"]
+
+[node name="FreezerAfterimage" unique_id=556830416 instance=ExtResource("1")]
+
+[node name="Sprite" parent="." index="0" unique_id=1732511060]
+texture = ExtResource("2")

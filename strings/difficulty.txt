@@ -1,0 +1,80 @@
+:clearance:
+	{name} Clearance
+
+:0:
+	:name:
+		Beige
+
+	:description:
+		Base difficulty.
+
+:1:
+	:name:
+		Black
+
+
+	:description:
+		Enemies are stronger and have more health.
+
+:2:
+	:name:
+		Violet
+
+	:description:
+		Spells can have curses.
+
+:3:
+	:name:
+		Blue
+
+	:description:
+		Tiles can start with capitals, periods, or bigrams.
+
+:4:
+	:name:
+		Cerulean
+
+	:description:
+		No repeat words.
+
+:5:
+	:name:
+		Teal
+
+	:description:
+		Enemies are even harder.
+
+:6:
+	:name:
+		Green
+
+	:description:
+		Enemies have even more health.
+
+:7:
+	:name:
+		Yellow
+
+	:description:
+		More spell curses.
+
+:8:
+	:name:
+		Orange
+
+	:description:
+		Reduced boss healing.
+
+:9:
+	:name:
+		Red
+
+	:description:
+		Harsher status effects.
+
+:10:
+	:name:
+		Hazel
+
+	:description:
+		Developer difficulty.

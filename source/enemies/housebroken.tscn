@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://dsboxh20rjaoo"]
+
+[ext_resource type="PackedScene" uid="uid://cbdk6hv7wu8im" path="res://source/battle_unit/enemy.tscn" id="1"]
+[ext_resource type="Script" uid="uid://bphvgxbahaj4x" path="res://source/enemies/housebroken.gd" id="2"]
+[ext_resource type="PackedScene" uid="uid://br3fondn01m2" path="res://source/enemies/sprites/housebroken_sprite.tscn" id="3"]
+
+[node name="Housebroken" unique_id=1696018673 instance=ExtResource("1")]
+script = ExtResource("2")
+idle_after_flinching = false
+
+[node name="Sprite" parent="." index="0" unique_id=544139528 instance=ExtResource("3")]

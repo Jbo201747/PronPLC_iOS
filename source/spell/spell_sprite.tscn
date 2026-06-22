@@ -1,0 +1,147 @@
+[gd_scene format=3 uid="uid://b8wqs3a6tthoa"]
+
+[ext_resource type="Script" uid="uid://bxqa7lu0i7jxw" path="res://source/spell/spell_sprite.gd" id="1"]
+[ext_resource type="Shader" uid="uid://ddquevgad7b5c" path="res://source/spell/spell.gdshader" id="2"]
+[ext_resource type="Texture2D" uid="uid://dmofi0m21sgho" path="res://arte/spells/letter_opener.png" id="3"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_es4rt"]
+shader = ExtResource("2")
+
+[sub_resource type="Animation" id="Animation_vqmxl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("./Sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("./Sprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_wm1qj"]
+resource_name = "blink_warning"
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("./Sprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(0.353553, 1.51572, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1.5, 0.5, 0.5, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ihdrt"]
+resource_name = "charge"
+length = 0.35
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("./Sprite:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0543526, 0.104353, 0.15, 0.2, 0.25, 0.3, 0.35),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 2), Vector2(0, -4), Vector2(0, -5), Vector2(0, -5), Vector2(0, -3), Vector2(0, 1), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("./Sprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.35),
+"transitions": PackedFloat32Array(0.210224, 0.267943, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(2, 2, 2, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_bev18"]
+resource_name = "flash_shiny"
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("./Sprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.6),
+"transitions": PackedFloat32Array(0.233258, 0.250001, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(3, 3, 3, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_fwlrl"]
+resource_name = "shake"
+length = 0.2
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("./Sprite:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.15, 0.2),
+"transitions": PackedFloat32Array(0.366021, 0.307786, 2.14355, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-2, 0), Vector2(2, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_e81kn"]
+_data = {
+&"RESET": SubResource("Animation_vqmxl"),
+&"blink_warning": SubResource("Animation_wm1qj"),
+&"charge": SubResource("Animation_ihdrt"),
+&"flash_shiny": SubResource("Animation_bev18"),
+&"shake": SubResource("Animation_fwlrl")
+}
+
+[node name="SpellSprite" type="Marker2D" unique_id=1448247384]
+script = ExtResource("1")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=1188650274]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_es4rt")
+instance_shader_parameters/frame_data = Vector4i(0, 0, 0, 0)
+instance_shader_parameters/outline_active = false
+instance_shader_parameters/outline_color = Color(1, 1, 1, 1)
+instance_shader_parameters/recolor = Color(1, 1, 1, 1)
+instance_shader_parameters/recolor_active = false
+instance_shader_parameters/recolor_brightness = 0.0
+instance_shader_parameters/recolor_contrast = 1.0
+instance_shader_parameters/recolor_dark = Color(1, 1, 1, 1)
+instance_shader_parameters/recolor_dark_active = false
+instance_shader_parameters/sepia_active = false
+texture = ExtResource("3")
+centered = false
+
+[node name="AnimPlayer" type="AnimationPlayer" parent="." unique_id=340519576]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_e81kn")

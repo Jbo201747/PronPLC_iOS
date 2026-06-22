@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://d3gbut47mq86j"]
+
+[ext_resource type="PackedScene" uid="uid://2io33xdoadsd" path="res://source/enemies/sprites/urchin_sprite.tscn" id="1"]
+[ext_resource type="Texture2D" uid="uid://bmmg1fdskwrjt" path="res://arte/enemies/lump.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://cadefape6bm2e" path="res://arte/effects/psychic_wave_alt.png" id="3"]
+
+[node name="LumpSprite" unique_id=1155458226 instance=ExtResource("1")]
+
+[node name="Sprite" parent="Offset" parent_id_path=PackedInt32Array(1598313544) index="0" unique_id=1940558080]
+texture = ExtResource("2")
+
+[node name="PsychicWave" parent="Offset/Sprite/Outline" parent_id_path=PackedInt32Array(1536212018) index="0" unique_id=1929688671]
+texture = ExtResource("3")

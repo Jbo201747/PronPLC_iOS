@@ -1,0 +1,85 @@
+[gd_scene format=3 uid="uid://dvu316pgkceqx"]
+
+[ext_resource type="PackedScene" uid="uid://i7n4jleuy6ix" path="res://source/ui/menu/buttons/menu_button_tall.tscn" id="1"]
+[ext_resource type="Script" uid="uid://c033nxo775efk" path="res://source/ui/menu/buttons/new_run_button.gd" id="2"]
+[ext_resource type="PackedScene" uid="uid://b0cv81gdebd5c" path="res://source/ui/completion_stamp.tscn" id="3"]
+
+[sub_resource type="Animation" id="Animation_sennw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HoverOffset/Panel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -105)]
+}
+
+[sub_resource type="Animation" id="Animation_kdoba"]
+resource_name = "appear"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HoverOffset/Panel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3),
+"transitions": PackedFloat32Array(0.3077863, 2.0705302, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -109), Vector2(0, -105)]
+}
+
+[sub_resource type="Animation" id="Animation_dg8bh"]
+resource_name = "disappear"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HoverOffset/Panel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3),
+"transitions": PackedFloat32Array(0.30778638, 2.070531, 1),
+"update": 0,
+"values": [Vector2(0, -105), Vector2(0, -109), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_70ff4"]
+_data = {
+&"RESET": SubResource("Animation_sennw"),
+&"appear": SubResource("Animation_kdoba"),
+&"disappear": SubResource("Animation_dg8bh")
+}
+
+[node name="NewRunButton" unique_id=1335396377 instance=ExtResource("1")]
+script = ExtResource("2")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HoverOffset/Panel/MarginContainer" parent_id_path=PackedInt32Array(948667601) index="0" unique_id=1975147570]
+layout_mode = 2
+theme_override_constants/separation = -1
+
+[node name="Title" type="Label" parent="HoverOffset/Panel/MarginContainer/VBoxContainer" index="0" unique_id=1628657434]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"MainMenuLabel"
+text = "New Run"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control2" type="Control" parent="HoverOffset/Panel/MarginContainer/VBoxContainer" index="1" unique_id=200721265]
+custom_minimum_size = Vector2(32, 33)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Stamp" parent="HoverOffset/Panel/MarginContainer/VBoxContainer/Control2" index="0" unique_id=331023029 instance=ExtResource("3")]
+unique_name_in_owner = true
+
+[node name="AnimationPlayer" parent="." index="1" unique_id=601534803]
+libraries/ = SubResource("AnimationLibrary_70ff4")

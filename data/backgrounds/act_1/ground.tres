@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="BGLayer" format=3 uid="uid://lcua1osds5gy"]
+
+[ext_resource type="Script" uid="uid://4xnkv17k7r2u" path="res://source/background/resources/pattern.gd" id="1"]
+[ext_resource type="PackedScene" uid="uid://cti76y0afb5c7" path="res://source/background/chunks/act_1/ground.tscn" id="2"]
+[ext_resource type="Script" uid="uid://eanwv1abiw6y" path="res://source/background/resources/chunk_entry.gd" id="3"]
+[ext_resource type="Script" uid="uid://bio02cenhh5hr" path="res://source/background/resources/pattern_step.gd" id="4"]
+[ext_resource type="Script" uid="uid://dkmj8b7llyv41" path="res://source/background/resources/layer.gd" id="5"]
+
+[sub_resource type="Resource" id="Resource_7btur"]
+script = ExtResource("3")
+chunk = ExtResource("2")
+metadata/_custom_type_script = "uid://eanwv1abiw6y"
+
+[sub_resource type="Resource" id="Resource_h04vx"]
+script = ExtResource("4")
+entries = [SubResource("Resource_7btur")]
+metadata/_custom_type_script = "uid://bio02cenhh5hr"
+
+[sub_resource type="Resource" id="Resource_qqgd0"]
+script = ExtResource("1")
+id = "loop"
+next = "loop"
+steps = [SubResource("Resource_h04vx")]
+metadata/_custom_type_script = "uid://4xnkv17k7r2u"
+
+[resource]
+script = ExtResource("5")
+z_index = -60
+motion_scale = 0.9
+motion_scale_y = 0.0
+patterns = [SubResource("Resource_qqgd0")]
+metadata/_custom_type_script = "uid://dkmj8b7llyv41"

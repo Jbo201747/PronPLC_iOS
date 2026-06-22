@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://d3m5c0nog7xyo"]
+
+[ext_resource type="PackedScene" uid="uid://ci8e13627y3wo" path="res://source/enemies/sprites/snowball_sprite.tscn" id="1"]
+[ext_resource type="Texture2D" uid="uid://joip0hi5uktu" path="res://arte/enemies/eightball.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://crpunllvwpvpf" path="res://arte/enemies/eightball_cigar.png" id="3"]
+
+[node name="EightballSprite" unique_id=537658594 instance=ExtResource("1")]
+global_pitch_scale = 1.05
+
+[node name="Sprite" parent="." index="0" unique_id=1307559538]
+texture = ExtResource("2")
+
+[node name="CigarBlack" parent="Sprite" index="0" unique_id=724998167]
+texture = ExtResource("3")
+
+[node name="CigarBurning" parent="Sprite/CigarBlack" index="0" unique_id=1428868866]
+texture = ExtResource("3")
+
+[node name="ParticleSpawner" parent="Sprite" index="2" unique_id=122073046]
+color = Color(0.713726, 0.666667, 0.698039, 1)
+
+[editable path="BreathSmoke"]

@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://cxui3wmlun7qo"]
+
+[ext_resource type="Shader" uid="uid://daqd04vm2gwye" path="res://data/materials/hallway_light_mask.gdshader" id="1"]
+[ext_resource type="Texture2D" uid="uid://bovxdmkoiepn6" path="res://arte/backgrounds/act_3/nobody_hallway_mask.png" id="2"]
+
+[resource]
+shader = ExtResource("1")
+shader_parameter/mask_world_position = Vector2(0, 0)
+shader_parameter/mask_size = Vector2(998, 141)
+shader_parameter/mask = ExtResource("2")

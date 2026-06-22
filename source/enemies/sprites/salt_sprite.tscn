@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://dc7fbipdi5pa2"]
+
+[ext_resource type="PackedScene" uid="uid://5uwqdmddguup" path="res://source/enemies/sprites/umami_sprite.tscn" id="1"]
+[ext_resource type="Texture2D" uid="uid://cvxw1ulrls71u" path="res://arte/enemies/salt.png" id="2"]
+
+[node name="SaltSprite" unique_id=1298629877 instance=ExtResource("1")]
+global_pitch_scale = 3.0
+
+[node name="Sprite" parent="." index="0" unique_id=762985743]
+texture = ExtResource("2")

@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://ds82wcgc7wj5v"]
+
+[ext_resource type="PackedScene" uid="uid://b3i1vst4708al" path="res://source/background/chunks/base/sprite_chunk.tscn" id="1"]
+[ext_resource type="Texture2D" uid="uid://diovxl55nsfvu" path="res://arte/backgrounds/act_1/suburbs_2.png" id="2"]
+
+[node name="BackgroundChunk" unique_id=1813698780 instance=ExtResource("1")]
+
+[node name="Sprite2D" parent="." index="0" unique_id=174746349]
+position = Vector2(0, -135)
+texture = ExtResource("2")
+centered = false

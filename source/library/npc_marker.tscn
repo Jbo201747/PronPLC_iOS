@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://dbsi5yeqgd1hv"]
+
+[ext_resource type="Script" uid="uid://8r2q20tb7h6j" path="res://source/library/ref_marker.gd" id="1"]
+
+[node name="NPCMarker" type="Marker2D" unique_id=1262540338]
+script = ExtResource("1")
+file_path = "uid://de08gdod64ok2"

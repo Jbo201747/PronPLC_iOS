@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://i7n4jleuy6ix"]
+
+[ext_resource type="PackedScene" uid="uid://3h6sna8du4l7" path="res://source/ui/menu/buttons/menu_button.tscn" id="1"]
+
+[sub_resource type="Animation" id="Animation_sennw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HoverOffset/Panel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -105)]
+}
+
+[sub_resource type="Animation" id="Animation_kdoba"]
+resource_name = "appear"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HoverOffset/Panel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3),
+"transitions": PackedFloat32Array(0.3077863, 2.0705302, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -109), Vector2(0, -105)]
+}
+
+[sub_resource type="Animation" id="Animation_dg8bh"]
+resource_name = "disappear"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HoverOffset/Panel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3),
+"transitions": PackedFloat32Array(0.30778638, 2.070531, 1),
+"update": 0,
+"values": [Vector2(0, -105), Vector2(0, -109), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_70ff4"]
+_data = {
+&"RESET": SubResource("Animation_sennw"),
+&"appear": SubResource("Animation_kdoba"),
+&"disappear": SubResource("Animation_dg8bh")
+}
+
+[node name="MenuButtonTall" unique_id=929244007 instance=ExtResource("1")]
+
+[node name="Panel" parent="HoverOffset" parent_id_path=PackedInt32Array(1485403089) index="0" unique_id=1166464853]
+offset_top = -105.0
+
+[node name="AnimationPlayer" parent="." index="1" unique_id=601534803]
+libraries/ = SubResource("AnimationLibrary_70ff4")

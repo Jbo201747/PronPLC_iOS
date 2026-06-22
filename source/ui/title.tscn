@@ -1,0 +1,576 @@
+[gd_scene format=3 uid="uid://cvn05v0txgxst"]
+
+[ext_resource type="Script" uid="uid://ca6grd2ig81c8" path="res://source/ui/title.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://cedj7meha5o6x" path="res://arte/ui/title_reference.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://kdaatk8ckejr" path="res://arte/ui/title_pronoun.png" id="3"]
+[ext_resource type="Script" uid="uid://cfpkpmdehkp8u" path="res://source/ui/generic/shadow_cloner.gd" id="4"]
+[ext_resource type="Texture2D" uid="uid://quqcd4vwmhqa" path="res://arte/ui/title_palace.png" id="5"]
+[ext_resource type="Script" uid="uid://drgtw8sp4tp8n" path="res://source/library/anim_player.gd" id="6"]
+
+[sub_resource type="Animation" id="Animation_8n788"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pronoun/Node2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pronoun/Node2D2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Pronoun/Node2D3:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Pronoun/Node2D4:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Pronoun/Node2D5:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Pronoun/Node2D6:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Pronoun/Node2D7:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Node2D2:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Node2D3:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Node2D4:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Node2D5:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Node2D6:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Node2D7:position")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("AnimPlayer:event")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [""]
+}
+
+[sub_resource type="Animation" id="Animation_etf85"]
+resource_name = "new_animation"
+length = 1.7
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pronoun/Node2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3000002, 0.60000014),
+"transitions": PackedFloat32Array(0.4061262, -2, 1),
+"update": 0,
+"values": [Vector2(0, 60), Vector2(0, -8), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pronoun/Node2D2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.099999905, 0.4000001, 0.70000005),
+"transitions": PackedFloat32Array(0.4061262, -2, 1),
+"update": 0,
+"values": [Vector2(0, 60), Vector2(0, -8), Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Pronoun/Node2D3:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.20000005, 0.50000024, 0.79999995),
+"transitions": PackedFloat32Array(0.4061262, -2, 1),
+"update": 0,
+"values": [Vector2(0, 60), Vector2(0, -8), Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Pronoun/Node2D4:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.29999995, 0.60000014, 0.9000001),
+"transitions": PackedFloat32Array(0.4061262, -2, 1),
+"update": 0,
+"values": [Vector2(0, 60), Vector2(0, -8), Vector2(0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Pronoun/Node2D5:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.4000001, 0.70000005, 1.0000002),
+"transitions": PackedFloat32Array(0.4061262, -2, 1),
+"update": 0,
+"values": [Vector2(0, 60), Vector2(0, -8), Vector2(0, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Pronoun/Node2D6:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.5, 0.79999995, 1.1000001),
+"transitions": PackedFloat32Array(0.4061262, -2, 1),
+"update": 0,
+"values": [Vector2(0, 60), Vector2(0, -8), Vector2(0, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Pronoun/Node2D7:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.60000014, 0.9000001, 1.2),
+"transitions": PackedFloat32Array(0.4061262, -2, 1),
+"update": 0,
+"values": [Vector2(0, 60), Vector2(0, -8), Vector2(0, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Node2D2:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0.6, 1.2000003),
+"transitions": PackedFloat32Array(0.2773924, 1),
+"update": 0,
+"values": [Vector2(0, 60), Vector2(0, 0)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Node2D3:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0.70000017, 1.2999997),
+"transitions": PackedFloat32Array(0.2773924, 1),
+"update": 0,
+"values": [Vector2(0, 60), Vector2(0, 0)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Node2D4:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0.8000001, 1.4000001),
+"transitions": PackedFloat32Array(0.2773924, 1),
+"update": 0,
+"values": [Vector2(0, 60), Vector2(0, 0)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Node2D5:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0.9, 1.5),
+"transitions": PackedFloat32Array(0.2773924, 1),
+"update": 0,
+"values": [Vector2(0, 60), Vector2(0, 0)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Node2D6:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(1.0000001, 1.6000004),
+"transitions": PackedFloat32Array(0.2773924, 1),
+"update": 0,
+"values": [Vector2(0, 60), Vector2(0, 0)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Node2D7:position")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(1.1, 1.7000003),
+"transitions": PackedFloat32Array(0.2773924, 1),
+"update": 0,
+"values": [Vector2(0, 60), Vector2(0, 0)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("AnimPlayer:event")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(1.2),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["pronoun_finished"]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mv0nt"]
+_data = {
+&"RESET": SubResource("Animation_8n788"),
+&"new_animation": SubResource("Animation_etf85")
+}
+
+[node name="Node2D" type="Node2D" unique_id=267829504]
+script = ExtResource("1")
+
+[node name="TitleReference" type="Sprite2D" parent="." unique_id=2053679858]
+visible = false
+z_index = 5
+position = Vector2(3, 6)
+texture = ExtResource("2")
+
+[node name="Pronoun" type="Node2D" parent="." unique_id=1083117997]
+unique_name_in_owner = true
+position = Vector2(-22, -28)
+
+[node name="Node2D" type="Node2D" parent="Pronoun" unique_id=1712718101]
+
+[node name="TitlePronoun" type="Sprite2D" parent="Pronoun/Node2D" unique_id=143014992]
+position = Vector2(-59, 8)
+texture = ExtResource("3")
+hframes = 7
+
+[node name="ShadowCloner" type="Node2D" parent="Pronoun/Node2D/TitlePronoun" unique_id=2135711321 node_paths=PackedStringArray("modulate_source")]
+position = Vector2(2, 2)
+script = ExtResource("4")
+modulate_source = NodePath("../../../..")
+local_shadow_group = true
+metadata/_custom_type_script = "uid://cfpkpmdehkp8u"
+
+[node name="Node2D2" type="Node2D" parent="Pronoun" unique_id=733983288]
+
+[node name="TitlePronoun2" type="Sprite2D" parent="Pronoun/Node2D2" unique_id=958598714]
+z_index = -1
+position = Vector2(-31, 9)
+texture = ExtResource("3")
+hframes = 7
+frame = 1
+
+[node name="ShadowCloner" type="Node2D" parent="Pronoun/Node2D2/TitlePronoun2" unique_id=750459601 node_paths=PackedStringArray("modulate_source")]
+position = Vector2(2, 2)
+script = ExtResource("4")
+modulate_source = NodePath("../../../..")
+local_shadow_group = true
+metadata/_custom_type_script = "uid://cfpkpmdehkp8u"
+
+[node name="Node2D3" type="Node2D" parent="Pronoun" unique_id=1083988239]
+
+[node name="TitlePronoun3" type="Sprite2D" parent="Pronoun/Node2D3" unique_id=7726921]
+position = Vector2(-2, 9)
+texture = ExtResource("3")
+hframes = 7
+frame = 2
+
+[node name="ShadowCloner" type="Node2D" parent="Pronoun/Node2D3/TitlePronoun3" unique_id=945126594 node_paths=PackedStringArray("modulate_source")]
+position = Vector2(2, 2)
+script = ExtResource("4")
+modulate_source = NodePath("../../../..")
+local_shadow_group = true
+metadata/_custom_type_script = "uid://cfpkpmdehkp8u"
+
+[node name="Node2D4" type="Node2D" parent="Pronoun" unique_id=1915304616]
+
+[node name="TitlePronoun4" type="Sprite2D" parent="Pronoun/Node2D4" unique_id=2118053385]
+position = Vector2(25, 11)
+texture = ExtResource("3")
+hframes = 7
+frame = 3
+
+[node name="ShadowCloner" type="Node2D" parent="Pronoun/Node2D4/TitlePronoun4" unique_id=1489199828 node_paths=PackedStringArray("modulate_source")]
+position = Vector2(2, 2)
+script = ExtResource("4")
+modulate_source = NodePath("../../../..")
+local_shadow_group = true
+metadata/_custom_type_script = "uid://cfpkpmdehkp8u"
+
+[node name="Node2D5" type="Node2D" parent="Pronoun" unique_id=2016403196]
+
+[node name="TitlePronoun5" type="Sprite2D" parent="Pronoun/Node2D5" unique_id=1742543259]
+position = Vector2(56, 9)
+texture = ExtResource("3")
+hframes = 7
+frame = 4
+
+[node name="ShadowCloner" type="Node2D" parent="Pronoun/Node2D5/TitlePronoun5" unique_id=250744538 node_paths=PackedStringArray("modulate_source")]
+position = Vector2(2, 2)
+script = ExtResource("4")
+modulate_source = NodePath("../../../..")
+local_shadow_group = true
+metadata/_custom_type_script = "uid://cfpkpmdehkp8u"
+
+[node name="Node2D6" type="Node2D" parent="Pronoun" unique_id=917768255]
+
+[node name="TitlePronoun6" type="Sprite2D" parent="Pronoun/Node2D6" unique_id=498277092]
+z_index = -1
+position = Vector2(84, 8)
+texture = ExtResource("3")
+hframes = 7
+frame = 5
+
+[node name="ShadowCloner" type="Node2D" parent="Pronoun/Node2D6/TitlePronoun6" unique_id=620557710 node_paths=PackedStringArray("modulate_source")]
+position = Vector2(2, 2)
+script = ExtResource("4")
+modulate_source = NodePath("../../../..")
+local_shadow_group = true
+metadata/_custom_type_script = "uid://cfpkpmdehkp8u"
+
+[node name="Node2D7" type="Node2D" parent="Pronoun" unique_id=1732490963]
+
+[node name="TitlePronoun7" type="Sprite2D" parent="Pronoun/Node2D7" unique_id=1181766745]
+position = Vector2(109, 5)
+texture = ExtResource("3")
+hframes = 7
+frame = 6
+
+[node name="ShadowCloner" type="Node2D" parent="Pronoun/Node2D7/TitlePronoun7" unique_id=137350152 node_paths=PackedStringArray("modulate_source")]
+position = Vector2(2, 2)
+script = ExtResource("4")
+modulate_source = NodePath("../../../..")
+local_shadow_group = true
+metadata/_custom_type_script = "uid://cfpkpmdehkp8u"
+
+[node name="Node2D2" type="Node2D" parent="." unique_id=1370631881]
+
+[node name="TitlePalaceLetters" type="Sprite2D" parent="Node2D2" unique_id=2081128775]
+position = Vector2(-83, 28)
+texture = ExtResource("5")
+hframes = 6
+
+[node name="ShadowCloner" type="Node2D" parent="Node2D2/TitlePalaceLetters" unique_id=1014473521 node_paths=PackedStringArray("modulate_source")]
+position = Vector2(2, 2)
+script = ExtResource("4")
+modulate_source = NodePath("../../..")
+local_shadow_group = true
+metadata/_custom_type_script = "uid://cfpkpmdehkp8u"
+
+[node name="Node2D3" type="Node2D" parent="." unique_id=777919871]
+
+[node name="TitlePalaceLetters2" type="Sprite2D" parent="Node2D3" unique_id=1272425992]
+position = Vector2(-50, 28)
+texture = ExtResource("5")
+hframes = 6
+frame = 1
+
+[node name="ShadowCloner" type="Node2D" parent="Node2D3/TitlePalaceLetters2" unique_id=1412882333 node_paths=PackedStringArray("modulate_source")]
+position = Vector2(2, 2)
+script = ExtResource("4")
+modulate_source = NodePath("../../..")
+local_shadow_group = true
+metadata/_custom_type_script = "uid://cfpkpmdehkp8u"
+
+[node name="Node2D4" type="Node2D" parent="." unique_id=248661790]
+
+[node name="TitlePalaceLetters3" type="Sprite2D" parent="Node2D4" unique_id=996443481]
+position = Vector2(-18, 28)
+texture = ExtResource("5")
+hframes = 6
+frame = 2
+
+[node name="ShadowCloner" type="Node2D" parent="Node2D4/TitlePalaceLetters3" unique_id=836735300 node_paths=PackedStringArray("modulate_source")]
+position = Vector2(2, 2)
+script = ExtResource("4")
+modulate_source = NodePath("../../..")
+local_shadow_group = true
+metadata/_custom_type_script = "uid://cfpkpmdehkp8u"
+
+[node name="Node2D5" type="Node2D" parent="." unique_id=1044696206]
+
+[node name="TitlePalaceLetters4" type="Sprite2D" parent="Node2D5" unique_id=262853374]
+position = Vector2(21, 28)
+texture = ExtResource("5")
+hframes = 6
+frame = 3
+
+[node name="ShadowCloner" type="Node2D" parent="Node2D5/TitlePalaceLetters4" unique_id=1459391399 node_paths=PackedStringArray("modulate_source")]
+position = Vector2(2, 2)
+script = ExtResource("4")
+modulate_source = NodePath("../../..")
+local_shadow_group = true
+metadata/_custom_type_script = "uid://cfpkpmdehkp8u"
+
+[node name="Node2D6" type="Node2D" parent="." unique_id=646078193]
+
+[node name="TitlePalaceLetters5" type="Sprite2D" parent="Node2D6" unique_id=1233419069]
+position = Vector2(56, 28)
+texture = ExtResource("5")
+hframes = 6
+frame = 4
+
+[node name="ShadowCloner" type="Node2D" parent="Node2D6/TitlePalaceLetters5" unique_id=1796061381 node_paths=PackedStringArray("modulate_source")]
+position = Vector2(2, 2)
+script = ExtResource("4")
+modulate_source = NodePath("../../..")
+local_shadow_group = true
+metadata/_custom_type_script = "uid://cfpkpmdehkp8u"
+
+[node name="Node2D7" type="Node2D" parent="." unique_id=1172246085]
+
+[node name="TitlePalaceLetters6" type="Sprite2D" parent="Node2D7" unique_id=886866956]
+position = Vector2(87, 28)
+texture = ExtResource("5")
+hframes = 6
+frame = 5
+
+[node name="ShadowCloner" type="Node2D" parent="Node2D7/TitlePalaceLetters6" unique_id=268103332 node_paths=PackedStringArray("modulate_source")]
+position = Vector2(2, 2)
+script = ExtResource("4")
+modulate_source = NodePath("../../..")
+local_shadow_group = true
+metadata/_custom_type_script = "uid://cfpkpmdehkp8u"
+
+[node name="AnimPlayer" type="AnimationPlayer" parent="." unique_id=1135195589]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_mv0nt")
+autoplay = &"new_animation"
+script = ExtResource("6")
+metadata/_custom_type_script = "uid://drgtw8sp4tp8n"
+
+[connection signal="animation_stopped" from="AnimPlayer" to="." method="_on_anim_player_animation_stopped"]
+[connection signal="event_emitted" from="AnimPlayer" to="." method="_on_anim_player_event_emitted"]

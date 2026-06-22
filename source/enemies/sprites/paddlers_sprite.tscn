@@ -1,0 +1,2454 @@
+[gd_scene format=3 uid="uid://ef50qqrln4ou"]
+
+[ext_resource type="PackedScene" uid="uid://dmg180a1myio" path="res://source/battle_unit/battle_unit_sprite.tscn" id="1"]
+[ext_resource type="Texture2D" uid="uid://yvrgjhlq751u" path="res://arte/enemies/paddler_yaoi.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://bxu4ayvl7cj0a" path="res://arte/enemies/paddler_yuri.png" id="3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8ovp8"]
+radius = 58.034473
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wmfk5"]
+radius = 27.0
+height = 110.0
+
+[sub_resource type="Animation" id="Animation_nu6ed"]
+resource_name = "RESET"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Offset:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Offset/Yaoi:region_rect")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(0, 0, 96, 128)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Offset/Yaoi:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-16, 8)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Offset/Yaoi:position:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [-16.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Offset/Yaoi:position:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Offset/Yaoi:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Offset/Yaoi:offset")
+tracks/6/interp = 0
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-12, -53)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Offset/Yuri:region_rect")
+tracks/7/interp = 0
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(0, 0, 96, 128)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Offset/Yuri:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(23, 0)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Offset/Yuri:position:x")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [23.0]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Offset/Yuri:position:y")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Offset/Yuri:scale")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Offset/Yuri:offset")
+tracks/12/interp = 0
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-12, -53)]
+}
+
+[sub_resource type="Animation" id="Animation_vx67w"]
+resource_name = "loop"
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Offset/Yaoi:region_rect")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.19999993, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Rect2(96, 0, 64, 128), Rect2(160, 0, 128, 128), Rect2(0, 0, 96, 128)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Offset/Yaoi:position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(-1.1920929e-07, 0.100000024, 0.30000007, 0.39999998, 0.5, 0.79999983, 1),
+"transitions": PackedFloat32Array(1, -2.9281716, 1, 0.3415101, -2, 0.35355353, 1),
+"update": 0,
+"values": [29.0, 29.0, -26.0, -26.0, -20.0, 25.0, 23.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Offset/Yaoi:position:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1.1920929e-07, 0.30000007, 0.5, 0.6999999),
+"transitions": PackedFloat32Array(0.21763788, 1, 0.2588163, 1),
+"update": 0,
+"values": [0.0, 8.0, 8.0, 0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Offset/Yuri:region_rect")
+tracks/3/interp = 0
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.19999993, 0.5, 0.6999999),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Rect2(160, 0, 128, 128), Rect2(0, 0, 96, 128), Rect2(96, 0, 64, 128), Rect2(160, 0, 128, 128)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Offset/Yuri:position:x")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.29999983, 0.5, 0.60000014, 0.8000002, 0.9000001, 1.0000001),
+"transitions": PackedFloat32Array(-2, 0.35355353, 1, -2.9281716, 1, 0.3415101, -2),
+"update": 0,
+"values": [-20.0, 25.0, 29.0, 29.0, -26.0, -26.0, -20.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Offset/Yuri:position:y")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.19999993, 0.5, 0.79999995, 0.9999999),
+"transitions": PackedFloat32Array(0.2588163, 1, 0.21763788, 1, 0.2588163),
+"update": 0,
+"values": [8.0, 0.0, 0.0, 8.0, 8.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Offset/Yuri:scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.19999993, 0.30000007, 0.5, 0.5999999, 0.6999998, 0.79999995, 0.9999999),
+"transitions": PackedFloat32Array(0.30778643, 0.34151006, 0.2871745, 0.3789291, 0.3789291, 0.34151006, 0.2871745, 0.30778643),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.1, 0.95), Vector2(0.95, 1.025), Vector2(1, 1), Vector2(0.9, 1.05), Vector2(1.1, 0.95), Vector2(0.9, 1.05), Vector2(1, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Offset/Yuri:offset")
+tracks/7/interp = 0
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.19999993, 0.6999999),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-22, -53), Vector2(-12, -53), Vector2(-22, -53)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath(".:event")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0.2, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": ["hit", "hit"]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Offset/Yaoi:scale")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(1.1920929e-07, 0.100000024, 0.19999993, 0.30000007, 0.5, 0.6999999, 0.8000001, 1),
+"transitions": PackedFloat32Array(0.3789291, 0.3789291, 0.34151006, 0.2871745, 0.30778643, 0.34151006, 0.2871745, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.9, 1.05), Vector2(1.1, 0.95), Vector2(0.9, 1.05), Vector2(1, 1), Vector2(1.1, 0.95), Vector2(0.95, 1.025), Vector2(1, 1)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Offset/Yaoi:offset")
+tracks/10/interp = 0
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 0.19999993, 0.6999999),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-12, -53), Vector2(-22, -53), Vector2(-12, -53)]
+}
+
+[sub_resource type="Animation" id="Animation_c0ane"]
+resource_name = "yaoi_cycle"
+length = 0.5
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Offset/Yaoi:region_rect")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.19999993),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Rect2(96, 0, 64, 128), Rect2(160, 0, 128, 128)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Offset/Yaoi:position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(-1.1920929e-07, 0.100000024, 0.30000007, 0.39999998, 0.5),
+"transitions": PackedFloat32Array(1, -2.9281716, 1, 0.3415101, 1),
+"update": 0,
+"values": [29.0, 29.0, -26.0, -26.0, -20.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Offset/Yaoi:position:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1.1920929e-07, 0.30000007),
+"transitions": PackedFloat32Array(0.21763788, 1),
+"update": 0,
+"values": [0.0, 8.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Offset/Yaoi:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1.1920929e-07, 0.100000024, 0.19999993, 0.30000007, 0.5),
+"transitions": PackedFloat32Array(0.3789291, 0.3789291, 0.34151006, 0.2871745, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.9, 1.05), Vector2(1.1, 0.95), Vector2(0.9, 1.05), Vector2(1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Offset/Yaoi:offset")
+tracks/4/interp = 0
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.19999993),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-12, -53), Vector2(-22, -53)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Offset/Yuri:region_rect")
+tracks/5/interp = 0
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.19999993, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Rect2(160, 0, 128, 128), Rect2(0, 0, 96, 128), Rect2(96, 0, 64, 128)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Offset/Yuri:position:x")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.29999983, 0.5),
+"transitions": PackedFloat32Array(-2, 0.35355353, 1),
+"update": 0,
+"values": [-20.0, 25.0, 29.0]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Offset/Yuri:position:y")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.19999993),
+"transitions": PackedFloat32Array(0.2588163, 1),
+"update": 0,
+"values": [8.0, 0.0]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Offset/Yuri:scale")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.19999993, 0.30000007, 0.5),
+"transitions": PackedFloat32Array(0.30778643, 0.34151006, 0.2871745, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.1, 0.95), Vector2(0.95, 1.025), Vector2(1, 1)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Offset/Yuri:offset")
+tracks/9/interp = 0
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.19999993),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-22, -53), Vector2(-12, -53)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath(".:event")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["hit"]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath(".:sounds")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [["PADDLERS/YAOI", "PADDLERS/PADDLE"]]
+}
+
+[sub_resource type="Animation" id="Animation_iuqut"]
+resource_name = "yaoi_dying"
+length = 0.6
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Offset/Yaoi:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.10000001, 0.3, 0.4),
+"transitions": PackedFloat32Array(0.36602145, 2.6390162, 0.36602145, 2.6390162),
+"update": 0,
+"values": [-16.0, -26.0, 23.0, 33.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Offset/Yaoi:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3, 0.4),
+"transitions": PackedFloat32Array(0.36602145, -2, 0.36602145, -2),
+"update": 0,
+"values": [12.0, 8.0, -4.0, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Offset/Yuri:position:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.10000001, 0.3, 0.39999998),
+"transitions": PackedFloat32Array(0.36602145, 2.6390162, 0.36602145, 2.6390162),
+"update": 0,
+"values": [23.0, 33.0, -16.0, -26.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Offset/Yuri:position:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.10000001, 0.3, 0.39999998),
+"transitions": PackedFloat32Array(0.36602145, -2, 0.36602145, -2),
+"update": 0,
+"values": [-4.0, 0.0, 12.0, 8.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Offset:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35000002, 0.4, 0.45000002, 0.5, 0.55, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(6, 0), Vector2(0, 0), Vector2(6, 0), Vector2(0, 0), Vector2(6, 0), Vector2(0, 0), Vector2(6, 0), Vector2(0, 0), Vector2(6, 0), Vector2(0, 0), Vector2(6, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_vjebo"]
+resource_name = "yaoi_dying_start"
+length = 0.7
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Offset/Yaoi:region_rect")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Rect2(288, 0, 128, 128), Rect2(0, 0, 96, 128)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Offset/Yaoi:position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.39999998, 0.49999988, 0.6999999),
+"transitions": PackedFloat32Array(0.27739224, 2.6390162, 0.36602145, 2.6390162, 0.36602145),
+"update": 0,
+"values": [-16.0, -26.0, 23.0, 33.0, -16.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Offset/Yaoi:position:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.39999998, 0.49999988, 0.6999999),
+"transitions": PackedFloat32Array(1, -2, 0.36602145, -2, 0.36602145),
+"update": 0,
+"values": [8.0, 8.0, -4.0, 0.0, 12.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Offset/Yaoi:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3),
+"transitions": PackedFloat32Array(0.3077861, 0.3077861, 1),
+"update": 0,
+"values": [Vector2(1.1, 0.9), Vector2(0.9, 1.1), Vector2(1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Offset/Yuri:region_rect")
+tracks/4/interp = 0
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.10000001),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Rect2(288, 0, 128, 128), Rect2(0, 0, 96, 128)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Offset/Yuri:position:x")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.39999998, 0.49999988, 0.70000005),
+"transitions": PackedFloat32Array(0.27739224, 2.6390162, 0.36602145, 2.6390162, 0.36602145),
+"update": 0,
+"values": [23.0, 33.0, -16.0, -26.0, 23.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Offset/Yuri:position:y")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.39999998, 0.49999988, 0.70000005),
+"transitions": PackedFloat32Array(1, -2, 0.36602145, -2, 0.36602145),
+"update": 0,
+"values": [0.0, 0.0, 12.0, 8.0, -4.0]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Offset/Yuri:scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.10000001, 0.29999998),
+"transitions": PackedFloat32Array(0.3077861, 0.3077861, 1),
+"update": 0,
+"values": [Vector2(1.1, 0.9), Vector2(0.9, 1.1), Vector2(1, 1)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath(".:sound")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.05),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": ["PADDLERS/YAOI_HURT", "PADDLERS/YURI_HURT"]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Offset:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35000002, 0.4, 0.45000002, 0.5, 0.55, 0.6, 0.65, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(6, 0), Vector2(0, 0), Vector2(6, 0), Vector2(0, 0), Vector2(6, 0), Vector2(0, 0), Vector2(6, 0), Vector2(0, 0), Vector2(6, 0), Vector2(0, 0), Vector2(6, 0), Vector2(0, 0), Vector2(6, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_rjon0"]
+resource_name = "yaoi_flinch"
+length = 0.65
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Offset/Yaoi:region_rect")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Rect2(288, 0, 128, 128), Rect2(0, 0, 96, 128)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Offset/Yaoi:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.15, 0.2, 0.25, 0.3, 0.6),
+"transitions": PackedFloat32Array(0.27739224, 1, 1, 1, 1, -2, 1),
+"update": 0,
+"values": [Vector2(-16, 8), Vector2(-6, 8), Vector2(-8, 8), Vector2(-4, 8), Vector2(-7, 8), Vector2(-6, 8), Vector2(-16, 8)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Offset/Yaoi:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3, 0.4, 0.6),
+"transitions": PackedFloat32Array(0.3077861, 0.3077861, -2, 0.3077861, 1),
+"update": 0,
+"values": [Vector2(1.1, 0.9), Vector2(0.9, 1.1), Vector2(1, 1), Vector2(1.05, 0.95), Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Offset/Yuri:region_rect")
+tracks/3/interp = 0
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.15),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Rect2(0, 0, 96, 128), Rect2(288, 0, 128, 128), Rect2(0, 0, 96, 128)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Offset/Yuri:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.15, 0.20000002, 0.25, 0.3, 0.35000002, 0.65),
+"transitions": PackedFloat32Array(1, 0.27739224, 1, 1, 1, 1, -2, 1),
+"update": 0,
+"values": [Vector2(23, 0), Vector2(23, 0), Vector2(33, 0), Vector2(31, 0), Vector2(35, 0), Vector2(32, 0), Vector2(33, 0), Vector2(23, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Offset/Yuri:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.05, 0.15, 0.35, 0.45, 0.65),
+"transitions": PackedFloat32Array(0.3077861, 0.3077861, -2, 0.3077861, 1),
+"update": 0,
+"values": [Vector2(1.1, 0.9), Vector2(0.9, 1.1), Vector2(1, 1), Vector2(1.05, 0.95), Vector2(1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath(".:sound")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.04999999),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": ["PADDLERS/YAOI_HURT", "PADDLERS/YURI_HURT"]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath(".:event")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["editor_star"]
+}
+
+[sub_resource type="Animation" id="Animation_t6xtb"]
+resource_name = "yaoi_idle"
+length = 2.5
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Offset/Yaoi:region_rect")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.55, 2.15),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Rect2(0, 0, 96, 128), Rect2(288, 0, 128, 128), Rect2(0, 0, 96, 128)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Offset/Yaoi:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-16, 8)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Offset/Yaoi:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.3, 1.5999999, 1.8, 1.8999999, 2.1999998, 2.4),
+"transitions": PackedFloat32Array(1, 2.2191393, 0.32987717, 1, 2.2191393, 0.32987717, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1), Vector2(1.025, 0.975), Vector2(1, 1), Vector2(1, 1), Vector2(0.975, 1.025), Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Offset/Yuri:region_rect")
+tracks/3/interp = 0
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.6499999, 2.25),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Rect2(0, 0, 96, 128), Rect2(288, 0, 128, 128), Rect2(0, 0, 96, 128)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Offset/Yuri:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(23, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Offset/Yuri:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1.3999999, 1.7, 1.9000001, 2, 2.3, 2.5),
+"transitions": PackedFloat32Array(1, 2.2191393, 0.32987717, 1, 2.2191393, 0.32987717, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1), Vector2(1.025, 0.975), Vector2(1, 1), Vector2(1, 1), Vector2(0.975, 1.025), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_e4jql"]
+resource_name = "yaoi_real"
+length = 2.0
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Offset/Yaoi:region_rect")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.6, 0.79999995, 1.0999999),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Rect2(96, 0, 64, 128), Rect2(160, 0, 128, 128), Rect2(0, 0, 96, 128)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Offset/Yaoi:position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5999999, 0.70000005, 0.8999999, 0.9999998, 1.1999999, 1.4000002),
+"transitions": PackedFloat32Array(1, -2.9281716, 1, 0.3415101, 0.329877, 1),
+"update": 0,
+"values": [29.0, 29.0, -26.0, -26.0, -14.0, -16.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Offset/Yaoi:position:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.60000014, 0.8999999, 1.0999999),
+"transitions": PackedFloat32Array(0.21763788, 1, 1),
+"update": 0,
+"values": [0.0, 8.0, 8.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Offset/Yaoi:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.6, 0.6999999, 0.79999983, 0.8999999, 0.9999998, 1.0999999, 1.2000002, 1.4),
+"transitions": PackedFloat32Array(0.3789291, 0.3789291, 0.34151006, 1, 0.2871745, 0.34151006, 0.2871745, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.9, 1.05), Vector2(1.1, 0.95), Vector2(1, 1), Vector2(1, 1), Vector2(1.1, 0.95), Vector2(0.95, 1.025), Vector2(1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Offset/Yaoi:offset")
+tracks/4/interp = 0
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.6, 0.79999995, 1.0999999),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-12, -53), Vector2(-22, -53), Vector2(-12, -53)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Offset/Yuri:region_rect")
+tracks/5/interp = 0
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.4, 0.6999999),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Rect2(0, 0, 96, 128), Rect2(96, 0, 64, 128), Rect2(160, 0, 128, 128), Rect2(0, 0, 96, 128)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Offset/Yuri:position:x")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3, 0.50000036, 0.7999999, 1.0000002),
+"transitions": PackedFloat32Array(0.3789291, 1, 0.27739242, -2, 0.35355353, 1),
+"update": 0,
+"values": [-16.0, -8.0, -8.0, -20.0, 25.0, 23.0]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Offset/Yuri:position:y")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0.5, 0.6999999),
+"transitions": PackedFloat32Array(0.2588163, 1),
+"update": 0,
+"values": [8.0, 0.0]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Offset/Yuri:scale")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.6999999, 0.80000013, 0.99999994),
+"transitions": PackedFloat32Array(1, 0.30778643, 0.34151006, 0.2871745, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1), Vector2(1.1, 0.95), Vector2(0.95, 1.025), Vector2(1, 1)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Offset/Yuri:offset")
+tracks/9/interp = 0
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.6999999),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-12, -53), Vector2(-22, -53), Vector2(-12, -53)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath(".:event")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["hit"]
+}
+
+[sub_resource type="Animation" id="Animation_jldfc"]
+resource_name = "yaoi_start"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Offset/Yaoi:region_rect")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.099999905, 0.49999988, 0.6999998),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Rect2(0, 0, 96, 128), Rect2(96, 0, 64, 128), Rect2(96, 0, 64, 128), Rect2(160, 0, 128, 128)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Offset/Yaoi:position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.099999905, 0.4000001, 0.5999999, 0.79999983, 0.8999998, 0.9999999),
+"transitions": PackedFloat32Array(1, 0.4204482, 1, -2.9281716, 1, 0.3415101, 1),
+"update": 0,
+"values": [23.0, 23.0, 29.0, 29.0, -26.0, -26.0, -20.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Offset/Yaoi:position:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.7999999),
+"transitions": PackedFloat32Array(1, 0.21763788, 1),
+"update": 0,
+"values": [0.0, 0.0, 8.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Offset/Yaoi:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.099999905, 0.20000005, 0.4000001, 0.5, 0.5999999, 0.6999998, 0.7999999, 0.9999999),
+"transitions": PackedFloat32Array(0.40612632, 0.3789291, 0.3789291, 1, 0.3789291, 0.3789291, 0.34151006, 0.2871745, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.1, 0.95), Vector2(0.95, 1.025), Vector2(1, 1), Vector2(1, 1), Vector2(0.9, 1.05), Vector2(1.1, 0.95), Vector2(0.9, 1.05), Vector2(1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Offset/Yaoi:offset")
+tracks/4/interp = 0
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.49999988, 0.6999998),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-12, -53), Vector2(-12, -53), Vector2(-22, -53)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Offset/Yuri:region_rect")
+tracks/5/interp = 0
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.9999999),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Rect2(0, 0, 96, 128), Rect2(0, 0, 96, 128), Rect2(96, 0, 64, 128)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Offset/Yuri:position:x")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.100000024, 0.39999998, 0.5, 0.7999999, 0.9999999),
+"transitions": PackedFloat32Array(1, 0.5176326, 1, -2, 0.35355353, 1),
+"update": 0,
+"values": [-16.0, -16.0, -20.0, -20.0, 25.0, 29.0]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Offset/Yuri:position:y")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.6999999),
+"transitions": PackedFloat32Array(1, 0.2588163, 1),
+"update": 0,
+"values": [8.0, 8.0, 0.0]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Offset/Yuri:scale")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.6999999, 0.80000013, 0.9999999),
+"transitions": PackedFloat32Array(1, 0.30778643, 0.34151006, 0.2871745, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1), Vector2(1.1, 0.95), Vector2(0.95, 1.025), Vector2(1, 1)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Offset/Yuri:offset")
+tracks/9/interp = 0
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-12, -53), Vector2(-12, -53)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath(".:event")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0.7),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["hit"]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath(".:sounds")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0.7),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [["PADDLERS/YAOI", "PADDLERS/PADDLE"]]
+}
+
+[sub_resource type="Animation" id="Animation_e3a38"]
+resource_name = "yaoi_stop"
+length = 0.8
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Offset/Yaoi:region_rect")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.19999993, 0.49999994),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Rect2(96, 0, 64, 128), Rect2(160, 0, 128, 128), Rect2(0, 0, 96, 128)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Offset/Yaoi:position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(-1.1920929e-07, 0.100000024, 0.3, 0.39999992, 0.59999985, 0.80000013),
+"transitions": PackedFloat32Array(1, -2.9281716, 1, 0.3415101, 0.329877, 1),
+"update": 0,
+"values": [29.0, 29.0, -26.0, -26.0, -14.0, -16.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Offset/Yaoi:position:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1.1920929e-07, 0.3, 0.49999994),
+"transitions": PackedFloat32Array(0.21763788, 1, 1),
+"update": 0,
+"values": [0.0, 8.0, 8.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Offset/Yaoi:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.099999905, 0.19999981, 0.2999999, 0.3999999, 0.49999988, 0.6, 0.79999995),
+"transitions": PackedFloat32Array(0.3789291, 0.3789291, 0.34151006, 1, 0.2871745, 0.34151006, 0.2871745, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.9, 1.05), Vector2(1.1, 0.95), Vector2(1, 1), Vector2(1, 1), Vector2(1.1, 0.95), Vector2(0.95, 1.025), Vector2(1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Offset/Yaoi:offset")
+tracks/4/interp = 0
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.19999993, 0.49999994),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-12, -53), Vector2(-22, -53), Vector2(-12, -53)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Offset/Yuri:region_rect")
+tracks/5/interp = 0
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.19999993),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Rect2(160, 0, 128, 128), Rect2(0, 0, 96, 128)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Offset/Yuri:position:x")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.5000002),
+"transitions": PackedFloat32Array(-2, 0.35355353, 1),
+"update": 0,
+"values": [-20.0, 25.0, 23.0]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Offset/Yuri:position:y")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.19999993),
+"transitions": PackedFloat32Array(0.2588163, 1),
+"update": 0,
+"values": [8.0, 0.0]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Offset/Yuri:scale")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.19999993, 0.30000007, 0.5),
+"transitions": PackedFloat32Array(0.30778643, 0.34151006, 0.2871745, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.1, 0.95), Vector2(0.95, 1.025), Vector2(1, 1)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Offset/Yuri:offset")
+tracks/9/interp = 0
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.19999993),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-22, -53), Vector2(-12, -53)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath(".:event")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["hit"]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath(".:sounds")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [["PADDLERS/PADDLE", "PADDLERS/YAOI"]]
+}
+
+[sub_resource type="Animation" id="Animation_t6sax"]
+resource_name = "yaoi_yuri"
+length = 1.5
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Offset/Yuri:region_rect")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3, 0.70000017, 0.9000001, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Rect2(0, 0, 96, 128), Rect2(0, 0, 96, 128), Rect2(96, 0, 64, 128), Rect2(96, 0, 64, 128), Rect2(160, 0, 128, 128), Rect2(0, 0, 96, 128)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Offset/Yuri:position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3, 0.6000002, 0.8000002, 1.0000002, 1.1000001, 1.3, 1.5),
+"transitions": PackedFloat32Array(1, 1, 0.4204482, 1, -2.9281716, 1, 0.3415101, 0.329877, 1),
+"update": 0,
+"values": [23.0, 23.0, 23.0, 29.0, 29.0, -26.0, -26.0, -14.0, -16.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Offset/Yuri:position:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.7000003, 1.0000002, 1.2),
+"transitions": PackedFloat32Array(1, 1, 0.21763788, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 0.0, 8.0, 8.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Offset/Yuri:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3, 0.40000015, 0.6000002, 0.70000017, 0.8000001, 0.9, 1, 1.1, 1.2, 1.3000002, 1.5),
+"transitions": PackedFloat32Array(0.40612632, 0.40612632, 0.3789291, 0.3789291, 1, 0.3789291, 0.3789291, 0.34151006, 1, 0.2871745, 0.34151006, 0.2871745, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1), Vector2(1.1, 0.95), Vector2(0.95, 1.025), Vector2(1, 1), Vector2(1, 1), Vector2(0.9, 1.05), Vector2(1.1, 0.95), Vector2(1, 1), Vector2(1, 1), Vector2(1.1, 0.95), Vector2(0.95, 1.025), Vector2(1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Offset/Yuri:offset")
+tracks/4/interp = 0
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.9000001, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-12, -53), Vector2(-12, -53), Vector2(-22, -53), Vector2(-12, -53)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Offset/Yaoi:region_rect")
+tracks/5/interp = 0
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.09999989, 0.5, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Rect2(0, 0, 96, 128), Rect2(96, 0, 64, 128), Rect2(160, 0, 128, 128), Rect2(0, 0, 96, 128)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Offset/Yaoi:position:x")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.5, 0.70000005, 1, 1.2000003),
+"transitions": PackedFloat32Array(1, 1, 0.3186401, -2, 0.35355353, 1),
+"update": 0,
+"values": [-16.0, -12.0, -12.0, -26.0, 25.0, 23.0]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Offset/Yaoi:position:y")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.70000005, 0.9),
+"transitions": PackedFloat32Array(1, 0.2588163, 1),
+"update": 0,
+"values": [8.0, 8.0, 0.0]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Offset/Yaoi:scale")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.09999989, 0.20000003, 0.4, 0.6, 0.70000017, 0.8000002, 0.9, 1.0000001, 1.2),
+"transitions": PackedFloat32Array(0.40612632, 0.3789291, 0.3789291, 0.40612632, 0.3789291, 0.3789291, 0.30778643, 0.34151006, 0.2871745, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.1, 0.95), Vector2(0.95, 1.025), Vector2(1, 1), Vector2(1.1, 0.95), Vector2(0.95, 1.025), Vector2(1, 1), Vector2(1.1, 0.95), Vector2(0.95, 1.025), Vector2(1, 1)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Offset/Yaoi:offset")
+tracks/9/interp = 0
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-12, -53), Vector2(-22, -53), Vector2(-12, -53)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath(".:event")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0.5, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": ["hit", "hit"]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath(".:sounds")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0.5, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [["PADDLERS/YAOI", "PADDLERS/PADDLE"], ["PADDLERS/PADDLE", "PADDLERS/YURI"]]
+}
+
+[sub_resource type="Animation" id="Animation_rvjyo"]
+resource_name = "yuri_cycle"
+length = 0.5
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Offset/Yuri:region_rect")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.19999993),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Rect2(96, 0, 64, 128), Rect2(160, 0, 128, 128)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Offset/Yuri:position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.10000014, 0.3000002, 0.4000001, 0.5000001),
+"transitions": PackedFloat32Array(1, -2.9281716, 1, 0.3415101, 1),
+"update": 0,
+"values": [29.0, 29.0, -26.0, -26.0, -20.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Offset/Yuri:position:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.29999995),
+"transitions": PackedFloat32Array(0.21763788, 1),
+"update": 0,
+"values": [0.0, 8.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Offset/Yuri:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.099999905, 0.19999981, 0.29999995, 0.49999988),
+"transitions": PackedFloat32Array(0.3789291, 0.3789291, 0.34151006, 0.2871745, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.9, 1.05), Vector2(1.1, 0.95), Vector2(0.9, 1.05), Vector2(1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Offset/Yuri:offset")
+tracks/4/interp = 0
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.19999993),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-12, -53), Vector2(-22, -53)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Offset/Yaoi:region_rect")
+tracks/5/interp = 0
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.19999993, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Rect2(160, 0, 128, 128), Rect2(0, 0, 96, 128), Rect2(96, 0, 64, 128)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Offset/Yaoi:position:x")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.29999983, 0.5),
+"transitions": PackedFloat32Array(-2, 0.35355353, 1),
+"update": 0,
+"values": [-20.0, 25.0, 29.0]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Offset/Yaoi:position:y")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.19999993),
+"transitions": PackedFloat32Array(0.2588163, 1),
+"update": 0,
+"values": [8.0, 0.0]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Offset/Yaoi:scale")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.19999993, 0.30000007, 0.5),
+"transitions": PackedFloat32Array(0.30778643, 0.34151006, 0.2871745, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.1, 0.95), Vector2(0.95, 1.025), Vector2(1, 1)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Offset/Yaoi:offset")
+tracks/9/interp = 0
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.19999993),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-22, -53), Vector2(-12, -53)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath(".:event")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["hit"]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath(".:sounds")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [["PADDLERS/PADDLE", "PADDLERS/YURI"]]
+}
+
+[sub_resource type="Animation" id="Animation_qmrsj"]
+resource_name = "yuri_dying"
+length = 0.6
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Offset/Yuri:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.10000001, 0.3, 0.4),
+"transitions": PackedFloat32Array(0.36602145, 2.6390162, 0.36602145, 2.6390162),
+"update": 0,
+"values": [-16.0, -26.0, 23.0, 33.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Offset/Yuri:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3, 0.4),
+"transitions": PackedFloat32Array(0.36602145, -2, 0.36602145, -2),
+"update": 0,
+"values": [12.0, 8.0, -4.0, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Offset/Yaoi:position:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.10000001, 0.3, 0.39999998),
+"transitions": PackedFloat32Array(0.36602145, 2.6390162, 0.36602145, 2.6390162),
+"update": 0,
+"values": [23.0, 33.0, -16.0, -26.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Offset/Yaoi:position:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.10000001, 0.3, 0.39999998),
+"transitions": PackedFloat32Array(0.36602145, -2, 0.36602145, -2),
+"update": 0,
+"values": [-4.0, 0.0, 12.0, 8.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Offset:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35000002, 0.4, 0.45000002, 0.5, 0.55, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(6, 0), Vector2(0, 0), Vector2(6, 0), Vector2(0, 0), Vector2(6, 0), Vector2(0, 0), Vector2(6, 0), Vector2(0, 0), Vector2(6, 0), Vector2(0, 0), Vector2(6, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_llixb"]
+resource_name = "yuri_dying_start"
+length = 0.7
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Offset/Yuri:region_rect")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Rect2(288, 0, 128, 128), Rect2(0, 0, 96, 128)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Offset/Yuri:position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.39999998, 0.49999988, 0.6999999),
+"transitions": PackedFloat32Array(0.27739224, 2.6390162, 0.36602145, 2.6390162, 0.36602145),
+"update": 0,
+"values": [-16.0, -26.0, 23.0, 33.0, -16.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Offset/Yuri:position:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.39999998, 0.49999988, 0.6999999),
+"transitions": PackedFloat32Array(1, -2, 0.36602145, -2, 0.36602145),
+"update": 0,
+"values": [8.0, 8.0, -4.0, 0.0, 12.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Offset/Yuri:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3),
+"transitions": PackedFloat32Array(0.3077861, 0.3077861, 1),
+"update": 0,
+"values": [Vector2(1.1, 0.9), Vector2(0.9, 1.1), Vector2(1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Offset/Yaoi:region_rect")
+tracks/4/interp = 0
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.10000001),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Rect2(288, 0, 128, 128), Rect2(0, 0, 96, 128)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Offset/Yaoi:position:x")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.39999998, 0.49999988, 0.70000005),
+"transitions": PackedFloat32Array(0.27739224, 2.6390162, 0.36602145, 2.6390162, 0.36602145),
+"update": 0,
+"values": [23.0, 33.0, -16.0, -26.0, 23.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Offset/Yaoi:position:y")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.39999998, 0.49999988, 0.70000005),
+"transitions": PackedFloat32Array(1, -2, 0.36602145, -2, 0.36602145),
+"update": 0,
+"values": [0.0, 0.0, 12.0, 8.0, -4.0]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Offset/Yaoi:scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.10000001, 0.29999998),
+"transitions": PackedFloat32Array(0.3077861, 0.3077861, 1),
+"update": 0,
+"values": [Vector2(1.1, 0.9), Vector2(0.9, 1.1), Vector2(1, 1)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath(".:sound")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.05),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": ["PADDLERS/YURI_HURT", "PADDLERS/YAOI_HURT"]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Offset:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35000002, 0.4, 0.45000002, 0.5, 0.55, 0.6, 0.65, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(6, 0), Vector2(0, 0), Vector2(6, 0), Vector2(0, 0), Vector2(6, 0), Vector2(0, 0), Vector2(6, 0), Vector2(0, 0), Vector2(6, 0), Vector2(0, 0), Vector2(6, 0), Vector2(0, 0), Vector2(6, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_mbc2q"]
+resource_name = "yuri_flinch"
+length = 0.65
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Offset/Yuri:region_rect")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Rect2(288, 0, 128, 128), Rect2(0, 0, 96, 128)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Offset/Yuri:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.15, 0.2, 0.25, 0.3, 0.6),
+"transitions": PackedFloat32Array(0.27739224, 1, 1, 1, 1, -2, 1),
+"update": 0,
+"values": [Vector2(-16, 8), Vector2(-6, 8), Vector2(-8, 8), Vector2(-4, 8), Vector2(-7, 8), Vector2(-6, 8), Vector2(-16, 8)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Offset/Yuri:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3, 0.4, 0.6),
+"transitions": PackedFloat32Array(0.3077861, 0.3077861, -2, 0.3077861, 1),
+"update": 0,
+"values": [Vector2(1.1, 0.9), Vector2(0.9, 1.1), Vector2(1, 1), Vector2(1.05, 0.95), Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Offset/Yaoi:region_rect")
+tracks/3/interp = 0
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.15),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Rect2(0, 0, 96, 128), Rect2(288, 0, 128, 128), Rect2(0, 0, 96, 128)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Offset/Yaoi:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.15, 0.20000002, 0.25, 0.3, 0.35000002, 0.65),
+"transitions": PackedFloat32Array(1, 0.27739224, 1, 1, 1, 1, -2, 1),
+"update": 0,
+"values": [Vector2(23, 0), Vector2(23, 0), Vector2(33, 0), Vector2(31, 0), Vector2(35, 0), Vector2(32, 0), Vector2(33, 0), Vector2(23, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Offset/Yaoi:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.05, 0.15, 0.35, 0.45, 0.65),
+"transitions": PackedFloat32Array(0.3077861, 0.3077861, -2, 0.3077861, 1),
+"update": 0,
+"values": [Vector2(1.1, 0.9), Vector2(0.9, 1.1), Vector2(1, 1), Vector2(1.05, 0.95), Vector2(1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath(".:sound")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.050000012),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": ["PADDLERS/YURI_HURT", "PADDLERS/YAOI_HURT"]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath(".:event")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["editor_star"]
+}
+
+[sub_resource type="Animation" id="Animation_8ovp8"]
+resource_name = "yuri_idle"
+length = 2.5
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Offset/Yuri:region_rect")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.55, 2.15),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Rect2(0, 0, 96, 128), Rect2(288, 0, 128, 128), Rect2(0, 0, 96, 128)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Offset/Yuri:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-16, 8)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Offset/Yuri:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.3, 1.6, 1.8000001, 1.9, 2.2, 2.4),
+"transitions": PackedFloat32Array(1, 2.2191393, 0.32987717, 1, 2.2191393, 0.32987717, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1), Vector2(1.025, 0.975), Vector2(1, 1), Vector2(1, 1), Vector2(0.975, 1.025), Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Offset/Yaoi:region_rect")
+tracks/3/interp = 0
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.65, 2.25),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Rect2(0, 0, 96, 128), Rect2(288, 0, 128, 128), Rect2(0, 0, 96, 128)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Offset/Yaoi:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(23, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Offset/Yaoi:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1.4000001, 1.7000002, 1.9000002, 2, 2.3, 2.5),
+"transitions": PackedFloat32Array(1, 2.2191393, 0.32987717, 1, 2.2191393, 0.32987717, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1), Vector2(1.025, 0.975), Vector2(1, 1), Vector2(1, 1), Vector2(0.975, 1.025), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_51l77"]
+resource_name = "yuri_start"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Offset/Yuri:region_rect")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.099999905, 0.49999988, 0.6999998),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Rect2(0, 0, 96, 128), Rect2(96, 0, 64, 128), Rect2(96, 0, 64, 128), Rect2(160, 0, 128, 128)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Offset/Yuri:position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.099999905, 0.4000001, 0.5999999, 0.79999983, 0.8999998, 0.9999999),
+"transitions": PackedFloat32Array(1, 0.4204482, 1, -2.9281716, 1, 0.3415101, 1),
+"update": 0,
+"values": [23.0, 23.0, 29.0, 29.0, -26.0, -26.0, -20.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Offset/Yuri:position:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.7999999),
+"transitions": PackedFloat32Array(1, 0.21763788, 1),
+"update": 0,
+"values": [0.0, 0.0, 8.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Offset/Yuri:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.099999905, 0.20000005, 0.4000001, 0.5, 0.5999999, 0.6999998, 0.7999999, 0.9999999),
+"transitions": PackedFloat32Array(0.40612632, 0.3789291, 0.3789291, 1, 0.3789291, 0.3789291, 0.34151006, 0.2871745, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.1, 0.95), Vector2(0.95, 1.025), Vector2(1, 1), Vector2(1, 1), Vector2(0.9, 1.05), Vector2(1.1, 0.95), Vector2(0.9, 1.05), Vector2(1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Offset/Yuri:offset")
+tracks/4/interp = 0
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.49999988, 0.6999998),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-12, -53), Vector2(-12, -53), Vector2(-22, -53)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Offset/Yaoi:region_rect")
+tracks/5/interp = 0
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.9999999),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Rect2(0, 0, 96, 128), Rect2(0, 0, 96, 128), Rect2(96, 0, 64, 128)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Offset/Yaoi:position:x")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.100000024, 0.39999998, 0.5, 0.7999999, 0.9999999),
+"transitions": PackedFloat32Array(1, 0.5176326, 1, -2, 0.35355353, 1),
+"update": 0,
+"values": [-16.0, -16.0, -20.0, -20.0, 25.0, 29.0]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Offset/Yaoi:position:y")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.6999999),
+"transitions": PackedFloat32Array(1, 0.2588163, 1),
+"update": 0,
+"values": [8.0, 8.0, 0.0]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Offset/Yaoi:scale")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.6999999, 0.80000013, 0.9999999),
+"transitions": PackedFloat32Array(1, 0.30778643, 0.34151006, 0.2871745, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1), Vector2(1.1, 0.95), Vector2(0.95, 1.025), Vector2(1, 1)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Offset/Yaoi:offset")
+tracks/9/interp = 0
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-12, -53), Vector2(-12, -53)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath(".:event")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0.7),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["hit"]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath(".:sounds")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0.7),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [["PADDLERS/YURI", "PADDLERS/PADDLE"]]
+}
+
+[sub_resource type="Animation" id="Animation_tob27"]
+resource_name = "yuri_stop"
+length = 0.8
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Offset/Yuri:region_rect")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.19999993, 0.49999994),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Rect2(96, 0, 64, 128), Rect2(160, 0, 128, 128), Rect2(0, 0, 96, 128)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Offset/Yuri:position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(-1.1920929e-07, 0.100000024, 0.3, 0.39999992, 0.59999985, 0.80000013),
+"transitions": PackedFloat32Array(1, -2.9281716, 1, 0.3415101, 0.329877, 1),
+"update": 0,
+"values": [29.0, 29.0, -26.0, -26.0, -14.0, -16.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Offset/Yuri:position:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1.1920929e-07, 0.3, 0.49999994),
+"transitions": PackedFloat32Array(0.21763788, 1, 1),
+"update": 0,
+"values": [0.0, 8.0, 8.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Offset/Yuri:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1.1920929e-07, 0.100000024, 0.19999993, 0.3, 0.4, 0.5, 0.60000014, 0.8000001),
+"transitions": PackedFloat32Array(0.3789291, 0.3789291, 0.34151006, 1, 0.2871745, 0.34151006, 0.2871745, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.9, 1.05), Vector2(1.1, 0.95), Vector2(1, 1), Vector2(1, 1), Vector2(1.1, 0.95), Vector2(0.95, 1.025), Vector2(1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Offset/Yuri:offset")
+tracks/4/interp = 0
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.19999993, 0.49999994),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-12, -53), Vector2(-22, -53), Vector2(-12, -53)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Offset/Yaoi:region_rect")
+tracks/5/interp = 0
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.19999993),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Rect2(160, 0, 128, 128), Rect2(0, 0, 96, 128)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Offset/Yaoi:position:x")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.5000002),
+"transitions": PackedFloat32Array(-2, 0.35355353, 1),
+"update": 0,
+"values": [-20.0, 25.0, 23.0]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Offset/Yaoi:position:y")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.19999993),
+"transitions": PackedFloat32Array(0.2588163, 1),
+"update": 0,
+"values": [8.0, 0.0]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Offset/Yaoi:scale")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.19999993, 0.30000007, 0.5),
+"transitions": PackedFloat32Array(0.30778643, 0.34151006, 0.2871745, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.1, 0.95), Vector2(0.95, 1.025), Vector2(1, 1)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Offset/Yaoi:offset")
+tracks/9/interp = 0
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.19999993),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-22, -53), Vector2(-12, -53)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath(".:event")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["hit"]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath(".:sounds")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [["PADDLERS/YURI", "PADDLERS/PADDLE"]]
+}
+
+[sub_resource type="Animation" id="Animation_sd6fp"]
+resource_name = "yuri_yaoi"
+length = 1.5
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Offset/Yaoi:region_rect")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3, 0.70000017, 0.9000001, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Rect2(0, 0, 96, 128), Rect2(0, 0, 96, 128), Rect2(96, 0, 64, 128), Rect2(96, 0, 64, 128), Rect2(160, 0, 128, 128), Rect2(0, 0, 96, 128)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Offset/Yaoi:position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3, 0.6000002, 0.8000002, 1.0000002, 1.1000001, 1.3, 1.5),
+"transitions": PackedFloat32Array(1, 1, 0.4204482, 1, -2.9281716, 1, 0.3415101, 0.329877, 1),
+"update": 0,
+"values": [23.0, 23.0, 23.0, 29.0, 29.0, -26.0, -26.0, -14.0, -16.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Offset/Yaoi:position:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.7000003, 1.0000002, 1.2),
+"transitions": PackedFloat32Array(1, 1, 0.21763788, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 0.0, 8.0, 8.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Offset/Yaoi:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3, 0.40000015, 0.6000002, 0.70000017, 0.8000001, 0.9, 1, 1.1, 1.2, 1.3000002, 1.5),
+"transitions": PackedFloat32Array(0.40612632, 0.40612632, 0.3789291, 0.3789291, 1, 0.3789291, 0.3789291, 0.34151006, 1, 0.2871745, 0.34151006, 0.2871745, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1), Vector2(1.1, 0.95), Vector2(0.95, 1.025), Vector2(1, 1), Vector2(1, 1), Vector2(0.9, 1.05), Vector2(1.1, 0.95), Vector2(1, 1), Vector2(1, 1), Vector2(1.1, 0.95), Vector2(0.95, 1.025), Vector2(1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Offset/Yaoi:offset")
+tracks/4/interp = 0
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.9000001, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-12, -53), Vector2(-12, -53), Vector2(-22, -53), Vector2(-12, -53)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Offset/Yuri:region_rect")
+tracks/5/interp = 0
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.09999989, 0.5, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Rect2(0, 0, 96, 128), Rect2(96, 0, 64, 128), Rect2(160, 0, 128, 128), Rect2(0, 0, 96, 128)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Offset/Yuri:position:x")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.5, 0.70000005, 1, 1.2000003),
+"transitions": PackedFloat32Array(1, 1, 0.3186401, -2, 0.35355353, 1),
+"update": 0,
+"values": [-16.0, -12.0, -12.0, -26.0, 25.0, 23.0]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Offset/Yuri:position:y")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.70000005, 0.9),
+"transitions": PackedFloat32Array(1, 0.2588163, 1),
+"update": 0,
+"values": [8.0, 8.0, 0.0]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Offset/Yuri:scale")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.09999989, 0.20000003, 0.4, 0.6, 0.70000017, 0.8000002, 0.9, 1.0000001, 1.2),
+"transitions": PackedFloat32Array(0.40612632, 0.3789291, 0.3789291, 0.40612632, 0.3789291, 0.3789291, 0.30778643, 0.34151006, 0.2871745, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.1, 0.95), Vector2(0.95, 1.025), Vector2(1, 1), Vector2(1.1, 0.95), Vector2(0.95, 1.025), Vector2(1, 1), Vector2(1.1, 0.95), Vector2(0.95, 1.025), Vector2(1, 1)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Offset/Yuri:offset")
+tracks/9/interp = 0
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-12, -53), Vector2(-22, -53), Vector2(-12, -53)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath(".:event")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0.5, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": ["hit", "hit"]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath(".:sounds")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0.5, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [["PADDLERS/PADDLE", "PADDLERS/YURI"], ["PADDLERS/YAOI", "PADDLERS/PADDLE"]]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gnfjl"]
+_data = {
+&"RESET": SubResource("Animation_nu6ed"),
+&"loop": SubResource("Animation_vx67w"),
+&"yaoi_cycle": SubResource("Animation_c0ane"),
+&"yaoi_dying": SubResource("Animation_iuqut"),
+&"yaoi_dying_start": SubResource("Animation_vjebo"),
+&"yaoi_flinch": SubResource("Animation_rjon0"),
+&"yaoi_idle": SubResource("Animation_t6xtb"),
+&"yaoi_real": SubResource("Animation_e4jql"),
+&"yaoi_start": SubResource("Animation_jldfc"),
+&"yaoi_stop": SubResource("Animation_e3a38"),
+&"yaoi_yuri": SubResource("Animation_t6sax"),
+&"yuri_cycle": SubResource("Animation_rvjyo"),
+&"yuri_dying": SubResource("Animation_qmrsj"),
+&"yuri_dying_start": SubResource("Animation_llixb"),
+&"yuri_flinch": SubResource("Animation_mbc2q"),
+&"yuri_idle": SubResource("Animation_8ovp8"),
+&"yuri_start": SubResource("Animation_51l77"),
+&"yuri_stop": SubResource("Animation_tob27"),
+&"yuri_yaoi": SubResource("Animation_sd6fp")
+}
+
+[node name="PaddlersSprite" unique_id=1063007929 instance=ExtResource("1")]
+sound_groups = PackedStringArray("PADDLERS")
+big_explosion_count = 3
+small_explosion_count = 2
+intents_realign_above_word = true
+
+[node name="Offset" type="Node2D" parent="." index="0" unique_id=1642087724]
+z_index = 5
+y_sort_enabled = true
+
+[node name="Yaoi" type="Sprite2D" parent="Offset" index="0" unique_id=877515424]
+position = Vector2(-16, 8)
+texture = ExtResource("2")
+offset = Vector2(-12, -53)
+region_enabled = true
+region_rect = Rect2(0, 0, 96, 128)
+
+[node name="Yuri" type="Sprite2D" parent="Offset" index="1" unique_id=689804346]
+position = Vector2(23, 0)
+texture = ExtResource("3")
+offset = Vector2(-12, -53)
+region_enabled = true
+region_rect = Rect2(0, 0, 96, 128)
+
+[node name="HitMarker" parent="." index="1" unique_id=1651044017]
+visible = true
+position = Vector2(-43, -62)
+
+[node name="IntentMarker" parent="." index="2" unique_id=444731721]
+position = Vector2(0, -130)
+
+[node name="BleedZone" parent="BleedArea" parent_id_path=PackedInt32Array(1768612656) index="0" unique_id=659443964]
+position = Vector2(0, -51)
+shape = SubResource("CircleShape2D_8ovp8")
+
+[node name="CollisionShape2D" parent="HoverArea" parent_id_path=PackedInt32Array(1946856293) index="0" unique_id=2067959912]
+position = Vector2(-20, -44)
+shape = SubResource("CapsuleShape2D_wmfk5")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="HoverArea" parent_id_path=PackedInt32Array(1946856293) index="1" unique_id=279288098]
+visible = false
+position = Vector2(19, -52)
+shape = SubResource("CapsuleShape2D_wmfk5")
+
+[node name="AnimPlayer" parent="." index="5" unique_id=1026464875]
+libraries/ = SubResource("AnimationLibrary_gnfjl")
+autoplay = &"yuri_idle"
+
+[node name="PhonebookPortrait" parent="." index="6" unique_id=512451111]
+anchors_preset = -1
+offset_left = -107.0
+offset_top = -127.0
+offset_right = 109.0
+offset_bottom = 13.0

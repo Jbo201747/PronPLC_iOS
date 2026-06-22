@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://clopdagkon874"]
+
+[ext_resource type="PackedScene" uid="uid://bkxi3xipa3jye" path="res://source/ui/menu/settings/setting.tscn" id="1"]
+
+[node name="Setting" unique_id=149564466 node_paths=PackedStringArray("value_label", "main_control") instance=ExtResource("1")]
+offset_right = 85.0
+theme_override_constants/separation = 3
+value_label = NodePath("ValueLabelContainer/SliderValue")
+main_control = NodePath("HSlider")
+
+[node name="HSlider" type="HSlider" parent="." index="1" unique_id=978927227]
+custom_minimum_size = Vector2(46, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+mouse_filter = 1
+max_value = 1.0
+step = 0.05
+ticks_position = 3
+
+[node name="ValueLabelContainer" type="MarginContainer" parent="." index="2" unique_id=609670348]
+layout_mode = 2
+theme_override_constants/margin_top = 0
+
+[node name="SliderValue" type="Label" parent="ValueLabelContainer" index="0" unique_id=315411337]
+custom_minimum_size = Vector2(18, 15)
+layout_mode = 2
+theme_type_variation = &"OptionsLabel"
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="drag_ended" from="HSlider" to="." method="_slider_drag_end"]
+[connection signal="drag_started" from="HSlider" to="." method="_slider_drag_start"]
+[connection signal="value_changed" from="HSlider" to="." method="_value_changed"]

@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://bq10vbs3au1dg"]
+
+[ext_resource type="Script" uid="uid://te0it8loqgfe" path="res://source/word_builder/word_holder.gd" id="1"]
+[ext_resource type="Script" uid="uid://bsc1atfkh653q" path="res://source/ui/generic/drag_handler.gd" id="2"]
+
+[node name="WordHolder" type="Node2D" unique_id=110753300]
+script = ExtResource("1")
+
+[node name="SlotsContainer" type="Node2D" parent="." unique_id=740859357]
+unique_name_in_owner = true
+
+[node name="DragHandler" type="Control" parent="." unique_id=163748370 groups=["tile_droppable"]]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -91.0
+offset_top = -24.0
+offset_right = 91.0
+offset_bottom = 24.0
+mouse_filter = 2
+script = ExtResource("2")
+can_drag = false
+metadata/_custom_type_script = "uid://bsc1atfkh653q"
+
+[connection signal="hovering" from="DragHandler" to="." method="_on_drag_handler_hovering"]
+[connection signal="received" from="DragHandler" to="." method="_on_drag_handler_received"]
+[connection signal="unhovered" from="DragHandler" to="." method="_on_drag_handler_unhovered"]

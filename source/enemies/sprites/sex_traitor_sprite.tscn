@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://c8do3avcpfbbt"]
+
+[ext_resource type="PackedScene" uid="uid://dpouf5gs07ysl" path="res://source/enemies/sprites/anti_sex_worker_sprite.tscn" id="1"]
+[ext_resource type="Texture2D" uid="uid://ylfbh70qmlpk" path="res://arte/enemies/sex_traitor.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://bdjetsvi6e7ir" path="res://arte/enemies/sex_traitor_sign.png" id="3"]
+
+[node name="SexTraitorSprite" unique_id=941929771 instance=ExtResource("1")]
+
+[node name="Sprite" parent="." index="0" unique_id=1017187240]
+texture = ExtResource("2")
+
+[node name="Sign" parent="." index="1" unique_id=1788987736]
+texture = ExtResource("3")
+
+[editable path="Sweat"]

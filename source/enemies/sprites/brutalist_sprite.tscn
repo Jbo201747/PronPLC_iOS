@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://cpg388pkwgtsl"]
+
+[ext_resource type="PackedScene" uid="uid://dmg180a1myio" path="res://source/battle_unit/battle_unit_sprite.tscn" id="1"]
+[ext_resource type="Script" uid="uid://b7pavo3aejt86" path="res://source/enemies/sprites/brutalist_sprite.gd" id="2"]
+[ext_resource type="PackedScene" uid="uid://g30jsgu3vade" path="res://source/enemies/sprites/brutalist_wall_sprite.tscn" id="3"]
+[ext_resource type="PackedScene" uid="uid://dyayx6r01hwce" path="res://source/enemies/sprites/brutalist_heart_sprite.tscn" id="4"]
+
+[node name="BrutalistSprite" unique_id=876789383 instance=ExtResource("1")]
+script = ExtResource("2")
+big_explosion_count = 3
+small_explosion_count = 2
+
+[node name="WallSprite" parent="." index="0" unique_id=792086885 instance=ExtResource("3")]
+unique_name_in_owner = true
+
+[node name="HeartSprite" parent="." index="1" unique_id=20692818 instance=ExtResource("4")]
+unique_name_in_owner = true
+visible = false

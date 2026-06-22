@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://bva6hik2t7ihq"]
+
+[ext_resource type="PackedScene" uid="uid://cbdk6hv7wu8im" path="res://source/battle_unit/enemy.tscn" id="1"]
+[ext_resource type="Script" uid="uid://cx014d2e88gsl" path="res://source/enemies/greeb.gd" id="2"]
+[ext_resource type="PackedScene" uid="uid://ddwai0mjai27y" path="res://source/enemies/sprites/greeb_sprite.tscn" id="3"]
+
+[node name="Greeb" unique_id=1207647441 instance=ExtResource("1")]
+z_index = 20
+script = ExtResource("2")
+
+[node name="Sprite" parent="." index="0" unique_id=1434274414 instance=ExtResource("3")]
+z_index = 20

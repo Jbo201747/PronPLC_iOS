@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://clrnqs482dtgi"]
+
+[ext_resource type="Texture2D" uid="uid://b2r0ja43nbjw8" path="res://arte/ass.png" id="1"]
+
+[node name="Node3D" type="Node3D" unique_id=1235027273]
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1699508030]
+transform = Transform3D(1, 0, 0, 0, -0.8449632, 0.53482443, 0, -0.53482443, -0.8449632, 0, 0, 0)
+texture = ExtResource("1")

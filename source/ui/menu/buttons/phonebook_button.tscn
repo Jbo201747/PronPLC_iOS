@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://cauq0xwpy7f0x"]
+
+[ext_resource type="PackedScene" uid="uid://g4eausffcst3" path="res://source/ui/menu/buttons/menu_label_button_small.tscn" id="1"]
+[ext_resource type="Script" uid="uid://bkog411is1bl0" path="res://source/ui/menu/buttons/phonebook_button.gd" id="2"]
+[ext_resource type="Texture2D" uid="uid://bk161ty7upm5b" path="res://arte/ui/notif_icon.png" id="3"]
+[ext_resource type="Script" uid="uid://cfpkpmdehkp8u" path="res://source/ui/generic/shadow_cloner.gd" id="4"]
+
+[node name="PhonebookButton" unique_id=1460177404 instance=ExtResource("1")]
+script = ExtResource("2")
+
+[node name="Control" type="Control" parent="HoverOffset/Panel/MarginContainer" parent_id_path=PackedInt32Array(948667601) index="0" unique_id=505490972]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+mouse_filter = 2
+
+[node name="Notification" type="Sprite2D" parent="HoverOffset/Panel/MarginContainer/Control" index="0" unique_id=177616102]
+unique_name_in_owner = true
+position = Vector2(-3, -5)
+texture = ExtResource("3")
+
+[node name="ShadowCloner" type="Node2D" parent="HoverOffset/Panel/MarginContainer/Control/Notification" index="0" unique_id=257844015]
+position = Vector2(2, 2)
+script = ExtResource("4")
+metadata/_custom_type_script = "uid://cfpkpmdehkp8u"

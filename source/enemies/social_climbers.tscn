@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://c8khhkjrugmsb"]
+
+[ext_resource type="PackedScene" uid="uid://cbdk6hv7wu8im" path="res://source/battle_unit/enemy.tscn" id="1"]
+[ext_resource type="Script" uid="uid://c6ofugxo3jgj6" path="res://source/enemies/social_climbers.gd" id="2"]
+[ext_resource type="PackedScene" uid="uid://ci8ayx778x5di" path="res://source/enemies/sprites/social_climbers_sprite.tscn" id="3"]
+
+[node name="SocialClimbers" unique_id=885368417 instance=ExtResource("1")]
+script = ExtResource("2")
+
+[node name="Sprite" parent="." index="0" unique_id=1634509234 instance=ExtResource("3")]

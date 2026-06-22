@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://blrduicvvw1fq"]
+
+[ext_resource type="Script" uid="uid://dmblkr5pq71ct" path="res://source/ui/menu/generic/menu_stat.gd" id="1"]
+[ext_resource type="PackedScene" uid="uid://b685c0jjbaral" path="res://source/ui/menu/generic/menu_icon.tscn" id="2"]
+[ext_resource type="Texture2D" uid="uid://badxmopjjlxf6" path="res://arte/ui/leaderboard_entry_icons.png" id="3"]
+[ext_resource type="Script" uid="uid://7xvadspst3p5" path="res://source/ui/generic/hover_handler.gd" id="4"]
+
+[node name="MenuStat" type="HBoxContainer" unique_id=301375696]
+theme_override_constants/separation = 2
+script = ExtResource("1")
+
+[node name="MenuIcon" parent="." unique_id=7840853 instance=ExtResource("2")]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 1
+texture = ExtResource("3")
+hv_frames = Vector2i(6, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1401427668]
+layout_mode = 2
+theme_override_constants/margin_top = -1
+theme_override_constants/margin_bottom = -1
+
+[node name="StatLabel" type="Label" parent="MarginContainer" unique_id=64100118]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(14, 0)
+layout_mode = 2
+size_flags_vertical = 1
+theme_type_variation = &"MainMenuLabel"
+theme_override_font_sizes/font_size = 10
+text = "3"
+vertical_alignment = 1
+
+[node name="HoverHandler" type="Node2D" parent="." unique_id=802424417 node_paths=PackedStringArray("hovering", "source")]
+script = ExtResource("4")
+hovering = NodePath("../MenuIcon/Sprite2D")
+source = NodePath("../MenuIcon")
+hovered_position = Vector2(0, -2)
+use_focus = false
+metadata/_custom_type_script = "uid://7xvadspst3p5"

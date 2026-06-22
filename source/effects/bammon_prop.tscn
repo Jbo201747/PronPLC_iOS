@@ -1,0 +1,144 @@
+[gd_scene format=3 uid="uid://dleoowq6puetu"]
+
+[ext_resource type="Script" uid="uid://hvhbevudgf0g" path="res://source/effects/bammon_prop.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://b274ldu8abh36" path="res://arte/enemies/bammon_props.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://duydxr3gtm0ut" path="res://arte/enemies/bammon_props_text.png" id="3"]
+[ext_resource type="Script" uid="uid://drgtw8sp4tp8n" path="res://source/library/anim_player.gd" id="4"]
+
+[sub_resource type="Animation" id="Animation_yur1k"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -235)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_tgirw"]
+resource_name = "fall"
+length = 0.9
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.19999996, 0.25, 0.29999995, 0.34999996, 0.39999998, 0.45, 0.49999994, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 4.0, -4.0, 4.0, -2.0, 2.0, 0.0, -143.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.19999996, 0.49999994, 0.6999999, 0.9),
+"transitions": PackedFloat32Array(2.2973971, 1, 0.40612632, 2.2191393, 1),
+"update": 0,
+"values": [-235.0, 0.0, 0.0, -40.0, 65.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.49999994, 0.9),
+"transitions": PackedFloat32Array(1, 0.49999997, -2),
+"update": 0,
+"values": [0.0, 0.0, -6.283185307179586]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ScaleOffset/Sprite:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.19999996, 0.29999995, 0.39999998, 0.49999994),
+"transitions": PackedFloat32Array(2.4622886, 0.35355344, 2.0705297, 0.36602145, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.8, 1.2), Vector2(1.2, 0.8), Vector2(1, 1), Vector2(1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ScaleOffset/Sprite/AnimPlayer:event")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["hit"]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qqv67"]
+_data = {
+&"RESET": SubResource("Animation_yur1k"),
+&"fall": SubResource("Animation_tgirw")
+}
+
+[node name="BammonProp" type="Node2D" unique_id=280230001]
+script = ExtResource("1")
+
+[node name="PositionOffset" type="Node2D" parent="." unique_id=1170740276]
+unique_name_in_owner = true
+position = Vector2(0, -26)
+
+[node name="RotationOffset" type="Node2D" parent="PositionOffset" unique_id=1814082871]
+unique_name_in_owner = true
+position = Vector2(0, -235)
+
+[node name="ScaleOffset" type="Node2D" parent="PositionOffset/RotationOffset" unique_id=302025253]
+unique_name_in_owner = true
+position = Vector2(0, 26)
+
+[node name="Sprite" type="Sprite2D" parent="PositionOffset/RotationOffset/ScaleOffset" unique_id=802089896]
+unique_name_in_owner = true
+texture = ExtResource("2")
+offset = Vector2(0, -33)
+hframes = 5
+frame = 1
+
+[node name="Text" type="Sprite2D" parent="PositionOffset/RotationOffset/ScaleOffset/Sprite" unique_id=574090753]
+unique_name_in_owner = true
+texture = ExtResource("3")
+offset = Vector2(0, -33)
+hframes = 5
+vframes = 3
+frame = 1
+
+[node name="AnimPlayer" type="AnimationPlayer" parent="PositionOffset/RotationOffset/ScaleOffset/Sprite" unique_id=93936182]
+unique_name_in_owner = true
+root_node = NodePath("../../..")
+libraries/ = SubResource("AnimationLibrary_qqv67")
+autoplay = &"fall"
+script = ExtResource("4")
+metadata/_custom_type_script = "uid://drgtw8sp4tp8n"
+
+[connection signal="event_emitted" from="PositionOffset/RotationOffset/ScaleOffset/Sprite/AnimPlayer" to="." method="_on_anim_player_event_emitted"]

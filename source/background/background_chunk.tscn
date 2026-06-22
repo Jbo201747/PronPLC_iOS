@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://cufxgdjv27ia3"]
+
+[ext_resource type="Script" uid="uid://nahh0yuojyps" path="res://source/background/background_chunk.gd" id="1"]
+
+[node name="BackgroundChunk" type="Node2D" unique_id=720532691]
+script = ExtResource("1")
+
+[node name="LeftOverlap" type="Node2D" parent="." unique_id=1030252478]
+
+[node name="RightOverlap" type="Node2D" parent="." unique_id=582485431]

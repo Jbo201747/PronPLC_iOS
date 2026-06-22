@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://brah6mndanhrj"
+path="res://.godot/imported/psychup.wav-c4983f1263af70080372e4cd255bef85.sample"
+
+[deps]
+
+source_file="res://sounds/urchin/base urchin/psychup.wav"
+dest_files=["res://.godot/imported/psychup.wav-c4983f1263af70080372e4cd255bef85.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=0
+compress/mode=0

@@ -1,0 +1,268 @@
+[gd_scene format=3 uid="uid://b3737uuc2g8i1"]
+
+[ext_resource type="Script" uid="uid://ge0qqp8yesf0" path="res://source/ui/spells/spell_paper.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://lec3bxfdcjdh" path="res://arte/ui/spell_paper.png" id="2"]
+[ext_resource type="Script" uid="uid://drgtw8sp4tp8n" path="res://source/library/anim_player.gd" id="3"]
+[ext_resource type="Script" uid="uid://7xvadspst3p5" path="res://source/ui/generic/hover_handler.gd" id="4"]
+[ext_resource type="Script" uid="uid://cfpkpmdehkp8u" path="res://source/ui/generic/shadow_cloner.gd" id="5"]
+
+[sub_resource type="Animation" id="Animation_3hi3o"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -24)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SpellPaperOverlay:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_6omog"]
+resource_name = "appear"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3),
+"transitions": PackedFloat32Array(0.307, 2.07, 1),
+"update": 0,
+"values": [Vector2(0, 8), Vector2(0, -28), Vector2(0, -24)]
+}
+
+[sub_resource type="Animation" id="Animation_to8xb"]
+resource_name = "disappear"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3),
+"transitions": PackedFloat32Array(0.307, 2.07, 1),
+"update": 0,
+"values": [Vector2(0, -24), Vector2(0, -28), Vector2(0, 8)]
+}
+
+[sub_resource type="Animation" id="Animation_5pflh"]
+resource_name = "gain"
+length = 0.7
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3, 0.4, 0.7),
+"transitions": PackedFloat32Array(1, 0.30778614, 2.0705302, 0.34151012, 1),
+"update": 0,
+"values": [Vector2(0, -12), Vector2(0, -12), Vector2(0, -26), Vector2(0, -22), Vector2(0, -24)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SpellPaperOverlay:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.7),
+"transitions": PackedFloat32Array(1, 0.27739242, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_fkdjw"]
+resource_name = "hover"
+length = 0.2
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(0.2871746, 1),
+"update": 0,
+"values": [Vector2(0, -13), Vector2(0, -15)]
+}
+
+[sub_resource type="Animation" id="Animation_lbrc4"]
+resource_name = "press"
+length = 0.4
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.4),
+"transitions": PackedFloat32Array(0.28717455, 0.3077862, 0.3077862, 1),
+"update": 0,
+"values": [Vector2(0, -26), Vector2(0, -28), Vector2(0, -22), Vector2(0, -24)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SpellPaperOverlay:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_eg2ld"]
+resource_name = "press_old"
+length = 0.4
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.4),
+"transitions": PackedFloat32Array(0.28717455, 0.3077862, 0.3077862, 1),
+"update": 0,
+"values": [Vector2(0, -26), Vector2(0, -30), Vector2(0, -26), Vector2(0, -28)]
+}
+
+[sub_resource type="Animation" id="Animation_4ujns"]
+resource_name = "selecting"
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpellPaperOverlay:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(2.2191386, 0.3077861),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_h4b8x"]
+resource_name = "stop_selecting"
+length = 0.001
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpellPaperOverlay:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(2.2191386),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fkdjw"]
+_data = {
+&"RESET": SubResource("Animation_3hi3o"),
+&"appear": SubResource("Animation_6omog"),
+&"disappear": SubResource("Animation_to8xb"),
+&"gain": SubResource("Animation_5pflh"),
+&"hover": SubResource("Animation_fkdjw"),
+&"press": SubResource("Animation_lbrc4"),
+&"press_old": SubResource("Animation_eg2ld"),
+&"selecting": SubResource("Animation_4ujns"),
+&"stop_selecting": SubResource("Animation_h4b8x")
+}
+
+[node name="SpellPaper" type="Node2D" unique_id=1479266032]
+script = ExtResource("1")
+
+[node name="HoverOffset" type="Node2D" parent="." unique_id=1892126389]
+
+[node name="Sprite" type="Sprite2D" parent="HoverOffset" unique_id=842115985]
+unique_name_in_owner = true
+position = Vector2(0, -24)
+texture = ExtResource("2")
+centered = false
+hframes = 3
+frame = 1
+
+[node name="Button" type="Button" parent="HoverOffset/Sprite" unique_id=1955496645 groups=["weak_focus"]]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
+offset_right = 93.0
+offset_bottom = 29.0
+
+[node name="SpellPaperOverlay" type="Sprite2D" parent="HoverOffset/Sprite" unique_id=709680854]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
+texture = ExtResource("2")
+centered = false
+hframes = 3
+
+[node name="AnimPlayer" type="AnimationPlayer" parent="HoverOffset/Sprite" unique_id=1922755689]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_fkdjw")
+script = ExtResource("3")
+metadata/_custom_type_script = "uid://drgtw8sp4tp8n"
+
+[node name="HoverHandler" type="Node2D" parent="HoverOffset/Sprite" unique_id=1047957449 node_paths=PackedStringArray("hovering", "source")]
+unique_name_in_owner = true
+script = ExtResource("4")
+hovering = NodePath("../..")
+source = NodePath("../Button")
+hovered_position = Vector2(0, -2)
+pressed_position = Vector2(0, -4)
+metadata/_custom_type_script = "uid://7xvadspst3p5"
+
+[node name="ShadowCloner" type="Node2D" parent="HoverOffset/Sprite" unique_id=1549730051]
+position = Vector2(2, 2)
+script = ExtResource("5")
+metadata/_custom_type_script = "uid://cfpkpmdehkp8u"
+
+[connection signal="focus_entered" from="HoverOffset/Sprite/Button" to="." method="_on_button_focus_entered"]
+[connection signal="focus_exited" from="HoverOffset/Sprite/Button" to="." method="_on_button_focus_exited"]
+[connection signal="pressed" from="HoverOffset/Sprite/Button" to="." method="_on_button_pressed"]
+[connection signal="current_animation_changed" from="HoverOffset/Sprite/AnimPlayer" to="." method="_on_anim_player_current_animation_changed"]

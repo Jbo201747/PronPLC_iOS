@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://frscvvaaclxh"]
+
+[ext_resource type="PackedScene" uid="uid://c6vvnk61vcc48" path="res://source/ui/menu/generic/big_menu_panel.tscn" id="1"]
+[ext_resource type="Script" uid="uid://co78ef162kwj1" path="res://source/ui/menu/achievements/achievements_menu.gd" id="2"]
+[ext_resource type="PackedScene" uid="uid://c5b7lvbrglom8" path="res://source/ui/menu/generic/sectioned_panel.tscn" id="3"]
+
+[node name="AchievementsMenu" unique_id=1499490309 instance=ExtResource("1")]
+focus_mode = 2
+script = ExtResource("2")
+
+[node name="Panel" parent="PositionRoot" parent_id_path=PackedInt32Array(1793859846) index="0" unique_id=1955025572]
+offset_left = 121.0
+offset_right = 360.0
+
+[node name="SectionedPanel" parent="PositionRoot/Panel" index="1" unique_id=1400204219 instance=ExtResource("3")]
+unique_name_in_owner = true
+layout_mode = 1

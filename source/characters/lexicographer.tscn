@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://nydytfmwgh22"]
+
+[ext_resource type="PackedScene" uid="uid://b6aro6o71syk6" path="res://source/battle_unit/character.tscn" id="1"]
+[ext_resource type="Script" uid="uid://ce058o7gisi76" path="res://source/characters/lexicographer.gd" id="2"]
+[ext_resource type="PackedScene" uid="uid://cwgxm2sx00xxq" path="res://source/characters/sprites/lexicographer_sprite.tscn" id="3"]
+
+[node name="Lexicographer" unique_id=1323471908 instance=ExtResource("1")]
+script = ExtResource("2")
+
+[node name="Sprite" parent="." index="0" unique_id=1698115235 instance=ExtResource("3")]

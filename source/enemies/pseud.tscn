@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://dyav4nacpxnje"]
+
+[ext_resource type="PackedScene" uid="uid://cbdk6hv7wu8im" path="res://source/battle_unit/enemy.tscn" id="1"]
+[ext_resource type="Script" uid="uid://pn0x5u551rf" path="res://source/enemies/pseud.gd" id="2"]
+[ext_resource type="PackedScene" uid="uid://nqrk3h7ubkc8" path="res://source/enemies/sprites/pseud_sprite.tscn" id="3"]
+
+[node name="Pseud" unique_id=82411511 instance=ExtResource("1")]
+script = ExtResource("2")
+
+[node name="Sprite" parent="." index="0" unique_id=2078428750 instance=ExtResource("3")]
+position = Vector2(0, -4)

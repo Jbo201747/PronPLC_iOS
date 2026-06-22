@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://ccub0itnhpxit"]
+
+[ext_resource type="PackedScene" uid="uid://cbdk6hv7wu8im" path="res://source/battle_unit/enemy.tscn" id="1"]
+[ext_resource type="Script" uid="uid://ud08fqex57lr" path="res://source/enemies/npcs.gd" id="2"]
+[ext_resource type="PackedScene" uid="uid://2e03avgp46y2" path="res://source/enemies/sprites/npcs_sprite.tscn" id="3"]
+
+[node name="NPCs" unique_id=1993918957 instance=ExtResource("1")]
+script = ExtResource("2")
+idle_after_flinching = false
+
+[node name="Sprite" parent="." index="0" unique_id=13742569 instance=ExtResource("3")]
+
+[connection signal="npc_respawning" from="Sprite" to="." method="_on_sprite_npc_respawning"]

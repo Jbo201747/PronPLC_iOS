@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://cdfog0yftvh3t"]
+
+[ext_resource type="PackedScene" uid="uid://cbdk6hv7wu8im" path="res://source/battle_unit/enemy.tscn" id="1"]
+[ext_resource type="Script" uid="uid://cjfuf0a3xym1t" path="res://source/enemies/anti_sex_worker.gd" id="2"]
+[ext_resource type="PackedScene" uid="uid://dpouf5gs07ysl" path="res://source/enemies/sprites/anti_sex_worker_sprite.tscn" id="3"]
+
+[node name="AntiSexWorker" unique_id=241095464 instance=ExtResource("1")]
+script = ExtResource("2")
+
+[node name="Sprite" parent="." index="0" unique_id=2012516024 instance=ExtResource("3")]

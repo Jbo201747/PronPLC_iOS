@@ -1,0 +1,466 @@
+[gd_scene format=3 uid="uid://bxrqriyosnkyj"]
+
+[ext_resource type="Script" uid="uid://7j5i4dpud2vb" path="res://source/battle_unit/battle_unit_bar.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://riaajkj4lyl5" path="res://arte/ui/hearts.png" id="2"]
+[ext_resource type="Script" uid="uid://cfpkpmdehkp8u" path="res://source/ui/generic/shadow_cloner.gd" id="3"]
+[ext_resource type="Texture2D" uid="uid://b44ciuqh2f8qp" path="res://arte/ui/shield.png" id="4"]
+[ext_resource type="Script" uid="uid://g7fudaq16s40" path="res://source/ui/generic/deboss_label.gd" id="5"]
+[ext_resource type="FontFile" uid="uid://2h7fup58h8vn" path="res://fonts/Suwannaphum-Bold.ttf" id="6"]
+[ext_resource type="Script" uid="uid://347a6i76hy3q" path="res://source/ui/generic/size_copier.gd" id="7"]
+[ext_resource type="Script" uid="uid://drgtw8sp4tp8n" path="res://source/library/anim_player.gd" id="8"]
+[ext_resource type="PackedScene" uid="uid://b3b1u3gw1osvy" path="res://source/ui/generic/hover_label.tscn" id="9"]
+
+[sub_resource type="Animation" id="Animation_3qija"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HBoxContainer/Label/LabelOffset:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HBoxContainer/Label/LabelOffset:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HBoxContainer/Icon/IconOffset/Heart:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("HBoxContainer/Icon/IconOffset/Shield:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("HBoxContainer/Icon/IconOffset:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("HBoxContainer/Icon/IconOffset:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath(".:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_4rt65"]
+resource_name = "appear"
+length = 0.5
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HBoxContainer/Label/LabelOffset:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 0.420448, 2, 1),
+"update": 0,
+"values": [Vector2(10, -1), Vector2(10, -1), Vector2(-2, -1), Vector2(0, -1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HBoxContainer/Label/LabelOffset:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.5),
+"transitions": PackedFloat32Array(0.378929, 0.378929, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HBoxContainer/Icon/IconOffset:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.4),
+"transitions": PackedFloat32Array(0.420448, 1, 2),
+"update": 0,
+"values": [Vector2(10, 0), Vector2(-2, 0), Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("HBoxContainer/Icon/IconOffset:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.378929, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_4skwh"]
+resource_name = "disappear"
+length = 0.6
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HBoxContainer/Label/LabelOffset:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(7.450581e-09, 0.10000001, 0.3, 0.6),
+"transitions": PackedFloat32Array(1, 0.39229208, 2.2973967, 1),
+"update": 0,
+"values": [Vector2(0, -1), Vector2(0, -1), Vector2(-2, -1), Vector2(10, -1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HBoxContainer/Icon/IconOffset:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.5),
+"transitions": PackedFloat32Array(1, 2.2973971, 0.378929),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HBoxContainer/Icon/IconOffset:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.5),
+"transitions": PackedFloat32Array(0.39229208, 2.2973967, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-2, 0), Vector2(10, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("HBoxContainer/Label/LabelOffset:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.6),
+"transitions": PackedFloat32Array(1, 2.2973967, 0.378929),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.6),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_lotvi"]
+resource_name = "hide"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HBoxContainer/Label/LabelOffset:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HBoxContainer/Icon/IconOffset:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_oi45o"]
+resource_name = "shield"
+length = 0.3
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HBoxContainer/Icon/IconOffset/Heart:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HBoxContainer/Icon/IconOffset/Shield:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HBoxContainer/Icon/IconOffset:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.099999994, 0.3),
+"transitions": PackedFloat32Array(0.39229205, 0.39229205, 1),
+"update": 0,
+"values": [Vector2(0, -2), Vector2(0, 1), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_nntoy"]
+resource_name = "unshield"
+length = 0.3
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HBoxContainer/Icon/IconOffset/Heart:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HBoxContainer/Icon/IconOffset/Shield:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HBoxContainer/Icon/IconOffset:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.099999994, 0.3),
+"transitions": PackedFloat32Array(0.39229205, 0.39229205, 1),
+"update": 0,
+"values": [Vector2(0, 2), Vector2(0, -1), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_icna2"]
+_data = {
+&"RESET": SubResource("Animation_3qija"),
+&"appear": SubResource("Animation_4rt65"),
+&"disappear": SubResource("Animation_4skwh"),
+&"hide": SubResource("Animation_lotvi"),
+&"shield": SubResource("Animation_oi45o"),
+&"unshield": SubResource("Animation_nntoy")
+}
+
+[node name="BattleUnitBar" type="Node2D" unique_id=1556762823]
+script = ExtResource("1")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=7567651]
+offset_left = -36.0
+offset_top = -14.0
+offset_right = 36.0
+offset_bottom = 13.0
+theme_override_constants/separation = -5
+alignment = 1
+
+[node name="Icon" type="Control" parent="HBoxContainer" unique_id=729186716]
+custom_minimum_size = Vector2(21, 24)
+layout_mode = 2
+
+[node name="IconOffset" type="Node2D" parent="HBoxContainer/Icon" unique_id=1235117422]
+
+[node name="Heart" type="Sprite2D" parent="HBoxContainer/Icon/IconOffset" unique_id=2025821426]
+unique_name_in_owner = true
+position = Vector2(-1, 0)
+texture = ExtResource("2")
+centered = false
+hframes = 6
+vframes = 2
+
+[node name="ShadowCloner" type="Node2D" parent="HBoxContainer/Icon/IconOffset/Heart" unique_id=352677396]
+position = Vector2(2, 2)
+script = ExtResource("3")
+modulate_depth = 2
+metadata/_custom_type_script = "uid://cfpkpmdehkp8u"
+
+[node name="Shield" type="Sprite2D" parent="HBoxContainer/Icon/IconOffset" unique_id=1651695859]
+unique_name_in_owner = true
+visible = false
+position = Vector2(-1, 0)
+texture = ExtResource("4")
+centered = false
+
+[node name="ShieldLabel" type="Control" parent="HBoxContainer/Icon/IconOffset/Shield" unique_id=31533229]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 3
+anchors_preset = 0
+offset_left = 4.0
+offset_top = 1.0
+offset_right = 21.0
+offset_bottom = 17.0
+script = ExtResource("5")
+font = ExtResource("6")
+deboss_color = Color(0.74509805, 0.91764706, 0.9098039, 1)
+metadata/_custom_type_script = "uid://g7fudaq16s40"
+
+[node name="ShadowCloner" type="Node2D" parent="HBoxContainer/Icon/IconOffset/Shield" unique_id=310040032]
+position = Vector2(2, 2)
+script = ExtResource("3")
+modulate_depth = 2
+metadata/_custom_type_script = "uid://cfpkpmdehkp8u"
+
+[node name="Label" type="Control" parent="HBoxContainer" unique_id=329839516 node_paths=PackedStringArray("source")]
+custom_minimum_size = Vector2(17, 18.12)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+script = ExtResource("7")
+source = NodePath("LabelOffset/HealthLabel")
+offset = Vector2(1, 0)
+metadata/_custom_type_script = "uid://347a6i76hy3q"
+
+[node name="LabelOffset" type="Node2D" parent="HBoxContainer/Label" unique_id=2013133691]
+position = Vector2(0, -1)
+
+[node name="HealthLabel" type="Label" parent="HBoxContainer/Label/LabelOffset" unique_id=436884249]
+unique_name_in_owner = true
+z_index = 1
+offset_right = 16.0
+offset_bottom = 18.12
+theme_type_variation = &"BoldOutlineLabel"
+theme_override_font_sizes/font_size = 10
+text = "6/6"
+
+[node name="ShadowCloner" type="Node2D" parent="HBoxContainer/Label/LabelOffset/HealthLabel" unique_id=1576968194]
+position = Vector2(2, 2)
+script = ExtResource("3")
+modulate_depth = 2
+metadata/_custom_type_script = "uid://cfpkpmdehkp8u"
+
+[node name="AnimPlayer" type="AnimationPlayer" parent="." unique_id=1369361309]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_icna2")
+autoplay = &"hide"
+script = ExtResource("8")
+metadata/_custom_type_script = "uid://drgtw8sp4tp8n"
+
+[node name="NameLabel" parent="." unique_id=677849495 instance=ExtResource("9")]
+unique_name_in_owner = true
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -39.5
+offset_top = 7.0
+offset_right = 39.5
+offset_bottom = 21.496002
+grow_horizontal = 2
+text = "Lexicographer"
+horizontal_alignment = 1

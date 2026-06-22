@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://dgy0pi7pbk4k0"]
+
+[ext_resource type="PackedScene" uid="uid://c6vvnk61vcc48" path="res://source/ui/menu/generic/big_menu_panel.tscn" id="1"]
+[ext_resource type="Script" uid="uid://docitunv7rkra" path="res://source/ui/menu/save_select/save_select.gd" id="2"]
+[ext_resource type="PackedScene" uid="uid://c5b7lvbrglom8" path="res://source/ui/menu/generic/sectioned_panel.tscn" id="3"]
+[ext_resource type="PackedScene" uid="uid://c46k2cw1je5jq" path="res://source/ui/menu/save_select/new_save_button.tscn" id="4"]
+[ext_resource type="Script" uid="uid://bw0654wf7gb1s" path="res://source/ui/menu/save_select/new_save_button.gd" id="5"]
+
+[node name="SaveSelect" unique_id=1499490309 instance=ExtResource("1")]
+focus_mode = 2
+script = ExtResource("2")
+
+[node name="SectionedPanel" parent="PositionRoot/Panel" parent_id_path=PackedInt32Array(1955025572) index="1" unique_id=1400204219 instance=ExtResource("3")]
+unique_name_in_owner = true
+layout_mode = 1
+
+[node name="MarginContainer" parent="PositionRoot/Panel/SectionedPanel/MainMask" parent_id_path=PackedInt32Array(1400204219, 402416624) index="0" unique_id=147788459]
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_right = 8
+
+[node name="NewSaveButton" parent="PositionRoot/Panel/SectionedPanel/MainMask/MarginContainer/ScrollContainer/MarginContainer/ContentsBox" parent_id_path=PackedInt32Array(1400204219, 828913805) index="0" unique_id=1284861462 instance=ExtResource("4")]
+unique_name_in_owner = true
+layout_mode = 2
+script = ExtResource("5")
+
+[connection signal="start_appearing" from="." to="." method="_on_start_appearing"]
+[connection signal="start_disappearing" from="." to="." method="_on_start_disappearing"]
+[connection signal="pressed" from="PositionRoot/Panel/SectionedPanel/MainMask/MarginContainer/ScrollContainer/MarginContainer/ContentsBox/NewSaveButton" to="." method="_on_new_save_button_pressed"]
+
+[editable path="PositionRoot/Panel/SectionedPanel"]

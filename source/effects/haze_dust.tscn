@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://dr1n6fynrbneo"]
+
+[ext_resource type="PackedScene" uid="uid://cnalfjt5i44ko" path="res://source/effects/ember.tscn" id="1"]
+[ext_resource type="Script" uid="uid://duwugmnflpskc" path="res://source/effects/haze_dust.gd" id="2"]
+[ext_resource type="Texture2D" uid="uid://dcccpy0qm0maw" path="res://arte/effects/haze_dust.png" id="3"]
+
+[sub_resource type="Animation" id="Animation_t3ios"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:skew")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_be86n"]
+resource_name = "flip"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:skew")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.51, 1),
+"transitions": PackedFloat32Array(2.21914, 0, 0.225313, 1),
+"update": 0,
+"values": [0.0, 1.56905, -1.56905, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yuagv"]
+_data = {
+&"RESET": SubResource("Animation_t3ios"),
+&"flip": SubResource("Animation_be86n")
+}
+
+[node name="HazeDust" unique_id=2090551369 instance=ExtResource("1")]
+script = ExtResource("2")
+
+[node name="Sprite" parent="." index="0" unique_id=1043089797]
+modulate = Color(1, 1, 1, 1)
+texture = ExtResource("3")
+hframes = 2
+
+[node name="AnimPlayer" parent="." index="1" unique_id=2098411465]
+libraries/ = SubResource("AnimationLibrary_yuagv")

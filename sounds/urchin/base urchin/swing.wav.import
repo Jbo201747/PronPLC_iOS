@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bn8bd2xibckmr"
+path="res://.godot/imported/swing.wav-083a8e9030ae63acdec58ff8446670e5.sample"
+
+[deps]
+
+source_file="res://sounds/urchin/base urchin/swing.wav"
+dest_files=["res://.godot/imported/swing.wav-083a8e9030ae63acdec58ff8446670e5.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=0
+compress/mode=0

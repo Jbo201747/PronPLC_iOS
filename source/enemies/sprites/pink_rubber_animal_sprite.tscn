@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://dkff5ekygihay"]
+
+[ext_resource type="PackedScene" uid="uid://8j731tptvafg" path="res://source/enemies/sprites/rubber_animal_sprite.tscn" id="1"]
+[ext_resource type="Texture2D" uid="uid://be13jcsaxb1wu" path="res://arte/enemies/pink_rubber_animal.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://o45afqapdfdp" path="res://arte/enemies/pink_rubber_animal_blood.png" id="3"]
+
+[node name="PinkRubberAnimalSprite" unique_id=1664248627 instance=ExtResource("1")]
+
+[node name="Sprite" parent="." index="0" unique_id=2080200226]
+texture = ExtResource("2")
+
+[node name="RubberAnimalBlood" parent="Sprite" index="0" unique_id=1041105714]
+texture = ExtResource("3")

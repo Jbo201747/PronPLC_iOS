@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://xrcrntebt85c"]
+
+[ext_resource type="Script" uid="uid://tqvtp7ysy7us" path="res://source/ui/tooltip/tooltip_collision.gd" id="1"]
+
+[node name="TooltipCollision" type="Control" unique_id=641064419]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 20.0
+offset_bottom = 20.0
+mouse_filter = 2
+script = ExtResource("1")

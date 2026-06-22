@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://crd1v3xwolijk"]
+
+[ext_resource type="PackedScene" uid="uid://mgvsienk8a2n" path="res://source/enemies/sprites/bottom_feeder_sprite_old.tscn" id="1"]
+[ext_resource type="Texture2D" uid="uid://bdrl8wlhbantm" path="res://arte/enemies/filter_feeder_old.png" id="2"]
+
+[node name="FilterFeederSprite" unique_id=357411671 instance=ExtResource("1")]
+
+[node name="Sprite" parent="." index="0" unique_id=330111499]
+texture = ExtResource("2")
+
+[node name="Snot" parent="." index="1" unique_id=1638690472]
+scale = Vector2(1, 1)

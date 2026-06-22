@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://cl7cyh3xctpw7"]
+
+[ext_resource type="PackedScene" uid="uid://btj0bfdsmme4t" path="res://source/enemies/sprites/noppy_sprite.tscn" id="1"]
+[ext_resource type="Texture2D" uid="uid://dugri2xa027tx" path="res://arte/enemies/soppy_spoon.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://fc74isbxtg05" path="res://arte/enemies/soppy.png" id="3"]
+
+[node name="SoppySprite" unique_id=317676726 instance=ExtResource("1")]
+
+[node name="Spoon" parent="." index="0" unique_id=1049583541]
+texture = ExtResource("2")
+
+[node name="Noppy" parent="NoppyOffset" parent_id_path=PackedInt32Array(606949217) index="0" unique_id=2003285519]
+texture = ExtResource("3")

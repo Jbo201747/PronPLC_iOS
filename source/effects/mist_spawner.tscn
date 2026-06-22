@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://8swa18bv0fn"]
+
+[ext_resource type="Script" uid="uid://ckkqk7r7wvjmw" path="res://source/effects/mist_spawner.gd" id="1"]
+
+[node name="MistSpawner" type="Node2D" unique_id=801080068]
+script = ExtResource("1")

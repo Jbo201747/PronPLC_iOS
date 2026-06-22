@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://dgtvtcn5lo1dl"]
+
+[ext_resource type="PackedScene" uid="uid://xrcrntebt85c" path="res://source/ui/tooltip/tooltip_collision.tscn" id="1"]
+[ext_resource type="Script" uid="uid://0qivna3f8qy4" path="res://source/ui/tooltip/menu_tooltip_collision.gd" id="2"]
+[ext_resource type="PackedScene" uid="uid://57frrrc02edb" path="res://source/ui/tooltip/menu_tooltip.tscn" id="3"]
+
+[node name="MenuTooltipCollision" unique_id=1758529479 instance=ExtResource("1")]
+script = ExtResource("2")
+red = false
+string_identifier = ""
+context = {}
+default_delay = 0
+menu_tooltip = true
+tooltip_scene = ExtResource("3")

@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://u5g27v0re13i"]
+
+[ext_resource type="PackedScene" uid="uid://b6aro6o71syk6" path="res://source/battle_unit/character.tscn" id="1"]
+[ext_resource type="Script" uid="uid://bl36nk0gce637" path="res://source/characters/jubilist.gd" id="2"]
+[ext_resource type="PackedScene" uid="uid://cla61trg318u7" path="res://source/characters/sprites/jubilist_sprite.tscn" id="3"]
+
+[node name="Jubilist" unique_id=292403961 instance=ExtResource("1")]
+script = ExtResource("2")
+
+[node name="Sprite" parent="." index="0" unique_id=1385443195 instance=ExtResource("3")]

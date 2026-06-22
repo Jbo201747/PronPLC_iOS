@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://de682qcoii40t"]
+
+[ext_resource type="PackedScene" uid="uid://cbdk6hv7wu8im" path="res://source/battle_unit/enemy.tscn" id="1"]
+[ext_resource type="Script" uid="uid://cvia2uucxx2dc" path="res://source/enemies/declawed.gd" id="2"]
+[ext_resource type="PackedScene" uid="uid://d31wxcjneovpp" path="res://source/enemies/sprites/declawed_sprite.tscn" id="3"]
+
+[node name="Declawed" unique_id=205393506 instance=ExtResource("1")]
+script = ExtResource("2")
+
+[node name="Sprite" parent="." index="0" unique_id=1464711595 instance=ExtResource("3")]

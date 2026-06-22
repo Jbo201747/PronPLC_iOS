@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://cxxvqm1q5betf"]
+
+[ext_resource type="PackedScene" uid="uid://cbdk6hv7wu8im" path="res://source/battle_unit/enemy.tscn" id="1"]
+[ext_resource type="Script" uid="uid://m6qv0ogs0jks" path="res://source/enemies/bammon.gd" id="2"]
+[ext_resource type="PackedScene" uid="uid://c3mkpeud3oglp" path="res://source/enemies/sprites/bammon_sprite.tscn" id="3"]
+
+[node name="Bammon" unique_id=12246876 instance=ExtResource("1")]
+script = ExtResource("2")
+
+[node name="Sprite" parent="." index="0" unique_id=400161214 instance=ExtResource("3")]

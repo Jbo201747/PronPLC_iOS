@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://dow3fob83faho"]
+
+[ext_resource type="PackedScene" uid="uid://b3i1vst4708al" path="res://source/background/chunks/base/sprite_chunk.tscn" id="1"]
+[ext_resource type="Texture2D" uid="uid://bwjx6m8043f5" path="res://arte/backgrounds/act_3/hallway_1.png" id="2"]
+[ext_resource type="Script" uid="uid://ddinato40k13" path="res://source/background/overlap_indicator.gd" id="3"]
+
+[node name="BackgroundChunk" unique_id=376697462 instance=ExtResource("1")]
+z_index = -1
+
+[node name="Sprite2D" parent="." index="0" unique_id=174746349]
+position = Vector2(-62, -151)
+texture = ExtResource("2")
+centered = false
+
+[node name="LeftOverlap" parent="." index="1" unique_id=1030252478]
+position = Vector2(0, 12)
+
+[node name="Ground" type="Control" parent="LeftOverlap" index="0" unique_id=1801498479]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -45.0
+offset_top = -40.0
+offset_right = -45.0
+offset_bottom = -7.0
+script = ExtResource("3")
+metadata/_custom_type_script = "uid://ddinato40k13"
+metadata/_edit_use_anchors_ = true
+
+[node name="RightOverlap" parent="." index="2" unique_id=582485431]
+position = Vector2(0, 12)
+
+[node name="Ground" type="Control" parent="RightOverlap" index="0" unique_id=1831841749]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 49.0
+offset_top = -40.0
+offset_right = 49.0
+offset_bottom = -7.0
+script = ExtResource("3")
+metadata/_custom_type_script = "uid://ddinato40k13"
+metadata/_edit_use_anchors_ = true

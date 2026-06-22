@@ -1,0 +1,58 @@
+[gd_resource type="Resource" script_class="BGLayer" format=3 uid="uid://bgrtdchy43ahm"]
+
+[ext_resource type="PackedScene" uid="uid://draot6bltuqxq" path="res://source/background/chunks/act_1/sidewalk_2.tscn" id="1"]
+[ext_resource type="Script" uid="uid://eanwv1abiw6y" path="res://source/background/resources/chunk_entry.gd" id="2"]
+[ext_resource type="PackedScene" uid="uid://bj4qw1ndnt7av" path="res://source/background/chunks/act_1/sidewalk_3.tscn" id="3"]
+[ext_resource type="PackedScene" uid="uid://c4wd2vtvgqlup" path="res://source/background/chunks/act_1/sidewalk_4.tscn" id="4"]
+[ext_resource type="Script" uid="uid://cgt3v7pqo2f3s" path="res://source/background/resources/group.gd" id="5"]
+[ext_resource type="Script" uid="uid://4xnkv17k7r2u" path="res://source/background/resources/pattern.gd" id="6"]
+[ext_resource type="Script" uid="uid://dyac22bllw18l" path="res://source/background/resources/group_entry.gd" id="7"]
+[ext_resource type="Script" uid="uid://bio02cenhh5hr" path="res://source/background/resources/pattern_step.gd" id="8"]
+[ext_resource type="Script" uid="uid://dkmj8b7llyv41" path="res://source/background/resources/layer.gd" id="9"]
+
+[sub_resource type="Resource" id="Resource_0mcao"]
+script = ExtResource("2")
+chunk = ExtResource("1")
+metadata/_custom_type_script = "uid://eanwv1abiw6y"
+
+[sub_resource type="Resource" id="Resource_n7ucw"]
+script = ExtResource("2")
+chunk = ExtResource("3")
+weight = 0.5
+repeat_delay = 2
+metadata/_custom_type_script = "uid://eanwv1abiw6y"
+
+[sub_resource type="Resource" id="Resource_f0se6"]
+script = ExtResource("2")
+chunk = ExtResource("4")
+metadata/_custom_type_script = "uid://eanwv1abiw6y"
+
+[sub_resource type="Resource" id="Resource_gn86u"]
+script = ExtResource("5")
+id = "sidewalks"
+entries = [SubResource("Resource_0mcao"), SubResource("Resource_n7ucw"), SubResource("Resource_f0se6")]
+metadata/_custom_type_script = "uid://cgt3v7pqo2f3s"
+
+[sub_resource type="Resource" id="Resource_xgu0n"]
+script = ExtResource("7")
+id = "sidewalks"
+metadata/_custom_type_script = "uid://dyac22bllw18l"
+
+[sub_resource type="Resource" id="Resource_8vs56"]
+script = ExtResource("8")
+entries = [SubResource("Resource_xgu0n")]
+metadata/_custom_type_script = "uid://bio02cenhh5hr"
+
+[sub_resource type="Resource" id="Resource_b7qma"]
+script = ExtResource("6")
+id = "loop"
+next = "loop"
+steps = [SubResource("Resource_8vs56")]
+metadata/_custom_type_script = "uid://4xnkv17k7r2u"
+
+[resource]
+script = ExtResource("9")
+z_index = -50
+groups = [SubResource("Resource_gn86u")]
+patterns = [SubResource("Resource_b7qma")]
+metadata/_custom_type_script = "uid://dkmj8b7llyv41"

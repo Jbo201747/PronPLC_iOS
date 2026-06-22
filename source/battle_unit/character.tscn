@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://b6aro6o71syk6"]
+
+[ext_resource type="PackedScene" uid="uid://dmtkvkg8336dd" path="res://source/battle_unit/battle_unit.tscn" id="1"]
+[ext_resource type="Script" uid="uid://c4xq3faiaivwq" path="res://source/battle_unit/character.gd" id="2"]
+
+[node name="Character" unique_id=651432652 instance=ExtResource("1")]
+script = ExtResource("2")

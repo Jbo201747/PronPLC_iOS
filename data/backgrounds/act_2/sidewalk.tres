@@ -1,0 +1,69 @@
+[gd_resource type="Resource" script_class="BGLayer" format=3 uid="uid://cqp6t3r54c6yb"]
+
+[ext_resource type="Script" uid="uid://cgt3v7pqo2f3s" path="res://source/background/resources/group.gd" id="1"]
+[ext_resource type="Script" uid="uid://4xnkv17k7r2u" path="res://source/background/resources/pattern.gd" id="2"]
+[ext_resource type="Script" uid="uid://dyac22bllw18l" path="res://source/background/resources/group_entry.gd" id="3"]
+[ext_resource type="Script" uid="uid://bio02cenhh5hr" path="res://source/background/resources/pattern_step.gd" id="4"]
+[ext_resource type="PackedScene" uid="uid://cye45n0mnluod" path="res://source/background/chunks/act_2/sidewalk_brutalist.tscn" id="5"]
+[ext_resource type="Script" uid="uid://eanwv1abiw6y" path="res://source/background/resources/chunk_entry.gd" id="6"]
+[ext_resource type="Script" uid="uid://dg2sbx0ywm212" path="res://source/background/resources/empty_entry.gd" id="7"]
+[ext_resource type="Script" uid="uid://dkmj8b7llyv41" path="res://source/background/resources/layer.gd" id="8"]
+
+[sub_resource type="Resource" id="Resource_gn86u"]
+script = ExtResource("1")
+id = "sidewalks"
+chunk_scene_folder = "res://source/background/chunks/act_2/sidewalk"
+default_repeat_delay = 1
+metadata/_custom_type_script = "uid://cgt3v7pqo2f3s"
+
+[sub_resource type="Resource" id="Resource_xgu0n"]
+script = ExtResource("3")
+id = "sidewalks"
+metadata/_custom_type_script = "uid://dyac22bllw18l"
+
+[sub_resource type="Resource" id="Resource_8vs56"]
+script = ExtResource("4")
+entries = [SubResource("Resource_xgu0n")]
+metadata/_custom_type_script = "uid://bio02cenhh5hr"
+
+[sub_resource type="Resource" id="Resource_b7qma"]
+script = ExtResource("2")
+id = "loop"
+next = "loop"
+steps = [SubResource("Resource_8vs56")]
+metadata/_custom_type_script = "uid://4xnkv17k7r2u"
+
+[sub_resource type="Resource" id="Resource_5tcgt"]
+script = ExtResource("6")
+chunk = ExtResource("5")
+metadata/_custom_type_script = "uid://eanwv1abiw6y"
+
+[sub_resource type="Resource" id="Resource_lt0hi"]
+script = ExtResource("4")
+entries = [SubResource("Resource_5tcgt")]
+metadata/_custom_type_script = "uid://bio02cenhh5hr"
+
+[sub_resource type="Resource" id="Resource_66cy6"]
+script = ExtResource("7")
+minimum_distance = 100
+maximum_distance = 100
+metadata/_custom_type_script = "uid://dg2sbx0ywm212"
+
+[sub_resource type="Resource" id="Resource_id6t8"]
+script = ExtResource("4")
+entries = [SubResource("Resource_66cy6")]
+metadata/_custom_type_script = "uid://bio02cenhh5hr"
+
+[sub_resource type="Resource" id="Resource_8v2i0"]
+script = ExtResource("2")
+id = "brutalist"
+next = "loop"
+steps = [SubResource("Resource_lt0hi"), SubResource("Resource_id6t8")]
+metadata/_custom_type_script = "uid://4xnkv17k7r2u"
+
+[resource]
+script = ExtResource("8")
+z_index = -30
+groups = [SubResource("Resource_gn86u")]
+patterns = [SubResource("Resource_b7qma"), SubResource("Resource_8v2i0")]
+metadata/_custom_type_script = "uid://dkmj8b7llyv41"

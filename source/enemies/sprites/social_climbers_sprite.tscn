@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://ci8ayx778x5di"]
+
+[ext_resource type="PackedScene" uid="uid://ef50qqrln4ou" path="res://source/enemies/sprites/paddlers_sprite.tscn" id="1"]
+[ext_resource type="Texture2D" uid="uid://bk8g8ec7de6wm" path="res://arte/enemies/social_climber_yaoi.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://bndtnf0ibhcgt" path="res://arte/enemies/social_climber_yuri.png" id="3"]
+
+[node name="SocialClimbersSprite" unique_id=697320536 instance=ExtResource("1")]
+global_pitch_scale = 0.95
+
+[node name="Yaoi" parent="Offset" parent_id_path=PackedInt32Array(1642087724) index="0" unique_id=877515424]
+texture = ExtResource("2")
+
+[node name="Yuri" parent="Offset" parent_id_path=PackedInt32Array(1642087724) index="1" unique_id=689804346]
+texture = ExtResource("3")

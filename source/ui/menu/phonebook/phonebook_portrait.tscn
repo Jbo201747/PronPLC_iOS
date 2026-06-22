@@ -1,0 +1,104 @@
+[gd_scene format=3 uid="uid://b8i6h5ehlvk86"]
+
+[ext_resource type="Script" uid="uid://bk4nanqlkxh83" path="res://source/ui/menu/phonebook/phonebook_portrait.gd" id="1"]
+[ext_resource type="PackedScene" uid="uid://2xkegecf38xo" path="res://source/ui/menu/phonebook/shadow_button.tscn" id="2"]
+
+[node name="PhonebookPortrait" type="Control" unique_id=1244724143]
+custom_minimum_size = Vector2(216, 278)
+clip_contents = true
+layout_mode = 3
+anchors_preset = 0
+mouse_filter = 2
+mouse_behavior_recursive = 1
+script = ExtResource("1")
+
+[node name="Panel" type="Panel" parent="." unique_id=368695436]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_type_variation = &"MenuPaperAlt"
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel" unique_id=119288846]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer" unique_id=508865257]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 0
+
+[node name="PortraitBox" type="Control" parent="Panel/MarginContainer/VBoxContainer" unique_id=811999885 groups=["use_local_particles"]]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 140)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="SpriteContainer" type="Control" parent="Panel/MarginContainer/VBoxContainer/PortraitBox" unique_id=1691299167]
+unique_name_in_owner = true
+clip_contents = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+mouse_filter = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="Panel/MarginContainer/VBoxContainer/PortraitBox" unique_id=433144397]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -16.0
+offset_bottom = 16.0
+grow_horizontal = 0
+mouse_filter = 2
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 9
+
+[node name="ShadowButton" parent="Panel/MarginContainer/VBoxContainer/PortraitBox/MarginContainer2" unique_id=1477871532 instance=ExtResource("2")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="EnemyNameLabel" type="Label" parent="Panel/MarginContainer/VBoxContainer" unique_id=1479180191]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"MainMenuLabel"
+text = "Cat"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/MarginContainer/VBoxContainer" unique_id=1025944447]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_right = 12
+
+[node name="Notes" type="RichTextLabel" parent="Panel/MarginContainer/VBoxContainer/MarginContainer" unique_id=1949477926]
+unique_name_in_owner = true
+custom_maximum_size = Vector2(192, -1)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+mouse_filter = 1
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 7
+bbcode_enabled = true
+text = "Originally introduced in an attempt to control bookworm populations.
+
+Quickly became a pest themselves."
+fit_content = true

@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://criq7b8mc0yf0"]
+
+[ext_resource type="PackedScene" uid="uid://dmjmnqhws51ov" path="res://source/ui/menu/generic/label_switcher.tscn" id="1"]
+
+[node name="BigLabelSwitcher" unique_id=1679092029 instance=ExtResource("1")]
+
+[node name="Label" parent="." index="1" unique_id=518965714]
+theme_type_variation = &"MainMenuLabel"

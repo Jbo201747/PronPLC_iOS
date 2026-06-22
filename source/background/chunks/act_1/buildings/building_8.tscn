@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://b6ejiqrhe043l"]
+
+[ext_resource type="PackedScene" uid="uid://b3i1vst4708al" path="res://source/background/chunks/base/sprite_chunk.tscn" id="1"]
+[ext_resource type="Texture2D" uid="uid://d4dakawltshuo" path="res://arte/backgrounds/act_1/building_8.png" id="2"]
+[ext_resource type="Script" uid="uid://ddinato40k13" path="res://source/background/overlap_indicator.gd" id="3"]
+
+[node name="BackgroundChunk" unique_id=554692525 instance=ExtResource("1")]
+
+[node name="Sprite2D" parent="." index="0" unique_id=174746349]
+position = Vector2(0, -52)
+texture = ExtResource("2")
+
+[node name="LeftOverlap" parent="." index="1" unique_id=1030252478]
+position = Vector2(0, 12)
+
+[node name="Building" type="Control" parent="LeftOverlap" index="0" unique_id=170501500]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -107.0
+offset_top = -86.0
+offset_right = -98.0
+offset_bottom = -60.0
+script = ExtResource("3")
+metadata/_custom_type_script = "uid://ddinato40k13"
+
+[node name="Ground" type="Control" parent="LeftOverlap" index="1" unique_id=520332589]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -62.0
+offset_top = -31.0
+offset_right = -62.0
+offset_bottom = 2.0
+script = ExtResource("3")
+metadata/_custom_type_script = "uid://ddinato40k13"
+metadata/_edit_use_anchors_ = true
+
+[node name="RightOverlap" parent="." index="2" unique_id=582485431]
+position = Vector2(0, 12)
+
+[node name="Building" type="Control" parent="RightOverlap" index="0" unique_id=400690387]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 95.0
+offset_top = -75.0
+offset_right = 102.0
+offset_bottom = -49.0
+script = ExtResource("3")
+metadata/_custom_type_script = "uid://ddinato40k13"
+
+[node name="Ground" type="Control" parent="RightOverlap" index="1" unique_id=923845623]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 71.0
+offset_top = -28.0
+offset_right = 71.0
+offset_bottom = 5.0
+script = ExtResource("3")
+metadata/_custom_type_script = "uid://ddinato40k13"
+metadata/_edit_use_anchors_ = true

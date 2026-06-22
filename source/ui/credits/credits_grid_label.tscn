@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://w6e1dixpjxig"]
+
+[ext_resource type="Script" uid="uid://cfpkpmdehkp8u" path="res://source/ui/generic/shadow_cloner.gd" id="1"]
+
+[node name="Label" type="Label" unique_id=1192716317]
+size_flags_horizontal = 6
+theme_type_variation = &"BoldOutlineLabel"
+text = "Foxgirl"
+
+[node name="ShadowCloner" type="Node2D" parent="." unique_id=1207652045]
+position = Vector2(2, 2)
+script = ExtResource("1")
+local_shadow_group = true
+metadata/_custom_type_script = "uid://cfpkpmdehkp8u"

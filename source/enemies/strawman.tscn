@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://dg66rd15ik427"]
+
+[ext_resource type="PackedScene" uid="uid://cbdk6hv7wu8im" path="res://source/battle_unit/enemy.tscn" id="1"]
+[ext_resource type="Script" uid="uid://bsqf4sgyv7xgi" path="res://source/enemies/strawman.gd" id="2"]
+[ext_resource type="PackedScene" uid="uid://1yq1spgaiwea" path="res://source/enemies/sprites/strawman_sprite.tscn" id="3"]
+
+[node name="Strawman" unique_id=1248839949 instance=ExtResource("1")]
+script = ExtResource("2")
+idle_after_flinching = false
+
+[node name="Sprite" parent="." index="0" unique_id=707805991 instance=ExtResource("3")]

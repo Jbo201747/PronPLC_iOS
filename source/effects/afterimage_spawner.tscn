@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://0n887pgxw8mb"]
+
+[ext_resource type="PackedScene" uid="uid://dh6lqtk34pfn2" path="res://source/effects/particle_spawner.tscn" id="1"]
+[ext_resource type="Script" uid="uid://bx7t5cr3mfl5m" path="res://source/effects/afterimage_spawner.gd" id="2"]
+
+[node name="AfterimageSpawner" unique_id=586769612 instance=ExtResource("1")]
+script = ExtResource("2")

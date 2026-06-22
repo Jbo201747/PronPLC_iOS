@@ -1,0 +1,88 @@
+[gd_scene format=3 uid="uid://b7i3mjgc2luvp"]
+
+[ext_resource type="Script" uid="uid://bo474oi5b36jj" path="res://source/ui/menu/generic/tab_button.gd" id="1"]
+[ext_resource type="Script" uid="uid://7xvadspst3p5" path="res://source/ui/generic/hover_handler.gd" id="2"]
+[ext_resource type="PackedScene" uid="uid://d4a7isuy7vbow" path="res://source/ui/generic/action_glyph.tscn" id="3"]
+
+[node name="TabButton" type="Control" unique_id=468532332]
+z_index = -1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -480.0
+offset_bottom = -270.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1")
+
+[node name="HoverOffset" type="Control" parent="." unique_id=1068257251]
+anchors_preset = 0
+mouse_filter = 2
+
+[node name="Panel" type="Panel" parent="HoverOffset" unique_id=1968135403]
+unique_name_in_owner = true
+layout_mode = 0
+offset_top = -22.0
+offset_right = 59.0
+offset_bottom = 4.0
+mouse_filter = 2
+theme_type_variation = &"MenuTicketTabDeselected"
+
+[node name="MarginContainer" type="MarginContainer" parent="HoverOffset/Panel" unique_id=1116004639]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 0
+
+[node name="Button" type="Button" parent="HoverOffset/Panel/MarginContainer" unique_id=1191244793]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 1
+toggle_mode = true
+flat = true
+metadata/tab = NodePath("../../../..")
+
+[node name="LabelMargins" type="MarginContainer" parent="HoverOffset/Panel/MarginContainer" unique_id=94477694]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_bottom = 4
+
+[node name="Label" type="Label" parent="HoverOffset/Panel/MarginContainer/LabelMargins" unique_id=772322306]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+theme_type_variation = &"MainMenuLabel"
+theme_override_font_sizes/font_size = 9
+text = "Gamepad"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HoverHandler" type="Node2D" parent="HoverOffset/Panel" unique_id=293732957 node_paths=PackedStringArray("hovering", "source")]
+unique_name_in_owner = true
+script = ExtResource("2")
+hovering = NodePath("../..")
+source = NodePath("../MarginContainer/Button")
+hovered_position = Vector2(0, -4)
+pressed_position = Vector2(0, -2)
+metadata/_custom_type_script = "uid://7xvadspst3p5"
+
+[node name="ActionGlyph" parent="HoverOffset/Panel" unique_id=1185166845 instance=ExtResource("3")]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = -18.0
+offset_top = 5.0
+offset_right = -2.0
+offset_bottom = 21.0
+action = &"menu_tab_left"
+controller_mode_only = true
+with_setting_only = true

@@ -1,0 +1,550 @@
+:p:
+	{"." not control}{"$" if control}
+
+# Censor Start
+:c_st:
+	{"[color=#00000044][shake rate=10.0 level=2]" not trans}
+
+# Censor End
+:c_en:
+	{"[/shake][/color]" not trans}
+
+:c_I:
+	{:c_st:}I{:c_en:}
+
+:c_Im:
+	{:c_st:}I’m{:c_en:}
+
+:c_me:
+	{:c_st:}me{:c_en:}
+
+:c_my:
+	{:c_st:}my{:c_en:}
+
+:c_You:
+	{:c_st:}You{:c_en:}
+
+:c_you:
+	{:c_st:}you{:c_en:}
+
+:c_your:
+	{:c_st:}your{:c_en:}
+
+:c_youre:
+	{:c_st:}you’re{:c_en:}
+
+:c_Youre:
+	{:c_st:}You’re{:c_en:}
+
+:c_youve:
+	{:c_st:}you’ve{:c_en:}
+
+:c_s:
+	{:c_st:}’s{:c_en:}
+
+#########################
+##### LEXICOGRAPHER #####
+#########################
+
+
+:lexicographer:
+	:intro:
+		:flags:
+			pre_trans priority first_encounter
+
+		::
+			There was a mistake.
+			:flags:
+				character
+
+		::
+			The Party took {:c_my:} pronouns,
+			but {:c_I:} did everything right.
+			:flags:
+				character
+
+		::
+			{:c_I:} have the forms with {:c_me:}.
+			Is this the right office?
+			:flags:
+				character
+
+		::
+			I can’t help {:c_you:}
+			illegally transition.
+			:flags:
+				nobody
+
+		::
+			Then what’s the legal way?
+			:flags:
+				character
+
+		::
+			{:c_Youre:} hilarious, Mr{:p:} Nguyen.
+			:flags:
+				nobody
+
+		::
+			[font_size=20]...[/font_size]
+
+			:flags:
+				nobody pro_piracy
+
+		::
+			Why are {:c_you:} dressed
+			like a pirate?
+
+			:flags:
+				nobody pro_piracy
+
+	:wife:
+		:flags:
+			pre_trans
+
+		::
+			Does {:c_your:} wife like women, Mr{:p:}
+			Nguyen? Will transitioning help
+			with {:c_your:} procreative duties?
+
+		::
+			{:c_I:} haven’t seen her in years.
+			{:c_Im:} just doing this for {:c_me:}.
+
+	:dictionary:
+		:flags:
+			post_trans
+
+		::
+			I’m flattered by the new look.
+
+		::
+			I don’t believe we are very alike.
+
+		::
+			How many words have
+			you removed from that
+			dictionary of yours?
+
+		::
+			It looks a little thinner
+			each time I see it.
+
+			:flags:
+				nobody
+
+	:razors:
+		:flags:
+			post_trans
+
+		::
+			Can you believe
+			the razor shortage?
+
+			:flags:
+				character
+
+		::
+			Demand is high.
+			The Party is producing a
+			record number of razors.
+
+		::
+			[font_size=20]...[/font_size]
+
+			:flags:
+				nobody
+
+		::
+			It is pretty annoying.
+
+			:flags:
+				nobody
+
+		::
+			And yet the funny thing is
+
+			:flags:
+				cutoff
+
+		::
+			I believe we’ve both
+			said enough for tonight.
+
+	:renewal:
+		:flags:
+			post_trans priority
+
+		::
+			Mrs. Nguyen, surely you know I
+			can’t approve the renewal for
+			your pronouns.
+
+		::
+			It would be both of our asses.
+
+			:flags:
+				nobody
+
+		::
+			How is it any different from
+			what you’re doing?
+
+		::
+			Wouldn’t it be safer to
+			have each other’s backs?
+
+			:flags:
+				character
+
+		::
+			Why don’t you just take a walk
+			down to the Bureau of Love and
+			leave me out of it?
+
+
+########################
+####### JUBILIST #######
+########################
+
+
+:jubilist:
+	:intro:
+		:flags:
+			pre_trans priority first_encounter
+
+		::
+			{:c_I:} heard you liked {:c_my:} manifesto.
+
+			:flags:
+				character
+
+		::
+			Don’t tell me {:c_youre:} one
+			of those retarded clowns.
+
+		::
+			When am {:c_I:} getting {:c_my:} royalties?
+
+		::
+			The Bureau of Information
+			is in another palace.
+
+		::
+			Shame you got {:c_my:} name wrong.
+
+	:forms:
+		::
+			{:c_You:} seem to be missing
+			Form 1, Form 3a, Form 3b,
+			and... 11 other forms.
+
+		::
+			Have you checked
+			behind your ear?
+
+	:crimes:
+		::
+			What’s that stack of papers?
+			List of {:c_my:} crimes and
+			misdemeanors?
+
+			:flags:
+				character
+
+		::
+			Oh, no. Just the index.
+
+	:lime:
+		::
+			No, {:c_you:} can’t sign
+			with lemon juice.
+
+		::
+			What about lime?
+
+	:gun:
+		:flags:
+			post_trans
+
+		::
+			Sorry to spoil the fun, but I
+			already know that’s a prop gun.
+
+		::
+			Oh it’s real. But I’m
+			not wasting it on you.
+
+		::
+			Probs just going to blow
+			my brains out when they
+			eventually come for me.
+
+			:flags:
+				character
+
+		::
+			Just imagine the
+			look on their faces.
+
+			:flags:
+				character
+
+	:honk:
+		:flags:
+			post_trans
+
+		::
+			The clown agai{"n?" not control}
+
+			:flags:
+				cutoff
+
+		::
+			[shake rate=20.0 level=5]HONK.[/shake]
+
+		::
+			Please take your noise
+			somewhere e{"lse." not control}
+
+			:flags:
+				cutoff
+
+		::
+			[shake rate=20.0 level=5]HONK. HONK.[/shake]
+
+
+#######################
+######## CHILD ########
+#######################
+
+
+:child:
+	:intro:
+		:flags:
+			pre_trans priority first_encounter
+
+		::
+			Um... Is this the
+			Bureau of Pronouns?
+
+			:flags:
+				character
+
+		::
+			Are {:c_you:} lost?
+			Where are {:c_your:} parents?
+
+			:flags:
+				nobody
+
+		::
+			{:c_Im:} here to
+			:flags:
+				character cutoff
+
+		::
+			The New Police will be here
+			shortly to take {:c_you:} home.
+
+			:flags:
+				nobody
+
+		::
+			[font_size=13][b][shake rate=20.0 level=5]NO.[/shake][/b][/font_size]
+
+	:creep:
+		:flags:
+			pre_trans
+
+		::
+			Can’t {:c_I:} just be a boy?
+			Who has to find out?
+
+			:flags:
+				character
+
+		::
+			They always find out.
+
+		::
+			Some people would kill to have
+			what {:c_youve:} thrown away.
+
+			:flags:
+				nobody
+
+		::
+			Okay... [font_size=5]creep.[/font_size]
+
+	:loser:
+		:flags:
+			post_trans priority
+
+		::
+			What’s up, loser?
+
+			:flags:
+				character
+
+		::
+			It’ll happen to you.
+
+	:parents:
+		:flags:
+			post_trans priority
+
+		::
+			Do your parents know you’re here?
+
+		::
+			Why should they?
+
+	:rape:
+		:flags:
+			post_trans
+
+		::
+			Do I need to call your par{"ents?" not control}
+
+			:flags:
+				cutoff
+
+		::
+			[font_size=13][b][shake rate=20.0 level=5]RAPE! RAPE![/shake][/b][/font_size]
+
+
+########################
+######## FISHER ########
+########################
+
+
+:fisher:
+	:intro:
+		:flags:
+			pre_trans priority first_encounter
+
+		::
+			Why is a prole in my office?
+
+		::
+			You fucked {:c_me:}.
+
+		::
+			What?
+
+		::
+			You fucked {:c_me:}.
+
+		::
+			I don’t know {:c_you:}.
+
+	:throw:
+		::
+			[font_size=20]...[/font_size]
+
+			:flags:
+				character
+
+		::
+			Please don’t throw things.
+
+	:beard:
+		:flags:
+			pre_trans
+
+		::
+			I didn’t know Limestock
+			was still operating. Is the
+			beard mandatory?
+
+		::
+			Hmph.
+
+	:forms:
+		::
+			These forms appear to be... damaged.
+
+		::
+			... {:c_I:} fixed them.
+
+	:razors:
+		:flags:
+			pre_trans
+
+		::
+			Ha... the beard looks good.
+			Too bad it never works.
+
+		::
+			It’s hard to find razors when {:c_you:}.
+			Need them.
+
+		::
+			Oh really?
+
+			:flags:
+				spell_razor_blade
+
+	:lesbian:
+		:flags:
+			post_trans
+
+		::
+			Wow, the lesbian of my dreams
+			turning up in MY office?
+
+		::
+			[font_size=20]...[/font_size]
+
+		::
+			Could you lift that filing cabinet
+			for me before we hash this out?
+
+
+########################
+######## ADDICT ########
+########################
+
+
+:addict:
+	:intro:
+		:flags:
+			pre_trans priority first_encounter
+
+		::
+			I had a nice chat with
+			{:c_your:} wife last night.
+
+		::
+			You’re lucky you still
+			have all your teeth.
+
+	:audit:
+		::
+			Am I being audited?
+
+		::
+			If anybody asks,
+			{:c_I:} was never here.
+
+	:over:
+		::
+			Let{:c_s:} get this over with.
+
+		::
+			Agreed.
+
+	:butch:
+		:flags:
+			post_trans
+
+		::
+			Mind if I get a word
+			in before you kill me?
+
+		::
+			Make it quick.
+
+		::
+			I liked you better as a butch.

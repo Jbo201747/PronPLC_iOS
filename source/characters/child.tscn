@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://ci3kxiufbjcge"]
+
+[ext_resource type="PackedScene" uid="uid://b6aro6o71syk6" path="res://source/battle_unit/character.tscn" id="1"]
+[ext_resource type="Script" uid="uid://dmgkhogoruq3h" path="res://source/characters/child.gd" id="2"]
+[ext_resource type="PackedScene" uid="uid://c7rqk0yx0vlg4" path="res://source/characters/sprites/child_sprite.tscn" id="3"]
+
+[node name="Child" unique_id=1833544929 instance=ExtResource("1")]
+script = ExtResource("2")
+
+[node name="Sprite" parent="." index="0" unique_id=2141640536 instance=ExtResource("3")]
+is_trans = true

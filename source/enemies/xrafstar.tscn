@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://cqtrae2ro2fvs"]
+
+[ext_resource type="PackedScene" uid="uid://cbdk6hv7wu8im" path="res://source/battle_unit/enemy.tscn" id="1"]
+[ext_resource type="Script" uid="uid://bei4vjvfrgdax" path="res://source/enemies/xrafstar.gd" id="2"]
+[ext_resource type="PackedScene" uid="uid://nyr3lu8b1bst" path="res://source/enemies/sprites/xrafstar_sprite.tscn" id="3"]
+
+[node name="Xrafstar" unique_id=1239465405 instance=ExtResource("1")]
+script = ExtResource("2")
+
+[node name="Sprite" parent="." index="0" unique_id=471503343 instance=ExtResource("3")]
+position = Vector2(0, -4)

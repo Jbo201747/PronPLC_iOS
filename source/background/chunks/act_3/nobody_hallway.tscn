@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://mwxu8mv1rf3c"]
+
+[ext_resource type="PackedScene" uid="uid://b3i1vst4708al" path="res://source/background/chunks/base/sprite_chunk.tscn" id="1"]
+[ext_resource type="Script" uid="uid://oi6p72q8oxmm" path="res://source/background/chunks/act_3/nobody_hallway.gd" id="2"]
+[ext_resource type="Texture2D" uid="uid://coafo4mrsv4r0" path="res://arte/backgrounds/act_3/nobody_hallway.png" id="3"]
+[ext_resource type="Script" uid="uid://ddinato40k13" path="res://source/background/overlap_indicator.gd" id="4"]
+[ext_resource type="Script" uid="uid://cwkvx3vrqfg0k" path="res://source/background/interrupt_marker.gd" id="5"]
+
+[node name="BackgroundChunk" unique_id=376697462 groups=["nobody_hallway"] instance=ExtResource("1")]
+script = ExtResource("2")
+
+[node name="Sprite2D" parent="." index="0" unique_id=174746349 groups=["light_clone", "nobody_darkenable"]]
+position = Vector2(0, -149)
+texture = ExtResource("3")
+centered = false
+
+[node name="LeftOverlap" parent="." index="1" unique_id=1030252478]
+position = Vector2(0, 12)
+
+[node name="Ground" type="Control" parent="LeftOverlap" index="0" unique_id=1801498479]
+layout_mode = 3
+anchors_preset = 0
+offset_top = -36.0
+offset_bottom = -3.0
+script = ExtResource("4")
+metadata/_custom_type_script = "uid://ddinato40k13"
+metadata/_edit_use_anchors_ = true
+
+[node name="RightOverlap" parent="." index="2" unique_id=582485431]
+position = Vector2(0, 12)
+
+[node name="Ground" type="Control" parent="RightOverlap" index="0" unique_id=1831841749]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1303.0
+offset_top = -36.0
+offset_right = 1303.0
+offset_bottom = -3.0
+script = ExtResource("4")
+metadata/_custom_type_script = "uid://ddinato40k13"
+metadata/_edit_use_anchors_ = true
+
+[node name="StopPropsMarker" type="Marker2D" parent="." index="3" unique_id=2105448111]
+position = Vector2(-200, -74)
+script = ExtResource("5")
+play_pattern = "nobody_props"
+metadata/_custom_type_script = "uid://cwkvx3vrqfg0k"
+
+[node name="PlayCarpetMarker" type="Marker2D" parent="." index="4" unique_id=516756505]
+position = Vector2(1055, -74)
+script = ExtResource("5")
+play_pattern = "nobody_carpet"
+metadata/_custom_type_script = "uid://cwkvx3vrqfg0k"
+
+[node name="ColorChangeMarker" type="Marker2D" parent="." index="5" unique_id=189682423]
+position = Vector2(522, -74)
+script = ExtResource("5")
+fire_signal = true
+metadata/_custom_type_script = "uid://cwkvx3vrqfg0k"
+
+[node name="SunsetMarker" type="Marker2D" parent="." index="6" unique_id=1232322034]
+position = Vector2(78, -74)
+script = ExtResource("5")
+fire_signal = true
+metadata/_custom_type_script = "uid://cwkvx3vrqfg0k"
+
+[node name="LightMaskPosition" type="Marker2D" parent="." index="7" unique_id=1354791796]
+unique_name_in_owner = true
+position = Vector2(143, -6)
+
+[connection signal="triggered" from="ColorChangeMarker" to="." method="_on_color_change_marker_triggered"]
+[connection signal="triggered" from="SunsetMarker" to="." method="_on_sunset_marker_triggered"]

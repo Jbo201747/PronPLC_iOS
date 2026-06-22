@@ -1,0 +1,720 @@
+[gd_scene format=3 uid="uid://dskjl26i1vckh"]
+
+[ext_resource type="Shader" uid="uid://de41a768txh06" path="res://source/tile/tile_sprite.gdshader" id="1"]
+[ext_resource type="Texture2D" uid="uid://148kaduvpg0r" path="res://arte/tiles/hole_mask.png" id="2"]
+[ext_resource type="Script" uid="uid://baywc1x47n7yi" path="res://source/tile/tile_sprite.gd" id="3"]
+[ext_resource type="Texture2D" uid="uid://cshqklcmqbfhc" path="res://arte/tiles/tile_highlight.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://5rmj76byr2s4" path="res://arte/tiles/wood_tiles_a.png" id="5"]
+[ext_resource type="Script" uid="uid://cfpkpmdehkp8u" path="res://source/ui/generic/shadow_cloner.gd" id="6"]
+[ext_resource type="Texture2D" uid="uid://bckwx5xo3r1gk" path="res://arte/tiles/bruise_mask.png" id="7"]
+[ext_resource type="Texture2D" uid="uid://bk6c6jsuiydf7" path="res://arte/tiles/icicles.png" id="8"]
+[ext_resource type="Texture2D" uid="uid://d114g7jvf4s0w" path="res://arte/tiles/spike.png" id="9"]
+[ext_resource type="Texture2D" uid="uid://b7qhpjetpt3c1" path="res://arte/tiles/wood_holes.png" id="10"]
+[ext_resource type="PackedScene" uid="uid://cbdpyemg3qspb" path="res://source/tile/tile_face.tscn" id="11"]
+[ext_resource type="Texture2D" uid="uid://ckfptw7n0n427" path="res://arte/tiles/hole_outline.png" id="12"]
+[ext_resource type="Texture2D" uid="uid://d06pp6v6dcpkg" path="res://arte/tiles/tile_linked_top.png" id="13"]
+[ext_resource type="Texture2D" uid="uid://dm746ear1w8qi" path="res://arte/tiles/screw.png" id="14"]
+[ext_resource type="Texture2D" uid="uid://c4tw83y8afcr8" path="res://arte/tiles/tile_linked_bottom.png" id="15"]
+[ext_resource type="Texture2D" uid="uid://coxkoi1ppu4rh" path="res://arte/tiles/tile_regions.png" id="16"]
+[ext_resource type="FontFile" uid="uid://2h7fup58h8vn" path="res://fonts/Suwannaphum-Bold.ttf" id="17"]
+[ext_resource type="Script" uid="uid://drgtw8sp4tp8n" path="res://source/library/anim_player.gd" id="18"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cdqxx"]
+shader = ExtResource("1")
+shader_parameter/hole_mask = ExtResource("2")
+
+[sub_resource type="Animation" id="Animation_uckrg"]
+resource_name = "RESET"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("%BaseSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../TileOverlay:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_dcv6c"]
+resource_name = "dust"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../TileOverlay:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [9]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../TileOverlay:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(-2, 0.353553),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_cb0is"]
+resource_name = "oxidize_bleed"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../TileOverlay:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [11]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../TileOverlay:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(-2, 0.353553),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_flvmp"]
+_data = {
+&"RESET": SubResource("Animation_uckrg"),
+&"dust": SubResource("Animation_dcv6c"),
+&"oxidize_bleed": SubResource("Animation_cb0is")
+}
+
+[sub_resource type="Animation" id="Animation_nc4oo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MultLabelOffset/MultiplierLabel:modulate:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MultLabelOffset/MultiplierLabel:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MultLabelOffset:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_bww5t"]
+resource_name = "appear"
+length = 0.2
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MultLabelOffset/MultiplierLabel:modulate:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MultLabelOffset/MultiplierLabel:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MultLabelOffset:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.2),
+"transitions": PackedFloat32Array(0.36602145, 0.35355338, 1),
+"update": 0,
+"values": [Vector2(0.8, 0.8), Vector2(1.5, 1.5), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_p0wq4"]
+resource_name = "disappear"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MultLabelOffset/MultiplierLabel:modulate:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MultLabelOffset/MultiplierLabel:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_17382"]
+_data = {
+&"RESET": SubResource("Animation_nc4oo"),
+&"appear": SubResource("Animation_bww5t"),
+&"disappear": SubResource("Animation_p0wq4")
+}
+
+[sub_resource type="Animation" id="Animation_5pvjb"]
+resource_name = "bomb_explode"
+length = 0.5
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../BaseSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [19, 18, 19, 18, 19]
+}
+
+[sub_resource type="Animation" id="Animation_yb35c"]
+resource_name = "bomb_idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../BaseSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [17]
+}
+
+[sub_resource type="Animation" id="Animation_dsypl"]
+resource_name = "bomb_ticking"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../BaseSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [17]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../BombOverlay:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.353553, 1.7411),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.45098)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../BombOverlay:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [18]
+}
+
+[sub_resource type="Animation" id="Animation_0wfmt"]
+resource_name = "bomb_ticking_fast"
+length = 0.5
+loop_mode = 1
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../BaseSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [17]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../BombOverlay:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(0.353553, 1.7411),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.745098)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../BombOverlay:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [18]
+}
+
+[sub_resource type="Animation" id="Animation_rnxqq"]
+resource_name = "cursed"
+length = 4.0
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../BaseSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../BombOverlay:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 2, 2.5),
+"transitions": PackedFloat32Array(1, -2, 1, -2),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../BombOverlay:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [21]
+}
+
+[sub_resource type="Animation" id="Animation_gbexr"]
+resource_name = "default"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../BombOverlay:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../TileOverlay:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_17382"]
+resource_name = "haze_ticking"
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../BaseSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [25]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../BombOverlay:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.78431374)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../BombOverlay:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [24]
+}
+
+[sub_resource type="Animation" id="Animation_rr11x"]
+resource_name = "haze_ticking_fast"
+length = 0.5
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../BaseSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [25]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../BombOverlay:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../BombOverlay:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [24]
+}
+
+[sub_resource type="Animation" id="Animation_klbny"]
+resource_name = "idle"
+
+[sub_resource type="Animation" id="Animation_ugt7s"]
+resource_name = "spicy"
+length = 3.0
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../BaseSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../BombOverlay:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 1.7, 1.9),
+"transitions": PackedFloat32Array(1, -2, 1, -2),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 0.470588), Color(1, 1, 1, 0.470588)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../BombOverlay:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_80k4p"]
+_data = {
+&"RESET": SubResource("Animation_uckrg"),
+&"bomb_explode": SubResource("Animation_5pvjb"),
+&"bomb_idle": SubResource("Animation_yb35c"),
+&"bomb_ticking": SubResource("Animation_dsypl"),
+&"bomb_ticking_fast": SubResource("Animation_0wfmt"),
+&"cursed": SubResource("Animation_rnxqq"),
+&"default": SubResource("Animation_gbexr"),
+&"haze_ticking": SubResource("Animation_17382"),
+&"haze_ticking_fast": SubResource("Animation_rr11x"),
+&"idle": SubResource("Animation_klbny"),
+&"spicy": SubResource("Animation_ugt7s")
+}
+
+[node name="TileSprite" type="Node2D" unique_id=53899083]
+material = SubResource("ShaderMaterial_cdqxx")
+instance_shader_parameters/hole_enabled = true
+script = ExtResource("3")
+
+[node name="HighlightSprite" type="Sprite2D" parent="." unique_id=433646000]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
+show_behind_parent = true
+z_index = -100
+use_parent_material = true
+texture = ExtResource("4")
+
+[node name="BaseSprite" type="Sprite2D" parent="." unique_id=725801026]
+unique_name_in_owner = true
+use_parent_material = true
+texture = ExtResource("5")
+hframes = 10
+vframes = 4
+
+[node name="ShadowCloner" type="Node2D" parent="BaseSprite" unique_id=735824212]
+unique_name_in_owner = true
+position = Vector2(2, 2)
+script = ExtResource("6")
+metadata/_custom_type_script = "uid://cfpkpmdehkp8u"
+
+[node name="BombOverlay" type="Sprite2D" parent="." unique_id=456168486]
+unique_name_in_owner = true
+self_modulate = Color(1, 1, 1, 0)
+use_parent_material = true
+texture = ExtResource("5")
+hframes = 10
+vframes = 4
+frame = 21
+
+[node name="BruiseMask" type="Sprite2D" parent="." unique_id=238687932]
+unique_name_in_owner = true
+visible = false
+clip_children = 1
+texture = ExtResource("7")
+hframes = 3
+
+[node name="BruiseOverlay" type="Sprite2D" parent="BruiseMask" unique_id=874017192]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_cdqxx")
+texture = ExtResource("5")
+hframes = 10
+vframes = 3
+frame = 29
+
+[node name="TileOverlay" type="Sprite2D" parent="." unique_id=2065182226]
+unique_name_in_owner = true
+self_modulate = Color(1, 1, 1, 0)
+use_parent_material = true
+texture = ExtResource("5")
+hframes = 10
+vframes = 4
+frame = 9
+
+[node name="TileOverlayAnimPlayer" type="AnimationPlayer" parent="TileOverlay" unique_id=1867460642]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_flvmp")
+
+[node name="Icicles" type="Sprite2D" parent="." unique_id=2090166474]
+unique_name_in_owner = true
+visible = false
+use_parent_material = true
+position = Vector2(-12, 8)
+texture = ExtResource("8")
+centered = false
+hframes = 3
+
+[node name="Spike" type="Sprite2D" parent="." unique_id=1212847753]
+unique_name_in_owner = true
+visible = false
+use_parent_material = true
+position = Vector2(0, -10)
+texture = ExtResource("9")
+centered = false
+offset = Vector2(-8, -14)
+
+[node name="HoleSprite" type="Sprite2D" parent="." unique_id=461211467]
+unique_name_in_owner = true
+visible = false
+texture = ExtResource("10")
+hframes = 10
+vframes = 4
+
+[node name="TileFace" parent="." unique_id=1187762072 instance=ExtResource("11")]
+unique_name_in_owner = true
+deboss_highlight_color = Color(0.87, 0.42630002, 0.6703349, 1)
+
+[node name="HoleOutline" type="Sprite2D" parent="." unique_id=1478998727]
+unique_name_in_owner = true
+visible = false
+texture = ExtResource("12")
+
+[node name="LinkedTop" type="Sprite2D" parent="." unique_id=141384222]
+unique_name_in_owner = true
+visible = false
+z_index = 200
+texture = ExtResource("13")
+hframes = 3
+vframes = 2
+
+[node name="Screw" type="Sprite2D" parent="." unique_id=680373982]
+unique_name_in_owner = true
+visible = false
+z_index = 200
+position = Vector2(0, -3)
+texture = ExtResource("14")
+hframes = 2
+
+[node name="LinkedBottom" type="Sprite2D" parent="." unique_id=1796564722]
+unique_name_in_owner = true
+visible = false
+texture = ExtResource("15")
+hframes = 3
+vframes = 2
+
+[node name="RegionOverlay" type="Sprite2D" parent="." unique_id=1121841716]
+unique_name_in_owner = true
+visible = false
+modulate = Color(1, 1, 1, 0.39215687)
+texture = ExtResource("16")
+hframes = 5
+vframes = 2
+
+[node name="MultLabelOffset" type="Node2D" parent="." unique_id=1855888050]
+position = Vector2(-9, 11)
+
+[node name="MultiplierLabel" type="Label" parent="MultLabelOffset" unique_id=2069924257]
+unique_name_in_owner = true
+visible = false
+modulate = Color(1, 1, 1, 0)
+offset_left = -7.0
+offset_top = -7.0
+offset_right = 7.0
+offset_bottom = 7.4960003
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("17")
+text = "x2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ShadowCloner" type="Node2D" parent="MultLabelOffset/MultiplierLabel" unique_id=644520499]
+position = Vector2(2, 2)
+script = ExtResource("6")
+metadata/_custom_type_script = "uid://cfpkpmdehkp8u"
+
+[node name="AnimPlayer" type="AnimationPlayer" parent="MultLabelOffset/MultiplierLabel" unique_id=1261859595]
+root_node = NodePath("../../..")
+libraries/ = SubResource("AnimationLibrary_17382")
+script = ExtResource("18")
+metadata/_custom_type_script = "uid://drgtw8sp4tp8n"
+
+[node name="BaseSpriteAnimPlayer" type="AnimationPlayer" parent="." unique_id=1783629614]
+unique_name_in_owner = true
+root_node = NodePath("../TileOverlay")
+libraries/ = SubResource("AnimationLibrary_80k4p")

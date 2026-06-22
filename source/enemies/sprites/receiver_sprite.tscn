@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://ohaxitjx1vkc"]
+
+[ext_resource type="PackedScene" uid="uid://bpql03md232a4" path="res://source/enemies/sprites/prole_service_sprite.tscn" id="1"]
+[ext_resource type="Texture2D" uid="uid://bbeqii24rfdtg" path="res://arte/enemies/receiver.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://cms6ulh6o07p7" path="res://arte/enemies/receiver_phone.png" id="3"]
+
+[node name="ReceiverSprite" unique_id=1459888752 instance=ExtResource("1")]
+
+[node name="Sprite" parent="." index="0" unique_id=115121035]
+texture = ExtResource("2")
+
+[node name="PhoneSprite" parent="." index="1" unique_id=1473811015]
+texture = ExtResource("3")

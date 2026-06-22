@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://dv5ytnco0xox5"]
+
+[ext_resource type="Script" uid="uid://cdn40f7edjvn" path="res://source/effects/arcing_projectile.gd" id="1"]
+[ext_resource type="PackedScene" uid="uid://dueqn5tep05v3" path="res://source/effects/dew_explosion.tscn" id="2"]
+[ext_resource type="Texture2D" uid="uid://dhblj1g57mhr5" path="res://arte/effects/dew_can.png" id="3"]
+
+[node name="DewProjectile" type="CharacterBody2D" unique_id=491621120]
+script = ExtResource("1")
+look_at_direction = false
+impact_effect_scene = ExtResource("2")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1221212]
+texture = ExtResource("3")

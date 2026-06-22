@@ -1,0 +1,449 @@
+[gd_scene format=3 uid="uid://c2oso7j5byhn5"]
+
+[ext_resource type="Script" uid="uid://bs1824j86e727" path="res://source/tile/tile_board.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://cvhrw35u13dm0" path="res://arte/ui/tile_board.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://m1moft62u7h2" path="res://arte/ui/grain.png" id="3"]
+[ext_resource type="PackedScene" uid="uid://xrcrntebt85c" path="res://source/ui/tooltip/tooltip_collision.tscn" id="4"]
+[ext_resource type="Texture2D" uid="uid://6g2kdfaan5rl" path="res://arte/ui/insideboard.png" id="5"]
+[ext_resource type="Script" uid="uid://cfpkpmdehkp8u" path="res://source/ui/generic/shadow_cloner.gd" id="6"]
+[ext_resource type="Texture2D" uid="uid://vmkj4xers7br" path="res://arte/ui/preview_chain.png" id="7"]
+[ext_resource type="Script" uid="uid://drgtw8sp4tp8n" path="res://source/library/anim_player.gd" id="8"]
+[ext_resource type="Script" uid="uid://c0edatyltqhg5" path="res://source/ui/generic/focus_holder.gd" id="9"]
+
+[sub_resource type="Animation" id="Animation_8hhtx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ChainA:visible")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ChainA:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(20, 12)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ChainB:visible")
+tracks/2/interp = 0
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ChainC:visible")
+tracks/3/interp = 0
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ChainD:visible")
+tracks/4/interp = 0
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_40jcd"]
+resource_name = "chain_board"
+length = 0.5
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ChainA:visible")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ChainA:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.2),
+"transitions": PackedFloat32Array(0.39229208, 0.39229208, 0.39229208, 1),
+"update": 0,
+"values": [Vector2(20, 12), Vector2(22, 12), Vector2(18, 12), Vector2(20, 12)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ChainB:visible")
+tracks/2/interp = 0
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ChainC:visible")
+tracks/3/interp = 0
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [false, true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ChainD:visible")
+tracks/4/interp = 0
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [false, true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("ChainB:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.15, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 0.39229208, 0.39229208, 0.39229208, 1),
+"update": 0,
+"values": [Vector2(39, 12), Vector2(39, 12), Vector2(41, 12), Vector2(37, 12), Vector2(39, 12)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("ChainC:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.25, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 0.39229208, 0.39229208, 0.39229208, 1),
+"update": 0,
+"values": [Vector2(58, 12), Vector2(58, 12), Vector2(60, 12), Vector2(56, 12), Vector2(58, 12)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("ChainD:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.35000002, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 0.39229208, 0.39229208, 0.39229208, 1),
+"update": 0,
+"values": [Vector2(77, 12), Vector2(77, 12), Vector2(79, 12), Vector2(75, 12), Vector2(77, 12)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("AnimPlayer:sound")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": ["TILE/LINKED", "TILE/LINKED", "TILE/LINKED", "TILE/LINKED"]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1v3hs"]
+_data = {
+&"RESET": SubResource("Animation_8hhtx"),
+&"chain_board": SubResource("Animation_40jcd")
+}
+
+[sub_resource type="Animation" id="Animation_455d0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_1v3hs"]
+resource_name = "flip_out"
+length = 2.3
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.2, 1.8000001),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, -56.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.2, 1.5, 2),
+"transitions": PackedFloat32Array(1, 0.23325822, 2.4622889, 1),
+"update": 0,
+"values": [0.0, 0.0, -70.0, 220.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.59999996, 0.7, 0.9, 1.1, 1.2, 2.3),
+"transitions": PackedFloat32Array(1, 0.42044812, 0.5000002, 1, 0.40612617, 1.8660669, 0.46651667, 0.5000002),
+"update": 0,
+"values": [0.0, 0.0, -0.08726646259971647, 0.0, 0.0, -0.08726646259971647, 0.08726646259971647, -6.283185307179586]
+}
+
+[sub_resource type="Animation" id="Animation_ypmh8"]
+resource_name = "idle_out"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 200)]
+}
+
+[sub_resource type="Animation" id="Animation_v41dm"]
+resource_name = "slide_in"
+length = 0.3
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.23, 0.3),
+"transitions": PackedFloat32Array(0.329877, 1.86607, 0.554785, 1),
+"update": 0,
+"values": [Vector2(0, 200), Vector2(0, -5), Vector2(0, 5), Vector2(0, 0)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.05),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [5, 0.2],
+"method": &"screenshake"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cjwhj"]
+_data = {
+&"RESET": SubResource("Animation_455d0"),
+&"flip_out": SubResource("Animation_1v3hs"),
+&"idle_out": SubResource("Animation_ypmh8"),
+&"slide_in": SubResource("Animation_v41dm")
+}
+
+[node name="TileBoard" type="Node2D" unique_id=2138667918]
+script = ExtResource("1")
+
+[node name="BoardPosition" type="Node2D" parent="." unique_id=1855108311]
+
+[node name="Board" type="NinePatchRect" parent="BoardPosition" unique_id=629802601]
+unique_name_in_owner = true
+offset_left = -51.0
+offset_top = -61.0
+offset_right = 51.0
+offset_bottom = 57.0
+texture = ExtResource("2")
+region_rect = Rect2(0, 0, 16, 16)
+patch_margin_left = 2
+patch_margin_top = 10
+patch_margin_right = 2
+patch_margin_bottom = 14
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="PreviewMask" type="TextureRect" parent="BoardPosition/Board" unique_id=1392933849]
+unique_name_in_owner = true
+clip_contents = true
+layout_mode = 0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 100.0
+offset_bottom = 14.0
+mouse_filter = 2
+texture = ExtResource("3")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="TooltipCollision" parent="BoardPosition/Board/PreviewMask" unique_id=1104614176 instance=ExtResource("4")]
+custom_minimum_size = Vector2(0, 6)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
+position_offset = Vector2(0, -16)
+
+[node name="TileBox" type="NinePatchRect" parent="BoardPosition/Board" unique_id=1106987208]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 6.0
+offset_top = 14.0
+offset_right = 96.0
+offset_bottom = 108.0
+texture = ExtResource("5")
+region_rect = Rect2(0, 0, 90, 94)
+patch_margin_left = 2
+patch_margin_top = 4
+patch_margin_right = 2
+patch_margin_bottom = 2
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="TileMask" type="Control" parent="BoardPosition/Board" unique_id=881895369]
+unique_name_in_owner = true
+clip_contents = true
+anchors_preset = 0
+offset_left = 8.0
+offset_top = 18.0
+offset_right = 94.0
+offset_bottom = 106.0
+mouse_filter = 2
+
+[node name="ShadowCloner" type="Node2D" parent="BoardPosition/Board" unique_id=174562110]
+position = Vector2(2, 2)
+script = ExtResource("6")
+metadata/_custom_type_script = "uid://cfpkpmdehkp8u"
+
+[node name="Chains" type="Node2D" parent="BoardPosition/Board" unique_id=2134223201]
+unique_name_in_owner = true
+position = Vector2(-1, -4)
+
+[node name="ChainA" type="Sprite2D" parent="BoardPosition/Board/Chains" unique_id=414149978]
+visible = false
+position = Vector2(20, 12)
+texture = ExtResource("7")
+
+[node name="ChainB" type="Sprite2D" parent="BoardPosition/Board/Chains" unique_id=886396356]
+visible = false
+position = Vector2(39, 12)
+texture = ExtResource("7")
+
+[node name="ChainC" type="Sprite2D" parent="BoardPosition/Board/Chains" unique_id=1128967806]
+visible = false
+position = Vector2(58, 12)
+texture = ExtResource("7")
+
+[node name="ChainD" type="Sprite2D" parent="BoardPosition/Board/Chains" unique_id=2139655116]
+visible = false
+position = Vector2(77, 12)
+texture = ExtResource("7")
+
+[node name="AnimPlayer" type="AnimationPlayer" parent="BoardPosition/Board/Chains" unique_id=926481038]
+libraries/ = SubResource("AnimationLibrary_1v3hs")
+script = ExtResource("8")
+sound_groups = PackedStringArray("TILE")
+metadata/_custom_type_script = "uid://drgtw8sp4tp8n"
+
+[node name="Marker2D" type="Marker2D" parent="BoardPosition" unique_id=662318392]
+position = Vector2(-43, 45)
+
+[node name="CenterFocusHolder" type="Control" parent="." unique_id=122659565]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("9")
+metadata/_custom_type_script = "uid://c0edatyltqhg5"
+
+[node name="BlankSpaceFocusContainer" type="Control" parent="." unique_id=739499032]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+
+[node name="AnimPlayer" type="AnimationPlayer" parent="." unique_id=427188985]
+unique_name_in_owner = true
+root_node = NodePath("../BoardPosition")
+libraries/ = SubResource("AnimationLibrary_cjwhj")
+autoplay = &"idle_out"
+script = ExtResource("8")
+metadata/_custom_type_script = "uid://drgtw8sp4tp8n"
+
+[connection signal="tiles_changed" from="." to="." method="_on_tiles_changed"]
+[connection signal="check_generate_tooltip" from="BoardPosition/Board/PreviewMask/TooltipCollision" to="." method="_on_tooltip_collision_check_generate_tooltip"]
+[connection signal="generate_tooltip" from="BoardPosition/Board/PreviewMask/TooltipCollision" to="." method="_on_panel_generate_tooltip"]

@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://s8a7ww174vs3"]
+
+[ext_resource type="PackedScene" uid="uid://blrduicvvw1fq" path="res://source/ui/menu/generic/menu_stat.tscn" id="1"]
+[ext_resource type="Texture2D" uid="uid://badxmopjjlxf6" path="res://arte/ui/leaderboard_entry_icons.png" id="2"]
+
+[node name="MenuStat" unique_id=301375696 instance=ExtResource("1")]
+offset_right = 32.0
+offset_bottom = 16.0
+texture = ExtResource("2")
+hv_frames = Vector2i(6, 1)

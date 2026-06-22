@@ -1,0 +1,140 @@
+:skipping:
+	Skipping
+
+:primary:
+	::
+		Cadence Petersen
+
+		::
+			Art
+			Design
+			Writing
+			Additional programming
+
+	::
+		Hazel Fackler
+
+		::
+			Programming
+			Design
+			Writing
+
+	::
+		RENREN
+
+		::
+			Music
+			Sound
+
+	::
+		RedRachis
+
+		::
+			Additional enemy art
+
+	::
+		Ash “Cometz” W.
+
+		::
+			Additional cutscene art
+			Box art
+
+	::
+		J.D.
+
+		::
+			Additional enemy concepts
+
+	::
+		redoplus
+
+		::
+			Writing support
+
+
+	::
+		Jordy W.
+
+		::
+			Album art
+
+:shoutouts:
+	Shoutouts
+
+	::
+		Porpentine
+
+		::
+			Inspiration for Rubber Animal, Xrafstar, and more.
+			Check out xrafstar.monster!
+
+	::
+		Anya Spadin
+
+		::
+			Clover and their sounds from Clover’s Quadrants!
+
+	::
+		Hapty
+
+		::
+			See Liquid Human in Critter Caboodle!
+
+	::
+		Our Friends and Families
+
+		::
+			<3
+
+	::
+		You
+
+		::
+			{"For giving us $20." not global.steam_inactive}{"For the exposure." if global.steam_inactive}
+
+
+:featuring:
+	Featuring
+
+:playtesting:
+	Playtesters
+
+:playtesters:
+	clowncarousel
+	vanimatches
+	Shrombus
+	Klester
+	Finley “CupcakeCervidae” Rose
+	Kat
+	Joshless
+	catinsured
+	Cynthia
+	Avery Woods
+	Brandon “Mibeador” Scott
+	Anya Spadin
+	redoplus
+	melon goodposter
+	Erfly
+	Timothy “hippocrunchy” Dow
+	Charlie “axemonster267”
+	seg
+	omni
+	Kristal Laforet
+	Nick “BlorengeRhymes” Weber
+	julifiable
+	Hapty
+	_Kilburn
+	juneBeah
+	J.D.
+	Jordy W.
+	Ash “Cometz” W.
+	Marianna “foxgirlyuri”
+	Sadly Just AL
+	Andrew “Guwahavel” Angaroni
+	Porpentine
+	Dot Operator
+	Ferrium
+	Angel “oilyspoily” Ponce
+	Narillia
+	minichibisart
+	RedRachis

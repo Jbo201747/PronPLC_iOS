@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://3idtyr6ueb2x"]
+
+[ext_resource type="Script" uid="uid://cfpkpmdehkp8u" path="res://source/ui/generic/shadow_cloner.gd" id="1"]
+
+[node name="NameLabel" type="RichTextLabel" unique_id=1999582687]
+z_index = 10
+clip_contents = false
+offset_right = 1.0
+offset_bottom = 13.0
+size_flags_horizontal = 4
+theme_type_variation = &"CutsceneLabel"
+theme_override_colors/default_color = Color(0.7019608, 0.7882353, 0.8, 1)
+theme_override_font_sizes/normal_font_size = 7
+bbcode_enabled = true
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="ShadowCloner" type="Node2D" parent="." unique_id=1308472433]
+position = Vector2(2, 2)
+script = ExtResource("1")
+local_shadow_group = true
+metadata/_custom_type_script = "uid://cfpkpmdehkp8u"

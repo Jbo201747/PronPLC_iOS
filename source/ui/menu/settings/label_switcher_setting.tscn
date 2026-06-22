@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://dd24jom8ykt4"]
+
+[ext_resource type="PackedScene" uid="uid://bkxi3xipa3jye" path="res://source/ui/menu/settings/setting.tscn" id="1"]
+[ext_resource type="Script" uid="uid://dek6wudegf3o8" path="res://source/ui/menu/settings/label_switcher_setting.gd" id="2"]
+[ext_resource type="PackedScene" uid="uid://dmjmnqhws51ov" path="res://source/ui/menu/generic/label_switcher.tscn" id="3"]
+
+[node name="Setting" unique_id=1467343028 node_paths=PackedStringArray("main_control") instance=ExtResource("1")]
+script = ExtResource("2")
+options = []
+selected_option = 0
+switcher_string_key = false
+allow_wrap_around = true
+main_control = NodePath("LabelSwitcher")
+
+[node name="LabelSwitcher" parent="." index="1" unique_id=1679092029 instance=ExtResource("3")]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+
+[connection signal="value_changed" from="LabelSwitcher" to="." method="_label_switcher_value_changed"]

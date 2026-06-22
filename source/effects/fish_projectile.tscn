@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://34f3jnutrwqq"]
+
+[ext_resource type="PackedScene" uid="uid://b50yios7hip53" path="res://source/effects/arcing_projectile.tscn" id="1"]
+
+[node name="FishProjectile" unique_id=1943970624 instance=ExtResource("1")]
+poof_color = "BLOOD"

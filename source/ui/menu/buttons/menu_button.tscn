@@ -1,0 +1,141 @@
+[gd_scene format=3 uid="uid://3h6sna8du4l7"]
+
+[ext_resource type="Script" uid="uid://fwgy7fnvfhkb" path="res://source/ui/menu/buttons/menu_button.gd" id="1"]
+[ext_resource type="Script" uid="uid://bofahnrm24rou" path="res://source/ui/generic/action_button.gd" id="2"]
+[ext_resource type="Script" uid="uid://7xvadspst3p5" path="res://source/ui/generic/hover_handler.gd" id="3"]
+[ext_resource type="Script" uid="uid://cfpkpmdehkp8u" path="res://source/ui/generic/shadow_cloner.gd" id="4"]
+[ext_resource type="PackedScene" uid="uid://d4a7isuy7vbow" path="res://source/ui/generic/action_glyph.tscn" id="5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nnbe4"]
+
+[sub_resource type="Animation" id="Animation_ojrx3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HoverOffset/Panel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -43)]
+}
+
+[sub_resource type="Animation" id="Animation_otmrc"]
+resource_name = "appear"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HoverOffset/Panel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3),
+"transitions": PackedFloat32Array(0.3077863, 2.0705302, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -47), Vector2(0, -43)]
+}
+
+[sub_resource type="Animation" id="Animation_n02yi"]
+resource_name = "disappear"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HoverOffset/Panel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3),
+"transitions": PackedFloat32Array(0.30778638, 2.070531, 1),
+"update": 0,
+"values": [Vector2(0, -43), Vector2(0, -47), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gvtwd"]
+_data = {
+&"RESET": SubResource("Animation_ojrx3"),
+&"appear": SubResource("Animation_otmrc"),
+&"disappear": SubResource("Animation_n02yi")
+}
+
+[node name="MenuButton" type="Control" unique_id=1019705210 node_paths=PackedStringArray("anim", "panel")]
+layout_mode = 3
+anchors_preset = 0
+focus_mode = 2
+mouse_filter = 2
+script = ExtResource("1")
+enabled_theme = &"MenuTicketBottom"
+disabled_theme = &"MenuTicketBottomDisabled"
+anim = NodePath("AnimationPlayer")
+panel = NodePath("HoverOffset/Panel")
+
+[node name="HoverOffset" type="Control" parent="." unique_id=1485403089]
+anchors_preset = 0
+mouse_filter = 2
+
+[node name="Panel" type="Panel" parent="HoverOffset" unique_id=1166464853]
+unique_name_in_owner = true
+layout_mode = 0
+offset_top = -43.0
+offset_right = 95.0
+offset_bottom = 8.0
+mouse_filter = 1
+theme_type_variation = &"MenuTicketBottom"
+
+[node name="MarginContainer" type="MarginContainer" parent="HoverOffset/Panel" unique_id=948667601]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Button" type="Button" parent="HoverOffset/Panel" unique_id=652229977]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_styles/focus = SubResource("StyleBoxEmpty_nnbe4")
+flat = true
+script = ExtResource("2")
+metadata/_custom_type_script = "uid://bofahnrm24rou"
+
+[node name="HoverHandler" type="Node2D" parent="HoverOffset/Panel" unique_id=194543143 node_paths=PackedStringArray("hovering", "source")]
+unique_name_in_owner = true
+script = ExtResource("3")
+hovering = NodePath("../..")
+source = NodePath("../Button")
+hovered_position = Vector2(0, -4)
+pressed_position = Vector2(0, -2)
+metadata/_custom_type_script = "uid://7xvadspst3p5"
+
+[node name="ShadowCloner" type="Node2D" parent="HoverOffset/Panel" unique_id=592044508]
+position = Vector2(2, 2)
+script = ExtResource("4")
+metadata/_custom_type_script = "uid://cfpkpmdehkp8u"
+
+[node name="ActionGlyph" parent="HoverOffset/Panel" unique_id=1185166845 instance=ExtResource("5")]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 84.0
+offset_top = -6.0
+offset_right = 100.0
+offset_bottom = 10.0
+controller_mode_only = true
+with_setting_only = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=601534803]
+callback_mode_process = 0
+libraries/ = SubResource("AnimationLibrary_gvtwd")
+
+[connection signal="pressed" from="HoverOffset/Panel/Button" to="." method="_on_button_pressed"]

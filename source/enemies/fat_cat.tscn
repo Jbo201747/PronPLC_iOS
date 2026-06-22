@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://c8g1rgwab7dyi"]
+
+[ext_resource type="PackedScene" uid="uid://cbdk6hv7wu8im" path="res://source/battle_unit/enemy.tscn" id="1"]
+[ext_resource type="Script" uid="uid://dj0x0m64gi48y" path="res://source/enemies/fat_cat.gd" id="2"]
+[ext_resource type="PackedScene" uid="uid://cf1r874l7httd" path="res://source/enemies/sprites/fat_cat_sprite.tscn" id="3"]
+
+[node name="FatCat" unique_id=2024368493 instance=ExtResource("1")]
+script = ExtResource("2")
+
+[node name="Sprite" parent="." index="0" unique_id=479996179 instance=ExtResource("3")]

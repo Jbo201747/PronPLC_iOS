@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://bxv3qxug1wuaj"]
+
+[ext_resource type="PackedScene" uid="uid://cs52ap4sy0spu" path="res://source/ui/menu/generic/big_menu_panel_top.tscn" id="1"]
+[ext_resource type="Script" uid="uid://qy4tcim320k3" path="res://source/ui/menu/summary/summary_panel.gd" id="2"]
+[ext_resource type="PackedScene" uid="uid://ltlfocltly3h" path="res://source/ui/menu/summary/summary.tscn" id="3"]
+
+[node name="SummaryPanel" unique_id=508888732 instance=ExtResource("1")]
+focus_mode = 2
+script = ExtResource("2")
+
+[node name="Summary" parent="PositionRoot/Panel" parent_id_path=PackedInt32Array(1955025572) index="1" unique_id=1400204219 instance=ExtResource("3")]
+unique_name_in_owner = true
+layout_mode = 1

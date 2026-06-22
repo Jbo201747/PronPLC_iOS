@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://5cvov885xerk"]
+
+[ext_resource type="PackedScene" uid="uid://cbdk6hv7wu8im" path="res://source/battle_unit/enemy.tscn" id="1"]
+[ext_resource type="Script" uid="uid://bsvatj7f3dq8m" path="res://source/enemies/dew_jubajalist.gd" id="2"]
+[ext_resource type="PackedScene" uid="uid://bmvqlf540pjtm" path="res://source/enemies/sprites/dew_jubajalist_sprite.tscn" id="3"]
+
+[node name="DewJubajalist" unique_id=577066573 instance=ExtResource("1")]
+script = ExtResource("2")
+
+[node name="Sprite" parent="." index="0" unique_id=1345273861 instance=ExtResource("3")]

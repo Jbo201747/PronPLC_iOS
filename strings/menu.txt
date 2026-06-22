@@ -1,0 +1,328 @@
+:main:
+	:play:
+		Play
+
+	:phonebook:
+		Phonebook
+
+	:extras:
+		Extras
+
+	:settings:
+		Settings
+
+	:quit:
+		Quit
+
+	:new_run:
+		New Run
+
+	:continue:
+		Continue
+
+	:mods_incompatible:
+		Mods don’t match!
+
+	:daily:
+		Daily
+
+	:daily_updating:
+		Updating...
+
+	:daily_friends:
+		{count} friend{count plural s} {count single has}{count plural have} played!
+
+	:daily_mods:
+		Mods enabled!
+
+	:leaderboard:
+		Leaderboard
+
+	:leaderboards:
+		Leaderboards
+
+	:unlocks:
+		Unlocks
+
+	:stats:
+		Stats
+
+	:cutscenes:
+		Cutscenes
+
+	:saves:
+		Saves
+
+	:back:
+		Back
+
+:character_select:
+	:start:
+		Start
+
+	:seed:
+		Seed
+
+	:random:
+		Random
+
+	:disables_unlocks:
+		Disables unlocks!
+
+	:win_streak:
+		Win Streak
+
+	:title:
+		The {title}
+
+	:unknown:
+		???
+
+	:locked:
+		Locked
+
+:settings:
+	:general:
+		General
+
+	:game:
+		Game
+
+	:controls:
+		Controls
+
+	:fullscreen:
+		Fullscreen
+
+	:resolution:
+		Windowed Resolution
+
+	:monitor:
+		Monitor
+
+	:max_fps:
+		Max FPS
+
+	:unlimited:
+		Unlimited
+
+	:music:
+		Music
+
+	:sound:
+		Sound
+
+	:screenshake:
+		Screenshake
+
+	:menu_shake:
+		Menu Shake
+
+	:battle_timer:
+		Battle Timer
+
+	:skip_repeat_dialogue:
+		Skip Repeat Dialogue
+
+	:show_crit_chance:
+		Show Crit Chance
+
+	:pixel_perfect:
+		Pixel Perfect
+
+	:disable_unlocks:
+		Disable Unlocks
+
+	:hide_default_tile_tooltips:
+		Hide Wood / Plastic Tooltips
+
+	:spell_gamepad_layout:
+		Gamepad Spell Order
+
+	:gamepad_layout_0:
+		ABXY
+
+	:gamepad_layout_1:
+		XYBA
+
+	:vibration:
+		Vibration
+
+	:gamepad_prompts:
+		Gamepad Prompts
+
+	:cursor_scale:
+		Cursor Scale
+
+	:auto:
+		Auto
+
+	:hide_steam_info:
+		Hide Steam Info
+
+	:seed:
+		Seed: {seed}
+
+	:unlocks_disabled:
+		{:menu: if menu}{:daily: if daily}{:seeded: if seeded}{:generic: not daily|seeded|menu}
+
+		:menu:
+			Achievements disabled.
+
+		:generic:
+			Achievements disabled this run.
+
+		:daily:
+			Achievements disabled in daily runs.
+
+		:seeded:
+			Achievements disabled in seeded runs.
+
+:save_select:
+	:rename:
+		Rename
+
+	:rename_save:
+		Rename Save
+
+	:duplicate:
+		Duplicate
+
+	:delete:
+		Delete (Hold)
+
+	:confirm:
+		Confirm
+
+	:cancel:
+		Cancel
+
+	:new_save:
+		New Save
+
+	:corrupt_save:
+		{"Partially " not fully_corrupt}Corrupt
+
+	:corrupt_list:
+		({failed_to_load list_delim ", "})
+
+:leaderboard:
+	:daily_title:
+		{month}/{day}/{year}
+
+	:global:
+		Global
+
+	:friends:
+		Friends
+
+	:toggle_global:
+		Toggle Global
+
+	:toggle_friends:
+		Toggle Friends
+
+	:loading:
+		Loading...
+
+	:no_entries:
+		No entries! :(
+
+	:no_friends:
+		No friends! :(
+
+	:unavailable:
+		Can’t connect to Steam!
+
+	:turns:
+		Turns
+
+	:damage_taken:
+		{:summary/leaderboard_entry/lost_description: if lost}
+		{"Damage Taken" not lost}
+
+	:rank:
+		{"#"}{rank}
+
+	:time_taken:
+		Time Taken
+
+	:longest_word:
+		Longest Word
+
+:stats:
+	:general:
+		General
+
+	:spell:
+		Spell
+
+	:times_taken:
+		Times Taken
+
+	:times_found:
+		Times Found
+
+	:times_used:
+		Times Used
+
+	:times_won_with:
+		Times Won With
+
+	:highest_difficulty:
+		Highest Difficulty
+
+	:not_found:
+		Not Found
+
+	:global_stats:
+		[font_size=9]Wins: {wins}
+		Losses: {losses}
+		Time Spent Deliberating: {deliberation_time}
+		Favorite Word: {favorite_word}
+		Vocabulary Size: {vocabulary_size}
+		Longest Word: {longest_word}
+		Fastest Win: {fastest_win}
+		Current Streak: {win_streak}
+		Best Streak: {best_win_streak}
+		Current Red Clearance Streak: {max_difficulty_streak}
+		Best Red Clearance Streak: {best_max_difficulty_streak}
+		{:hazel_streak: if hazel_streak}[/font_size]
+
+	:hazel_streak:
+		Current Hazel Clearance Streak: {hazel_streak}
+		Best Hazel Clearance Streak: {best_hazel_streak}
+
+	:not_applicable:
+		N/A
+
+:pause:
+	:resume:
+		Resume
+
+	:save_and_quit:
+		Save & Quit
+
+	:forfeit_turn:
+		Forfeit Turn
+
+	:forfeit_run:
+		Forfeit Run
+
+:spell_select:
+	:skip:
+		Skip
+
+:summary:
+	:continue:
+		Continue
+
+:phonebook:
+	:locked:
+		Locked
+
+	:locked_description:
+		You haven’t defeated this enemy yet.
+
+	:toggle_shadow:
+		Toggle Shadow

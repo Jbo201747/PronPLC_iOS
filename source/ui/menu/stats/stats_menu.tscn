@@ -1,0 +1,100 @@
+[gd_scene format=3 uid="uid://bqhg8bqqp2k68"]
+
+[ext_resource type="PackedScene" uid="uid://c6vvnk61vcc48" path="res://source/ui/menu/generic/big_menu_panel.tscn" id="1"]
+[ext_resource type="Script" uid="uid://wxhvbcefijni" path="res://source/ui/menu/stats/stats_menu.gd" id="2"]
+[ext_resource type="PackedScene" uid="uid://c5b7lvbrglom8" path="res://source/ui/menu/generic/sectioned_panel.tscn" id="3"]
+[ext_resource type="Script" uid="uid://das2jj0vt6is4" path="res://source/ui/menu/generic/tab_controller.gd" id="4"]
+[ext_resource type="Script" uid="uid://dxi6fnm2sjccx" path="res://source/ui/menu/generic/tab_info.gd" id="5"]
+
+[sub_resource type="Resource" id="Resource_s46sv"]
+script = ExtResource("5")
+string_key = "menu/stats/general"
+tab_control = NodePath("../SectionedPanel/MainMask/MarginContainer/ScrollContainer/MarginContainer/ContentsBox/StatsContainer")
+metadata/_custom_type_script = "uid://dxi6fnm2sjccx"
+
+[sub_resource type="Resource" id="Resource_f63dt"]
+script = ExtResource("5")
+string_key = "menu/stats/spell"
+tab_control = NodePath("../SectionedPanel/MainMask/MarginContainer/ScrollContainer/MarginContainer/ContentsBox/SpellStats")
+metadata/_custom_type_script = "uid://dxi6fnm2sjccx"
+
+[node name="StatsMenu" unique_id=1499490309 instance=ExtResource("1")]
+focus_mode = 2
+script = ExtResource("2")
+
+[node name="Panel" parent="PositionRoot" parent_id_path=PackedInt32Array(1793859846) index="0" unique_id=1955025572]
+offset_top = 43.0
+theme_type_variation = &"MenuTicketBottomSmooth"
+
+[node name="SectionedPanel" parent="PositionRoot/Panel" index="1" unique_id=1400204219 instance=ExtResource("3")]
+unique_name_in_owner = true
+layout_mode = 1
+mask_type = "MenuTicketBottomSmoothMask"
+mask_no_aa_type = "MenuTicketBottomSmoothMask"
+
+[node name="PageMask" parent="PositionRoot/Panel/SectionedPanel" index="0" unique_id=711574092]
+theme_type_variation = &"MenuTicketBottomSmoothMask"
+
+[node name="AlternatingPageBox" parent="PositionRoot/Panel/SectionedPanel/PageMask/MarginContainer/LinkedScrollContainer/MarginContainer" parent_id_path=PackedInt32Array(1400204219, 1393533725) index="0" unique_id=1381074398 node_paths=PackedStringArray("source_boxes")]
+source_boxes = [NodePath("../../../../../MainMask/MarginContainer/ScrollContainer/MarginContainer/ContentsBox/SpellStats")]
+
+[node name="MainMask" parent="PositionRoot/Panel/SectionedPanel" index="1" unique_id=402416624]
+theme_type_variation = &"MenuTicketBottomSmoothMask"
+
+[node name="ScrollContainer" parent="PositionRoot/Panel/SectionedPanel/MainMask/MarginContainer" parent_id_path=PackedInt32Array(1400204219, 147788459) index="0" unique_id=384839278]
+vertical_scroll_mode = 4
+
+[node name="MarginContainer" parent="PositionRoot/Panel/SectionedPanel/MainMask/MarginContainer/ScrollContainer" index="0" unique_id=454863863]
+theme_override_constants/margin_top = 0
+
+[node name="StatsContainer" type="MarginContainer" parent="PositionRoot/Panel/SectionedPanel/MainMask/MarginContainer/ScrollContainer/MarginContainer/ContentsBox" parent_id_path=PackedInt32Array(1400204219, 828913805) index="0" unique_id=1810259927]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 12
+
+[node name="StatsLabel" type="RichTextLabel" parent="PositionRoot/Panel/SectionedPanel/MainMask/MarginContainer/ScrollContainer/MarginContainer/ContentsBox/StatsContainer" index="0" unique_id=551735004]
+unique_name_in_owner = true
+clip_contents = false
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+bbcode_enabled = true
+text = "[font_size=9]Wins: 1
+Losses: 1
+Time Spent Deliberating: 11111
+Favorite Word: a
+Vocabulary Size: 1
+Longest Word: a
+Win Streak: 1
+Best Streak: 1
+Red Clearance Streak: 1
+Best Red Clearance Streak: 1
+Fastest Run: 11[/font_size]"
+fit_content = true
+scroll_active = false
+
+[node name="SpellStats" type="VBoxContainer" parent="PositionRoot/Panel/SectionedPanel/MainMask/MarginContainer/ScrollContainer/MarginContainer/ContentsBox" parent_id_path=PackedInt32Array(1400204219, 828913805) index="1" unique_id=1002779308]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="DottedLineBox" parent="PositionRoot/Panel/SectionedPanel/MainMask/MarginContainer/ScrollContainer/MarginContainer" index="1" unique_id=2070376067 node_paths=PackedStringArray("source_boxes")]
+source_boxes = [NodePath("../ContentsBox/SpellStats")]
+
+[node name="TabController" type="Control" parent="PositionRoot/Panel" index="2" unique_id=828629193 node_paths=PackedStringArray("menu_panel")]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 0
+mouse_filter = 2
+script = ExtResource("4")
+tab_definitions = [SubResource("Resource_s46sv"), SubResource("Resource_f63dt")]
+menu_panel = NodePath("../../..")
+metadata/_custom_type_script = "uid://das2jj0vt6is4"
+
+[connection signal="start_appearing" from="." to="." method="_on_start_appearing"]
+[connection signal="tab_changed" from="PositionRoot/Panel/TabController" to="." method="_on_tab_controller_tab_changed"]
+
+[editable path="PositionRoot/Panel/SectionedPanel"]

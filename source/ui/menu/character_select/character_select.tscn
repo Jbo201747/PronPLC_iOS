@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://bceic7if0mq8s"]
+
+[ext_resource type="Script" uid="uid://b8a1bv1ukqssr" path="res://source/ui/menu/character_select/character_select.gd" id="1"]
+[ext_resource type="PackedScene" uid="uid://cs7doa8yp3j8q" path="res://source/ui/menu/character_select/character_selector.tscn" id="2"]
+[ext_resource type="PackedScene" uid="uid://cacm2n2vrow7u" path="res://source/ui/menu/character_select/difficulty_selector.tscn" id="3"]
+[ext_resource type="PackedScene" uid="uid://btuhthp5narxg" path="res://source/ui/menu/buttons/menu_button_right.tscn" id="4"]
+[ext_resource type="PackedScene" uid="uid://c7px2r1c1leo8" path="res://source/ui/menu/character_select/seed_button.tscn" id="5"]
+[ext_resource type="PackedScene" uid="uid://c8ugdmvowclh2" path="res://source/ui/menu/character_select/win_streak.tscn" id="6"]
+
+[node name="CharacterSelect" type="Control" unique_id=2090113811]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 2
+mouse_filter = 2
+script = ExtResource("1")
+full_screen_menu = true
+
+[node name="CharacterSelector" parent="." unique_id=1213781438 instance=ExtResource("2")]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 94.0
+offset_right = 94.0
+
+[node name="DifficultySelector" parent="." unique_id=460314819 instance=ExtResource("3")]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 94.0
+offset_top = 270.0
+offset_right = 94.0
+offset_bottom = 270.0
+
+[node name="StartButton" parent="." unique_id=977111606 instance=ExtResource("4")]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 480.0
+offset_top = 220.0
+offset_right = 480.0
+offset_bottom = 220.0
+text = "menu/character_select/start"
+action = &"start_run"
+
+[node name="SeedButton" parent="." unique_id=2007643396 instance=ExtResource("5")]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 480.0
+offset_top = 185.0
+offset_right = 480.0
+offset_bottom = 185.0
+
+[node name="WinStreak" parent="." unique_id=976048544 instance=ExtResource("6")]
+unique_name_in_owner = true
+layout_mode = 0
+offset_top = 185.0
+offset_bottom = 185.0
+
+[connection signal="start_appearing" from="." to="." method="_on_start_appearing"]
+[connection signal="selected" from="CharacterSelector" to="." method="_on_character_selector_selected"]
+[connection signal="selected" from="DifficultySelector" to="." method="_on_difficulty_selector_selected"]
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]

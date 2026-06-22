@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://d1yvwgkpq0i42"]
+
+[ext_resource type="Script" uid="uid://8r2q20tb7h6j" path="res://source/library/ref_marker.gd" id="1"]
+
+[node name="RefMarker" type="Marker2D" unique_id=745850332]
+script = ExtResource("1")

@@ -1,0 +1,198 @@
+[gd_scene format=3 uid="uid://dlx8k1woxax0n"]
+
+[ext_resource type="Script" uid="uid://rmh2hat88emp" path="res://source/spell/spell_select_spell.gd" id="1"]
+[ext_resource type="PackedScene" uid="uid://b8wqs3a6tthoa" path="res://source/spell/spell_sprite.tscn" id="2"]
+[ext_resource type="Texture2D" uid="uid://deh8n8vyhe7ya" path="res://arte/spells/replacement_character.png" id="3"]
+[ext_resource type="PackedScene" uid="uid://cgq3pkee1s88m" path="res://source/spell/charge_container.tscn" id="4"]
+[ext_resource type="Script" uid="uid://dixt8wvra7fu3" path="res://source/ui/generic/special_focus_button.gd" id="5"]
+[ext_resource type="PackedScene" uid="uid://xrcrntebt85c" path="res://source/ui/tooltip/tooltip_collision.tscn" id="6"]
+[ext_resource type="Script" uid="uid://7xvadspst3p5" path="res://source/ui/generic/hover_handler.gd" id="7"]
+[ext_resource type="Script" uid="uid://cfpkpmdehkp8u" path="res://source/ui/generic/shadow_cloner.gd" id="8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rq5gx"]
+
+[sub_resource type="Animation" id="Animation_2gj23"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PositionRoot:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_bx1jr"]
+resource_name = "appear"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PositionRoot:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3),
+"transitions": PackedFloat32Array(0.30778608, 2.0705302, 1),
+"update": 0,
+"values": [Vector2(0, -187), Vector2(0, 4), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_l5c03"]
+resource_name = "disappear"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PositionRoot:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3),
+"transitions": PackedFloat32Array(0.3077861, 2.0705302, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -4), Vector2(0, -187)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rcnt7"]
+_data = {
+&"RESET": SubResource("Animation_2gj23"),
+&"appear": SubResource("Animation_bx1jr"),
+&"disappear": SubResource("Animation_l5c03")
+}
+
+[node name="SpellSelectSpell" type="Control" unique_id=126434800 node_paths=PackedStringArray("anim", "panel")]
+layout_mode = 3
+anchors_preset = 0
+focus_mode = 2
+script = ExtResource("1")
+anim = NodePath("AnimationPlayer")
+panel = NodePath("PositionRoot/HoverRoot/Panel")
+
+[node name="PositionRoot" type="Control" parent="." unique_id=1606772453]
+anchors_preset = 0
+
+[node name="HoverRoot" type="Control" parent="PositionRoot" unique_id=597522935]
+anchors_preset = 0
+
+[node name="Panel" type="Panel" parent="PositionRoot/HoverRoot" unique_id=1642471488]
+unique_name_in_owner = true
+layout_mode = 0
+offset_top = 86.0
+offset_right = 95.0
+offset_bottom = 185.0
+mouse_filter = 2
+theme_type_variation = &"SpellSelectPanel"
+
+[node name="SpellSprite" parent="PositionRoot/HoverRoot/Panel" unique_id=27363195 instance=ExtResource("2")]
+unique_name_in_owner = true
+position = Vector2(2, -10)
+outline_when_charged = true
+animated = true
+
+[node name="CensoredSprite" type="Sprite2D" parent="PositionRoot/HoverRoot/Panel" unique_id=1696214228]
+unique_name_in_owner = true
+visible = false
+position = Vector2(18, 3)
+texture = ExtResource("3")
+
+[node name="ChargeContainer" parent="PositionRoot/HoverRoot/Panel" unique_id=189893571 instance=ExtResource("4")]
+unique_name_in_owner = true
+position = Vector2(80, 4)
+
+[node name="MarginContainer" type="MarginContainer" parent="PositionRoot/HoverRoot/Panel" unique_id=1437794618]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 6
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PositionRoot/HoverRoot/Panel/MarginContainer" unique_id=139977726]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="NameLabel" type="Label" parent="PositionRoot/HoverRoot/Panel/MarginContainer/VBoxContainer" unique_id=713133653]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"MainMenuLabel"
+theme_override_constants/line_spacing = -3
+theme_override_font_sizes/font_size = 7
+text = "Perfect Metal Carapace"
+horizontal_alignment = 1
+
+[node name="DescriptionLabel" type="RichTextLabel" parent="PositionRoot/HoverRoot/Panel/MarginContainer/VBoxContainer" unique_id=506511421]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(84, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 6
+text = "Removes the selected tile.
+Cannot remove harmful status effects."
+fit_content = true
+scroll_active = false
+autowrap_mode = 2
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="PositionRoot/HoverRoot/Panel" unique_id=795264367 node_paths=PackedStringArray("focus_position_source")]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_rq5gx")
+flat = true
+script = ExtResource("5")
+focus_position_source = NodePath("../FocusPosition")
+
+[node name="TooltipCollision" parent="PositionRoot/HoverRoot/Panel" unique_id=399439632 node_paths=PackedStringArray("focus_source") instance=ExtResource("6")]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_alignment = 2
+vertical_alignment = 1
+position_offset = Vector2(4, 0)
+focus_source = NodePath("../Button")
+
+[node name="HoverHandler" type="Node2D" parent="PositionRoot/HoverRoot/Panel" unique_id=1110415956 node_paths=PackedStringArray("hovering", "source")]
+script = ExtResource("7")
+hovering = NodePath("../..")
+source = NodePath("../Button")
+hovered_position = Vector2(0, -4)
+pressed_position = Vector2(0, -2)
+metadata/_custom_type_script = "uid://7xvadspst3p5"
+
+[node name="ShadowCloner" type="Node2D" parent="PositionRoot/HoverRoot/Panel" unique_id=61670826]
+position = Vector2(2, 2)
+script = ExtResource("8")
+metadata/_custom_type_script = "uid://cfpkpmdehkp8u"
+
+[node name="FocusPosition" type="Marker2D" parent="PositionRoot/HoverRoot/Panel" unique_id=409048522]
+position = Vector2(83, 86)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1495257464]
+libraries/ = SubResource("AnimationLibrary_rcnt7")
+
+[connection signal="focus_entered" from="PositionRoot/HoverRoot/Panel/Button" to="." method="_on_button_focus_entered"]
+[connection signal="focus_exited" from="PositionRoot/HoverRoot/Panel/Button" to="." method="_on_button_focus_exited"]
+[connection signal="pressed" from="PositionRoot/HoverRoot/Panel/Button" to="." method="_on_button_pressed"]
+[connection signal="check_generate_tooltip" from="PositionRoot/HoverRoot/Panel/TooltipCollision" to="." method="_on_tooltip_collision_check_generate_tooltip"]
+[connection signal="generate_tooltip" from="PositionRoot/HoverRoot/Panel/TooltipCollision" to="." method="_on_tooltip_collision_generate_tooltip"]

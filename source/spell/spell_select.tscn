@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://c1ka8ny4n6b75"]
+
+[ext_resource type="Script" uid="uid://cob8jctgnyw8h" path="res://source/spell/spell_select.gd" id="1"]
+[ext_resource type="PackedScene" uid="uid://btuhthp5narxg" path="res://source/ui/menu/buttons/menu_button_right.tscn" id="2"]
+
+[node name="SpellSelect" type="Control" unique_id=1926034630]
+layout_mode = 3
+anchors_preset = 0
+focus_mode = 2
+mouse_filter = 2
+script = ExtResource("1")
+origin = Vector2(240, 0)
+
+[node name="SkipButton" parent="." unique_id=2046175585 groups=["multipanel_exclude"] instance=ExtResource("2")]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 480.0
+offset_top = 220.0
+offset_right = 480.0
+offset_bottom = 220.0
+text = "menu/spell_select/skip"
+glyph_action = &"end_action"
+
+[connection signal="pressed" from="SkipButton" to="." method="_on_skip_button_pressed"]

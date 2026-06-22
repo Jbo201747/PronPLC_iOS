@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://cdfx8j5vgt7ls"]
+
+[ext_resource type="PackedScene" uid="uid://cbdk6hv7wu8im" path="res://source/battle_unit/enemy.tscn" id="1"]
+[ext_resource type="Script" uid="uid://dcgccual5cdv2" path="res://source/enemies/snowball.gd" id="2"]
+[ext_resource type="PackedScene" uid="uid://ci8e13627y3wo" path="res://source/enemies/sprites/snowball_sprite.tscn" id="3"]
+
+[node name="Snowball" unique_id=1195115160 instance=ExtResource("1")]
+script = ExtResource("2")
+
+[node name="Sprite" parent="." index="0" unique_id=1182524577 instance=ExtResource("3")]

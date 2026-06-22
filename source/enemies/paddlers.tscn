@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://cxcow2cg8qgf7"]
+
+[ext_resource type="PackedScene" uid="uid://cbdk6hv7wu8im" path="res://source/battle_unit/enemy.tscn" id="1"]
+[ext_resource type="Script" uid="uid://upbaclo41j3f" path="res://source/enemies/paddlers.gd" id="2"]
+[ext_resource type="PackedScene" uid="uid://ef50qqrln4ou" path="res://source/enemies/sprites/paddlers_sprite.tscn" id="3"]
+
+[node name="Paddlers" unique_id=1017657859 instance=ExtResource("1")]
+script = ExtResource("2")
+
+[node name="Sprite" parent="." index="0" unique_id=622833019 instance=ExtResource("3")]

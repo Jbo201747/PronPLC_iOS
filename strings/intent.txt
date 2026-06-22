@@ -1,0 +1,704 @@
+:word_categories:
+	:colors:
+		:name:
+			Colors
+
+		:singular:
+			a color
+
+	:animals:
+		:name:
+			Animals
+
+		:singular:
+			an animal
+
+	:metals:
+		:name:
+			Metals
+
+		:singular:
+			a metal
+
+	:fruits_and_vegetables:
+		:name:
+			Fruits and Vegetables
+
+		:singular:
+			a fruit or vegetable
+
+	:body_parts:
+		:name:
+			Body Parts
+
+		:singular:
+			a body part
+
+
+:board_targets:
+	:default:
+		{count} tile{count plural s}
+
+	:top:
+		{:default:} {"near" if near}{"at" not near} the top of the tile board
+
+	:bottom:
+		{:default:} {"near" if near}{"at" not near} the bottom of the tile board
+
+
+	:all:
+		the entire tile board
+
+#
+# PLAYER INTENTS
+#
+
+:player_bruise:
+	:label:
+		{bruise}
+
+
+#
+# WORD INTENTS
+#
+
+:default_label:
+	{turns|count|damage|defense|heal|}
+
+:damage:
+	:name:
+		Damage
+
+	:description:
+		You will attack for {damage} damage.
+
+:defense:
+	:name:
+		Defense
+
+	:description:
+		All incoming damage will be reduced by {defense}.
+
+:damage_multiplier:
+	:name:
+		Damage Multiplier
+
+	:description:
+		Damage has been multiplied by {multiplier}
+
+	:label:
+		{multiplier}
+
+:defense_multiplier:
+	:name:
+		Defense Multiplier
+
+	:description:
+		Defense has been multiplied by {multiplier}.
+
+	:label:
+		{multiplier}
+
+:acid:
+	:name:
+		Acid
+
+	:description:
+		On turn end, acid tiles will fall out and deal {damage} unblockable damage.
+
+:bruise:
+	:name:
+		Bruised
+
+	:description:
+		Incoming damage will be increased by {damage} if it is not fully blocked.
+
+:bleed:
+	:name:
+		Bleed
+
+	:description:
+		Bleed tiles not in use will deal {damage} damage on turn end.
+
+:shimmering:
+	:name:
+		Shimmering
+
+	:description:
+		{:invalid_word_description: if invalid_word}{:wildcard_conflict_description: if wildcard_conflict}{:generic_description: not invalid_word|wildcard_conflict}
+
+	:generic_description:
+		Some permutations of shimmering tiles do not form valid words.
+
+	:wildcard_conflict_description:
+		No wildcard is able to make all permutations of shimmering tiles valid.
+
+	:invalid_word_description:
+		Some permutations of shimmering tiles do not form valid words, like “{invalid_word}.”
+
+:period:
+	:name:
+		Period
+
+	:description:
+		Word contains a period not at the end of the word.
+
+:capital:
+	:name:
+		Capital
+
+	:description:
+		Word contains a capital not at the beginning of the word.
+
+:linked:
+	:name:
+		Linked
+
+	:description:
+		Word contains some {bad_colors list_and} linked tiles but not all.
+
+:straight:
+	:name:
+		Straight
+
+	:description:
+		Word contains touching yuri and yaoi tiles.
+
+:poison:
+	:name:
+		Poison
+
+	:description:
+		Unplayed poison tiles will deal {damage} damage on turn end.
+
+:heal:
+	:name:
+		Healing
+
+	:description:
+		You will heal for {heal} health.
+
+:bomb:
+	:name:
+		Bomb
+
+	:description:
+		On turn end, unplayed bomb tiles will explode and deal {damage} damage.
+
+:cursed:
+	:name:
+		Cursed
+
+	:description:
+		Unplayed cursed tiles will deal {damage} damage on turn end.
+
+:haze:
+	:name:
+		Haze
+
+	:description:
+		Unplayed haze tiles will deal {damage} damage on turn end.
+
+:eternal:
+	:name:
+		Eternal
+
+	:description:
+		Unplayed eternal tiles will deal {damage} damage on turn end.
+
+:repeat_word:
+	:name:
+		Repeated Word
+
+	:description:
+		“{word}” has already been submitted this run.
+
+:laced:
+	:name:
+		Laced
+
+	:description:
+		Laced spells with remaining charge will deal {damage} damage on turn end.
+
+:crit_chance:
+	:name:
+		{:crit_type:} Chance
+
+	:crit_type:
+		{"Crit Tile" not wildcard}{Wildcard if wildcard}
+
+	:description:
+		{chance}% {:crit_type: lower} chance on submit.
+		{:natural_description: if natural}{:unnatural_description: not natural}
+
+
+	:natural_description:
+		+{bonus}% odds for every letter after the fourth. Halved when you roll a {:crit_type: lower}.
+
+	:unnatural_description:
+		Halved when you roll a {:crit_type: lower}.
+
+
+	:label:
+		{truncated_chance}
+
+:category_matched:
+	:name:
+		{category_name}
+
+	:description:
+		Word is {category_singular}. Tile value is doubled.
+
+	:default_label:
+		{turns|count|damage|defense|}
+
+:spiked_slots:
+	:name:
+		Spiked Slots
+
+	:description:
+		Tiles in slots will deal {damage} damage when played.
+
+#
+# ENEMY INTENTS
+#
+
+:attack:
+	:name:
+		{Attack if count|1 1}{Multiattack not count|1 1}
+
+	:description:
+		{:normal_description: if count|1 1}
+		{:multiattack_description: not count|1 1}
+
+	:normal_description:
+		Intends to deal {damage} damage.
+
+	:multiattack_description:
+		Intends to deal {damage} damage {count} time{count plural s}.
+
+	:label:
+		{:normal_label: if count|1 1}
+		{:multiattack_label: not count|1 1}
+
+	:normal_label:
+		{damage}
+
+	:multiattack_label:
+		{damage}x{count}
+
+:bite:
+	:name:
+		Bite
+
+	:description:
+		Intends to deal {damage} damage.
+
+
+:harmless_attack:
+	:name:
+		Declawed {:attack/name:}
+
+	:description:
+		{:attack/description:}
+
+	:label:
+		{:attack/label:}
+
+:parry:
+	:name:
+		Parry
+
+	:description:
+		{:parried_description: if parried}{:progress_description: if needed_length}{:generic_description: not parried|needed_length}
+
+	:generic_description:
+		Spelling a word at least {length} letter{length plural s} long will cancel the enemy’s attack.
+
+	:parried_description:
+		The enemy’s attack is being cancelled by spelling a {length} letter word.
+
+	:progress_description:
+		Spelling a word at least {length} letter{length plural s} long will cancel the enemy’s attack. {needed_length} more letter{needed_length plural s} {needed_length plural "are"}{needed_length single "is"} required.
+
+	:label:
+		{needed_length|length not parried}
+
+:defend:
+	:name:
+		Defend
+
+	:description:
+		Blocking {defense} damage this turn.
+
+:abduct:
+	:name:
+		Abduct
+
+	:description:
+		Intends to deal damage equal to the total value of targeted tiles.
+
+	:label:
+		x
+
+:swap_type:
+	:name:
+		Swap Type
+
+	:description:
+		Intends to swap the type of targeted tiles.
+
+:lock_restock:
+	:name:
+		Lock Board
+
+	:description:
+		Intends to lock the tile board for {turns} turn{turns plural s}, preventing tiles from restocking.
+
+:multitude:
+	:name:
+		Multitude
+
+	:description:
+		Intends to deal up to {original_damage} damage.
+		Deals {reduce_by} less damage for every {per_health} health lost.
+
+:traffic:
+	:name:
+		Traffic
+
+	:description:
+		Will not attack this turn.
+		Deals {reduce_by} less damage for every {per_health} health lost.
+
+:feed:
+	:name:
+		Feed
+
+	:description:
+		Intends to consume all tiles on the bottom row.
+
+:filter:
+	:name:
+		Filter
+
+	:description:
+		Intends to consume {count} tiles on the bottom two rows.
+
+:blow:
+	:name:
+		Blow
+
+	:description:
+		Intends to randomize the face of all tiles.
+
+
+:apply_status:
+	:name:
+		{name if name}{:status_name: not name}
+
+	:status_name:
+		{status_names list_delim " " capital}
+
+	:description:
+		Intends to apply {status_names list_and lower} to {target}.
+
+:convert_status:
+	:name:
+		{:apply_status/name:}
+
+	:description:
+		{:description_normal: not status_plural}{:description_pluralize: if status_plural}
+
+	:description_normal:
+		Intends to convert {target} to {status_names list_delim " " lower}.
+
+	:description_pluralize:
+		Intends to convert {target} to{count single " a"} {status_names list_delim " " lower}{count plural s}.
+
+:paddle:
+	:name:
+		Paddle
+
+	:description:
+		Intends to convert {yuri_rows} row{yuri_rows plural s} to yuri and {yaoi_rows} row{yaoi_rows plural s} to yaoi.
+
+:suit_paddle:
+	:name:
+		Paddle
+
+	:description:
+		Intends to convert two tiles to bleed suits of the same kind and two tiles to ash suits of a different kind.
+
+:menstruate:
+	:name:
+		Menstruate
+
+:coagulate:
+	:name:
+		Coagulate
+
+:coagulate_trigram:
+	:name:
+		Coagulate
+
+:big_intestine:
+	:name:
+		Big Intestine
+
+:small_intestine:
+	:name:
+		Small Intestine
+
+:dream:
+	:name:
+		Dream
+
+	:description:
+		Intends to convert {count} tile{count plural s} around the edges of the board to ash {letter upper}{count plural "’s"}.
+
+:keypad:
+	:name:
+		Keypad
+
+	:description:
+		Intends to replace the board with a phone keypad for 1 turn.
+
+:hole_punch:
+	:name:
+		Warning Shot
+
+	:description:
+		{:holes_description:}{:ash_description: if ash}.
+
+	:ash_description:
+		, and convert them to ash
+
+	:holes_description:
+		Intends to punch a hole through the targeted tile{holes plural s}
+
+
+:ticking:
+	:name:
+		Ticking
+
+	:description:
+		This enemy will explode in {turns} turn{turns plural s}, killing itself and dealing {damage} damage.
+
+:detonate:
+	:name:
+		Ticking
+
+	:description:
+		Intends to detonate, killing itself and dealing {damage} damage.
+
+:sprawl:
+	:name:
+		Sprawl
+
+	:description:
+		Intends to enhance all plastic tiles to concrete.
+
+	:label:
+		x
+
+:poison_scramble:
+	:name:
+		Scramble
+
+	:description:
+		Intends to apply poison to {count} tile{count plural s}, changing their faces to a scrambled word.
+
+:bleed_full_word:
+	:name:
+		Blue Liquid Absorbent
+
+	:description:
+		Intends to apply bleed to {count} tile{count plural s} and convert 2 to period and capital tiles.
+
+:doublespeak:
+	:name:
+		Doublespeak
+
+	:convert_count:
+		{count} tile{count plural s} to{count single " a"} {status}{count plural s}
+
+	:description:
+		Intends to convert {:convert_count: with count damage_crits status "wooden crit"}{:shimmering_damage_description: not shimmering_damage_crits|0 0} and {:convert_count: with count defense_crits status "shimmering plastic crit"}.
+
+	:shimmering_damage_description:
+		, {:convert_count: with count shimmering_damage_crits status "shimmering wooden crit"},
+
+:cursed_capital:
+	:name:
+		Cursed Capital
+
+	:description:
+		Intends to convert {count} tile{count plural s} to{count single " a"} cursed capital {letter upper} tile{count plural s}.
+
+	:label:
+		{letter upper}
+
+:bleed_curse:
+	:name:
+		Bleed Curse
+
+	:description:
+		Intends to convert all Bleed tiles into Cursed tiles.
+
+:apply_eternal:
+	:name:
+		Eternal
+
+	:description:
+		{:description_normal: not count 0}
+		{:description_randomize: if count 0}
+
+	:description_normal:
+		Intends to apply eternal to {count} tile{count plural s} and randomize the face of all eternal tiles.
+
+	:description_randomize:
+		Intends to randomize the face of all eternal tiles.
+
+	:label:
+		{count not count 0}
+
+:bleed_wildcard:
+	:name:
+		Bleed Wildcard
+
+	:description:
+		Intends to convert {count} tile{count plural s} to{count single " a"} bleed double-wildcard tile{count plural s}.
+
+:mystery_crit:
+	:name:
+		Mystery Crit
+
+	:description:
+		Intends to convert {count} tile{count plural s} into{count single " a"} plastic crit tile{count plural s} with{count plural " the same"}{count single " a"} mystery {"double-" if double}letter.
+
+:passcode:
+	:name:
+		Passcode
+
+	:description:
+		Will instantly die if you spell “{word}.”
+
+:category:
+	:name:
+		{category_name}
+
+	:description:
+		Words for {category_name lower} have double value.
+
+:alter_board:
+	:name:
+		Alter Board
+
+	:description:
+		Intends to modify the tile board.
+
+:expand_board:
+#	:name:
+#		Expand Board
+#
+#	:description:
+#		Intends to expand the tile board to {size_x}x{size_y}.
+
+	:name:
+		{:alter_board/name:}
+
+	:description:
+		{:alter_board/description:}
+
+:shrink_board:
+#	:name:
+#		Shrink Board
+#
+#	:description:
+#		Intends to shrink the tile board to {size_x}x{size_y}.
+
+	:name:
+		{:alter_board/name:}
+
+	:description:
+		{:alter_board/description:}
+
+
+:letter_opener:
+	:name:
+		Letter Opener{"?" if cursed}
+
+	:description:
+		Intends to remove the bottom row, dealing damage equal to the combined value of all tiles removed.
+		{:cursed_description: if cursed}
+
+	:cursed_description:
+		Tiles that fall in afterwards will be cursed.
+
+	:label:
+		x
+
+:board_shear:
+	:name:
+		Board Shear
+
+	:description:
+		Intends to cut the tile board to {size_x}x{size_y} and apply {count} bleed to the rightmost column.
+
+:clear_board:
+#	:name:
+#		Clear Board
+#
+#	:description:
+#		Intends to remove all tiles on the tile board and set restock depth to 0.
+
+	:name:
+		{:alter_board/name:}
+
+	:description:
+		{:alter_board/description:}
+
+:curse_board:
+#	:name:
+#		Curse Board
+#
+#	:description:
+#		Intends to expand the board to {size_x}x{size_y}, then convert the leftmost column to cursed capitals{" and the rightmost column to cursed periods" if cursed_periods}.
+
+	:name:
+		{:alter_board/name:}
+
+	:description:
+		{:alter_board/description:}
+
+:preparing:
+	:name:
+		Preparing
+
+	:description:
+		The enemy is preparing a very powerful attack.
+
+:acid_bomb:
+	:name:
+		Acid Bomb
+
+	:description:
+		{:base_description: if bigram_bombs 0}
+		{:bigram_description: not bigram_bombs 0}
+
+	:acid_description:
+		Intends to convert {acid} tile{acid plural s} at the top of the tile board to acid
+
+	:base_description:
+		{:acid_description:} and {bombs} tile{bombs plural s} to{bombs single " a"} bomb{bombs plural s}.
+
+	:bigram_description:
+		{:acid_description:}, {bombs} tile{bombs plural s} to{bombs single " a"} bomb{bombs plural s}, and {bigram_bombs} tile{bigram_bombs plural s} to{bigram_bombs single " a"} bigram bomb{bigram_bombs plural s}.
+
+:concentration:
+	:name:
+		Concentration
+
+	:description:
+		{:multitude/description:}

@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://cbdpyemg3qspb"]
+
+[ext_resource type="Script" uid="uid://dc0fhvb5racn8" path="res://source/tile/tile_face.gd" id="1"]
+
+[node name="TileFace" type="Node2D" unique_id=399438525]
+use_parent_material = true
+script = ExtResource("1")

@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://b3vuat3ydphsn"]
+
+[ext_resource type="Script" uid="uid://b57r6kbkgk555" path="res://source/ui/menu/summary/summary_menu.gd" id="1"]
+[ext_resource type="PackedScene" uid="uid://8fu0r542p7ev" path="res://source/ui/menu/leaderboard/game_leaderboard_panel.tscn" id="2"]
+[ext_resource type="PackedScene" uid="uid://bxv3qxug1wuaj" path="res://source/ui/menu/summary/summary_panel.tscn" id="3"]
+[ext_resource type="PackedScene" uid="uid://btuhthp5narxg" path="res://source/ui/menu/buttons/menu_button_right.tscn" id="4"]
+
+[node name="SummaryMenu" type="Control" unique_id=2047637485]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 2
+mouse_filter = 2
+script = ExtResource("1")
+full_screen_menu = true
+
+[node name="LeaderboardPanel" parent="." unique_id=508888732 instance=ExtResource("2")]
+unique_name_in_owner = true
+layout_mode = 1
+
+[node name="SummaryPanel" parent="." unique_id=1422655038 instance=ExtResource("3")]
+unique_name_in_owner = true
+layout_mode = 1
+
+[node name="ContinueButton" parent="." unique_id=1695913431 instance=ExtResource("4")]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 480.0
+offset_top = 220.0
+offset_right = 480.0
+offset_bottom = 220.0
+text = "menu/summary/continue"
+glyph_action = &"end_action"

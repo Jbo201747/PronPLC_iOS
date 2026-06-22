@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://oql0ui6q6p5x"]
+
+[ext_resource type="PackedScene" uid="uid://cbdk6hv7wu8im" path="res://source/battle_unit/enemy.tscn" id="1"]
+[ext_resource type="Script" uid="uid://cjy0cmo13l0sq" path="res://source/enemies/foreign_body.gd" id="2"]
+[ext_resource type="PackedScene" uid="uid://cjonbxucf1iid" path="res://source/enemies/sprites/foreign_body_sprite.tscn" id="3"]
+
+[node name="ForeignBody" unique_id=1126369289 instance=ExtResource("1")]
+script = ExtResource("2")
+idle_after_flinching = false
+
+[node name="Sprite" parent="." index="0" unique_id=1568025661 instance=ExtResource("3")]

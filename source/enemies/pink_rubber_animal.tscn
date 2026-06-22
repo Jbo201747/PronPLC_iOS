@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bnxc0chwnq28c"]
+
+[ext_resource type="PackedScene" uid="uid://cbdk6hv7wu8im" path="res://source/battle_unit/enemy.tscn" id="1"]
+[ext_resource type="Script" uid="uid://c5i858n43o5om" path="res://source/enemies/pink_rubber_animal.gd" id="2"]
+[ext_resource type="PackedScene" uid="uid://dkff5ekygihay" path="res://source/enemies/sprites/pink_rubber_animal_sprite.tscn" id="3"]
+
+[node name="PinkRubberAnimal" unique_id=1706860678 instance=ExtResource("1")]
+script = ExtResource("2")
+
+[node name="Sprite" parent="." index="0" unique_id=1815076036 instance=ExtResource("3")]

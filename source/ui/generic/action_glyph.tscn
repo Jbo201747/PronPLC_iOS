@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://d4a7isuy7vbow"]
+
+[ext_resource type="PackedScene" uid="uid://d3plellhhwqpp" path="res://source/ui/generic/input_glyph.tscn" id="1"]
+[ext_resource type="Script" uid="uid://daim82q8ul2q5" path="res://source/ui/generic/action_glyph.gd" id="2"]
+
+[node name="ActionGlyph" unique_id=1185166845 instance=ExtResource("1")]
+size_flags_vertical = 4
+script = ExtResource("2")
+action = &""
+show_keyboard_action = false
+controller_mode_only = false
+with_setting_only = false

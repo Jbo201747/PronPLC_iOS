@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://c4xhkk361cael"]
+
+[ext_resource type="Script" uid="uid://br51baeo8agpw" path="res://source/ui/menu/achievements/achievement_icon.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://bwy664g1xxc4b" path="res://arte/ui/achievements/missing.png" id="2"]
+[ext_resource type="PackedScene" uid="uid://dat3nkol372xh" path="res://source/ui/menu/generic/menu_page_shadow.tscn" id="3"]
+[ext_resource type="PackedScene" uid="uid://btiftdxh0qal0" path="res://source/ui/icons/character_icon.tscn" id="4"]
+[ext_resource type="PackedScene" uid="uid://b8wqs3a6tthoa" path="res://source/spell/spell_sprite.tscn" id="5"]
+
+[node name="Control" type="Control" unique_id=561426179]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 3
+anchors_preset = 0
+size_flags_vertical = 4
+mouse_filter = 2
+script = ExtResource("1")
+
+[node name="PositionRoot" type="Node2D" parent="." unique_id=2031184924]
+
+[node name="Icon" type="Sprite2D" parent="PositionRoot" unique_id=515468403]
+unique_name_in_owner = true
+texture = ExtResource("2")
+offset = Vector2(16, 16)
+
+[node name="ShadowCloner" parent="PositionRoot/Icon" unique_id=255702735 node_paths=PackedStringArray("clone_offset") instance=ExtResource("3")]
+position = Vector2(2, 2)
+clone_offset = NodePath("../..")
+
+[node name="CharacterIcon" parent="PositionRoot" unique_id=1948296359 instance=ExtResource("4")]
+unique_name_in_owner = true
+visible = false
+
+[node name="ShadowCloner" parent="PositionRoot/CharacterIcon" unique_id=44844074 node_paths=PackedStringArray("clone_offset") instance=ExtResource("3")]
+position = Vector2(2, 2)
+clone_offset = NodePath("../..")
+
+[node name="SpellSprite" parent="PositionRoot" unique_id=1448247384 instance=ExtResource("5")]
+unique_name_in_owner = true
+visible = false
+
+[node name="ShadowCloner" parent="PositionRoot/SpellSprite" unique_id=1356694659 node_paths=PackedStringArray("clone_offset") instance=ExtResource("3")]
+position = Vector2(2, 2)
+clone_offset = NodePath("../..")
+awaiting_reparent = true

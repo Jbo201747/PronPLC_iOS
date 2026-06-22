@@ -1,0 +1,46 @@
+[gd_resource type="Resource" script_class="BGLayers" format=3 uid="uid://jnv2lljp2eum"]
+
+[ext_resource type="Resource" uid="uid://4f5577ygl6mv" path="res://data/backgrounds/act_3/sky.tres" id="1"]
+[ext_resource type="Resource" uid="uid://3buqxui52fnc" path="res://data/backgrounds/act_3/clouds_far.tres" id="2"]
+[ext_resource type="Resource" uid="uid://cln4toignfxw6" path="res://data/backgrounds/act_3/clouds_near.tres" id="3"]
+[ext_resource type="Script" uid="uid://4xnkv17k7r2u" path="res://source/background/resources/pattern.gd" id="4"]
+[ext_resource type="PackedScene" uid="uid://0g6ldso85dw2" path="res://source/background/chunks/act_3/sun.tscn" id="5"]
+[ext_resource type="Script" uid="uid://eanwv1abiw6y" path="res://source/background/resources/chunk_entry.gd" id="6"]
+[ext_resource type="Script" uid="uid://bio02cenhh5hr" path="res://source/background/resources/pattern_step.gd" id="7"]
+[ext_resource type="Script" uid="uid://dkmj8b7llyv41" path="res://source/background/resources/layer.gd" id="8"]
+[ext_resource type="Resource" uid="uid://dyw5y6esh63hd" path="res://data/backgrounds/act_3/ground.tres" id="9"]
+[ext_resource type="Resource" uid="uid://c4nddbgfinnuh" path="res://data/backgrounds/act_3/rooms.tres" id="10"]
+[ext_resource type="Resource" uid="uid://bsfmun3j3hnft" path="res://data/backgrounds/act_3/props_far.tres" id="11"]
+[ext_resource type="Resource" uid="uid://du5npnmklhu3g" path="res://data/backgrounds/act_3/carpet.tres" id="12"]
+[ext_resource type="Script" uid="uid://k1ocv1g3h17l" path="res://source/background/resources/layers.gd" id="13"]
+
+[sub_resource type="Resource" id="Resource_wal6e"]
+script = ExtResource("6")
+chunk = ExtResource("5")
+metadata/_custom_type_script = "uid://eanwv1abiw6y"
+
+[sub_resource type="Resource" id="Resource_4t5ex"]
+script = ExtResource("7")
+entries = [SubResource("Resource_wal6e")]
+metadata/_custom_type_script = "uid://bio02cenhh5hr"
+
+[sub_resource type="Resource" id="Resource_d7k0b"]
+script = ExtResource("4")
+id = "loop"
+next = "loop"
+steps = [SubResource("Resource_4t5ex")]
+metadata/_custom_type_script = "uid://4xnkv17k7r2u"
+
+[sub_resource type="Resource" id="Resource_cb8s5"]
+script = ExtResource("8")
+z_index = -79
+motion_scale = 0.0
+randomize_start = false
+is_static = true
+patterns = [SubResource("Resource_d7k0b")]
+metadata/_custom_type_script = "uid://dkmj8b7llyv41"
+
+[resource]
+script = ExtResource("13")
+layers = [ExtResource("1"), ExtResource("2"), ExtResource("3"), SubResource("Resource_cb8s5"), ExtResource("9"), ExtResource("10"), ExtResource("11"), ExtResource("12")]
+metadata/_custom_type_script = "uid://k1ocv1g3h17l"

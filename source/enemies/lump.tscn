@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://4ojaxl836vc0"]
+
+[ext_resource type="PackedScene" uid="uid://cbdk6hv7wu8im" path="res://source/battle_unit/enemy.tscn" id="1"]
+[ext_resource type="Script" uid="uid://bwrud0ug8urug" path="res://source/enemies/lump.gd" id="2"]
+[ext_resource type="PackedScene" uid="uid://d3gbut47mq86j" path="res://source/enemies/sprites/lump_sprite.tscn" id="3"]
+
+[node name="Lump" unique_id=1782091719 instance=ExtResource("1")]
+script = ExtResource("2")
+
+[node name="Sprite" parent="." index="0" unique_id=1875780995 instance=ExtResource("3")]
+position = Vector2(0, 4)

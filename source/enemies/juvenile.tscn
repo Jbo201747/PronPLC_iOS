@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://crhh2chmrldwr"]
+
+[ext_resource type="PackedScene" uid="uid://cbdk6hv7wu8im" path="res://source/battle_unit/enemy.tscn" id="1"]
+[ext_resource type="Script" uid="uid://covmebot2sek5" path="res://source/enemies/juvenile.gd" id="2"]
+[ext_resource type="PackedScene" uid="uid://oxwpm83hkl4m" path="res://source/enemies/sprites/juvenile_sprite.tscn" id="3"]
+
+[node name="Herarra" unique_id=950330793 instance=ExtResource("1")]
+z_index = 0
+script = ExtResource("2")
+
+[node name="Sprite" parent="." index="0" unique_id=102138911 instance=ExtResource("3")]

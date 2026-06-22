@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://b2cc5gbj5yt2s"]
+
+[ext_resource type="PackedScene" uid="uid://cbdk6hv7wu8im" path="res://source/battle_unit/enemy.tscn" id="1"]
+[ext_resource type="Script" uid="uid://vk5f7awkcruv" path="res://source/enemies/stoker.gd" id="2"]
+[ext_resource type="PackedScene" uid="uid://bdl0d17wimccu" path="res://source/enemies/sprites/stoker_sprite.tscn" id="3"]
+
+[node name="Stoker" unique_id=1427701335 instance=ExtResource("1")]
+script = ExtResource("2")
+
+[node name="Sprite" parent="." index="0" unique_id=1060850998 instance=ExtResource("3")]
+position = Vector2(0, 2)

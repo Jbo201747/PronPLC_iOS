@@ -1,0 +1,90 @@
+[gd_scene format=3 uid="uid://ca42grsrjw13r"]
+
+[ext_resource type="PackedScene" uid="uid://i7n4jleuy6ix" path="res://source/ui/menu/buttons/menu_button_tall.tscn" id="1"]
+[ext_resource type="Script" uid="uid://43q5wfkbqq4a" path="res://source/ui/menu/buttons/menu_label_button.gd" id="2"]
+
+[sub_resource type="Animation" id="Animation_sennw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HoverOffset/Panel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -105)]
+}
+
+[sub_resource type="Animation" id="Animation_kdoba"]
+resource_name = "appear"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HoverOffset/Panel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3),
+"transitions": PackedFloat32Array(0.3077863, 2.0705302, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -109), Vector2(0, -105)]
+}
+
+[sub_resource type="Animation" id="Animation_dg8bh"]
+resource_name = "disappear"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HoverOffset/Panel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3),
+"transitions": PackedFloat32Array(0.30778638, 2.070531, 1),
+"update": 0,
+"values": [Vector2(0, -105), Vector2(0, -109), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_70ff4"]
+_data = {
+&"RESET": SubResource("Animation_sennw"),
+&"appear": SubResource("Animation_kdoba"),
+&"disappear": SubResource("Animation_dg8bh")
+}
+
+[node name="MenuButtonTall" unique_id=717337374 instance=ExtResource("1")]
+script = ExtResource("2")
+text = "New Run"
+use_string_key = true
+shrink_to_bounds = 70.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HoverOffset/Panel/MarginContainer" parent_id_path=PackedInt32Array(948667601) index="0" unique_id=1384744184]
+layout_mode = 2
+theme_override_constants/separation = -5
+
+[node name="Label" type="Label" parent="HoverOffset/Panel/MarginContainer/VBoxContainer" index="0" unique_id=523514159]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 0
+theme_type_variation = &"MainMenuLabel"
+text = "New Run"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="InfoLabel" type="Label" parent="HoverOffset/Panel/MarginContainer/VBoxContainer" index="1" unique_id=596657865]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_vertical = 0
+theme_type_variation = &"MenuDescriptionLabel"
+text = "Forfeit Turn"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" parent="." index="1" unique_id=601534803]
+libraries/ = SubResource("AnimationLibrary_70ff4")

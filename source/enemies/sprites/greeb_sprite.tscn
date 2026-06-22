@@ -1,0 +1,2010 @@
+[gd_scene format=3 uid="uid://ddwai0mjai27y"]
+
+[ext_resource type="PackedScene" uid="uid://dmg180a1myio" path="res://source/battle_unit/battle_unit_sprite.tscn" id="1"]
+[ext_resource type="Texture2D" uid="uid://2k6pd3m3m36w" path="res://arte/enemies/ufo_mask.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://djj83s08bv4va" path="res://arte/enemies/greeb_ship.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://dooor7drnp7cy" path="res://arte/enemies/greeb_ship_back.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://bm2y0p35ugymp" path="res://arte/enemies/ufo_cap.png" id="5"]
+[ext_resource type="Texture2D" uid="uid://cu0lwm8yhob0n" path="res://arte/enemies/greeb.png" id="6"]
+[ext_resource type="Texture2D" uid="uid://buj5iyhk4sj6l" path="res://arte/enemies/greeb_hands.png" id="7"]
+[ext_resource type="PackedScene" uid="uid://1lxhtc1lwbk0" path="res://source/effects/explosion.tscn" id="8"]
+[ext_resource type="PackedScene" uid="uid://d0olhqgmsbhfd" path="res://source/effects/breath_smoke_small.tscn" id="9"]
+[ext_resource type="Script" uid="uid://dc1sl5vjy0j0j" path="res://source/library/anim_ref.gd" id="10"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fw7gi"]
+radius = 36.05551
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wmfk5"]
+radius = 36.0
+height = 126.0
+
+[sub_resource type="Animation" id="Animation_dib5s"]
+resource_name = "RESET"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Mask/Ship:frame")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Mask/Ship:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-3, -50)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Mask/Ship:position:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-3.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Mask/Ship:position:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-50.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Mask/Ship:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Mask/Ship:visible")
+tracks/5/interp = 0
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Mask/Ship/Alium:frame")
+tracks/6/interp = 0
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Mask/Ship/Alium:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-3, -29)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Mask/Ship/Alium:scale")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Mask/Ship/Alium:offset")
+tracks/9/interp = 0
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Mask/Ship/Alium/Hands:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-2, 13)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Mask/Ship/Alium/Hands:visible")
+tracks/11/interp = 0
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [false]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Mask/Ship/Alium/Hands/HandsOverlay:visible")
+tracks/12/interp = 0
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [false]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("Mask:self_modulate")
+tracks/13/interp = 0
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("Mask:clip_children")
+tracks/14/interp = 0
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_wbtlt"]
+resource_name = "abduct_end"
+length = 1.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Mask/Ship:frame")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.6, 1.4, 1.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0, 1, 2, 3, 0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Mask/Ship/Alium:frame")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Mask/Ship/Alium:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.8, 1.2, 1.4, 1.6),
+"transitions": PackedFloat32Array(1, 1.36604, 0.68302, 1.41421, 0.68302, 1.46409, 1.31951, 1.8025, 1),
+"update": 0,
+"values": [Vector2(-3, -29), Vector2(-3, -29), Vector2(0, -29), Vector2(-5, -29), Vector2(-3, -29), Vector2(-7, -29), Vector2(-5, -29), Vector2(-7, -29), Vector2(-3, -29)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Mask/Ship/Alium:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 1.3, 1.4, 1.5, 1.6),
+"transitions": PackedFloat32Array(1, 2.07053, 0.329877, 1.68179, 1, 2.07053, 0.329877, 0.0883884, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1), Vector2(1.03, 0.97), Vector2(0.97, 1.03), Vector2(1, 1), Vector2(1, 1), Vector2(1.05, 0.95), Vector2(0.95, 1.05), Vector2(1, 1)]
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Mask/Ship:position:x")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0, 0, 0),
+"points": PackedFloat32Array(-152, 0, 0, 0.1, 0, -152, 0, 0, 0.07, 0, -158, -0.01, 0, 0.1, 0, -152, 0, 0, 0.4, 12.5, -3, -0.5, 0, 0.02, 0, 0, -0.08, 0, 0.03, 0, -3, 0, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.4, 1.4, 1.5, 1.6)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Mask/Ship:position:y")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0, 0, 0),
+"points": PackedFloat32Array(-86, 0, 0, 0, 0, -86, 0, 0, 0, 0, -90, -0.05, 0, 0.1, 0, -86, 0, 0, 0.5, -6.5, -50, -0.6, 31.5, 0.03, 0, -51, -0.03, 0, 0.1, 0, -50, 0, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.4, 1.4, 1.5, 1.6)
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Mask/Ship:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.8, 1.4, 1.5, 1.6),
+"transitions": PackedFloat32Array(1, 0.482968, 0.574349, 1.7411, 0.594603, 2, 0.574349, 1.41421, 1),
+"update": 0,
+"values": [0.0, 0.0, -0.0384697, 0.0312834, 0.0, 0.112765, -0.0893759, 0.0489409, 0.0]
+}
+tracks/7/type = "method"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("AnimPlayer")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": ["idle"],
+"method": &"queue"
+}]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Mask/Ship/Alium:offset")
+tracks/8/interp = 0
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath(".:sound")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0.4),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["GREEB/HOVER"]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath(".:reset_sounds")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [["GREEB/TRACTOR_BEAM"]]
+}
+
+[sub_resource type="Animation" id="Animation_kcrxn"]
+resource_name = "abduct_fire"
+length = 1.8
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Mask/Ship:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.35, 0.45, 0.6, 0.75, 0.95, 1.35),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 4, 5, 0, 1, 2, 3, 0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Mask/Ship:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.25, 0.35, 0.45, 1.3, 1.55, 1.8),
+"transitions": PackedFloat32Array(1, 1, 2, 0.0947323, 1, 0.15932, 2.37841, 1, 1),
+"update": 0,
+"values": [Vector2(-152, -86), Vector2(-156, -80), Vector2(-156, -80), Vector2(-144, -92), Vector2(-122, -106), Vector2(-128, -104), Vector2(-132, -104), Vector2(-154, -80), Vector2(-152, -86)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Mask/Ship/Alium:frame")
+tracks/2/interp = 0
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.25, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [1, 2, 0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Mask/Ship/Alium:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.7, 1.3, 1.5, 1.65, 1.8),
+"transitions": PackedFloat32Array(0, 0.554784, 3.13834, 3.99999, 1.41421, 1.7411, 0.420448),
+"update": 0,
+"values": [Vector2(2, -11), Vector2(-3, -29), Vector2(4, -29), Vector2(3, -29), Vector2(-10, -29), Vector2(0, -29), Vector2(-3, -29)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Mask/Ship/Alium:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 1.3, 1.4, 1.5, 1.65, 1.8),
+"transitions": PackedFloat32Array(0.258816, 0.258816, 0.258816, 0.258816, 1.6245, 1, 2.21914, 1.93187, 1.93187, 1.8025, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.1, 0.9), Vector2(1.1, 0.9), Vector2(0.9, 1.1), Vector2(1.05, 0.95), Vector2(1, 1), Vector2(1, 1), Vector2(0.9, 1.1), Vector2(1.1, 0.9), Vector2(0.97, 1.03), Vector2(1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Mask/Ship:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.25, 0.35, 0.45, 1.3, 1.5, 1.6, 1.75),
+"transitions": PackedFloat32Array(1, 0.297302, 2, 0.0947323, 1, 6.27667, 2.37841, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0628319, -0.0349066, 0.557644, 0.698132, 0.743256, 0.663225, -0.225518, 0.14234, 0.0]
+}
+tracks/6/type = "method"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath(".")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": ["hit"],
+"method": &"emit_signal"
+}]
+}
+tracks/7/type = "method"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("AnimPlayer")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": ["abduct_end"],
+"method": &"queue"
+}]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Mask/Ship/Alium:offset")
+tracks/8/interp = 0
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(6, -21), Vector2(0, 0)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Mask/Ship/Alium/Hands:frame")
+tracks/9/interp = 0
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0.25),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Mask/Ship/Alium/Hands:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0.25),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-2, 13)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Mask/Ship/Alium/Hands:visible")
+tracks/11/interp = 0
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0, 0.25, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [false, true, false]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath(".:sound")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0.3, 1.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": ["GREEB/UFO", "GREEB/UFO"]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath(".:reset_sounds")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [["GREEB/TRACTOR_BEAM"]]
+}
+
+[sub_resource type="Animation" id="Animation_boevg"]
+resource_name = "abduct_loop"
+length = 1.2
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Mask/Ship:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.2, 0.25, 0.3, 0.4, 0.45, 0.5, 0.6, 0.65, 0.7, 0.8, 0.85, 0.9, 1, 1.05, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 5, 2, 2, 5, 0, 1, 5, 2, 2, 5, 0, 1, 5, 2, 2, 5]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Mask/Ship:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.15, 0.25, 0.3, 0.35, 0.45, 0.55, 0.6, 0.65, 0.75, 0.85, 0.9, 0.95, 1.05, 1.15),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-152, -86), Vector2(-152, -84), Vector2(-152, -88), Vector2(-152, -86), Vector2(-152, -86), Vector2(-152, -82), Vector2(-152, -90), Vector2(-152, -86), Vector2(-152, -86), Vector2(-152, -84), Vector2(-152, -88), Vector2(-152, -86), Vector2(-152, -86), Vector2(-152, -82), Vector2(-152, -90), Vector2(-152, -86)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Mask/Ship/Alium:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Mask/Ship/Alium:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2, -11)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Mask/Ship/Alium:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6, 0.65, 0.7, 0.75, 0.8, 0.85, 0.9, 0.95, 1, 1.05, 1.1, 1.15, 1.2),
+"transitions": PackedFloat32Array(0.258816, 2.73208, 3.24901, 1, 0.258816, 2.73208, 3.24901, 1, 0.258816, 2.73208, 3.24901, 1, 0.258816, 2.73208, 3.24901, 1, 0.258816, 2.73208, 3.24901, 1, 0.258816, 2.73208, 3.24901, 1, 0.258816),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.05, 0.95), Vector2(0.95, 1.05), Vector2(1, 1), Vector2(1, 1), Vector2(1.05, 0.95), Vector2(0.95, 1.05), Vector2(1, 1), Vector2(1, 1), Vector2(1.05, 0.95), Vector2(0.95, 1.05), Vector2(1, 1), Vector2(1, 1), Vector2(1.05, 0.95), Vector2(0.95, 1.05), Vector2(1, 1), Vector2(1, 1), Vector2(1.05, 0.95), Vector2(0.95, 1.05), Vector2(1, 1), Vector2(1, 1), Vector2(1.05, 0.95), Vector2(0.95, 1.05), Vector2(1, 1), Vector2(1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Mask/Ship:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.15, 0.25, 0.3, 0.35, 0.45, 0.55, 0.6, 0.65, 0.75, 0.85, 0.9, 0.95, 1.05, 1.15),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.0611339, 0.0785398, 0.0, 0.0, 0.0610865, -0.0785398, 0.0, 0.0, -0.0611339, 0.0785398, 0.0, 0.0, 0.0610865, -0.0785398, 0.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Mask/Ship/Alium:offset")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(6, -21)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath(".:event")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0.6, 1.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": ["loop_break", "loop_break"]
+}
+
+[sub_resource type="Animation" id="Animation_wnjn6"]
+resource_name = "abduct_start"
+length = 1.8
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Mask/Ship:frame")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.7, 0.9, 1.6, 1.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0, 1, 2, 3, 0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Mask/Ship/Alium:frame")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, 1]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Mask/Ship/Alium:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3, 0.5, 0.7, 1.1, 1.55, 1.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 0, 1),
+"update": 0,
+"values": [Vector2(-3, -29), Vector2(-3, -29), Vector2(-6, -29), Vector2(-3, -29), Vector2(-3, -29), Vector2(3, -29), Vector2(3, -29), Vector2(2, -11)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Mask/Ship/Alium:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.2, 1.5, 1.7, 1.8),
+"transitions": PackedFloat32Array(1, 2.46229, 0.297302, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1), Vector2(1.1, 0.9), Vector2(0.9, 1.1), Vector2(1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Mask/Ship/Alium:offset")
+tracks/4/interp = 0
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(6, -21)]
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Mask/Ship:position:x")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0, 0, 0, 0),
+"points": PackedFloat32Array(-3, 0, 0, 0, 0, -3, 0, 0, 0.15, 0, 6, -0.05, 0, 0.1, 0, 0, -0.1, 0, 0, 0, 0, 0, 0, 0.5, 0, -160, -0.33, 39, 0, 0, -160, 0, 0, 0.05, 0, -152, -0.12422, 8, 0, 0),
+"times": PackedFloat32Array(0, 0.1, 0.3, 0.5, 0.7, 1.5, 1.55, 1.7)
+}
+tracks/6/type = "bezier"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Mask/Ship:position:y")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0, 0),
+"points": PackedFloat32Array(-50, 0, 0, 0, 0, -50, 0, 0, 0.15, 0, -52, -0.05, 0, 0, 0, -52, 0, 0, 0.5, 0, -84, -0.46, 81, 0.0631118, -5.5, -86, -0.0868882, -3.5, 0, 0),
+"times": PackedFloat32Array(0, 0.1, 0.3, 0.7, 1.5, 1.7)
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Mask/Ship:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3, 0.4, 0.5, 0.7, 1.1, 1.5, 1.6, 1.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 0.0430393, -0.0665565, 0.0, 0.0, -0.145156, 0.135035, -0.0622324, 0.0]
+}
+tracks/8/type = "method"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("AnimPlayer")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": ["abduct_loop"],
+"method": &"queue"
+}]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath(".:sound")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0.7),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["GREEB/HOVER"]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath(".:sounds")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(1.6),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [["GREEB/LAUGH", "GREEB/TRACTOR_BEAM"]]
+}
+
+[sub_resource type="Animation" id="Animation_2b0bl"]
+resource_name = "abduct_start_unfunny"
+length = 1.8
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Mask/Ship:frame")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.7, 0.9, 1.6, 1.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0, 1, 2, 3, 0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Mask/Ship/Alium:frame")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, 1]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Mask/Ship/Alium:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3, 0.5, 0.7, 1.1, 1.55, 1.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 0, 1),
+"update": 0,
+"values": [Vector2(-3, -29), Vector2(-3, -29), Vector2(-6, -29), Vector2(-3, -29), Vector2(-3, -29), Vector2(3, -29), Vector2(3, -29), Vector2(2, -11)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Mask/Ship/Alium:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.2, 1.5, 1.7, 1.8),
+"transitions": PackedFloat32Array(1, 2.46229, 0.297302, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1), Vector2(1.1, 0.9), Vector2(0.9, 1.1), Vector2(1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Mask/Ship/Alium:offset")
+tracks/4/interp = 0
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(6, -21)]
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Mask/Ship:position:x")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0, 0, 0, 0),
+"points": PackedFloat32Array(-3, 0, 0, 0, 0, -3, 0, 0, 0.15, 0, 6, -0.05, 0, 0.1, 0, 0, -0.1, 0, 0, 0, 0, 0, 0, 0.5, 0, -160, -0.33, 39, 0, 0, -160, 0, 0, 0.05, 0, -152, -0.12422, 8, 0, 0),
+"times": PackedFloat32Array(0, 0.1, 0.3, 0.5, 0.7, 1.5, 1.55, 1.7)
+}
+tracks/6/type = "bezier"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Mask/Ship:position:y")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0, 0),
+"points": PackedFloat32Array(-50, 0, 0, 0, 0, -50, 0, 0, 0.15, 0, -52, -0.05, 0, 0, 0, -52, 0, 0, 0.5, 0, -84, -0.46, 81, 0.0631118, -5.5, -86, -0.0868882, -3.5, 0, 0),
+"times": PackedFloat32Array(0, 0.1, 0.3, 0.7, 1.5, 1.7)
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Mask/Ship:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3, 0.4, 0.5, 0.7, 1.1, 1.5, 1.6, 1.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 0.0430393, -0.0665565, 0.0, 0.0, -0.145156, 0.135035, -0.0622324, 0.0]
+}
+tracks/8/type = "method"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("AnimPlayer")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": ["abduct_loop"],
+"method": &"queue"
+}]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath(".:sound")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0.7),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["GREEB/HOVER"]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath(".:sounds")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(1.6),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [["GREEB/TRACTOR_BEAM"]]
+}
+
+[sub_resource type="Animation" id="Animation_n2t4s"]
+resource_name = "appear"
+length = 1.2
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Mask/Ship:frame")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.7, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0, 1, 2]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Mask/Ship:position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(180, 0, 2, 0.5, 0, -10, -0.33, 39, 0, 0, -11, -0.099999964, -11, 0.05, 0, -3, -0.12422, 8, 0, 0),
+"times": PackedFloat32Array(0, 0.7, 0.84999996, 1.1)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Mask/Ship:position:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(-48, 0, 0, 0.5, 0, -47, -0.45, 45, 0.0631118, -5.5, -49, -0.0868882, -3.5, 0, 0),
+"times": PackedFloat32Array(0, 0.7, 0.9)
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Mask/Ship:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.40000004, 0.9, 1.05, 1.1999999),
+"transitions": PackedFloat32Array(0.59460354, 0.6155722, 2.5491216, -2, 1),
+"update": 0,
+"values": [0.0, -0.145156, 0.135035, -0.0622324, 0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Mask/Ship/Alium:frame")
+tracks/4/interp = 0
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Mask/Ship/Alium:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.4, 1, 1.2),
+"transitions": PackedFloat32Array(1, 0.34151012, 0.4204483, 1),
+"update": 0,
+"values": [Vector2(-9, -29), Vector2(-9, -29), Vector2(0, -29), Vector2(-3, -29)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Mask/Ship/Alium:scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 1, 1.1, 1.2),
+"transitions": PackedFloat32Array(1, 0.329877, 0.2973016, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1), Vector2(1.05, 0.95), Vector2(1, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Mask/Ship/Alium:offset")
+tracks/7/interp = 0
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath(".:sound")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["GREEB/HOVER"]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath(".:event")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(1.2),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["appeared"]
+}
+tracks/10/type = "method"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("AnimPlayer")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": ["idle"],
+"method": &"queue"
+}]
+}
+
+[sub_resource type="Resource" id="Resource_qy3w0"]
+script = ExtResource("10")
+anim_player = NodePath("BreathSmokeSmall/AnimPlayer")
+anim_name = &"appear"
+metadata/_custom_type_script = "uid://dc1sl5vjy0j0j"
+
+[sub_resource type="Resource" id="Resource_ce618"]
+script = ExtResource("10")
+anim_player = NodePath("BreathSmokeSmall/AnimPlayer")
+anim_name = &"appear"
+metadata/_custom_type_script = "uid://dc1sl5vjy0j0j"
+
+[sub_resource type="Resource" id="Resource_2cmxm"]
+script = ExtResource("10")
+anim_player = NodePath("BreathSmokeSmall/AnimPlayer")
+anim_name = &"reappear"
+metadata/_custom_type_script = "uid://dc1sl5vjy0j0j"
+
+[sub_resource type="Animation" id="Animation_cmj34"]
+resource_name = "bong_rip"
+length = 6.0
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Mask/Ship:frame")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8, 1, 1.8, 2, 2.8, 3, 3.8, 4, 4.8, 5, 5.8, 6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Mask/Ship:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5, 5.5, 6),
+"transitions": PackedFloat32Array(-1.7411, -3.03143, -1.7411, -3.03143, -1.7411, -3.03143, -1.7411, -3.03143, -1.7411, -3.03143, -1.7411, -3.03143, -1.7411),
+"update": 0,
+"values": [Vector2(-3, -50), Vector2(-3, -49), Vector2(-3, -50), Vector2(-3, -49), Vector2(-3, -50), Vector2(-3, -49), Vector2(-3, -50), Vector2(-3, -49), Vector2(-3, -50), Vector2(-3, -49), Vector2(-3, -50), Vector2(-3, -49), Vector2(-3, -50)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Mask/Ship/Alium:frame")
+tracks/2/interp = 0
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 2.1, 2.95, 3.15, 5.45),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0, 3, 5, 0, 5, 0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Mask/Ship/Alium:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.6, 0.7, 0.8, 0.9, 0.95, 1, 1.05, 1.1, 1.15, 1.2, 1.25, 1.3, 1.35, 1.4, 1.45, 1.5, 1.55, 2.1, 2.2, 2.25, 2.35, 2.45, 2.5, 3.15218, 3.25218, 3.3, 3.4, 3.5, 3.60218, 3.7, 3.75, 3.85, 3.9, 3.95, 4, 4.05, 4.1, 4.15, 4.2, 4.25, 4.3, 4.4, 4.5),
+"transitions": PackedFloat32Array(1, 4, 0.267943, 0.267943, 0.164938, 0.164938, 0.164938, 0.164938, 0.164938, 0.164938, 0.164938, 0.164938, 0.164938, 0.164938, 0.164938, 0.164938, 0.164938, 0.164938, 0.164938, 0, 1, 0.164938, 1, 0.307786, 0.5, 0, 1, 0.164938, 1, 3.36358, 0, 1, 0.164938, 1, 0.307786, 0.287175, 0.287175, 0.287175, 0.287175, 0.287175, 0.287175, 0.287175, 0.287175, 0.287175, 0.287175, 0),
+"update": 0,
+"values": [Vector2(-3, -29), Vector2(-3, -29), Vector2(3, -29), Vector2(3, -29), Vector2(-9, -29), Vector2(1, -29), Vector2(1, -29), Vector2(-6, -29), Vector2(0, -29), Vector2(-5, -29), Vector2(-1, -29), Vector2(-5, -29), Vector2(-1, -29), Vector2(-4, -29), Vector2(-2, -29), Vector2(-4, -29), Vector2(-2, -29), Vector2(-4, -29), Vector2(-2, -29), Vector2(-3, -29), Vector2(-7, -29), Vector2(-7, -29), Vector2(3, -29), Vector2(3, -29), Vector2(-5, -29), Vector2(-3, -29), Vector2(-7, -29), Vector2(-7, -29), Vector2(3, -29), Vector2(3, -29), Vector2(-3, -29), Vector2(-7, -29), Vector2(-7, -29), Vector2(3, -29), Vector2(3, -29), Vector2(-5, -29), Vector2(-1, -29), Vector2(-4, -29), Vector2(-2, -29), Vector2(-4, -29), Vector2(-2, -29), Vector2(-4, -29), Vector2(-2, -29), Vector2(-4, -29), Vector2(-2, -29), Vector2(-3, -29)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Mask/Ship/Alium:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.25, 0.5, 0.6, 0.7, 0.9, 2.05, 2.1, 2.2, 2.25, 2.35, 2.45, 2.75, 2.85, 3, 3.15, 3.4, 3.5, 3.6, 3.7, 3.75, 3.85, 4.55, 4.6, 4.7, 5.1, 5.3, 5.4, 5.5, 5.6),
+"transitions": PackedFloat32Array(1, 0.378929, 2.82843, 1, 1, 1, 6.72717, 0, 1, 1, 1, 1, 1, 0.233258, 2.63902, 4.75683, 6.06286, 0.277392, 4.75683, 1, 1, 1, 0.241484, 0.297302, 2.37841, 1, 3.24901, 0.258816, 0.258816, 3.24901, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1), Vector2(1.05, 0.95), Vector2(0.9, 1.1), Vector2(1.1, 0.9), Vector2(1, 1), Vector2(1, 1), Vector2(0.9, 1.1), Vector2(1.1, 0.9), Vector2(1.1, 0.9), Vector2(0.9, 1.1), Vector2(0.9, 1.1), Vector2(1, 1), Vector2(1, 1), Vector2(1.1, 0.9), Vector2(0.9, 1.1), Vector2(1.1, 0.9), Vector2(1.15, 0.85), Vector2(0.9, 1.1), Vector2(1.1, 0.9), Vector2(1.1, 0.9), Vector2(0.9, 1.1), Vector2(0.9, 1.1), Vector2(1.1, 0.9), Vector2(0.95, 1.05), Vector2(1, 1), Vector2(1, 1), Vector2(1.1, 0.9), Vector2(1.1, 0.9), Vector2(0.9, 1.1), Vector2(1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Mask/Ship/Alium/Hands:frame")
+tracks/5/interp = 0
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.5, 2.1000001),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1, 0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Mask/Ship/Alium/Hands:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.5, 2.1000001),
+"transitions": PackedFloat32Array(0, 1),
+"update": 0,
+"values": [Vector2(-7, 10), Vector2(-2, 13)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Mask/Ship/Alium/Hands:visible")
+tracks/7/interp = 0
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.5, 2.95, 3.15, 5.4500003),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [false, true, false, true, false]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Mask/Ship/Alium/Hands/HandsOverlay:visible")
+tracks/8/interp = 0
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.5, 2.1000001),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [false, true, false]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Mask/Ship/Alium/Hands/HandsOverlay:modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0.5, 2),
+"transitions": PackedFloat32Array(1.9318728, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/10/type = "method"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath(".")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(2.1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": ["hit"],
+"method": &"emit_signal"
+}]
+}
+tracks/11/type = "method"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("AnimPlayer")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": ["idle"],
+"method": &"queue"
+}]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath(".:sound")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(2.1, 3.15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": ["GREEB/COUGH", "GREEB/GROAN"]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath(".:sounds")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [["GREEB/SMOKE", "GREEB/LIGHT", "GREEB/BUBBLES"]]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath(".:reset_sounds")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(2.1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [["GREEB/SMOKE", "GREEB/BUBBLES"]]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("AnimPlayer:play_anim")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(2.1, 3.2, 3.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [SubResource("Resource_qy3w0"), SubResource("Resource_ce618"), SubResource("Resource_2cmxm")]
+}
+
+[sub_resource type="Animation" id="Animation_xe7ds"]
+resource_name = "die"
+length = 4.0
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Mask/Ship:frame")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.2, 0.25, 0.35, 0.5, 0.7, 1, 1.3000001, 1.4, 1.5, 1.6, 1.6999999, 1.75, 1.8, 1.85, 1.9, 1.95, 2, 2.0500002, 2.1000001, 2.1500003, 2.2, 2.3000002),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0, 5, 4, 0, 3, 2, 1, 0, 3, 2, 5, 4, 5, 4, 5, 4, 5, 4, 5, 4, 5, 4, 1, 0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Mask/Ship:position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.4, 0.7, 0.8, 1.2, 1.3000001, 1.6999999, 1.7499999, 1.8, 1.8499999, 1.8999999, 1.9499999, 1.9999999, 2.05, 2.1000001, 2.15, 2.1999998, 2.7999997),
+"transitions": PackedFloat32Array(1, 0.225312, 0.329877, 1.93187, 0.34151018, -2, 0.3077861, 0.3077861, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0.34151006, 1),
+"update": 0,
+"values": [-3.0, -3.0, 12.0, 16.0, -11.999999, -24.0, -6.0, -6.0, -2.9999843, -4.0, -2.0, -5.0, -1.0, -6.0, 0.0, -6.0, 0.0, -6.0, -2.9999843, 28.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Mask/Ship:position:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.4, 0.7, 0.8, 1, 1.2, 1.3000001, 2, 2.1999998, 2.3999999, 2.7999997),
+"transitions": PackedFloat32Array(1, 0.225312, 0.329877, 1.93187, 1, 0.3077861, 1.9318726, 2.5491211, 0.3077861, 0.36602148, 0.2176378, 3.363585, 1),
+"update": 0,
+"values": [-50.0, -50.0, -58.0, -55.0, -43.999996, -43.999996, -86.0, -82.0, -78.0, -106.00004, -94.0, -165.0, -16.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Mask/Ship:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.4, 0.7, 0.8, 1, 1.2, 1.3000001, 2, 2.2, 2.7999997),
+"transitions": PackedFloat32Array(1, 0.225312, 2, 1.93187, 1, 0.3077861, 1.9318726, 1, 0.3077861, 2.732081, -2, 1),
+"update": 0,
+"values": [-0.0891647, -0.0890118, 0.587898, 0.392531, -0.40142572, -0.40142572, 0.394068, 0.32879773, 0.32879773, 0.96750295, 1.1673882, 13.962634015954636]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Mask/Ship:visible")
+tracks/4/interp = 0
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 2.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [true, false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Mask/Ship/Alium:frame")
+tracks/5/interp = 0
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, 2]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Mask/Ship/Alium:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.5, 0.8, 0.9, 1.2, 1.3, 2.2, 2.4, 2.5, 2.6, 2.8),
+"transitions": PackedFloat32Array(1, 2.82842, 0.267943, 0.307786, 2.6390157, 0.3077861, 1, 2.2973964, 2.4622889, 2.2973964, 3.1383355, 2.2973964, 1),
+"update": 0,
+"values": [Vector2(-6, -29), Vector2(-6, -29), Vector2(8, -29), Vector2(6, -29), Vector2(-6, -29), Vector2(6, -29), Vector2(3, -29), Vector2(3, -29), Vector2(6, -29), Vector2(-8, -29), Vector2(6, -29), Vector2(-8, -29), Vector2(6, -29)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Mask/Ship/Alium:scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.4, 0.6, 0.8, 0.90000004, 1, 1.2, 2.2, 2.4, 2.6000001),
+"transitions": PackedFloat32Array(1, 0.25, 0.25, 0.258816, 2.63902, 0.32987678, 0.3535535, 0.25, 1, 2.3784146, 0.30778614, 1),
+"update": 0,
+"values": [Vector2(1.1, 0.9), Vector2(1.1, 0.9), Vector2(0.9, 1.1), Vector2(1, 1), Vector2(1.05, 0.95), Vector2(1, 1), Vector2(0.9, 1.1), Vector2(1.1, 0.9), Vector2(1, 1), Vector2(1, 1), Vector2(0.9, 1.1), Vector2(1, 1)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Mask/Ship/Alium/Hands:frame")
+tracks/8/interp = 0
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Mask/Ship/Alium/Hands:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-2, 13)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Mask/Ship/Alium/Hands:visible")
+tracks/10/interp = 0
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.8, 1.9999999),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [false, true, false, true]
+}
+tracks/11/type = "animation"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Explosion/AnimPlayer")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"clips": PackedStringArray("explode"),
+"times": PackedFloat32Array(2.8)
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath(".:sound")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0.7, 2.4, 2.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": ["GREEB/DEATH_START", "GREEB/SCREAM", "GREEB/DEATH_END"]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath(".:event")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0.7),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["hide_health"]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath(".:sounds")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [PackedStringArray("FREEZER/BOUNCE", "GREEB/FLINCH")]
+}
+
+[sub_resource type="Animation" id="Animation_ce618"]
+resource_name = "die_foucault"
+length = 2.5
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Mask/Ship:frame")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.2, 0.25, 0.35, 0.5, 0.7, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0, 5, 4, 0, 3, 2, 1, 0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Mask/Ship:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.4, 0.6, 0.7, 1.1, 1.15, 1.2, 1.25, 1.3, 1.35, 1.4, 1.45, 1.5, 1.5500001, 1.6000001, 1.6500001, 1.7, 1.7500001, 1.8000001, 1.8500001, 1.9000001, 1.95, 2, 2.05, 2.1, 2.1499999, 2.1999998),
+"transitions": PackedFloat32Array(1, 0.225312, 0.329877, 1.93187, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-3, -50), Vector2(-3, -50), Vector2(12, -58), Vector2(16, -55), Vector2(-5, -45), Vector2(-5, -45), Vector2(-3, -50), Vector2(-6, -50), Vector2(0, -50), Vector2(-6, -50), Vector2(0, -50), Vector2(-6, -50), Vector2(0, -50), Vector2(-6, -50), Vector2(0, -50), Vector2(-6, -50), Vector2(0, -50), Vector2(-6, -50), Vector2(0, -50), Vector2(-6, -50), Vector2(0, -50), Vector2(-6, -50), Vector2(0, -50), Vector2(-6, -50), Vector2(0, -50), Vector2(-6, -50), Vector2(0, -50), Vector2(-6, -50), Vector2(0, -50)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Mask/Ship:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.4, 0.6, 0.7, 0.9, 1.1),
+"transitions": PackedFloat32Array(1, 0.225312, 2, 1.93187, 1, 0.267943, 2, 1),
+"update": 0,
+"values": [-0.0891647, -0.0890118, 0.587898, 0.392531, -0.118682, -0.118682, 0.0855211, 0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:sound")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1.2),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["GREEB/THERE_HE_GOES"]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:sounds")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [PackedStringArray("FREEZER/BOUNCE")]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".:event")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": ["fade_music", "hide_health"]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Mask:self_modulate")
+tracks/6/interp = 0
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 1.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Mask:clip_children")
+tracks/7/interp = 0
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 1.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, 1]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Mask:region_rect")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 1.2, 2.2),
+"transitions": PackedFloat32Array(0, 1, 1),
+"update": 0,
+"values": [Rect2(0, 0, 196, 384), Rect2(0, 48, 196, 384), Rect2(0, 132, 196, 384)]
+}
+
+[sub_resource type="Animation" id="Animation_gugxq"]
+resource_name = "flinch"
+length = 1.1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Mask/Ship:frame")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.2, 0.25, 0.35, 0.5, 0.7, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0, 5, 4, 0, 3, 2, 1, 0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Mask/Ship:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.4, 0.6, 0.7, 1.1),
+"transitions": PackedFloat32Array(1, 0.225312, 0.329877, 1.93187, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-3, -50), Vector2(-3, -50), Vector2(12, -58), Vector2(16, -55), Vector2(-5, -45), Vector2(-5, -45), Vector2(-3, -50)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Mask/Ship/Alium:frame")
+tracks/2/interp = 0
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0, 2, 0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Mask/Ship/Alium:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.5, 0.8, 1.1),
+"transitions": PackedFloat32Array(1, 2.82842, 0.267943, 0.307786, 0.34151, 1),
+"update": 0,
+"values": [Vector2(-6, -29), Vector2(-6, -29), Vector2(8, -29), Vector2(6, -29), Vector2(-6, -29), Vector2(-3, -29)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Mask/Ship/Alium:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.4, 0.6, 0.9),
+"transitions": PackedFloat32Array(1, 0.25, 0.25, 0.258816, 2.63902, 1),
+"update": 0,
+"values": [Vector2(1.1, 0.9), Vector2(1.1, 0.9), Vector2(0.9, 1.1), Vector2(1, 1), Vector2(1.05, 0.95), Vector2(1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Mask/Ship:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.4, 0.6, 0.7, 0.9, 1.1),
+"transitions": PackedFloat32Array(1, 0.225312, 2, 1.93187, 1, 0.267943, 2, 1),
+"update": 0,
+"values": [-0.0891647, -0.0890118, 0.587898, 0.392531, -0.118682, -0.118682, 0.0855211, 0.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Mask/Ship/Alium/Hands:frame")
+tracks/6/interp = 0
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Mask/Ship/Alium/Hands:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-2, 13)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Mask/Ship/Alium/Hands:visible")
+tracks/8/interp = 0
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [false, true, false]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath(".:sounds")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [PackedStringArray("FREEZER/BOUNCE", "GREEB/FLINCH")]
+}
+
+[sub_resource type="Animation" id="Animation_qy3w0"]
+resource_name = "flinch_foucault"
+length = 1.1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Mask/Ship:frame")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.2, 0.25, 0.35, 0.5, 0.7, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0, 5, 4, 0, 3, 2, 1, 0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Mask/Ship:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.4, 0.6, 0.7, 1.1),
+"transitions": PackedFloat32Array(1, 0.225312, 0.329877, 1.93187, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-3, -50), Vector2(-3, -50), Vector2(12, -58), Vector2(16, -55), Vector2(-5, -45), Vector2(-5, -45), Vector2(-3, -50)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Mask/Ship:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.4, 0.6, 0.7, 0.9, 1.1),
+"transitions": PackedFloat32Array(1, 0.225312, 2, 1.93187, 1, 0.267943, 2, 1),
+"update": 0,
+"values": [-0.0891647, -0.0890118, 0.587898, 0.392531, -0.118682, -0.118682, 0.0855211, 0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:sounds")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [PackedStringArray("GREEB/FLINCH_FOUCAULT", "FREEZER/BOUNCE")]
+}
+
+[sub_resource type="Animation" id="Animation_yof7e"]
+resource_name = "idle"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Mask/Ship:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5),
+"transitions": PackedFloat32Array(-1.7411, -3.03143, -1.7411, -3.03143),
+"update": 0,
+"values": [Vector2(-3, -50), Vector2(-3, -49), Vector2(-3, -50), Vector2(-3, -49)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Mask/Ship:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.8, 1, 1.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": ["animation_looped"],
+"method": &"emit_signal"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_lbkvb"]
+resource_name = "swoop"
+length = 1.8
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Mask/Ship:frame")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.7, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0, 1, 2]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Mask/Ship/Alium:frame")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Mask/Ship/Alium:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3, 0.5, 0.7, 1.1),
+"transitions": PackedFloat32Array(1, 0.45062527, 0.45062527, 1, 2.5491216, 1),
+"update": 0,
+"values": [Vector2(-3, -29), Vector2(-3, -29), Vector2(-6, -29), Vector2(-3, -29), Vector2(-3, -29), Vector2(3, -29)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Mask/Ship/Alium:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Mask/Ship/Alium:offset")
+tracks/4/interp = 0
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Mask/Ship:position:x")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0, 0),
+"points": PackedFloat32Array(-3, 0, 0, 0, 0, -3, 0, 0, 0.15, 0, 6, -0.05, 0, 0.1, 0, 0, -0.1, 0, 0, 0, 0, 0, 0, 0.6, 0, -500, -0.79999995, 91.75519, 0, 0),
+"times": PackedFloat32Array(0, 0.1, 0.3, 0.5, 0.7, 1.8)
+}
+tracks/6/type = "bezier"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Mask/Ship:position:y")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0, 0, 0),
+"points": PackedFloat32Array(-50, 0, 0, 0, 0, -50, 0, 0, 0.15, 0, -52, -0.05, 0, 0, 0, -50, 0, 0, 0.2, 0, -55.073128, -0.15000004, -28, 0.100000024, 23.01841, -40.35764, -0.100000024, 5.5183067, 0.100000024, -12, -83.5, -0.14999998, -2, 0, 0),
+"times": PackedFloat32Array(0, 0.1, 0.3, 0.5, 1.05, 1.35, 1.8)
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Mask/Ship:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3, 0.4, 0.6, 0.7, 0.9, 1.1, 1.55, 1.8),
+"transitions": PackedFloat32Array(1, 0.3535534, 0.37892914, 0.4061262, 1, -2, 2.8284276, 2.462289, -2, 1),
+"update": 0,
+"values": [0.0, 0.0, 0.0430393, -0.0665565, 0.0, 0.0, 0.06981317007977318, -0.145156, 0.135035, 0.0]
+}
+tracks/8/type = "method"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("AnimPlayer")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": ["appear"],
+"method": &"queue"
+}]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath(".:event")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(1.25),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["hit"]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath(".:sound")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["GREEB/HOVER"]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gkj8e"]
+_data = {
+&"RESET": SubResource("Animation_dib5s"),
+&"abduct_end": SubResource("Animation_wbtlt"),
+&"abduct_fire": SubResource("Animation_kcrxn"),
+&"abduct_loop": SubResource("Animation_boevg"),
+&"abduct_start": SubResource("Animation_wnjn6"),
+&"abduct_start_unfunny": SubResource("Animation_2b0bl"),
+&"appear": SubResource("Animation_n2t4s"),
+&"bong_rip": SubResource("Animation_cmj34"),
+&"die": SubResource("Animation_xe7ds"),
+&"die_foucault": SubResource("Animation_ce618"),
+&"flinch": SubResource("Animation_gugxq"),
+&"flinch_foucault": SubResource("Animation_qy3w0"),
+&"idle": SubResource("Animation_yof7e"),
+&"swoop": SubResource("Animation_lbkvb")
+}
+
+[node name="GreebSprite" unique_id=942748532 instance=ExtResource("1")]
+sound_groups = PackedStringArray("GREEB", "FREEZER")
+intents_realign_above_word = true
+
+[node name="Mask" type="Sprite2D" parent="." index="0" unique_id=1517850556]
+self_modulate = Color(1, 1, 1, 0)
+texture_repeat = 2
+texture = ExtResource("2")
+offset = Vector2(0, 32)
+region_enabled = true
+region_rect = Rect2(0, 132, 196, 384)
+metadata/_edit_lock_ = true
+
+[node name="Ship" type="Sprite2D" parent="Mask" index="0" unique_id=705768884]
+position = Vector2(-3, -50)
+texture = ExtResource("3")
+hframes = 6
+
+[node name="ShipBack" type="Sprite2D" parent="Mask/Ship" index="0" unique_id=1346339391]
+z_index = -1
+position = Vector2(0, -19)
+texture = ExtResource("4")
+
+[node name="Cap" type="Sprite2D" parent="Mask/Ship" index="1" unique_id=1919862456]
+visible = false
+position = Vector2(0, -29)
+texture = ExtResource("5")
+
+[node name="Alium" type="Sprite2D" parent="Mask/Ship" index="2" unique_id=1080777042]
+z_index = -1
+position = Vector2(-3, -29)
+texture = ExtResource("6")
+hframes = 3
+vframes = 2
+
+[node name="Hands" type="Sprite2D" parent="Mask/Ship/Alium" index="0" unique_id=410293236]
+visible = false
+z_index = 1
+position = Vector2(-2, 13)
+texture = ExtResource("7")
+vframes = 3
+
+[node name="HandsOverlay" type="Sprite2D" parent="Mask/Ship/Alium/Hands" index="0" unique_id=1763401523]
+visible = false
+scale = Vector2(0.99999994, 0.99999994)
+texture = ExtResource("7")
+vframes = 3
+frame = 2
+
+[node name="AbductionMarker" type="Marker2D" parent="Mask/Ship" index="3" unique_id=1392339756]
+position = Vector2(0, -6)
+
+[node name="Explosion" parent="." index="1" unique_id=1170623951 instance=ExtResource("8")]
+position = Vector2(31, -17)
+metadata/_edit_lock_ = true
+
+[node name="ProjectileMarker" type="Marker2D" parent="." index="2" unique_id=1140997729]
+visible = false
+position = Vector2(-24, -73)
+
+[node name="BreathSmokeSmall" parent="." index="3" unique_id=1127816129 instance=ExtResource("9")]
+position = Vector2(-9, -73)
+
+[node name="HitMarker" parent="." index="4" unique_id=1651044017]
+position = Vector2(-26, -82)
+
+[node name="IntentMarker" parent="." index="5" unique_id=444731721]
+position = Vector2(0, -127)
+
+[node name="BleedZone" parent="BleedArea" parent_id_path=PackedInt32Array(1768612656) index="0" unique_id=659443964]
+position = Vector2(-5, -82)
+shape = SubResource("CircleShape2D_fw7gi")
+
+[node name="CollisionShape2D" parent="HoverArea" parent_id_path=PackedInt32Array(1946856293) index="0" unique_id=2067959912]
+position = Vector2(-3, -61)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_wmfk5")
+
+[node name="AnimPlayer" parent="." index="8" unique_id=1026464875]
+libraries/ = SubResource("AnimationLibrary_gkj8e")
+autoplay = &"idle"
+
+[node name="PhonebookPortrait" parent="." index="9" unique_id=512451111]
+anchors_preset = -1
+offset_top = -139.0
+offset_bottom = 1.0
+
+[editable path="Explosion"]
+[editable path="BreathSmokeSmall"]

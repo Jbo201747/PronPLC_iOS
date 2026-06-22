@@ -1,0 +1,113 @@
+[gd_scene format=3 uid="uid://bhnbdaw4q6hr5"]
+
+[ext_resource type="Script" uid="uid://cyb1jlojqb67p" path="res://source/ui/menu/leaderboard/leaderboard_entry.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://dljfsubl82q4j" path="res://icon.png" id="2"]
+[ext_resource type="PackedScene" uid="uid://s8a7ww174vs3" path="res://source/ui/menu/leaderboard/leaderboard_stat.tscn" id="3"]
+[ext_resource type="PackedScene" uid="uid://exwn6extpup8" path="res://source/ui/menu/leaderboard/leaderboard_spell.tscn" id="4"]
+
+[node name="MarginContainer" type="MarginContainer" unique_id=1745245012]
+custom_maximum_size = Vector2(247, -1)
+offset_right = 210.0
+offset_bottom = 57.0
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 4
+script = ExtResource("1")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=81913538]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer" unique_id=2051727991]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = -4
+
+[node name="HeaderContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer" unique_id=1158810903]
+layout_mode = 2
+
+[node name="Avatar" type="TextureRect" parent="HBoxContainer/VBoxContainer/HeaderContainer" unique_id=1577605665]
+unique_name_in_owner = true
+texture_filter = 4
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+size_flags_vertical = 0
+texture = ExtResource("2")
+expand_mode = 1
+
+[node name="Username" type="Label" parent="HBoxContainer/VBoxContainer/HeaderContainer" unique_id=1402326647]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"MainMenuLabel"
+theme_override_font_sizes/font_size = 12
+text = "DeadInfinity"
+text_overrun_behavior = 3
+
+[node name="Rank" type="Label" parent="HBoxContainer/VBoxContainer/HeaderContainer" unique_id=858298767]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 8
+theme_type_variation = &"MainMenuLabel"
+theme_override_font_sizes/font_size = 12
+text = "#1"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer" unique_id=1349751532]
+layout_mode = 2
+theme_override_constants/separation = -4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/VBoxContainer/HBoxContainer" unique_id=1159729422]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/separation = 1
+
+[node name="StatsContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1542499045]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/separation = 1
+
+[node name="Turns" parent="HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/StatsContainer" unique_id=1271096655 instance=ExtResource("3")]
+unique_name_in_owner = true
+layout_mode = 2
+string_identifier = "menu/leaderboard/turns"
+stat_text = "999"
+
+[node name="DamageTaken" parent="HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/StatsContainer" unique_id=937876848 instance=ExtResource("3")]
+unique_name_in_owner = true
+layout_mode = 2
+frame = 1
+string_identifier = "menu/leaderboard/damage_taken"
+stat_text = "999"
+
+[node name="TimeTaken" parent="HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/StatsContainer" unique_id=957185046 instance=ExtResource("3")]
+unique_name_in_owner = true
+layout_mode = 2
+frame = 3
+string_identifier = "menu/leaderboard/time_taken"
+stat_text = "99:99:99"
+
+[node name="LongestWord" parent="HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1477255700 instance=ExtResource("3")]
+unique_name_in_owner = true
+layout_mode = 2
+frame = 2
+string_identifier = "menu/leaderboard/longest_word"
+stat_text = "electroencephalographies"
+
+[node name="Spells" type="HBoxContainer" parent="HBoxContainer/VBoxContainer/HBoxContainer" unique_id=423893220]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+theme_override_constants/separation = -12
+
+[node name="Spell1" parent="HBoxContainer/VBoxContainer/HBoxContainer/Spells" unique_id=2127651024 instance=ExtResource("4")]
+layout_mode = 2
+
+[node name="Spell2" parent="HBoxContainer/VBoxContainer/HBoxContainer/Spells" unique_id=1980739466 instance=ExtResource("4")]
+layout_mode = 2
+
+[node name="Spell3" parent="HBoxContainer/VBoxContainer/HBoxContainer/Spells" unique_id=1134887952 instance=ExtResource("4")]
+layout_mode = 2
+
+[node name="Spell4" parent="HBoxContainer/VBoxContainer/HBoxContainer/Spells" unique_id=430274414 instance=ExtResource("4")]
+layout_mode = 2

@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://c6vxsor7buqye"]
+
+[ext_resource type="Script" uid="uid://b6efq3mjriubs" path="res://source/autoload/debug/debug.gd" id="1"]
+[ext_resource type="PackedScene" uid="uid://bwk00ud4ctt06" path="res://source/ui/dev_console.tscn" id="2"]
+
+[node name="Debug" type="Node" unique_id=1818698827]
+script = ExtResource("1")
+
+[node name="DevConsole" parent="." unique_id=1538379428 instance=ExtResource("2")]
+unique_name_in_owner = true
+position = Vector2i(50, 50)
+visible = false

@@ -1,0 +1,89 @@
+[gd_scene format=3 uid="uid://cowvth8saavlo"]
+
+[ext_resource type="PackedScene" uid="uid://6slf44cxh28h" path="res://source/ui/icon_button.tscn" id="1"]
+[ext_resource type="Script" uid="uid://bn0msemaqwf7t" path="res://source/ui/submit_button.gd" id="2"]
+
+[sub_resource type="Animation" id="Animation_y48ld"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteOffset:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SpriteOffset/Sprite:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_2l5br"]
+resource_name = "pressed"
+length = 0.3
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteOffset:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.15, 0.3),
+"transitions": PackedFloat32Array(0.34151012, 2.219139, 0.3789291, 1),
+"update": 0,
+"values": [Vector2(0, -2), Vector2(0, 2), Vector2(0, -2), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_drjyi"]
+resource_name = "shake"
+length = 0.3
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteOffset/Sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(0.31864014, 0.31864014, 0.31864014, 0.31864014, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-2, 0), Vector2(2, 0), Vector2(-1, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_drjyi"]
+_data = {
+&"RESET": SubResource("Animation_y48ld"),
+&"pressed": SubResource("Animation_2l5br"),
+&"shake": SubResource("Animation_drjyi")
+}
+
+[node name="SubmitButton" unique_id=887249399 instance=ExtResource("1")]
+script = ExtResource("2")
+
+[node name="ActionGlyph" parent="SpriteOffset" parent_id_path=PackedInt32Array(952901199) index="1" unique_id=1185166845]
+offset_left = -12.0
+offset_right = 4.0
+action = &"end_action"
+
+[node name="Button" parent="." index="1" unique_id=1409716265 groups=["weak_focus"]]
+
+[node name="AnimPlayer" parent="." index="3" unique_id=1805588545]
+libraries/ = SubResource("AnimationLibrary_drjyi")
+
+[node name="MenuTooltipCollision" parent="." index="4" unique_id=1632193416 node_paths=PackedStringArray("focus_source")]
+string_identifier = "misc/submit"
+focus_source = NodePath("../Button")

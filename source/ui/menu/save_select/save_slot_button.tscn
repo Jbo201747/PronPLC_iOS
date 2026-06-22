@@ -1,0 +1,132 @@
+[gd_scene format=3 uid="uid://co64fo84mo8b4"]
+
+[ext_resource type="Script" uid="uid://c07ddsi5m32kj" path="res://source/ui/menu/save_select/save_slot_button.gd" id="1"]
+[ext_resource type="FontFile" uid="uid://2h7fup58h8vn" path="res://fonts/Suwannaphum-Bold.ttf" id="2"]
+[ext_resource type="PackedScene" uid="uid://dbhaaf1t7g5wh" path="res://source/ui/menu/save_select/save_edit_button.tscn" id="3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cl2ij"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6ib5l"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_st83l"]
+
+[node name="SaveSlotButton" type="MarginContainer" unique_id=1815695055]
+custom_minimum_size = Vector2(212, 40)
+offset_right = 212.0
+offset_bottom = 40.0
+focus_mode = 2
+script = ExtResource("1")
+
+[node name="Button" type="Button" parent="." unique_id=1697350581]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 1
+flat = true
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1474643221]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=895561639]
+layout_mode = 2
+size_flags_vertical = 4
+mouse_filter = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1563191097]
+layout_mode = 2
+size_flags_vertical = 4
+mouse_filter = 2
+
+[node name="LineEdit" type="LineEdit" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1426629070 groups=["weak_focus"]]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(108, 0)
+layout_mode = 2
+size_flags_vertical = 4
+focus_mode = 0
+mouse_filter = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_uneditable_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2")
+theme_override_font_sizes/font_size = 13
+theme_override_styles/normal = SubResource("StyleBoxEmpty_cl2ij")
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_6ib5l")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_st83l")
+text = "Save 1"
+editable = false
+context_menu_enabled = false
+selecting_enabled = false
+drag_and_drop_selection_enabled = false
+flat = true
+
+[node name="Stats" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=800113736]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+mouse_filter = 2
+theme_override_constants/separation = -2
+
+[node name="PercentLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/Stats" unique_id=271784119]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 8
+theme_type_variation = &"MainMenuLabel"
+theme_override_font_sizes/font_size = 9
+text = "100%"
+horizontal_alignment = 2
+
+[node name="TimeLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/Stats" unique_id=1997082449]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 8
+theme_type_variation = &"MainMenuLabel"
+theme_override_font_sizes/font_size = 9
+text = "231:38"
+
+[node name="SubButtons" type="MarginContainer" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1848306167]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+
+[node name="SaveEditButtons" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/SubButtons" unique_id=389913995]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+mouse_filter = 2
+
+[node name="RenameButton" parent="MarginContainer/VBoxContainer/HBoxContainer/SubButtons/SaveEditButtons" unique_id=460617364 instance=ExtResource("3")]
+unique_name_in_owner = true
+layout_mode = 2
+string_identifier = "menu/save_select/rename"
+
+[node name="DuplicateButton" parent="MarginContainer/VBoxContainer/HBoxContainer/SubButtons/SaveEditButtons" unique_id=926628753 instance=ExtResource("3")]
+unique_name_in_owner = true
+layout_mode = 2
+string_identifier = "menu/save_select/duplicate"
+frame = 1
+
+[node name="TrashButton" parent="MarginContainer/VBoxContainer/HBoxContainer/SubButtons/SaveEditButtons" unique_id=1138772209 instance=ExtResource("3")]
+unique_name_in_owner = true
+layout_mode = 2
+string_identifier = "menu/save_select/delete"
+frame = 2
+
+[connection signal="focus_entered" from="." to="." method="_on_focus_entered"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="editing_toggled" from="MarginContainer/VBoxContainer/HBoxContainer/LineEdit" to="." method="_on_line_edit_editing_toggled"]
+[connection signal="focus_exited" from="MarginContainer/VBoxContainer/HBoxContainer/LineEdit" to="." method="_on_line_edit_focus_exited"]
+[connection signal="text_submitted" from="MarginContainer/VBoxContainer/HBoxContainer/LineEdit" to="." method="_on_line_edit_text_submitted"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/SubButtons/SaveEditButtons/RenameButton" to="." method="_on_rename_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/SubButtons/SaveEditButtons/DuplicateButton" to="." method="_on_duplicate_button_pressed"]
+[connection signal="button_down" from="MarginContainer/VBoxContainer/HBoxContainer/SubButtons/SaveEditButtons/TrashButton" to="." method="_on_trash_button_down"]
+[connection signal="button_up" from="MarginContainer/VBoxContainer/HBoxContainer/SubButtons/SaveEditButtons/TrashButton" to="." method="_on_trash_button_up"]
+[connection signal="mouse_exited" from="MarginContainer/VBoxContainer/HBoxContainer/SubButtons/SaveEditButtons/TrashButton" to="." method="_on_trash_button_mouse_exited"]

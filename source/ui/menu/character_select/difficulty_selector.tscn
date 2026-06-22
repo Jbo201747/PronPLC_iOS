@@ -1,0 +1,150 @@
+[gd_scene format=3 uid="uid://cacm2n2vrow7u"]
+
+[ext_resource type="Script" uid="uid://cuq28opx2k6pn" path="res://source/ui/menu/character_select/difficulty_selector.gd" id="1"]
+[ext_resource type="PackedScene" uid="uid://c8847cuxj6uhe" path="res://source/ui/menu/character_select/icon_selector.tscn" id="2"]
+[ext_resource type="Script" uid="uid://c17dcnicbtc1a" path="res://source/library/sound_ref.gd" id="3"]
+[ext_resource type="Script" uid="uid://cfpkpmdehkp8u" path="res://source/ui/generic/shadow_cloner.gd" id="4"]
+
+[sub_resource type="Resource" id="Resource_aj5je"]
+script = ExtResource("3")
+groups = PackedStringArray("UI")
+sound = "UI/DIFFICULTY"
+metadata/_custom_type_script = "uid://c17dcnicbtc1a"
+
+[sub_resource type="Resource" id="Resource_hlf5g"]
+script = ExtResource("3")
+groups = PackedStringArray("UI")
+sound = "UI/DIFFICULTY_HARDEST"
+metadata/_custom_type_script = "uid://c17dcnicbtc1a"
+
+[sub_resource type="Animation" id="Animation_l6b0v"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PositionRoot:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_whow1"]
+resource_name = "appear"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PositionRoot:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3),
+"transitions": PackedFloat32Array(0.30778608, 2.0705302, 1),
+"update": 0,
+"values": [Vector2(0, 77), Vector2(0, -4), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_s6ofa"]
+resource_name = "disappear"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PositionRoot:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3),
+"transitions": PackedFloat32Array(0.3077861, 2.0705302, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -4), Vector2(0, 77)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_aj5je"]
+_data = {
+&"RESET": SubResource("Animation_l6b0v"),
+&"appear": SubResource("Animation_whow1"),
+&"disappear": SubResource("Animation_s6ofa")
+}
+
+[node name="DifficultySelector" type="Control" unique_id=2129044791 node_paths=PackedStringArray("anim", "panel")]
+layout_mode = 3
+anchors_preset = 0
+focus_mode = 2
+mouse_filter = 2
+script = ExtResource("1")
+anim = NodePath("AnimationPlayer")
+panel = NodePath("PositionRoot/Panel")
+
+[node name="PositionRoot" type="Control" parent="." unique_id=665329541]
+anchors_preset = 0
+mouse_filter = 1
+
+[node name="Panel" type="Panel" parent="PositionRoot" unique_id=983037837]
+layout_mode = 0
+offset_top = -77.0
+offset_right = 293.0
+offset_bottom = 6.0
+mouse_filter = 1
+theme_type_variation = &"MenuTicketBottom"
+
+[node name="MarginContainer" type="MarginContainer" parent="PositionRoot/Panel" unique_id=883963115]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 10
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="PositionRoot/Panel/MarginContainer" unique_id=1142222181]
+layout_mode = 2
+theme_override_constants/separation = -4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PositionRoot/Panel/MarginContainer/VBoxContainer2" unique_id=1237567199]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="IconSelector" parent="PositionRoot/Panel/MarginContainer/VBoxContainer2/VBoxContainer" unique_id=1112191253 instance=ExtResource("2")]
+unique_name_in_owner = true
+layout_mode = 2
+alignment = 1
+incremental_selection = true
+selection_sound = SubResource("Resource_aj5je")
+max_selection_sound = SubResource("Resource_hlf5g")
+
+[node name="IconContainer" parent="PositionRoot/Panel/MarginContainer/VBoxContainer2/VBoxContainer/IconSelector" index="1" unique_id=1136885849]
+theme_override_constants/separation = -12
+
+[node name="Title" type="Label" parent="PositionRoot/Panel/MarginContainer/VBoxContainer2/VBoxContainer" unique_id=291399833]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"MainMenuLabel"
+theme_override_font_sizes/font_size = 11
+text = "Cerulean Clearance"
+horizontal_alignment = 1
+
+[node name="Description" type="Label" parent="PositionRoot/Panel/MarginContainer/VBoxContainer2" unique_id=1178150363]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"MenuDescriptionLabel"
+theme_override_constants/line_spacing = -3
+text = "Tiles can start with capitals, periods, or bigrams"
+horizontal_alignment = 1
+
+[node name="ShadowCloner" type="Node2D" parent="PositionRoot/Panel" unique_id=1308744389]
+position = Vector2(2, 2)
+script = ExtResource("4")
+metadata/_custom_type_script = "uid://cfpkpmdehkp8u"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=3015515]
+libraries/ = SubResource("AnimationLibrary_aj5je")
+
+[connection signal="start_appearing" from="." to="." method="_on_start_appearing"]
+[connection signal="selected" from="PositionRoot/Panel/MarginContainer/VBoxContainer2/VBoxContainer/IconSelector" to="." method="_on_icon_selector_selected"]
+
+[editable path="PositionRoot/Panel/MarginContainer/VBoxContainer2/VBoxContainer/IconSelector"]

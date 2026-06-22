@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://bgoeqhg32hfrm"]
+
+[ext_resource type="PackedScene" uid="uid://cbdk6hv7wu8im" path="res://source/battle_unit/enemy.tscn" id="1"]
+[ext_resource type="Script" uid="uid://d17qlomg7l20p" path="res://source/enemies/bookworm.gd" id="2"]
+[ext_resource type="PackedScene" uid="uid://bns27dolduuhi" path="res://source/enemies/sprites/bookworm_sprite.tscn" id="3"]
+
+[node name="Bookworm" unique_id=1877874467 instance=ExtResource("1")]
+script = ExtResource("2")
+idle_after_flinching = false
+
+[node name="Sprite" parent="." index="0" unique_id=493152840 instance=ExtResource("3")]

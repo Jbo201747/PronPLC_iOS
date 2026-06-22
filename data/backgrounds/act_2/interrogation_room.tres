@@ -1,0 +1,34 @@
+[gd_resource type="Resource" script_class="BGLayer" format=3 uid="uid://cjnrigufudqbr"]
+
+[ext_resource type="Script" uid="uid://4xnkv17k7r2u" path="res://source/background/resources/pattern.gd" id="1"]
+[ext_resource type="PackedScene" uid="uid://jkfmd5ix6svb" path="res://source/background/chunks/act_2/interrogation_room.tscn" id="2"]
+[ext_resource type="Script" uid="uid://eanwv1abiw6y" path="res://source/background/resources/chunk_entry.gd" id="3"]
+[ext_resource type="Script" uid="uid://bio02cenhh5hr" path="res://source/background/resources/pattern_step.gd" id="4"]
+[ext_resource type="Script" uid="uid://dkmj8b7llyv41" path="res://source/background/resources/layer.gd" id="5"]
+
+[sub_resource type="Resource" id="Resource_ut5xm"]
+script = ExtResource("3")
+chunk = ExtResource("2")
+metadata/_custom_type_script = "uid://eanwv1abiw6y"
+
+[sub_resource type="Resource" id="Resource_qbmy8"]
+script = ExtResource("4")
+entries = [SubResource("Resource_ut5xm")]
+metadata/_custom_type_script = "uid://bio02cenhh5hr"
+
+[sub_resource type="Resource" id="Resource_bqeik"]
+script = ExtResource("1")
+id = "loop"
+next = "loop"
+steps = [SubResource("Resource_qbmy8")]
+metadata/_custom_type_script = "uid://4xnkv17k7r2u"
+
+[resource]
+script = ExtResource("5")
+z_index = -15
+start_x_offset = 16.0
+randomize_start = false
+start_hidden = true
+is_static = true
+patterns = [SubResource("Resource_bqeik")]
+metadata/_custom_type_script = "uid://dkmj8b7llyv41"

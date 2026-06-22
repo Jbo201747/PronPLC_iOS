@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://ciq6tahcwoo1k"]
+
+[ext_resource type="Script" uid="uid://cpo8nd4cf8gpd" path="res://source/minigames/rifle_cursor.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://d01f42a7lykt2" path="res://arte/minigames/rifle_cursor.png" id="2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jv0if"]
+radius = 14.1421
+
+[sub_resource type="Animation" id="Animation_5xa3l"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_jdi5q"]
+resource_name = "fire"
+length = 0.3
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(0.183011, 0.225313, 2, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.8, 0.8), Vector2(1.1, 1.1), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lw1rx"]
+_data = {
+&"RESET": SubResource("Animation_5xa3l"),
+&"fire": SubResource("Animation_jdi5q")
+}
+
+[node name="RifleCursor" type="Node2D" unique_id=1135172716]
+z_index = 50
+script = ExtResource("1")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=1011170854]
+texture = ExtResource("2")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=2051910551]
+scale = Vector2(0.5, 0.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=927033180]
+shape = SubResource("CircleShape2D_jv0if")
+
+[node name="AnimPlayer" type="AnimationPlayer" parent="." unique_id=733186307]
+libraries/ = SubResource("AnimationLibrary_lw1rx")

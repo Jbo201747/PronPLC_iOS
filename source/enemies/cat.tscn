@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://b4d7464xomq27"]
+
+[ext_resource type="PackedScene" uid="uid://cbdk6hv7wu8im" path="res://source/battle_unit/enemy.tscn" id="1"]
+[ext_resource type="Script" uid="uid://bhd5uca7tmwu7" path="res://source/enemies/cat.gd" id="2"]
+[ext_resource type="PackedScene" uid="uid://rh4ygoq23bv1" path="res://source/enemies/sprites/cat_sprite.tscn" id="3"]
+
+[node name="Cat" unique_id=205393506 instance=ExtResource("1")]
+script = ExtResource("2")
+
+[node name="Sprite" parent="." index="0" unique_id=1633066711 instance=ExtResource("3")]

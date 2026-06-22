@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://cgaov78roms3n"]
+
+[ext_resource type="Script" uid="uid://bdfa2ksmeka7c" path="res://source/autoload/audio_manager.gd" id="1"]
+
+[sub_resource type="AudioStreamPolyphonic" id="AudioStreamPolyphonic_noihb"]
+
+[node name="AudioManager" type="Node" unique_id=255877609]
+script = ExtResource("1")
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="." unique_id=1816034128]
+unique_name_in_owner = true
+bus = &"Music"
+
+[node name="SoundPlayer" type="AudioStreamPlayer" parent="." unique_id=2120819845]
+unique_name_in_owner = true
+stream = SubResource("AudioStreamPolyphonic_noihb")
+bus = &"Sound"
+
+[node name="SoundPlayerMusicFilter" type="AudioStreamPlayer" parent="." unique_id=542998108]
+unique_name_in_owner = true
+stream = SubResource("AudioStreamPolyphonic_noihb")
+bus = &"SoundLowpass"
+
+[node name="SoundPlayerLowpass" type="AudioStreamPlayer" parent="." unique_id=1860069803]
+unique_name_in_owner = true
+stream = SubResource("AudioStreamPolyphonic_noihb")
+bus = &"SoundLowpassConst"

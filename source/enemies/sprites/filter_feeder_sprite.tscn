@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://bdb3gnb0o11rb"]
+
+[ext_resource type="PackedScene" uid="uid://d1wj7oar3i3ir" path="res://source/enemies/sprites/bottom_feeder_sprite.tscn" id="1"]
+[ext_resource type="Texture2D" uid="uid://bq3q5je8x3qr1" path="res://arte/enemies/filter_feeder.png" id="2"]
+
+[node name="FilterFeederSprite" unique_id=114451950 instance=ExtResource("1")]
+
+[node name="Sprite" parent="." index="1" unique_id=1524978710]
+texture = ExtResource("2")
+
+[editable path="Explosion"]

@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://dp4ygasr2ddlh"]
+
+[ext_resource type="Texture2D" uid="uid://dytaluj2624qg" path="res://arte/ui/cursor_shadow.png" id="1"]
+[ext_resource type="Script" uid="uid://80ajofkt2huv" path="res://source/autoload/input_manager/virtual_cursor.gd" id="2"]
+
+[node name="VirtualCursor" type="Sprite2D" unique_id=456519640]
+texture = ExtResource("1")
+centered = false
+script = ExtResource("2")

@@ -1,0 +1,148 @@
+[gd_scene format=3 uid="uid://didyhcx56vhxv"]
+
+[ext_resource type="Script" uid="uid://bxjsn0y2o55md" path="res://source/ui/menu/phonebook/phonebook.gd" id="1"]
+[ext_resource type="PackedScene" uid="uid://cgb6in3eohl6q" path="res://source/ui/menu/phonebook/phonebook_selector.tscn" id="2"]
+[ext_resource type="PackedScene" uid="uid://b8i6h5ehlvk86" path="res://source/ui/menu/phonebook/phonebook_portrait.tscn" id="3"]
+[ext_resource type="Script" uid="uid://cfpkpmdehkp8u" path="res://source/ui/generic/shadow_cloner.gd" id="4"]
+
+[sub_resource type="Animation" id="Animation_t6m3g"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PositionRoot:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_iy1r5"]
+resource_name = "appear"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PositionRoot:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3),
+"transitions": PackedFloat32Array(0.30778608, 2.0705302, 1),
+"update": 0,
+"values": [Vector2(338, 0), Vector2(-4, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_regpd"]
+resource_name = "disappear"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PositionRoot:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3),
+"transitions": PackedFloat32Array(0.3077861, 2.0705302, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-4, 0), Vector2(338, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fd5xj"]
+_data = {
+&"RESET": SubResource("Animation_t6m3g"),
+&"appear": SubResource("Animation_iy1r5"),
+&"disappear": SubResource("Animation_regpd")
+}
+
+[node name="Phonebook" type="Control" unique_id=744148590 node_paths=PackedStringArray("anim", "panel")]
+layout_mode = 3
+anchors_preset = 0
+focus_mode = 2
+mouse_filter = 2
+script = ExtResource("1")
+anim = NodePath("AnimationPlayer")
+panel = NodePath("PositionRoot/Panel")
+full_screen_menu = true
+
+[node name="PositionRoot" type="Control" parent="." unique_id=440696172]
+anchors_preset = 0
+mouse_filter = 2
+
+[node name="Panel" type="Panel" parent="PositionRoot" unique_id=158459563]
+layout_mode = 0
+offset_left = 142.0
+offset_top = -4.0
+offset_right = 484.0
+offset_bottom = 274.0
+mouse_filter = 1
+theme_type_variation = &"PhonebookPanel"
+
+[node name="MarginContainer" type="MarginContainer" parent="PositionRoot/Panel" unique_id=1170822029]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 0
+
+[node name="Clip" type="Control" parent="PositionRoot/Panel/MarginContainer" unique_id=1216896792]
+clip_children = 1
+clip_contents = true
+layout_mode = 2
+mouse_filter = 2
+theme_type_variation = &"MenuTicketMask"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PositionRoot/Panel/MarginContainer/Clip" unique_id=853642]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = -3
+
+[node name="MarginContainer" type="MarginContainer" parent="PositionRoot/Panel/MarginContainer/Clip/HBoxContainer" unique_id=2015898691]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 11
+
+[node name="PhonebookSelector" parent="PositionRoot/Panel/MarginContainer/Clip/HBoxContainer/MarginContainer" unique_id=1824785346 instance=ExtResource("2")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="PositionRoot/Panel/MarginContainer/Clip/HBoxContainer" unique_id=22775267]
+layout_mode = 2
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="VScrollBar" type="VScrollBar" parent="PositionRoot/Panel/MarginContainer/Clip/HBoxContainer/MarginContainer2" unique_id=115803441]
+unique_name_in_owner = true
+z_index = 1
+layout_mode = 2
+
+[node name="PhonebookPortrait" parent="PositionRoot/Panel/MarginContainer/Clip/HBoxContainer" unique_id=2010872791 instance=ExtResource("3")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="ShadowCloner" type="Node2D" parent="PositionRoot/Panel" unique_id=1756962502]
+position = Vector2(2, 2)
+script = ExtResource("4")
+metadata/_custom_type_script = "uid://cfpkpmdehkp8u"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=79117852]
+libraries/ = SubResource("AnimationLibrary_fd5xj")
+
+[connection signal="start_appearing" from="." to="." method="_on_start_appearing"]
+[connection signal="start_disappearing" from="." to="." method="_on_start_disappearing"]
+[connection signal="icon_selected" from="PositionRoot/Panel/MarginContainer/Clip/HBoxContainer/MarginContainer/PhonebookSelector" to="." method="_on_icon_selected"]

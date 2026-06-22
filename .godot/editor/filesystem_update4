@@ -1,0 +1,4 @@
+res://source/autoload/audio_manager.gd
+res://source/library/util.gd
+res://source/ui/generic/shadow_cloner.gd
+res://default_env.tres

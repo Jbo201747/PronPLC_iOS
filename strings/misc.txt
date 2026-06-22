@@ -1,0 +1,185 @@
+# Start a line with # to make a comment
+# :identifier: marks a new string, strings continue until next identifier, have leading and trailing whitespace trimmed
+
+# Menu strings
+
+:act_0:
+	:title:
+		Act I
+
+	:subtitle:
+		The Suburbs
+
+:act_1:
+	:title:
+		Act II
+
+	:subtitle:
+		The Party
+
+:act_2:
+	:title:
+		Act III
+
+	:subtitle:
+		The Palace
+
+:spell_select_label:
+Select a spell
+
+:versus_label:
+{character} vs {enemy}
+
+:linked_color:
+	:gray:
+		gray
+
+	:silver:
+		silver
+
+	:rusty:
+		rusty
+
+	:cobalt:
+		cobalt
+
+	:oxidized:
+		oxidized
+
+	:gold:
+		gold
+
+:restock_lock:
+	:title:
+		Locked
+
+	:description:
+		Tiles aren’t restocked on turn end.
+
+:tile_slot:
+	:title:
+		{:normal_title: if multiplier 1}
+		{:special_title: not multiplier 1}
+
+	:normal_title:
+		Tile Slot
+
+	:special_title:
+		{"Negative" if negative}{"Spiked" if spiked}{"Multiplier" not negative|spiked} Slot
+
+	:description:
+		{:special_description: not multiplier 1}
+		Limits the number of tiles that can be submitted.
+
+	:special_description:
+		{:negative_description: if negative}{:spiked_description: if spiked}{:multiplier_description: not negative|spiked}
+
+	:multiplier_description:
+		x{multiplier} tile value.
+
+	:negative_description:
+		{:negative_multiplier_description: not multiplier -1}{"Negative tile value." if multiplier -1}
+
+	:negative_multiplier_description:
+		{multiplier}x tile value.
+
+	:spiked_description:
+		Take damage equal to tile value.
+
+:icon_labels:
+	:submit:
+		Submit
+
+	:reroll:
+		Reroll
+
+	:reroll_confirm:
+		End Turn?
+
+	:pause:
+		Menu
+
+:dna_tweezers:
+	:confirm:
+		{"Cancel" not confirmable}{"Confirm" if confirmable}
+
+	:reset:
+		Reset
+
+	:turns_remaining:
+		Turns Remaining
+
+:passcode:
+	[wave amp=5.0 freq=3]Passcode: {passcode upper}[/wave]
+
+:passcode_invalid:
+	PASSCODE INVALID
+
+:word_warnings:
+	:text:
+		[wave amp=5.0, freq=3]{warning}[/wave]
+
+	:invalid_word:
+		{:invalid_known_word: if word}{:invalid_unknown_word: not word}
+
+	:invalid_known_word:
+		“{word capital}” is not a word! Or it’s proper!
+
+	:invalid_unknown_word:
+		Not a word!
+
+	:repeat_word:
+		{:repeat_known_word: if word}{:repeat_unknown_word: not word}
+
+	:repeat_known_word:
+		“{word}” has already been submitted this run
+
+	:repeat_unknown_word:
+		Word has already been submitted this run
+
+	:period:
+		Periods must be at the end of a word
+
+	:capital:
+		Capitals must be at the start of a word
+
+	:straight:
+		Yuri and Yaoi tiles cannot touch
+
+	:linked:
+		Missing {invalid_linked} linked tile{invalid_linked plural s}
+
+	:mystery:
+		Mystery tiles don’t form valid word
+
+:new_word:
+	New word!
+
+:new_word_slur:
+	New word...
+
+# match steam tokens to try and reuse as much as possible for discord vs steam
+:rich_presence:
+	:main_menu:
+		Main Menu
+
+	:in_daily:
+		{character} vs {enemy} (Daily)
+
+	:in_run:
+		{character} vs {enemy} ({difficulty})
+
+	:game_over:
+		{character} Died to {enemy} ({difficulty_or_daily})
+
+	:game_over_enemyless:
+		{character} Died ({difficulty_or_daily})
+
+	:victory:
+		{character} Victory ({difficulty_or_daily})
+
+	:in_leaderboard:
+		Leaderboard
+
+	:in_phonebook:
+		Phonebook

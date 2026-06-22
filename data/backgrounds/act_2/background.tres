@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="BGLayers" format=3 uid="uid://d11w7e0xjenja"]
+
+[ext_resource type="Resource" uid="uid://bh1mg7ki5dm8" path="res://data/backgrounds/act_2/sky.tres" id="1"]
+[ext_resource type="Resource" uid="uid://ubh785dyjchw" path="res://data/backgrounds/act_2/clouds_far.tres" id="2"]
+[ext_resource type="Resource" uid="uid://cryifrv4efls0" path="res://data/backgrounds/act_2/clouds_near.tres" id="3"]
+[ext_resource type="Resource" uid="uid://ci6cnwbglv1lx" path="res://data/backgrounds/act_2/skyline.tres" id="4"]
+[ext_resource type="Resource" uid="uid://bkoht4u0v6m1d" path="res://data/backgrounds/act_2/ground.tres" id="5"]
+[ext_resource type="Resource" uid="uid://ba2im6f5o3645" path="res://data/backgrounds/act_2/buildings.tres" id="6"]
+[ext_resource type="Resource" uid="uid://c3f5tcico4eyh" path="res://data/backgrounds/act_2/props_far.tres" id="7"]
+[ext_resource type="Resource" uid="uid://cqp6t3r54c6yb" path="res://data/backgrounds/act_2/sidewalk.tres" id="8"]
+[ext_resource type="Resource" uid="uid://br6x6o84at4e3" path="res://data/backgrounds/act_2/interrogation_room_sky.tres" id="9"]
+[ext_resource type="Resource" uid="uid://ddswposawkclu" path="res://data/backgrounds/act_2/interrogation_room_clouds.tres" id="10"]
+[ext_resource type="Resource" uid="uid://cjnrigufudqbr" path="res://data/backgrounds/act_2/interrogation_room.tres" id="11"]
+[ext_resource type="Script" uid="uid://k1ocv1g3h17l" path="res://source/background/resources/layers.gd" id="12"]
+
+[resource]
+script = ExtResource("12")
+layers = [ExtResource("1"), ExtResource("2"), ExtResource("3"), ExtResource("4"), ExtResource("5"), ExtResource("6"), ExtResource("7"), ExtResource("8"), ExtResource("9"), ExtResource("10"), ExtResource("11")]
+metadata/_custom_type_script = "uid://k1ocv1g3h17l"

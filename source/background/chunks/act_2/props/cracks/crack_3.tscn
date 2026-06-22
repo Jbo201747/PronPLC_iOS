@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://djuk78okfjrfe"]
+
+[ext_resource type="PackedScene" uid="uid://b3i1vst4708al" path="res://source/background/chunks/base/sprite_chunk.tscn" id="1"]
+[ext_resource type="Texture2D" uid="uid://b5n0qskddmftt" path="res://arte/backgrounds/act_2/crack_3.png" id="2"]
+[ext_resource type="Script" uid="uid://ddinato40k13" path="res://source/background/overlap_indicator.gd" id="3"]
+
+[node name="BackgroundChunk" unique_id=1558354056 instance=ExtResource("1")]
+z_index = -1
+can_mirror = true
+
+[node name="Sprite2D" parent="." index="0" unique_id=174746349]
+position = Vector2(0, 23)
+texture = ExtResource("2")
+
+[node name="Ground" type="Control" parent="LeftOverlap" parent_id_path=PackedInt32Array(1030252478) index="0" unique_id=1513001760]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -51.0
+offset_top = 12.0
+offset_right = -35.0
+offset_bottom = 32.0
+script = ExtResource("3")
+metadata/_custom_type_script = "uid://ddinato40k13"
+
+[node name="Ground" type="Control" parent="RightOverlap" parent_id_path=PackedInt32Array(582485431) index="0" unique_id=1813670550]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 33.0
+offset_top = 12.0
+offset_right = 48.0
+offset_bottom = 32.0
+script = ExtResource("3")
+metadata/_custom_type_script = "uid://ddinato40k13"

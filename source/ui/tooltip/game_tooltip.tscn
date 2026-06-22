@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://dfmldyypt3q44"]
+
+[ext_resource type="Script" uid="uid://bib6nsbt7l0po" path="res://source/ui/tooltip/game_tooltip.gd" id="1"]
+[ext_resource type="Script" uid="uid://cfpkpmdehkp8u" path="res://source/ui/generic/shadow_cloner.gd" id="2"]
+[ext_resource type="Script" uid="uid://gjnwvvxuqoj1" path="res://source/ui/menu/generic/alternating_page_box.gd" id="3"]
+[ext_resource type="Script" uid="uid://ensvjeg1gdv7" path="res://source/ui/menu/generic/dotted_line_box.gd" id="4"]
+
+[node name="Tooltip" type="MarginContainer" unique_id=1890609091]
+z_index = 10
+custom_minimum_size = Vector2(113, 0)
+offset_right = 113.0
+offset_bottom = 26.0
+mouse_filter = 2
+script = ExtResource("1")
+
+[node name="Panel" type="Panel" parent="." unique_id=988806575]
+layout_mode = 2
+mouse_filter = 2
+theme_type_variation = &"MenuTicket"
+metadata/_edit_lock_ = true
+
+[node name="ShadowCloner" type="Node2D" parent="Panel" unique_id=1295957038]
+position = Vector2(2, 2)
+script = ExtResource("2")
+metadata/_custom_type_script = "uid://cfpkpmdehkp8u"
+metadata/_edit_lock_ = true
+
+[node name="PageMask" type="Panel" parent="." unique_id=821688899]
+clip_children = 1
+layout_mode = 2
+mouse_filter = 2
+theme_type_variation = &"MenuTicketMaskNoAA"
+
+[node name="MarginContainer" type="MarginContainer" parent="PageMask" unique_id=103188678]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="AlternatingPageBox" type="VBoxContainer" parent="PageMask/MarginContainer" unique_id=1426386207 node_paths=PackedStringArray("source_boxes")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_constants/separation = 0
+script = ExtResource("3")
+source_boxes = [NodePath("../../../MarginContainer/SubtooltipContainer")]
+metadata/_custom_type_script = "uid://gjnwvvxuqoj1"
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=850744548]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 5
+metadata/_edit_lock_ = true
+
+[node name="SubtooltipContainer" type="VBoxContainer" parent="MarginContainer" unique_id=2099017818]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 0
+metadata/_edit_lock_ = true
+
+[node name="DottedLineBox" type="VBoxContainer" parent="MarginContainer" unique_id=747003853 node_paths=PackedStringArray("source_boxes")]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 2
+script = ExtResource("4")
+line_width = 101.0
+source_boxes = [NodePath("../SubtooltipContainer")]
+metadata/_custom_type_script = "uid://ensvjeg1gdv7"
+
+[connection signal="sort_children" from="MarginContainer/SubtooltipContainer" to="." method="_on_subtooltip_container_sort_children"]

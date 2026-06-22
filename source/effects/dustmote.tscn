@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://ewftutvdavg4"]
+
+[ext_resource type="Script" uid="uid://batk7koy6la0u" path="res://source/effects/dustmote.gd" id="1"]
+
+[node name="Dustmote" type="Node2D" unique_id=636378056]
+script = ExtResource("1")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2007779878]
+offset_left = -1.0
+offset_top = -1.0
+offset_right = 1.0
+offset_bottom = 1.0

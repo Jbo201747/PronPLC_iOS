@@ -1,0 +1,382 @@
+[gd_scene format=3 uid="uid://cs7doa8yp3j8q"]
+
+[ext_resource type="Script" uid="uid://geja5nbwk1d6" path="res://source/ui/menu/character_select/character_selector.gd" id="1"]
+[ext_resource type="PackedScene" uid="uid://c8847cuxj6uhe" path="res://source/ui/menu/character_select/icon_selector.tscn" id="2"]
+[ext_resource type="Script" uid="uid://c17dcnicbtc1a" path="res://source/library/sound_ref.gd" id="3"]
+[ext_resource type="PackedScene" uid="uid://b8wqs3a6tthoa" path="res://source/spell/spell_sprite.tscn" id="4"]
+[ext_resource type="PackedScene" uid="uid://dat3nkol372xh" path="res://source/ui/menu/generic/menu_page_shadow.tscn" id="5"]
+[ext_resource type="Texture2D" uid="uid://c6tv4v8lnv4si" path="res://arte/ui/character_select/paperwork.png" id="6"]
+[ext_resource type="Texture2D" uid="uid://dms1vkojflfej" path="res://arte/ui/character_select/photo.png" id="7"]
+[ext_resource type="Texture2D" uid="uid://ceb5qe5e8g8e" path="res://arte/ui/character_select/photo_mask.png" id="8"]
+[ext_resource type="Script" uid="uid://cfpkpmdehkp8u" path="res://source/ui/generic/shadow_cloner.gd" id="9"]
+[ext_resource type="Texture2D" uid="uid://bxq7ft4i8om7p" path="res://arte/ui/character_select/paperclip.png" id="10"]
+
+[sub_resource type="Resource" id="Resource_tujr1"]
+script = ExtResource("3")
+groups = PackedStringArray("UI")
+sound = "UI/CHAR_SELECT"
+metadata/_custom_type_script = "uid://c17dcnicbtc1a"
+
+[sub_resource type="Animation" id="Animation_tujr1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PositionRoot:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_53o4x"]
+resource_name = "appear"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PositionRoot:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3),
+"transitions": PackedFloat32Array(0.30778608, 2.0705302, 1),
+"update": 0,
+"values": [Vector2(0, -185), Vector2(0, 4), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_87s3v"]
+resource_name = "disappear"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PositionRoot:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3),
+"transitions": PackedFloat32Array(0.3077861, 2.0705302, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 4), Vector2(0, -185)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_12ruv"]
+_data = {
+&"RESET": SubResource("Animation_tujr1"),
+&"appear": SubResource("Animation_53o4x"),
+&"disappear": SubResource("Animation_87s3v")
+}
+
+[node name="CharacterSelector" type="Control" unique_id=1678367294 node_paths=PackedStringArray("anim", "panel")]
+layout_mode = 3
+anchors_preset = 0
+focus_mode = 2
+mouse_filter = 2
+script = ExtResource("1")
+anim = NodePath("AnimationPlayer")
+panel = NodePath("PositionRoot/Panel")
+
+[node name="PositionRoot" type="Control" parent="." unique_id=752852494]
+anchors_preset = 0
+mouse_filter = 1
+
+[node name="Panel" type="Panel" parent="PositionRoot" unique_id=610456334]
+layout_mode = 0
+offset_top = 21.0
+offset_right = 293.0
+offset_bottom = 183.0
+mouse_filter = 1
+theme_type_variation = &"MenuTicket"
+
+[node name="MarginContainer" type="MarginContainer" parent="PositionRoot/Panel" unique_id=1379019952]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 6
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PositionRoot/Panel/MarginContainer" unique_id=1382856724]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PositionRoot/Panel/MarginContainer/HBoxContainer" unique_id=1804588842]
+custom_minimum_size = Vector2(76, 0)
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Control" type="Control" parent="PositionRoot/Panel/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1849590458]
+custom_minimum_size = Vector2(0, 85)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PositionRoot/Panel/MarginContainer/HBoxContainer/VBoxContainer" unique_id=2093808611]
+layout_mode = 2
+theme_override_constants/separation = -3
+
+[node name="Label" type="Label" parent="PositionRoot/Panel/MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer" unique_id=1938200061]
+layout_mode = 2
+theme_type_variation = &"LicenseFieldLabel"
+text = "NAME"
+
+[node name="NameLabel" type="RichTextLabel" parent="PositionRoot/Panel/MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer" unique_id=393980006]
+unique_name_in_owner = true
+clip_contents = false
+layout_mode = 2
+theme_type_variation = &"CharacterSelectDescriptionLabel"
+bbcode_enabled = true
+text = "WRYN NGUYEN"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PositionRoot/Panel/MarginContainer/HBoxContainer/VBoxContainer" unique_id=92554563]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PositionRoot/Panel/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=1883244018]
+layout_mode = 2
+theme_override_constants/separation = -3
+
+[node name="Label" type="Label" parent="PositionRoot/Panel/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1664852462]
+layout_mode = 2
+theme_type_variation = &"LicenseFieldLabel"
+text = "SEX"
+
+[node name="SexLabel" type="RichTextLabel" parent="PositionRoot/Panel/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1528632038]
+unique_name_in_owner = true
+clip_contents = false
+layout_mode = 2
+size_flags_vertical = 3
+theme_type_variation = &"CharacterSelectDescriptionLabel"
+bbcode_enabled = true
+text = "F"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+vertical_alignment = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="PositionRoot/Panel/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=190999572]
+layout_mode = 2
+theme_override_constants/separation = -3
+
+[node name="Label" type="Label" parent="PositionRoot/Panel/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer2" unique_id=1431888150]
+layout_mode = 2
+theme_type_variation = &"LicenseFieldLabel"
+text = "HGT"
+
+[node name="HeightLabel" type="RichTextLabel" parent="PositionRoot/Panel/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer2" unique_id=1266549255]
+unique_name_in_owner = true
+clip_contents = false
+layout_mode = 2
+size_flags_vertical = 3
+theme_type_variation = &"CharacterSelectDescriptionLabel"
+bbcode_enabled = true
+text = "5-9"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+vertical_alignment = 1
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="PositionRoot/Panel/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=1960003826]
+layout_mode = 2
+theme_override_constants/separation = -3
+
+[node name="Label" type="Label" parent="PositionRoot/Panel/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer3" unique_id=1093877381]
+layout_mode = 2
+theme_type_variation = &"LicenseFieldLabel"
+text = "WGT"
+
+[node name="WeightLabel" type="RichTextLabel" parent="PositionRoot/Panel/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer3" unique_id=262314359]
+unique_name_in_owner = true
+clip_contents = false
+layout_mode = 2
+size_flags_vertical = 3
+theme_type_variation = &"CharacterSelectDescriptionLabel"
+bbcode_enabled = true
+text = "150"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+vertical_alignment = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="PositionRoot/Panel/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1523455922]
+layout_mode = 2
+theme_override_constants/separation = -3
+
+[node name="Label" type="Label" parent="PositionRoot/Panel/MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer2" unique_id=190233869]
+layout_mode = 2
+theme_type_variation = &"LicenseFieldLabel"
+text = "OCCUPATION"
+
+[node name="OccupationLabel" type="RichTextLabel" parent="PositionRoot/Panel/MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer2" unique_id=2037334063]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 13)
+clip_contents = false
+layout_mode = 2
+theme_type_variation = &"CharacterSelectDescriptionLabel"
+bbcode_enabled = true
+text = "[img align=center,center width=70% height=1em]res://arte/ui/redact.png[/img]"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+vertical_alignment = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="PositionRoot/Panel/MarginContainer/HBoxContainer" unique_id=503509829]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="IconSelector" parent="PositionRoot/Panel/MarginContainer/HBoxContainer/VBoxContainer2" unique_id=993461638 instance=ExtResource("2")]
+unique_name_in_owner = true
+layout_mode = 2
+selection_sound = SubResource("Resource_tujr1")
+
+[node name="MarginContainer" type="MarginContainer" parent="PositionRoot/Panel/MarginContainer/HBoxContainer/VBoxContainer2" unique_id=931588564]
+layout_mode = 2
+theme_override_constants/margin_left = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="PositionRoot/Panel/MarginContainer/HBoxContainer/VBoxContainer2/MarginContainer" unique_id=1620569831]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PositionRoot/Panel/MarginContainer/HBoxContainer/VBoxContainer2/MarginContainer/VBoxContainer2" unique_id=1766171360]
+layout_mode = 2
+theme_override_constants/separation = -4
+
+[node name="TitleLabel" type="Label" parent="PositionRoot/Panel/MarginContainer/HBoxContainer/VBoxContainer2/MarginContainer/VBoxContainer2/VBoxContainer" unique_id=1445604375]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"MainMenuLabel"
+theme_override_font_sizes/font_size = 16
+text = "The Lexicographer"
+
+[node name="DescriptionLabel" type="RichTextLabel" parent="PositionRoot/Panel/MarginContainer/HBoxContainer/VBoxContainer2/MarginContainer/VBoxContainer2/VBoxContainer" unique_id=2040090798]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 26)
+clip_contents = false
+layout_mode = 2
+theme_type_variation = &"CharacterSelectDescriptionLabel"
+bbcode_enabled = true
+text = "A private dissident of the Party
+employed by the Bureau of Information."
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="PositionRoot/Panel/MarginContainer/HBoxContainer/VBoxContainer2/MarginContainer/VBoxContainer2" unique_id=593619516]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="Control" type="Control" parent="PositionRoot/Panel/MarginContainer/HBoxContainer/VBoxContainer2/MarginContainer/VBoxContainer2/HBoxContainer2" unique_id=1039626176]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[node name="SpellSprite" parent="PositionRoot/Panel/MarginContainer/HBoxContainer/VBoxContainer2/MarginContainer/VBoxContainer2/HBoxContainer2/Control" unique_id=1448247384 instance=ExtResource("4")]
+unique_name_in_owner = true
+
+[node name="ShadowCloner" parent="PositionRoot/Panel/MarginContainer/HBoxContainer/VBoxContainer2/MarginContainer/VBoxContainer2/HBoxContainer2/Control/SpellSprite" unique_id=255702735 instance=ExtResource("5")]
+position = Vector2(2, 2)
+awaiting_reparent = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PositionRoot/Panel/MarginContainer/HBoxContainer/VBoxContainer2/MarginContainer/VBoxContainer2/HBoxContainer2" unique_id=257482]
+layout_mode = 2
+theme_override_constants/separation = -4
+
+[node name="SpellName" type="Label" parent="PositionRoot/Panel/MarginContainer/HBoxContainer/VBoxContainer2/MarginContainer/VBoxContainer2/HBoxContainer2/VBoxContainer" unique_id=944282106]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"MainMenuLabel"
+theme_override_font_sizes/font_size = 11
+text = "Letter Opener"
+
+[node name="SpellDescription" type="RichTextLabel" parent="PositionRoot/Panel/MarginContainer/HBoxContainer/VBoxContainer2/MarginContainer/VBoxContainer2/HBoxContainer2/VBoxContainer" unique_id=1703126328]
+unique_name_in_owner = true
+clip_contents = false
+layout_mode = 2
+theme_type_variation = &"CharacterSelectDescriptionLabel"
+bbcode_enabled = true
+text = "Remove tiles from the board."
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="PositionRoot/Panel/MarginContainer/HBoxContainer/VBoxContainer2/MarginContainer/VBoxContainer2" unique_id=412971704]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="Control" type="Control" parent="PositionRoot/Panel/MarginContainer/HBoxContainer/VBoxContainer2/MarginContainer/VBoxContainer2/HBoxContainer3" unique_id=436714137]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[node name="InfoSprite" type="Sprite2D" parent="PositionRoot/Panel/MarginContainer/HBoxContainer/VBoxContainer2/MarginContainer/VBoxContainer2/HBoxContainer3/Control" unique_id=248379652]
+unique_name_in_owner = true
+texture = ExtResource("6")
+centered = false
+
+[node name="ShadowCloner" parent="PositionRoot/Panel/MarginContainer/HBoxContainer/VBoxContainer2/MarginContainer/VBoxContainer2/HBoxContainer3/Control/InfoSprite" unique_id=664686003 instance=ExtResource("5")]
+position = Vector2(2, 2)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PositionRoot/Panel/MarginContainer/HBoxContainer/VBoxContainer2/MarginContainer/VBoxContainer2/HBoxContainer3" unique_id=1064888140]
+layout_mode = 2
+theme_override_constants/separation = -4
+
+[node name="InfoTitle" type="Label" parent="PositionRoot/Panel/MarginContainer/HBoxContainer/VBoxContainer2/MarginContainer/VBoxContainer2/HBoxContainer3/VBoxContainer" unique_id=493317475]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"MainMenuLabel"
+theme_override_font_sizes/font_size = 11
+text = "Info"
+
+[node name="InfoLabel" type="RichTextLabel" parent="PositionRoot/Panel/MarginContainer/HBoxContainer/VBoxContainer2/MarginContainer/VBoxContainer2/HBoxContainer3/VBoxContainer" unique_id=889569299]
+unique_name_in_owner = true
+clip_contents = false
+layout_mode = 2
+theme_type_variation = &"CharacterSelectDescriptionLabel"
+bbcode_enabled = true
+text = "Less health, no random crits."
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="Photo" type="Sprite2D" parent="PositionRoot/Panel" unique_id=272517653]
+position = Vector2(-5, -13)
+texture = ExtResource("7")
+centered = false
+
+[node name="PhotoMask" type="Sprite2D" parent="PositionRoot/Panel/Photo" unique_id=1228110720]
+unique_name_in_owner = true
+clip_children = 2
+texture = ExtResource("8")
+centered = false
+
+[node name="ShadowCloner" type="Node2D" parent="PositionRoot/Panel/Photo" unique_id=1572343063]
+position = Vector2(2, 2)
+script = ExtResource("9")
+metadata/_custom_type_script = "uid://cfpkpmdehkp8u"
+
+[node name="Paperclip" type="Sprite2D" parent="PositionRoot/Panel" unique_id=1732142309]
+position = Vector2(7, -17)
+texture = ExtResource("10")
+centered = false
+
+[node name="ShadowCloner" type="Node2D" parent="PositionRoot/Panel/Paperclip" unique_id=1846841079]
+position = Vector2(2, 2)
+script = ExtResource("9")
+metadata/_custom_type_script = "uid://cfpkpmdehkp8u"
+
+[node name="ShadowCloner" type="Node2D" parent="PositionRoot/Panel" unique_id=1998945590]
+position = Vector2(2, 2)
+script = ExtResource("9")
+metadata/_custom_type_script = "uid://cfpkpmdehkp8u"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1324496817]
+libraries/ = SubResource("AnimationLibrary_12ruv")
+
+[connection signal="start_appearing" from="." to="." method="_on_start_appearing"]
+[connection signal="selected" from="PositionRoot/Panel/MarginContainer/HBoxContainer/VBoxContainer2/IconSelector" to="." method="_on_icon_selector_selected"]

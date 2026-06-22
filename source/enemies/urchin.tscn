@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://blyfe5isoagv7"]
+
+[ext_resource type="PackedScene" uid="uid://cbdk6hv7wu8im" path="res://source/battle_unit/enemy.tscn" id="1"]
+[ext_resource type="Script" uid="uid://sq71bcm1s2uy" path="res://source/enemies/urchin.gd" id="2"]
+[ext_resource type="PackedScene" uid="uid://2io33xdoadsd" path="res://source/enemies/sprites/urchin_sprite.tscn" id="3"]
+
+[node name="Urchin" unique_id=505607564 instance=ExtResource("1")]
+script = ExtResource("2")
+
+[node name="Sprite" parent="." index="0" unique_id=600856114 instance=ExtResource("3")]
+position = Vector2(0, 4)

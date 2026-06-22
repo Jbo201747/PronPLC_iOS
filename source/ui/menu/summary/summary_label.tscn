@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://cox1lgwa5ef25"]
+
+[node name="SummaryLabel" type="Label" unique_id=1310482975]
+custom_minimum_size = Vector2(0, 15)
+theme_type_variation = &"MenuDescriptionLabel"
+text = "Letter Opener: 2"
+vertical_alignment = 1

@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bd5a2v3hmblb7"]
+
+[ext_resource type="PackedScene" uid="uid://cbdk6hv7wu8im" path="res://source/battle_unit/enemy.tscn" id="1"]
+[ext_resource type="Script" uid="uid://bq7auufdl4b35" path="res://source/enemies/sex_traitor.gd" id="2"]
+[ext_resource type="PackedScene" uid="uid://c8do3avcpfbbt" path="res://source/enemies/sprites/sex_traitor_sprite.tscn" id="3"]
+
+[node name="SexTraitor" unique_id=164421854 instance=ExtResource("1")]
+script = ExtResource("2")
+
+[node name="Sprite" parent="." index="0" unique_id=2115931365 instance=ExtResource("3")]

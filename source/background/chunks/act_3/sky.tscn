@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://c8cnrgge3qvdb"]
+
+[ext_resource type="PackedScene" uid="uid://b3i1vst4708al" path="res://source/background/chunks/base/sprite_chunk.tscn" id="1"]
+[ext_resource type="Texture2D" uid="uid://b0ds2knxjgqvb" path="res://arte/backgrounds/act_3/sky.png" id="2"]
+[ext_resource type="PackedScene" uid="uid://dh6lqtk34pfn2" path="res://source/effects/particle_spawner.tscn" id="3"]
+[ext_resource type="PackedScene" uid="uid://ewftutvdavg4" path="res://source/effects/dustmote.tscn" id="4"]
+
+[node name="BackgroundChunk" unique_id=894028390 instance=ExtResource("1")]
+
+[node name="Sprite2D" parent="." index="0" unique_id=174746349 groups=["nobody_darkenable", "sky"]]
+position = Vector2(0, -135)
+texture = ExtResource("2")
+centered = false
+
+[node name="ParticleSpawner" parent="." index="3" unique_id=162344038 groups=["act_3_particle_spawner"] instance=ExtResource("3")]
+Particle = ExtResource("4")
+scroll_with_background = true
+min_cooldown = 0.1999999999970896
+max_cooldown = 1.0
+area_type = 1
+spawn_rect = Vector2(480, 270)
+min_velocity = Vector2(-0.1, -0.1)
+max_velocity = Vector2(0.1, 0.1)
+particle_group = &"act_3_sky_particles"

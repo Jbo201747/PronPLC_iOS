@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://wihb11lonupn"]
+
+[ext_resource type="Script" uid="uid://0lauyigf4bhb" path="res://source/minigames/hook.gd" id="1"]
+[ext_resource type="Script" uid="uid://t2qumytdskwu" path="res://source/effects/sway_handler.gd" id="2"]
+[ext_resource type="Texture2D" uid="uid://dj71jmksmfewx" path="res://arte/minigames/hook.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://dcvhn3wp6nh8x" path="res://arte/minigames/sinker.png" id="4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dixwk"]
+radius = 7.0
+
+[node name="Hook" type="Node2D" unique_id=875283352]
+z_index = 10
+script = ExtResource("1")
+
+[node name="SwayHandler" type="Node2D" parent="." unique_id=457355591]
+script = ExtResource("2")
+maximum_sway = 24.0
+friction = 0.6
+direct_from_position_multiplier = 1.8
+position_exponent = true
+metadata/_custom_type_script = "uid://t2qumytdskwu"
+
+[node name="Sprite2D" type="Sprite2D" parent="SwayHandler" unique_id=1781023713]
+texture = ExtResource("3")
+
+[node name="Line2D" type="Line2D" parent="SwayHandler" unique_id=1906998581]
+modulate = Color(1, 1, 1, 0.27451)
+z_index = -1
+points = PackedVector2Array(2, -11, 2, -203)
+width = 1.0
+
+[node name="BubbleMarker" type="Marker2D" parent="SwayHandler" unique_id=818718303]
+unique_name_in_owner = true
+position = Vector2(0, 11)
+
+[node name="FishMarker" type="Marker2D" parent="SwayHandler" unique_id=12473643]
+unique_name_in_owner = true
+
+[node name="Hitbox" type="Area2D" parent="SwayHandler" unique_id=39850971]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SwayHandler/Hitbox" unique_id=581392791]
+position = Vector2(0, 6)
+shape = SubResource("CircleShape2D_dixwk")
+
+[node name="SinkerSway" type="Node2D" parent="SwayHandler" unique_id=1102550376]
+script = ExtResource("2")
+maximum_sway = 24.0
+acceleration = 0.05
+friction = 0.5
+direct_from_position_multiplier = 1.2
+position_exponent = true
+metadata/_custom_type_script = "uid://t2qumytdskwu"
+
+[node name="Sinker" type="Sprite2D" parent="SwayHandler/SinkerSway" unique_id=978055605]
+unique_name_in_owner = true
+visible = false
+position = Vector2(0, 15)
+texture = ExtResource("4")
+offset = Vector2(0, 8)
+
+[connection signal="area_entered" from="SwayHandler/Hitbox" to="." method="_on_hitbox_area_entered"]

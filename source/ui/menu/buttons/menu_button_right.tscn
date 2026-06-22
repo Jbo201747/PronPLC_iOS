@@ -1,0 +1,93 @@
+[gd_scene format=3 uid="uid://btuhthp5narxg"]
+
+[ext_resource type="PackedScene" uid="uid://j2lt1nn07la8" path="res://source/ui/menu/buttons/menu_label_button.tscn" id="1"]
+
+[sub_resource type="Animation" id="Animation_47s4e"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HoverOffset/Panel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-78, -30)]
+}
+
+[sub_resource type="Animation" id="Animation_1t167"]
+resource_name = "appear"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HoverOffset/Panel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3),
+"transitions": PackedFloat32Array(0.3077863, 2.0705302, 1),
+"update": 0,
+"values": [Vector2(2, -30), Vector2(-82, -30), Vector2(-78, -30)]
+}
+
+[sub_resource type="Animation" id="Animation_x7cah"]
+resource_name = "disappear"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HoverOffset/Panel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3),
+"transitions": PackedFloat32Array(0.30778638, 2.070531, 1),
+"update": 0,
+"values": [Vector2(-78, -30), Vector2(-82, -30), Vector2(2, -30)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_h7i0l"]
+_data = {
+&"RESET": SubResource("Animation_47s4e"),
+&"appear": SubResource("Animation_1t167"),
+&"disappear": SubResource("Animation_x7cah")
+}
+
+[node name="MenuButtonRight" unique_id=159128984 instance=ExtResource("1")]
+text = "Start"
+enabled_theme = &"MenuTicketRight"
+disabled_theme = &"MenuTicketRightDisabled"
+
+[node name="Panel" parent="HoverOffset" parent_id_path=PackedInt32Array(1485403089) index="0" unique_id=1166464853]
+offset_left = -78.0
+offset_top = -30.0
+offset_right = 6.0
+offset_bottom = 1.0
+theme_type_variation = &"MenuTicketRight"
+
+[node name="MarginContainer" parent="HoverOffset/Panel" index="0" unique_id=948667601]
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 0
+
+[node name="VBoxContainer" parent="HoverOffset/Panel/MarginContainer" index="0" unique_id=210692313]
+alignment = 1
+
+[node name="Label" parent="HoverOffset/Panel/MarginContainer/VBoxContainer" index="0" unique_id=244723960]
+text = "Start"
+
+[node name="HoverHandler" parent="HoverOffset/Panel" index="2" unique_id=194543143]
+hovered_position = Vector2(-4, 0)
+pressed_position = Vector2(-2, 0)
+
+[node name="ActionGlyph" parent="HoverOffset/Panel" index="4" unique_id=1185166845]
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 12.0
+offset_bottom = 12.0
+
+[node name="AnimationPlayer" parent="." index="1" unique_id=601534803]
+libraries/ = SubResource("AnimationLibrary_h7i0l")

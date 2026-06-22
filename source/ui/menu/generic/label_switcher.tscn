@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://dmjmnqhws51ov"]
+
+[ext_resource type="Script" uid="uid://bq35usvobess5" path="res://source/ui/menu/generic/label_switcher.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://b8pni5uceyp2c" path="res://arte/ui/options_arrows.png" id="2"]
+
+[node name="LabelSwitcher" type="HBoxContainer" unique_id=1679092029]
+focus_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = -2
+script = ExtResource("1")
+
+[node name="LeftButton" type="Button" parent="." unique_id=232507899]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(15, 15)
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 4
+mouse_filter = 1
+flat = true
+
+[node name="LeftSprite" type="Sprite2D" parent="LeftButton" unique_id=2109756419]
+unique_name_in_owner = true
+texture = ExtResource("2")
+centered = false
+hframes = 4
+
+[node name="Label" type="Label" parent="." unique_id=518965714]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 1
+theme_type_variation = &"OptionsLabel"
+vertical_alignment = 2
+
+[node name="RightButton" type="Button" parent="." unique_id=86432166]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(15, 15)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+mouse_filter = 1
+flat = true
+
+[node name="RightSprite" type="Sprite2D" parent="RightButton" unique_id=1143780877]
+unique_name_in_owner = true
+texture = ExtResource("2")
+centered = false
+hframes = 4
+frame = 1
+
+[connection signal="pressed" from="LeftButton" to="." method="_on_left_button_pressed"]
+[connection signal="pressed" from="RightButton" to="." method="_on_right_button_pressed"]

@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://bg45rccmb0a0s"]
+
+[ext_resource type="PackedScene" uid="uid://ddwai0mjai27y" path="res://source/enemies/sprites/greeb_sprite.tscn" id="1"]
+[ext_resource type="Texture2D" uid="uid://b2ujnhhecxrsg" path="res://arte/enemies/ufo_ship.png" id="2"]
+
+[node name="UFOSprite" unique_id=241956147 instance=ExtResource("1")]
+
+[node name="Ship" parent="Mask" parent_id_path=PackedInt32Array(1517850556) index="0" unique_id=705768884]
+texture = ExtResource("2")
+
+[node name="ShipBack" parent="Mask/Ship" index="0" unique_id=1346339391]
+visible = false
+
+[node name="Cap" parent="Mask/Ship" index="1" unique_id=1919862456]
+visible = true
+
+[node name="Alium" parent="Mask/Ship" index="2" unique_id=1080777042]
+visible = false
+
+[editable path="Explosion"]
+[editable path="BreathSmokeSmall"]

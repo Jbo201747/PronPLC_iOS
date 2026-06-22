@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://bom7aoasctbwi"]
+
+[ext_resource type="PackedScene" uid="uid://dv5ytnco0xox5" path="res://source/effects/dew_projectile.tscn" id="1"]
+[ext_resource type="PackedScene" uid="uid://brdk0cbmp4pfk" path="res://source/effects/dew_explosion_baja.tscn" id="2"]
+[ext_resource type="Texture2D" uid="uid://cfouwm43t6pdj" path="res://arte/effects/dew_can_baja.png" id="3"]
+
+[node name="DewProjectile" unique_id=491621120 instance=ExtResource("1")]
+impact_effect_scene = ExtResource("2")
+
+[node name="Sprite2D" parent="." index="0" unique_id=1221212]
+texture = ExtResource("3")

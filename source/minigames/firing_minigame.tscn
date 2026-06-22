@@ -1,0 +1,90 @@
+[gd_scene format=3 uid="uid://da4usofsld2fa"]
+
+[ext_resource type="Script" uid="uid://bxp5brwtn6ndf" path="res://source/minigames/firing_minigame.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://btk2rdfcq5otd" path="res://arte/minigames/border.png" id="2"]
+[ext_resource type="Shader" uid="uid://2mvdruto5hm1" path="res://source/minigames/bullet_holes.gdshader" id="3"]
+[ext_resource type="Texture2D" uid="uid://cj8sryb00lr45" path="res://arte/minigames/grain.png" id="4"]
+[ext_resource type="PackedScene" uid="uid://ciq6tahcwoo1k" path="res://source/minigames/rifle_cursor.tscn" id="5"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_xu8vd"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_26sc4"]
+resource_local_to_scene = true
+shader = ExtResource("3")
+shader_parameter/background_world_position = Vector2(176, 25)
+shader_parameter/background_size = Vector2(128, 192)
+shader_parameter/holes = SubResource("ViewportTexture_xu8vd")
+
+[sub_resource type="Animation" id="Animation_bs766"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_hhgpl"]
+resource_name = "start"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0loal"]
+_data = {
+&"RESET": SubResource("Animation_bs766"),
+&"start": SubResource("Animation_hhgpl")
+}
+
+[node name="FiringMinigame" type="Node2D" unique_id=2006114235]
+z_index = 100
+position = Vector2(240, 121)
+script = ExtResource("1")
+
+[node name="LowerBoundMarker" type="Marker2D" parent="." unique_id=65684821]
+position = Vector2(0, 116)
+
+[node name="Border" type="Sprite2D" parent="." unique_id=1851487113]
+position = Vector2(0, 1)
+texture = ExtResource("2")
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=2047543935]
+unique_name_in_owner = true
+transparent_bg = true
+snap_2d_transforms_to_pixel = true
+canvas_item_default_texture_filter = 0
+size = Vector2i(128, 192)
+
+[node name="Background" type="ColorRect" parent="." unique_id=907848326]
+material = SubResource("ShaderMaterial_26sc4")
+custom_minimum_size = Vector2(128, 192)
+clip_contents = true
+offset_left = -64.0
+offset_top = -96.0
+offset_right = 64.0
+offset_bottom = 96.0
+pivot_offset = Vector2(64, 96)
+mouse_filter = 1
+color = Color(0.54901963, 0.54509807, 0.5137255, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Mask" type="Control" parent="Background" unique_id=1722749179]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="WoodGrain" type="Sprite2D" parent="Background/Mask" unique_id=1873198987]
+texture_repeat = 2
+use_parent_material = true
+texture = ExtResource("4")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 128, 192)
+
+[node name="RifleCursor" parent="Background/Mask" unique_id=1015116107 node_paths=PackedStringArray("minigame") instance=ExtResource("5")]
+z_index = 200
+position = Vector2(64, 96)
+minigame = NodePath("../../..")
+
+[node name="AnimPlayer" type="AnimationPlayer" parent="." unique_id=1374920530]
+libraries/ = SubResource("AnimationLibrary_0loal")
+
+[connection signal="mouse_entered" from="Background" to="." method="_on_background_mouse_entered"]
+[connection signal="mouse_exited" from="Background" to="." method="_on_background_mouse_exited"]

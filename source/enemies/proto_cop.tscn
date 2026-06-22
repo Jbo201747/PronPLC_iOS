@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://b5dmcgfhjy88k"]
+
+[ext_resource type="PackedScene" uid="uid://cbdk6hv7wu8im" path="res://source/battle_unit/enemy.tscn" id="1"]
+[ext_resource type="Script" uid="uid://cvcbc5ovxt357" path="res://source/enemies/proto_cop.gd" id="2"]
+[ext_resource type="PackedScene" uid="uid://k0niwxtth6ss" path="res://source/enemies/sprites/proto_cop_sprite.tscn" id="3"]
+
+[node name="ProtoCop" unique_id=1410400955 instance=ExtResource("1")]
+script = ExtResource("2")
+
+[node name="Sprite" parent="." index="0" unique_id=1086806500 instance=ExtResource("3")]

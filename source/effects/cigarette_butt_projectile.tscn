@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://c17dj8586tye3"]
+
+[ext_resource type="PackedScene" uid="uid://b50yios7hip53" path="res://source/effects/arcing_projectile.tscn" id="1"]
+[ext_resource type="PackedScene" uid="uid://cd54snpmbsugi" path="res://source/effects/cigarette_butt_landed.tscn" id="2"]
+[ext_resource type="Texture2D" uid="uid://cavfppkyq6tu7" path="res://arte/effects/cigarette_butt.png" id="3"]
+
+[node name="ArcingProjectile" unique_id=2102895554 instance=ExtResource("1")]
+poof_color = ""
+look_at_direction = false
+impact_effect_scene = ExtResource("2")
+
+[node name="Sprite" type="Sprite2D" parent="." index="0" unique_id=1395795230]
+texture = ExtResource("3")

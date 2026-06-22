@@ -1,0 +1,34 @@
+GDRE Tools v2.5.0
+Windows 10.0.19045, NVIDIA GeForce RTX 3080 Ti, vulkan
+Opening file: E:/SteamLibrary/steamapps/common/Pronoun Palace/pronoun_palace.exe
+Loaded 2136 imported files
+Detected Engine Version: 4.7.0
+Detected Bytecode Revision: 4.5.0-stable (ebc36a7)
+Verified 4311 files, no errors detected!
+Extracted 4311 files, no errors detected!
+Recreating plugin configs...
+Saved project config.
+
+
+********************************EXPORT REPORT********************************
+
+Totals:                                 
+Decompiled scripts:                     462
+Failed scripts:                         0
+Imported resources for export session:  2136
+Successfully converted:                 2136
+Lossy:                                  452
+Rewrote metadata:                       1190
+Non-importable conversions:             0
+Not converted:                          0
+Failed conversions:                     0
+-------------
+
+
+
+------------------------------------------------------------------------------------
+
+Use Godot editor version 4.7.0 to edit the project.
+
+*******************************************************************************
+

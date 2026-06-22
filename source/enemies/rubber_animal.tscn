@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://b1ypmmu2clh7v"]
+
+[ext_resource type="PackedScene" uid="uid://cbdk6hv7wu8im" path="res://source/battle_unit/enemy.tscn" id="1"]
+[ext_resource type="Script" uid="uid://dban6rt08u7t0" path="res://source/enemies/rubber_animal.gd" id="2"]
+[ext_resource type="PackedScene" uid="uid://8j731tptvafg" path="res://source/enemies/sprites/rubber_animal_sprite.tscn" id="3"]
+
+[node name="RubberAnimal" unique_id=608691582 instance=ExtResource("1")]
+script = ExtResource("2")
+
+[node name="Sprite" parent="." index="0" unique_id=758965040 instance=ExtResource("3")]
+position = Vector2(0, -2)

@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://g8e1yv7io8l4"]
+
+[ext_resource type="Script" uid="uid://da82ggrupwwqi" path="res://source/ui/credits/primary_credit.gd" id="1"]
+[ext_resource type="PackedScene" uid="uid://vq4fej71v3om" path="res://source/ui/credits/credit_label.tscn" id="2"]
+
+[node name="PrimaryCredit" type="MarginContainer" unique_id=1532624305]
+offset_right = 84.0
+offset_bottom = 63.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1")
+credit_path = "credits/0/0"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=380651883]
+layout_mode = 2
+theme_override_constants/separation = -2
+
+[node name="NameLabel" parent="VBoxContainer" unique_id=1783995609 instance=ExtResource("2")]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Cadence Petersen"
+
+[node name="CreditsContainer" type="VBoxContainer" parent="VBoxContainer" unique_id=825004085]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = -2

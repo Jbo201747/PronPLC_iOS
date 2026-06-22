@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://crk1ki87d5cfq"]
+
+[ext_resource type="PackedScene" uid="uid://p635d47cy3gb" path="res://source/enemies/sprites/new_cop_sprite.tscn" id="1"]
+[ext_resource type="Texture2D" uid="uid://cos0p6dt2dert" path="res://arte/enemies/sheriff.png" id="2"]
+
+[node name="SheriffSprite" unique_id=1332485971 instance=ExtResource("1")]
+
+[node name="Sprite" parent="." index="0" unique_id=1421102125]
+texture = ExtResource("2")

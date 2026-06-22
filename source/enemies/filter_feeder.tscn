@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://p35ges8jwdy0"]
+
+[ext_resource type="PackedScene" uid="uid://cbdk6hv7wu8im" path="res://source/battle_unit/enemy.tscn" id="1"]
+[ext_resource type="Script" uid="uid://jmmq5wktgyqs" path="res://source/enemies/filter_feeder.gd" id="2"]
+[ext_resource type="PackedScene" uid="uid://bdb3gnb0o11rb" path="res://source/enemies/sprites/filter_feeder_sprite.tscn" id="3"]
+
+[node name="FilterFeeder" unique_id=1127218358 instance=ExtResource("1")]
+script = ExtResource("2")
+
+[node name="Sprite" parent="." index="0" unique_id=1849654403 instance=ExtResource("3")]

@@ -1,0 +1,563 @@
+# Start a line with # to make a comment
+# :identifier: marks a new string, strings continue until next identifier, have leading and trailing whitespace trimmed
+
+:cat:
+	:name:
+		Cat
+
+	:phonebook:
+		The honorary lumpenproletariat. Very little Party interference is required to keep a lid on attempts at organizing cats.
+
+	:credit:
+		Boswellox the Cat
+
+:declawed:
+	:name:
+		{persistent_data.declawed_name if persistent_data.declawed_name}{"Unnamed" not persistent_data.declawed_name}
+
+	:phonebook:
+		As an ethical alternative to euthanization, cats in crowded shelters are declawed and released so that they can starve in the streets, out of the Party’s view.
+
+		As victims of lifelong neglect, they readily assume the first words spoken to them are their name.
+
+:npcs:
+	:name:
+		NPCs
+
+	:phonebook:
+		If there is hope, it must lie in the proles.
+
+	:credit:
+		As Themselves
+
+:traffic:
+	:name:
+		Traffic
+
+	:phonebook:
+		Everything would be so much
+		nicer if everyone else was dead.
+
+:bottom_feeder:
+	:name:
+		Bottom Feeder
+
+	:phonebook:
+		Macromicroorganisms that ballooned in size thanks to the extravagant amounts of waste produced by suburbs.
+
+		They’re loved by citizens for their cute shape, and by cats for their cute squeals.
+
+	:credit:
+		As Itself
+
+:filter_feeder:
+	:name:
+		Filter Feeder
+
+	:phonebook:
+		The abundance of trash in the suburbs has given rise to a subculture of distinguishing taste. Filter feeders demand only the highest quality slop.
+
+:noppy:
+	:name:
+		Noppy
+
+	:phonebook:
+		Noppy once dreamt, melted on their spoon
+
+		That they floated far, far away
+
+		And leapt over the moon
+
+	:credit:
+		As Themself
+
+:soppy:
+	:name:
+		Soppy
+
+	:phonebook:
+		Poppyseeds dreaming of poppyseed love
+
+		Poppyseed memories, poppyseed death
+
+		Won’t you hold me as I take my last breath?
+
+:people:
+	:name:
+		People
+
+	:phonebook:
+		Originally created as the modern food solution Sorghum Green, they recently won rights in court with the argument that “Sorghum Green is People.”
+
+		Often declared legally dead upon receiving the slightest injury to circumvent this.
+
+	:credit:
+		J.D.
+
+:decedent:
+	:name:
+		Decedent
+
+	:phonebook:
+		Despite its initial struggles, People became the staple foodstuff it was always meant to be. This was not to last, and its lineage came to an unhappy end with a foray into oral hygiene products: younger generations were turned off from eating People, which was now thought to taste like toothpaste.
+
+:stoker:
+	:name:
+		Stoker
+
+	:phonebook:
+		As a result of green energy innovations, industry within the Party actually produces coal rather than consuming it.
+
+	:credit:
+		Jordy W.
+
+:broker:
+	:name:
+		Broker
+
+	:phonebook:
+		Thanks to the Party’s robust economic policy, the value of money is so high that burning it is considered a necessary green energy innovation.
+
+:bookworm:
+	:name:
+		Bookworm
+
+	:phonebook:
+		A bioengineered pest released upon the suburbs with a hunger for written words. A popular game among the prole youth is to line up single-file and alternate hitting one with a stick until it explodes.
+
+	:credit:
+		As Itself
+
+:milkworm:
+	:name:
+		Milkworm
+
+	:phonebook:
+		A later revision of bookworms designed to withstand the cruelty of children.
+
+:fat_cat:
+	:name:
+		Fat Cat
+
+	:phonebook:
+		An Amerikkkan Shorthair propped up by humans as an exemplar to strays and ferals. It is no longer capable of violence, except by accident. And if nobody touches it for three turns, it hits the bricks.
+
+	:credit:
+		Momo the Cat
+
+:purrgeoisie:
+	:name:
+		Purrgeoisie
+
+	:phonebook:
+		The purrgeoisie are not human.
+
+:urchin:
+	:name:
+		Urchin
+
+	:phonebook:
+		It is well known that high doses of stimulants unlock the latent psionic powers in children. Some orphans are provided amphetamines and food in exchange for sniffing out potential enemies of the state.
+
+	:credit:
+		B.
+
+:lump:
+	:name:
+		Lump
+
+	:phonebook:
+		A self-proclaimed kid genius. Thanks to her first-grade education, she knows ALL the colors and animals.
+
+:elmer:
+	:name:
+		Public Broadcast
+
+	:phonebook:
+		Moral art is top-of-mind when it comes to child safety, and parents everywhere are relieved to have a program that safely and sanely imparts the importance of maintaining class boundaries.
+
+		Screens are a leisure not afforded to the lower class, so the proles questioned and ridiculed on camera will never be able to see the show.
+
+	:credit:
+		Ash “Cometz” W.
+
+:anti_sex_worker:
+	:name:
+		Anti-Sex Worker
+
+	:phonebook:
+		Anti-sex workers are employed by the Bureau of the Census to better align the population with census data by committing radical acts of anti-sex.
+
+		Menstruation is a purity test that anti-sex workers are expected to pass on a monthly basis. Menopausal workers are supplied with hormones to keep them fertile and youthfully bleeding for the duration of their employment.
+
+	:credit:
+		Marianna “foxgirlyuri”
+
+:sex_traitor:
+	:name:
+		Sex Traitor
+
+	:phonebook:
+		An anti-sex worker who failed to meet her monthly menstrual quota. Presumed to be non-celibate until the next time she bleeds, and until then must wear all-white purity garments tastefully applied with blue liquid absorbent.
+
+:snowball:
+	:name:
+		Snowball
+
+	:phonebook:
+		Bureaucrats often cope with long, monotonous work days by turning to amphetamines to help them focus and tune out from their community.
+
+		This guy’s just a jerk though.
+
+	:credit:
+		Klester
+
+:eightball:
+	:name:
+		Eightball
+
+	:phonebook:
+		Snowball isn’t a faggot, but with this drag persona going on nobody even suspects he’s a chaser.
+
+:paddlers:
+	:name:
+		Paddlers
+
+	:phonebook:
+		The paddlers, like all jubilists, share a love for the old days of rampant consumerism. When they found out about “rainbow capitalism,” they went all in.
+
+		Moving contraband comics and magazines from outside the Party is their specialty.
+
+	:credit:
+		CupcakeCervidae & Sadly Just AL
+
+:social_climbers:
+	:name:
+		Social Climbers
+
+	:phonebook:
+		Easily gave up on homosexualism after being recruited by the Inner Party to snitch on other jubilists.
+
+		The Party didn’t even have to offer to waive their hundreds of dress code violations.
+
+:freezer:
+	:name:
+		Freezer
+
+	:phonebook:
+		A thermos of ice that never melts and bounces with impossible kinetic energy.
+
+		Party scientists have been attempting to study it for years, but it frequently escapes containment and defies chemical testing. The only conclusive information gathered on the subject is to NOT UNDER ANY CIRCUMSTANCES MENTION THE NAME OF A SEABIRD WHICH SHARES ITS NAME WITH A GOLFING TERM
+
+	:credit:
+		“Let A Woman Be A Woman”
+
+:foreign_body:
+	:name:
+		Foreign Body
+
+	:phonebook:
+		I still remember our last conversation together. You were teasing me about my golfing, and I was trying to tell you that only rich people golf, and you said no, everyone golfs, you’re just bad at it, and I was trying not to let you see my face and even after everything I still wasn’t brave enough to ask for a photo.
+
+		I was only in your orbit for a few months, but I never stopped feeling your pull.
+
+	:credit:
+		“Huit Octobre 1971”
+
+:liquid_human:
+	:name:
+		Liquid Human
+
+	:phonebook:
+		Early experiments in optimizing the human form lead to liquid humans: sapient amalgams of the Party’s political prisoners. Liquid humans are drilled into the city pavement to provide ambient camaraderie for their fellow man.
+
+		When a bubble pops, you can hear their screams.
+
+	:credit:
+		Andrew “Guwahavel” Angaroni
+
+:proto_cop:
+	:name:
+		Proto-Cop
+
+	:phonebook:
+		Experimental chemical alterations to liquid humans sought to mitigate their proclivity for sporadic, unsanctioned violence, prefiguring later solutions for sanctioned violence.
+
+:strawman:
+	:name:
+		Strawman
+
+	:phonebook:
+		Strawmen are programmed with a compulsive need to be touched and a distinct lack of boundaries. Periodically released upon city streets to ensure the bureaucrat class remembers why capitalism failed.
+
+	:credit:
+		DECtalk
+
+:housebroken:
+	:name:
+		Housebroken
+
+	:phonebook:
+		Some citizens will genuinely fall for a Strawman’s manipulative attempts at receiving nurturance. A subsection of anti-citizens savvy in early 21st century technology are also prone to doing so. By exploiting a security flaw, Strawman can be tamed to be slightly less susceptible to killing themselves, making them viable pets.
+
+		Strawmen altered in this way have a proclivity to sometimes leak battery acid.
+
+:greeb:
+	:name:
+		Greeb
+
+	:phonebook:
+		Greeb really wishes the Alium homeworld would cut him a little more slack. Infiltrate the government of Earth? Which one? Maybe what the homeworld really needs is some of that flower the jubilists are peddling.
+
+	:credit:
+		peas
+
+:ufo:
+	:name:
+		Michel Foucault
+
+	:phonebook:
+		It is hotly debated among scholars as to whether Michel Foucault should be upheld—if not revered—as the prime exemplar of a normal human male. Just one look at him makes people say, “There goes Michel Foucault, the Frenchman.”
+
+		When people feel compelled to comment on his appearance, they recall that Michel Foucault is an atheist, which is unremarkable and not worth bringing attention to in secular society.
+
+	:credit:
+		As Himself
+
+:dew_jubilist:
+	:name:
+		Dew Jubilist
+
+	:phonebook:
+		A jubilist vandal whose love for moderate, sensible politics is only outmatched by their love for fizzy, neon sludge.
+
+		The fact that they haven’t been caught yet is more of an embarrassment of the Party’s ability to control the jubilists than any impressive feat on her part.
+
+	:credit:
+		jigokey
+
+:dew_jubajalist:
+	:name:
+		Dew Jubajalist
+
+	:phonebook:
+		A jubilist embarrassingly behind on the current trends.
+
+:xrafstar:
+	:name:
+		Xrafstar
+
+	:phonebook:
+		Victims of Ahrimanic pollution. Schizoid freaks who burden the world with their degenerate, insectlike manner of being, which is somewhat offputting.
+
+	:credit:
+		Porpentine
+
+:pseud:
+	:name:
+		Pseud
+
+	:phonebook:
+		At least having their intestines replaced by a parasite that controls their thoughts and body cured their IBD. They can finally stop eating People!
+
+:brutalist:
+	:name:
+		Brutalist
+
+	:phonebook:
+		The pinnacle of Party border control: a wall that lives, speaks, and can fill out immigration forms.
+
+		Detainees who enter with improper paperwork are slowly consumed through an arduous and lengthy interrogation process.
+
+	:credit:
+		Dot Operator
+
+:herarra:
+	:name:
+		Herarra
+
+	:phonebook:
+		Plants with a humanlike sapience that have been domesticated by the Party out of a tokenistic effort to integrate them into society. Screened for and diagnosed with autism without exception.
+
+		They spend the entirety of their adult lives solving complicated math problems designed to induce stress so that they shed their valuable petals.
+
+	:credit:
+		Cole Matchen
+
+:juvenile:
+	:name:
+		Juvenile
+
+	:phonebook:
+		Herarras not yet ready to commit to a 56-hour work week are considered subhuman and confined to the Bureau of Love’s nurseries, where gentle caretakers practice one-on-one emotional detachment with them.
+
+:prole_service:
+	:name:
+		Prole Service
+
+	:phonebook:
+		Responsible for fielding complaints from the proles, but lacks any power to actually resolve them.
+
+	:credit:
+		Ferrium
+
+:receiver:
+	:name:
+		Receiver
+
+	:phonebook:
+		Estrogen saved her. Briefly experienced an erection when she wore a standard-issue women’s shirt for the first time and is now convinced that the police will visit her in her sleep for AGP crimes.
+
+		Her last remaining comfort is watching pink films of new cops being filled with water until they pop.
+
+:prodigy:
+	:name:
+		Prodigy
+
+	:phonebook:
+		The most productive members of society are rewarded with increasingly obscure new kinds of work to do.
+
+	:credit:
+		As Himself
+
+:invalid:
+	:name:
+		Invalid
+
+	:phonebook:
+		The least productive members of society are punished with increasingly obscure new kinds of work to do.
+
+:umami:
+	:name:
+		Umami
+
+	:phonebook:
+		The Bureau of Pornography’s attempt at creating a real-life bunny girl, after jubilist pornographers created a large demand for fringe pornography. Seamlessly alternates between dominant and submissive behavior.
+
+	:credit:
+		RENREN’S DOG SASCHA
+
+:salt:
+	:name:
+		Salt
+
+	:phonebook:
+		After focus groups found real bunny girls “too scary,” the Bureau of Pornography course corrected by making future iterations “whiter.”
+
+		Thanks to their crippling melanin deficiency, they are almost completely blind.
+
+:rubber_animal:
+	:name:
+		Rubber Animal
+
+	:phonebook:
+		An exotic bourgeoisie pet of unknown origin. Their synthetic Party-issued uniform protects their soft skin from bruising, and their retractable lamprey-like teeth make them valuable for both warding off annoying paper-pushers and for personal pleasure.
+
+	:credit:
+		Angel “oilyspoily” Ponce
+
+:pink_rubber_animal:
+	:name:
+		Pink Rubber Animal
+
+	:phonebook:
+		The contemporary therapy dog. Pink rubber animals are periodically let loose in various offices to hunt and maim bureaucrats carrying illegal amounts of undisclosed trauma.
+
+:paradigm:
+	:name:
+		Paradigm
+
+	:phonebook:
+		The sole remaining member of The Nation of Jubilism, just one of many jubilist organizations dedicated to the overthrow of the Party.
+
+		After their 700-page manifesto was derided by fellow jubilists as “joyless,” they strive to enact real societal change entirely on their own.
+
+	:credit:
+		Narillia
+
+:copycat:
+	:name:
+		Copycat
+
+	:phonebook:
+		A jubilist inspired by the charred excerpts of a fleeting manifesto. A great deal of effort is put into cultivating the aesthetics of radical ideology.
+
+:new_cop:
+	:name:
+		New Cop
+
+	:phonebook:
+		A new state calls for a new monopolization of state violence, conveniently packaged in a new type of pool toy. New Cops—like any cop—volunteer their humanity in exchange for being liquified and chemically treated, a new, stronger type of person emerging, a person free from the miasma of remembering or hunger or having feelings beyond a potent sense of loyalty to the Party.
+
+	:credit:
+		hairyballbastic
+
+:sheriff:
+	:name:
+		Sheriff
+
+	:phonebook:
+		New Cops that mistakenly develop a sense of authority are awarded a medal that conveniently keeps their ambitions in check.
+
+:vampire:
+	:name:
+		Oenone
+
+	:phonebook:
+		Oenone’s seen it all before.
+
+		Regimes always act like they’re so different, but the important thing is that there’s an “in-group” and an “out-group.”
+
+		Oenone is part of the “in-group.”
+
+	:credit:
+		vanimatches
+
+:parasite:
+	:name:
+		Parasite
+
+	:phonebook:
+		You can have anything if you’re important enough. You could even have the blood plasma of one hundred svelte elflike twinks. If that was something you really wanted.
+
+:age_regressor:
+	:name:
+		Age Regressor
+
+	:phonebook:
+		What do you do with dissidents who
+		are beyond rehabilitation? Start over.
+
+	:credit:
+		minichibisart
+
+:trauma_core:
+	:name:
+		Trauma Core
+
+	:phonebook:
+		All errant social behavior can be understood through the modern psychoanalytical lens of trauma, and the best way to deal with trauma is to entomb the patient within a machine that arduously reconstructs their entire body.
+
+:bammon:
+	:name:
+		Bammon
+
+	:a_pig:
+		Some Pig
+
+	:phonebook:
+		Everyone keeps asking Bammon what he means by all of this. That they don’t get any of it, like the symbolism or meaning. Is it a critique *of* critique? Bammon doesn’t have to say anything. He’s untouchable.
+
+	:credit:
+		RedRachis
+
+:nobody:
+	:name:
+		Nobody
+
+	:phonebook:
+		Just one of many employed by the Bureau of Pronouns;
+		not anyone in particular.
+
+	:credit:
+		Cadence Petersen

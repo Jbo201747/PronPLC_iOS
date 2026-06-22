@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://cuawaldrvg4tk"]
+
+[ext_resource type="PackedScene" uid="uid://cbdk6hv7wu8im" path="res://source/battle_unit/enemy.tscn" id="1"]
+[ext_resource type="Script" uid="uid://dx3upaywraot1" path="res://source/enemies/liquid_human.gd" id="2"]
+[ext_resource type="PackedScene" uid="uid://0omgegt2hi2e" path="res://source/enemies/sprites/liquid_human_sprite.tscn" id="3"]
+
+[node name="LiquidHuman" unique_id=152338041 instance=ExtResource("1")]
+script = ExtResource("2")
+
+[node name="Sprite" parent="." index="0" unique_id=865763818 instance=ExtResource("3")]

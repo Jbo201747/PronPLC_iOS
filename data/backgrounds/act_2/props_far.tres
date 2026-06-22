@@ -1,0 +1,89 @@
+[gd_resource type="Resource" script_class="BGLayer" format=3 uid="uid://c3f5tcico4eyh"]
+
+[ext_resource type="Script" uid="uid://cgt3v7pqo2f3s" path="res://source/background/resources/group.gd" id="1"]
+[ext_resource type="Script" uid="uid://4xnkv17k7r2u" path="res://source/background/resources/pattern.gd" id="2"]
+[ext_resource type="Script" uid="uid://bgl3ksyduwsya" path="res://source/background/resources/subpattern_entry.gd" id="3"]
+[ext_resource type="Script" uid="uid://dyac22bllw18l" path="res://source/background/resources/group_entry.gd" id="4"]
+[ext_resource type="Script" uid="uid://bio02cenhh5hr" path="res://source/background/resources/pattern_step.gd" id="5"]
+[ext_resource type="Script" uid="uid://dg2sbx0ywm212" path="res://source/background/resources/empty_entry.gd" id="6"]
+[ext_resource type="Script" uid="uid://dkmj8b7llyv41" path="res://source/background/resources/layer.gd" id="7"]
+
+[sub_resource type="Resource" id="Resource_j4t7l"]
+script = ExtResource("1")
+id = "bricks"
+chunk_scene_folder = "res://source/background/chunks/act_2/props/bricks"
+default_repeat_delay = 1
+metadata/_custom_type_script = "uid://cgt3v7pqo2f3s"
+
+[sub_resource type="Resource" id="Resource_4r2of"]
+script = ExtResource("1")
+id = "cracks"
+chunk_scene_folder = "res://source/background/chunks/act_2/props/cracks"
+default_repeat_delay = 1
+metadata/_custom_type_script = "uid://cgt3v7pqo2f3s"
+
+[sub_resource type="Resource" id="Resource_8ua0d"]
+script = ExtResource("3")
+id = "grouped_bricks"
+metadata/_custom_type_script = "uid://bgl3ksyduwsya"
+
+[sub_resource type="Resource" id="Resource_tl5u2"]
+script = ExtResource("4")
+id = "cracks"
+weight = 2.0
+repeat_delay = 1
+metadata/_custom_type_script = "uid://dyac22bllw18l"
+
+[sub_resource type="Resource" id="Resource_iry5t"]
+script = ExtResource("5")
+entries = [SubResource("Resource_8ua0d"), SubResource("Resource_tl5u2")]
+metadata/_custom_type_script = "uid://bio02cenhh5hr"
+
+[sub_resource type="Resource" id="Resource_wj725"]
+script = ExtResource("6")
+minimum_distance = 15
+maximum_distance = 60
+metadata/_custom_type_script = "uid://dg2sbx0ywm212"
+
+[sub_resource type="Resource" id="Resource_4h421"]
+script = ExtResource("5")
+entries = [SubResource("Resource_wj725")]
+metadata/_custom_type_script = "uid://bio02cenhh5hr"
+
+[sub_resource type="Resource" id="Resource_hvllo"]
+script = ExtResource("2")
+id = "loop"
+next = "loop"
+steps = [SubResource("Resource_iry5t"), SubResource("Resource_4h421")]
+metadata/_custom_type_script = "uid://4xnkv17k7r2u"
+
+[sub_resource type="Resource" id="Resource_8s4o3"]
+script = ExtResource("4")
+id = "bricks"
+metadata/_custom_type_script = "uid://dyac22bllw18l"
+
+[sub_resource type="Resource" id="Resource_t63gn"]
+script = ExtResource("5")
+entries = [SubResource("Resource_8s4o3")]
+repeat_count = {
+1: 0.5,
+2: 1.0,
+3: 1.0,
+4: 0.5
+}
+metadata/_custom_type_script = "uid://bio02cenhh5hr"
+
+[sub_resource type="Resource" id="Resource_jwdm2"]
+script = ExtResource("2")
+id = "grouped_bricks"
+steps = [SubResource("Resource_t63gn")]
+metadata/_custom_type_script = "uid://4xnkv17k7r2u"
+
+[resource]
+script = ExtResource("7")
+z_index = -40
+motion_scale = 0.95
+y_offset = 2.0
+groups = [SubResource("Resource_j4t7l"), SubResource("Resource_4r2of")]
+patterns = [SubResource("Resource_hvllo"), SubResource("Resource_jwdm2")]
+metadata/_custom_type_script = "uid://dkmj8b7llyv41"

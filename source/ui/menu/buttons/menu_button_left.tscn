@@ -1,0 +1,93 @@
+[gd_scene format=3 uid="uid://dtybjre4jku6g"]
+
+[ext_resource type="PackedScene" uid="uid://j2lt1nn07la8" path="res://source/ui/menu/buttons/menu_label_button.tscn" id="1"]
+
+[sub_resource type="Animation" id="Animation_5aqyv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HoverOffset/Panel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-6, -30)]
+}
+
+[sub_resource type="Animation" id="Animation_lv0ac"]
+resource_name = "appear"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HoverOffset/Panel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3),
+"transitions": PackedFloat32Array(0.3077863, 2.0705302, 1),
+"update": 0,
+"values": [Vector2(-86, -30), Vector2(-2, -30), Vector2(-6, -30)]
+}
+
+[sub_resource type="Animation" id="Animation_kfq7b"]
+resource_name = "disappear"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HoverOffset/Panel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3),
+"transitions": PackedFloat32Array(0.30778638, 2.070531, 1),
+"update": 0,
+"values": [Vector2(-6, -30), Vector2(-2, -30), Vector2(-86, -30)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7eopo"]
+_data = {
+&"RESET": SubResource("Animation_5aqyv"),
+&"appear": SubResource("Animation_lv0ac"),
+&"disappear": SubResource("Animation_kfq7b")
+}
+
+[node name="MenuButtonLeft" unique_id=1466784984 instance=ExtResource("1")]
+text = "Back"
+enabled_theme = &"MenuTicketLeft"
+disabled_theme = &"MenuTicketLeftDisabled"
+
+[node name="Panel" parent="HoverOffset" parent_id_path=PackedInt32Array(1485403089) index="0" unique_id=1166464853]
+offset_left = -6.0
+offset_top = -30.0
+offset_right = 78.0
+offset_bottom = 1.0
+theme_type_variation = &"MenuTicketLeft"
+
+[node name="MarginContainer" parent="HoverOffset/Panel" index="0" unique_id=948667601]
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_bottom = 0
+
+[node name="VBoxContainer" parent="HoverOffset/Panel/MarginContainer" index="0" unique_id=210692313]
+alignment = 1
+
+[node name="Label" parent="HoverOffset/Panel/MarginContainer/VBoxContainer" index="0" unique_id=244723960]
+text = "Back"
+
+[node name="HoverHandler" parent="HoverOffset/Panel" index="2" unique_id=194543143]
+hovered_position = Vector2(4, 0)
+pressed_position = Vector2(2, 0)
+
+[node name="ActionGlyph" parent="HoverOffset/Panel" index="4" unique_id=1185166845]
+offset_left = 72.0
+offset_top = -4.0
+offset_right = 88.0
+offset_bottom = 12.0
+
+[node name="AnimationPlayer" parent="." index="1" unique_id=601534803]
+libraries/ = SubResource("AnimationLibrary_7eopo")

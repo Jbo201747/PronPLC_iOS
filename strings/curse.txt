@@ -1,0 +1,87 @@
+# Start a line with # to make a comment
+# :identifier: marks a new string, strings continue until next identifier, have leading and trailing whitespace trimmed
+
+# Curse tooltips
+
+:fragile:
+	:name:
+		Fragile
+
+	:description:
+		20% chance to lose 1 max charge per use.
+
+:esoteric:
+	:name:
+		Esoteric
+
+	:description:
+		Spell charge is rerolled at the start of each turn.
+
+:nostalgic:
+	:name:
+		Nostalgic
+
+	:description:
+		Take 3 non-lethal damage if this spell isn’t chosen.
+
+:rusty:
+	:name:
+		Rusty
+
+	:description:
+		Spell charge is a less common letter.
+		E.g. A -> C.
+
+:censored:
+	:name:
+		Censored
+
+	:redacted:
+		REDACTED
+
+	:description:
+		???
+
+:laced:
+	:name:
+		Laced
+
+	:description:
+		Take 1 non-lethal damage on turn end if this has unused charge and was not used during the turn.
+
+:shiny:
+	:name:
+		Shiny
+
+	:description:
+		Replaces another random spell (excluding character-specific ones).
+
+:cursed:
+	:name:
+		Cursed
+
+	:description:
+		{:letter_opener: if id "letter_opener"}{:letter_opener: if id "silver_letter_opener"}
+		{:hole_punch: if id "hole_punch"}{:hole_punch: if id "scalpel"}
+		{:gift: if id "gift_enhancing"}{:gift: if id "miracle_cache_enhancing"}
+		{:fishing_rod: if id "fishing_rod"}{:fishing_rod: if id "reinforced_fishing_rod"}
+		{:salt: if id "salt"}{:salt: if id "salt_and_pepper"}
+		{:red_letter: if id "red_letter"}
+
+	:letter_opener:
+		Non-crit tiles that fall in after removing a tile are cursed.
+
+	:hole_punch:
+		Hole tiles created are cursed.
+
+	:gift:
+		Has no category.
+
+	:fishing_rod:
+		Special cursed fish will dash toward your hook.
+
+	:salt:
+		On seconds ending in 0, curse a random tile instead of placing a bomb.
+
+	:red_letter:
+		Cursed upgrade.

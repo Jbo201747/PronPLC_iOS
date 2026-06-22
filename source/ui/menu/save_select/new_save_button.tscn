@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://c46k2cw1je5jq"]
+
+[ext_resource type="Texture2D" uid="uid://b1yrxp4575jog" path="res://arte/ui/new_save_button.png" id="1"]
+[ext_resource type="PackedScene" uid="uid://dat3nkol372xh" path="res://source/ui/menu/generic/menu_page_shadow.tscn" id="2"]
+[ext_resource type="Script" uid="uid://7xvadspst3p5" path="res://source/ui/generic/hover_handler.gd" id="3"]
+[ext_resource type="PackedScene" uid="uid://dgtvtcn5lo1dl" path="res://source/ui/tooltip/menu_tooltip_collision.tscn" id="4"]
+
+[node name="NewSaveButton" type="MarginContainer" unique_id=1284861462]
+custom_minimum_size = Vector2(0, 40)
+offset_right = 32.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="Button" type="Button" parent="." unique_id=1287052601]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 1
+flat = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Button" unique_id=68851897]
+texture = ExtResource("1")
+centered = false
+
+[node name="ShadowCloner" parent="Button/Sprite2D" unique_id=255702735 node_paths=PackedStringArray("clone_offset") instance=ExtResource("2")]
+position = Vector2(2, 2)
+clone_offset = NodePath("..")
+
+[node name="HoverHandler" type="Node2D" parent="Button" unique_id=1658092073 node_paths=PackedStringArray("hovering", "source")]
+script = ExtResource("3")
+hovering = NodePath("../Sprite2D")
+source = NodePath("..")
+hovered_position = Vector2(0, -2)
+pressed_position = Vector2(0, 0)
+metadata/_custom_type_script = "uid://7xvadspst3p5"
+
+[node name="MenuTooltipCollision" parent="Button" unique_id=107741786 instance=ExtResource("4")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
+string_identifier = "menu/save_select/new_save"
+position_offset = Vector2(0, -4)

@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://gcga2wxklcue"]
+
+[ext_resource type="Script" uid="uid://cq6cawdhaor3f" path="res://source/ui/menu/settings/input_guide_container.gd" id="1"]
+
+[node name="InputGuideContainer" type="VBoxContainer" unique_id=1488139654]
+theme_override_constants/separation = 0
+script = ExtResource("1")

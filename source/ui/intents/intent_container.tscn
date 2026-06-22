@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://he4ysnrw8fiq"]
+
+[ext_resource type="Script" uid="uid://dx5h6dgmipo6d" path="res://source/ui/intents/intent_container.gd" id="1"]
+
+[node name="IntentContainer" type="Marker2D" unique_id=1387148458]
+script = ExtResource("1")
+
+[node name="IntentOffset" type="Node2D" parent="." unique_id=1775016835]
+unique_name_in_owner = true

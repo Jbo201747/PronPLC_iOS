@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://odgpgo5n8pcn"]
+
+[ext_resource type="PackedScene" uid="uid://cbdk6hv7wu8im" path="res://source/battle_unit/enemy.tscn" id="1"]
+[ext_resource type="Script" uid="uid://cpecgjy7f8uho" path="res://source/enemies/copycat.gd" id="2"]
+[ext_resource type="PackedScene" uid="uid://bs61n320ymqu0" path="res://source/enemies/sprites/copycat_sprite.tscn" id="3"]
+
+[node name="Copycat" unique_id=1887921025 instance=ExtResource("1")]
+script = ExtResource("2")
+
+[node name="Sprite" parent="." index="0" unique_id=791267073 instance=ExtResource("3")]
+big_explosion_count = 1
+small_explosion_count = 3

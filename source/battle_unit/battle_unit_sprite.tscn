@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://dmg180a1myio"]
+
+[ext_resource type="Script" uid="uid://ctdwfvasu5nb2" path="res://source/battle_unit/battle_unit_sprite.gd" id="1"]
+[ext_resource type="Script" uid="uid://cyc55ilcrqlb0" path="res://source/ui/generic/transform_marker.gd" id="2"]
+[ext_resource type="Script" uid="uid://drgtw8sp4tp8n" path="res://source/library/anim_player.gd" id="3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jxqos"]
+radius = 32.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_im53d"]
+radius = 32.0
+
+[node name="BattleUnitSprite" type="Node2D" unique_id=1356876798]
+script = ExtResource("1")
+
+[node name="HitMarker" type="Marker2D" parent="." unique_id=1651044017]
+visible = false
+position = Vector2(0, -32)
+
+[node name="IntentMarker" type="Marker2D" parent="." unique_id=444731721]
+unique_name_in_owner = true
+visible = false
+script = ExtResource("2")
+metadata/_custom_type_script = "uid://cyc55ilcrqlb0"
+
+[node name="BleedArea" type="Area2D" parent="." unique_id=1768612656]
+unique_name_in_owner = true
+collision_layer = 0
+collision_mask = 0
+input_pickable = false
+monitoring = false
+monitorable = false
+
+[node name="BleedZone" type="CollisionShape2D" parent="BleedArea" unique_id=659443964]
+visible = false
+z_index = 100
+shape = SubResource("CircleShape2D_jxqos")
+
+[node name="HoverArea" type="Area2D" parent="." unique_id=1946856293]
+unique_name_in_owner = true
+z_index = 100
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HoverArea" unique_id=2067959912]
+visible = false
+shape = SubResource("CircleShape2D_im53d")
+
+[node name="AnimPlayer" type="AnimationPlayer" parent="." unique_id=1026464875]
+script = ExtResource("3")
+metadata/_custom_type_script = "uid://drgtw8sp4tp8n"
+
+[node name="PhonebookPortrait" type="ReferenceRect" parent="." unique_id=512451111]
+visible = false
+offset_left = -108.0
+offset_top = -108.0
+offset_right = 108.0
+offset_bottom = 32.0
+mouse_filter = 2
+
+[connection signal="input_event" from="HoverArea" to="." method="_on_hover_area_input_event"]
+[connection signal="mouse_entered" from="HoverArea" to="." method="_on_hover_area_mouse_entered"]
+[connection signal="mouse_exited" from="HoverArea" to="." method="_on_hover_area_mouse_exited"]

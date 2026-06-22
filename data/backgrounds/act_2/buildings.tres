@@ -1,0 +1,126 @@
+[gd_resource type="Resource" script_class="BGLayer" format=3 uid="uid://ba2im6f5o3645"]
+
+[ext_resource type="Script" uid="uid://dyac22bllw18l" path="res://source/background/resources/group_entry.gd" id="1"]
+[ext_resource type="Script" uid="uid://cgt3v7pqo2f3s" path="res://source/background/resources/group.gd" id="2"]
+[ext_resource type="Script" uid="uid://4xnkv17k7r2u" path="res://source/background/resources/pattern.gd" id="3"]
+[ext_resource type="Script" uid="uid://bgl3ksyduwsya" path="res://source/background/resources/subpattern_entry.gd" id="4"]
+[ext_resource type="Script" uid="uid://bio02cenhh5hr" path="res://source/background/resources/pattern_step.gd" id="5"]
+[ext_resource type="Script" uid="uid://dkmj8b7llyv41" path="res://source/background/resources/layer.gd" id="6"]
+
+[sub_resource type="Resource" id="Resource_wenpf"]
+script = ExtResource("1")
+id = "building_clusters"
+repeat_delay = 1
+metadata/_custom_type_script = "uid://dyac22bllw18l"
+
+[sub_resource type="Resource" id="Resource_f3rjf"]
+script = ExtResource("2")
+id = "buildings"
+entries = [SubResource("Resource_wenpf")]
+chunk_scene_folder = "res://source/background/chunks/act_2/buildings"
+default_repeat_delay = 2
+metadata/_custom_type_script = "uid://cgt3v7pqo2f3s"
+
+[sub_resource type="Resource" id="Resource_73wse"]
+script = ExtResource("2")
+id = "building_clusters"
+chunk_scene_folder = "res://source/background/chunks/act_2/building_clusters"
+default_repeat_delay = 1
+metadata/_custom_type_script = "uid://cgt3v7pqo2f3s"
+
+[sub_resource type="Resource" id="Resource_jv4t5"]
+script = ExtResource("2")
+id = "open_connectors"
+chunk_scene_folder = "res://source/background/chunks/act_2/open_connectors"
+default_repeat_delay = 1
+metadata/_custom_type_script = "uid://cgt3v7pqo2f3s"
+
+[sub_resource type="Resource" id="Resource_04n78"]
+script = ExtResource("2")
+id = "solid_connectors"
+chunk_scene_folder = "res://source/background/chunks/act_2/solid_connectors"
+default_repeat_delay = 1
+metadata/_custom_type_script = "uid://cgt3v7pqo2f3s"
+
+[sub_resource type="Resource" id="Resource_2rvo7"]
+script = ExtResource("1")
+id = "open_connectors"
+flatten = true
+metadata/_custom_type_script = "uid://dyac22bllw18l"
+
+[sub_resource type="Resource" id="Resource_d1431"]
+script = ExtResource("1")
+id = "solid_connectors"
+flatten = true
+metadata/_custom_type_script = "uid://dyac22bllw18l"
+
+[sub_resource type="Resource" id="Resource_hjwk3"]
+script = ExtResource("2")
+id = "connectors"
+entries = [SubResource("Resource_2rvo7"), SubResource("Resource_d1431")]
+default_repeat_delay = 1
+metadata/_custom_type_script = "uid://cgt3v7pqo2f3s"
+
+[sub_resource type="Resource" id="Resource_vy6mh"]
+script = ExtResource("1")
+id = "buildings"
+weight = 0.6
+metadata/_custom_type_script = "uid://dyac22bllw18l"
+
+[sub_resource type="Resource" id="Resource_ojx0j"]
+script = ExtResource("4")
+id = "packed"
+weight = 0.4
+metadata/_custom_type_script = "uid://bgl3ksyduwsya"
+
+[sub_resource type="Resource" id="Resource_a8585"]
+script = ExtResource("5")
+entries = [SubResource("Resource_vy6mh"), SubResource("Resource_ojx0j")]
+metadata/_custom_type_script = "uid://bio02cenhh5hr"
+
+[sub_resource type="Resource" id="Resource_vehpi"]
+script = ExtResource("1")
+id = "connectors"
+weight = 0.30000000000000004
+metadata/_custom_type_script = "uid://dyac22bllw18l"
+
+[sub_resource type="Resource" id="Resource_klt1f"]
+script = ExtResource("5")
+entries = [SubResource("Resource_vehpi")]
+metadata/_custom_type_script = "uid://bio02cenhh5hr"
+
+[sub_resource type="Resource" id="Resource_gdkkl"]
+script = ExtResource("3")
+id = "loop"
+next = "loop"
+steps = [SubResource("Resource_a8585"), SubResource("Resource_klt1f")]
+metadata/_custom_type_script = "uid://4xnkv17k7r2u"
+
+[sub_resource type="Resource" id="Resource_ueyrk"]
+script = ExtResource("1")
+id = "buildings"
+metadata/_custom_type_script = "uid://dyac22bllw18l"
+
+[sub_resource type="Resource" id="Resource_wvcom"]
+script = ExtResource("5")
+entries = [SubResource("Resource_ueyrk")]
+repeat_count = {
+2: 0.6,
+3: 0.4
+}
+metadata/_custom_type_script = "uid://bio02cenhh5hr"
+
+[sub_resource type="Resource" id="Resource_w2gxu"]
+script = ExtResource("3")
+id = "packed"
+steps = [SubResource("Resource_wvcom")]
+metadata/_custom_type_script = "uid://4xnkv17k7r2u"
+
+[resource]
+script = ExtResource("6")
+z_index = -50
+motion_scale = 0.9
+extra_deadzone = 50
+groups = [SubResource("Resource_f3rjf"), SubResource("Resource_73wse"), SubResource("Resource_jv4t5"), SubResource("Resource_04n78"), SubResource("Resource_hjwk3")]
+patterns = [SubResource("Resource_gdkkl"), SubResource("Resource_w2gxu")]
+metadata/_custom_type_script = "uid://dkmj8b7llyv41"

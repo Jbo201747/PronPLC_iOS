@@ -1,0 +1,133 @@
+[gd_scene format=3 uid="uid://c8ugdmvowclh2"]
+
+[ext_resource type="Script" uid="uid://cxuqtuey7bt7t" path="res://source/ui/menu/character_select/win_streak.gd" id="1"]
+[ext_resource type="Script" uid="uid://7xvadspst3p5" path="res://source/ui/generic/hover_handler.gd" id="2"]
+[ext_resource type="Script" uid="uid://cfpkpmdehkp8u" path="res://source/ui/generic/shadow_cloner.gd" id="3"]
+
+[sub_resource type="Animation" id="Animation_47s4e"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PositionOffset:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_1t167"]
+resource_name = "appear"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PositionOffset:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3),
+"transitions": PackedFloat32Array(0.3077863, 2.0705302, 1),
+"update": 0,
+"values": [Vector2(-82, 0), Vector2(4, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_x7cah"]
+resource_name = "disappear"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PositionOffset:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3),
+"transitions": PackedFloat32Array(0.30778638, 2.070531, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(4, 0), Vector2(-82, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_h7i0l"]
+_data = {
+&"RESET": SubResource("Animation_47s4e"),
+&"appear": SubResource("Animation_1t167"),
+&"disappear": SubResource("Animation_x7cah")
+}
+
+[node name="WinStreak" type="Control" unique_id=976048544 node_paths=PackedStringArray("anim", "panel")]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1")
+anim = NodePath("AnimationPlayer")
+panel = NodePath("PositionOffset/HoverOffset/Panel")
+
+[node name="PositionOffset" type="Control" parent="." unique_id=1008506462]
+anchors_preset = 0
+
+[node name="HoverOffset" type="Control" parent="PositionOffset" unique_id=1495411631]
+anchors_preset = 0
+
+[node name="Panel" type="Panel" parent="PositionOffset/HoverOffset" unique_id=923176185]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = -4.0
+offset_top = -43.0
+offset_right = 80.0
+focus_mode = 2
+theme_type_variation = &"MenuTicketLeft"
+
+[node name="MarginContainer" type="MarginContainer" parent="PositionOffset/HoverOffset/Panel" unique_id=2076307680]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PositionOffset/HoverOffset/Panel/MarginContainer" unique_id=2111895265]
+layout_mode = 2
+theme_override_constants/separation = -4
+
+[node name="WinStreak" type="Label" parent="PositionOffset/HoverOffset/Panel/MarginContainer/VBoxContainer" unique_id=1110225378]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 1
+theme_type_variation = &"MainMenuLabel"
+text = "9"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="PositionOffset/HoverOffset/Panel/MarginContainer/VBoxContainer" unique_id=1438821051]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 1
+theme_type_variation = &"MenuDescriptionLabel"
+theme_override_font_sizes/font_size = 8
+text = "Win Streak"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HoverHandler" type="Node2D" parent="PositionOffset/HoverOffset/Panel" unique_id=1849040054 node_paths=PackedStringArray("hovering", "source")]
+unique_name_in_owner = true
+script = ExtResource("2")
+hovering = NodePath("../..")
+source = NodePath("..")
+hovered_position = Vector2(4, 0)
+metadata/_custom_type_script = "uid://7xvadspst3p5"
+
+[node name="ShadowCloner" type="Node2D" parent="PositionOffset/HoverOffset/Panel" unique_id=1615992515]
+position = Vector2(2, 2)
+script = ExtResource("3")
+metadata/_custom_type_script = "uid://cfpkpmdehkp8u"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1205164107]
+callback_mode_process = 0
+libraries/ = SubResource("AnimationLibrary_h7i0l")

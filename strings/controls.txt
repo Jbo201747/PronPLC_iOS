@@ -1,0 +1,92 @@
+:hotkeys:
+	::
+		::
+			toggle_fullscreen
+
+		::
+			Fullscreen
+
+	::
+		::
+			toggle_mute
+
+		::
+			Mute
+
+:controller:
+	::
+		::
+			ui_left
+
+		::
+			Select tile
+
+	::
+		::
+			spell_0 spell_1 spell_2 spell_3
+
+		::
+			Select spell
+
+	::
+		::
+			click_tile
+
+		::
+			Click
+
+	::
+		::
+			left_stick
+
+		::
+			Select tile on board
+
+	::
+		::
+			left_stick + select_inner_tiles
+
+		::
+			Select inner tiles
+
+	::
+		::
+			left_stick + select_word
+
+		::
+			Select tile in word
+
+	::
+		::
+			right_stick
+
+		::
+			Free cursor
+
+	::
+		::
+			left_stick + right_stick
+
+		::
+			Select side of tile
+
+	::
+		::
+			remove_tile
+
+		::
+			Return last/selected tile
+
+	::
+		::
+			end_action
+
+		::
+			Submit
+
+	::
+		::
+			pause
+
+		::
+			Menu

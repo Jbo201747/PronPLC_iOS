@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://5fdhu31y5gw3"]
+
+[ext_resource type="PackedScene" uid="uid://bjgjb0f4uw85p" path="res://source/enemies/sprites/vampire_sprite.tscn" id="1"]
+[ext_resource type="Texture2D" uid="uid://bbdsehsmq2h4h" path="res://arte/enemies/parasite.png" id="2"]
+
+[node name="ParasiteSprite" unique_id=608920418 instance=ExtResource("1")]
+
+[node name="Sprite" parent="." index="0" unique_id=1536450134]
+texture = ExtResource("2")

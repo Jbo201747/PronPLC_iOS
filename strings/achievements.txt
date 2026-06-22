@@ -1,0 +1,237 @@
+:locked:
+Locked
+
+:unlocked_name:
+	Unlocked {achievement}
+
+:lexicographer_max_difficulty:
+	:name:
+		Retransition, Baby
+
+	:unlock_name:
+		{:name:}
+
+	:unlock:
+		Beat the game as the Lexicographer on Red Clearance in a non-daily run.
+
+:jubilist_max_difficulty:
+	:name:
+		Praxis in Action
+
+	:unlock_name:
+		{:name:}
+
+	:unlock:
+		Beat the game as the Jubilist on Red Clearance in a non-daily run.
+
+:child_max_difficulty:
+	:name:
+		Irreversible Good
+
+	:unlock_name:
+		{:name:}
+
+	:unlock:
+		Beat the game as the Child on Red Clearance in a non-daily run.
+
+:fisher_max_difficulty:
+	:name:
+		No Seaman
+
+	:unlock_name:
+		{:name:}
+
+	:unlock:
+		Beat the game as the Fisher on Red Clearance in a non-daily run.
+
+:addict_max_difficulty:
+	:name:
+		One of the Good Ones
+
+	:unlock_name:
+		{:name:}
+
+	:unlock:
+		Beat the game as the Addict on Red Clearance in a non-daily run.
+
+:unlock_child:
+	:name:
+		The Child
+
+	:unlock_name:
+		Unlocked the Child
+
+	:unlock:
+		{:locked_unlock: if locked}
+		{:revealed_unlock: not locked}
+
+	:revealed_unlock:
+		{:alternate_unlock: if alternate_unlock}
+		{:normal_unlock: not alternate_unlock}
+
+	:locked_unlock:
+		Lose a run or beat the game as every other character.
+
+	:normal_unlock:
+		Lose a run.
+
+	:alternate_unlock:
+		Beat the game as every other character without dying.
+
+:unlock_jubilist:
+	:name:
+		The Jubilist
+
+	:unlock_name:
+		Unlocked the Jubilist
+
+	:unlock:
+		Beat the game.
+
+:unlock_fisher:
+	:name:
+		The Fisher
+
+	:unlock_name:
+		Unlocked the Fisher
+
+	:unlock:
+		Spell a 10+ letter word.
+
+:unlock_addict:
+	:name:
+		The Addict
+
+	:unlock_name:
+		Unlocked the Addict
+
+	:unlock:
+		Beat the game in under 45 minutes.
+
+:beat_friends_daily:
+	:name:
+		Pyramid Scheme
+
+	:unlock_name:
+		{:name:}
+
+	:unlock:
+		Beat two of your friends’ scores on a daily run.
+
+:first_run:
+	:name:
+		Census Survey
+
+	:unlock_name:
+		{:name:}
+
+	:unlock:
+		Play your first run.
+
+:quality_of_life_adjustment:
+	:name:
+		Quality of Life Adjustment
+
+	:unlock_name:
+		{:name:}
+
+	:unlock:
+		Spell 500 unique words.
+		Know when you spell a new word!
+
+:linguistic_drift:
+	:name:
+		Linguistic Drift
+
+	:unlock_name:
+		{:name:}
+
+	:unlock:
+		Spell “alright” the correct way.
+
+:unlock_act_1_champions:
+	:name:
+		Act 1 Shadows
+
+	:unlock:
+		Beat every enemy in the Suburbs.
+
+:unlock_act_2_champions:
+	:name:
+		Act 2 Shadows
+
+	:unlock:
+		Beat every enemy in the Party.
+
+:unlock_act_3_champions:
+	:name:
+		Act 3 Shadows
+
+	:unlock:
+		Beat every enemy in the Palace.
+
+:read_full_phonebook:
+	:name:
+		Doxx
+
+	:unlock_name:
+		{:name:}
+
+	:unlock:
+		Read every Phonebook entry.
+
+:good:
+	:name:
+		Good
+
+	:unlock_name:
+		{:name:}
+
+	:unlock:
+		Beat the game in a non-daily run as every character.
+
+
+:plusgood:
+	:name:
+		Good+
+
+	:unlock_name:
+		{:name:}
+
+	:unlock:
+		Beat the game on Cerulean Clearance in a non-daily run as every character.
+
+
+:doubleplusgood:
+	:name:
+		Good++
+
+	:unlock_name:
+		{:name:}
+
+	:unlock:
+		100% the game.
+
+:pee_your_pants:
+	:name:
+		Pee Your Pants
+
+	:unlock_name:
+		{:name:}
+
+	:unlock:
+		Die to a golden disc.
+
+:pronouns:
+	:title:
+		Pronouns Unlocked!
+
+	:pronouns:
+		{pronouns upper}
+
+:hazel_pronouns:
+	:title:
+		Pronouns Unlocked! Again!
+
+	:pronouns:
+		{pronouns upper}

@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://brdk0cbmp4pfk"]
+
+[ext_resource type="PackedScene" uid="uid://dueqn5tep05v3" path="res://source/effects/dew_explosion.tscn" id="1"]
+[ext_resource type="Texture2D" uid="uid://4gywr2jtfqnt" path="res://arte/effects/baja_explosion.png" id="2"]
+
+[node name="DewExplosion" unique_id=512229757 instance=ExtResource("1")]
+
+[node name="Sprite2D" parent="." index="0" unique_id=1015470795]
+texture = ExtResource("2")

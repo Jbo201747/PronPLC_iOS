@@ -1,0 +1,315 @@
+[gd_scene format=3 uid="uid://bcbv0t5n3n151"]
+
+[ext_resource type="Script" uid="uid://clfk7w2whtx8e" path="res://source/ui/menu/settings/settings_menu.gd" id="1"]
+[ext_resource type="PackedScene" uid="uid://c08jo0f88gebb" path="res://source/ui/menu/generic/sectioned_panel_no_lines.tscn" id="2"]
+[ext_resource type="PackedScene" uid="uid://ddx8f3s1ssr7p" path="res://source/ui/menu/settings/check_box_setting.tscn" id="3"]
+[ext_resource type="PackedScene" uid="uid://dd24jom8ykt4" path="res://source/ui/menu/settings/label_switcher_setting.tscn" id="4"]
+[ext_resource type="PackedScene" uid="uid://clopdagkon874" path="res://source/ui/menu/settings/slider_setting.tscn" id="5"]
+[ext_resource type="PackedScene" uid="uid://gcga2wxklcue" path="res://source/ui/menu/settings/input_guide_container.tscn" id="6"]
+[ext_resource type="Script" uid="uid://cfpkpmdehkp8u" path="res://source/ui/generic/shadow_cloner.gd" id="7"]
+[ext_resource type="Script" uid="uid://das2jj0vt6is4" path="res://source/ui/menu/generic/tab_controller.gd" id="8"]
+[ext_resource type="Script" uid="uid://dxi6fnm2sjccx" path="res://source/ui/menu/generic/tab_info.gd" id="9"]
+
+[sub_resource type="Resource" id="Resource_6gur4"]
+script = ExtResource("9")
+string_key = "menu/settings/general"
+tab_control = NodePath("../../SectionedPanel/MainMask/MarginContainer/ScrollContainer/MarginContainer/ContentsBox/General")
+metadata/_custom_type_script = "uid://dxi6fnm2sjccx"
+
+[sub_resource type="Resource" id="Resource_e000g"]
+script = ExtResource("9")
+string_key = "menu/settings/game"
+tab_control = NodePath("../../SectionedPanel/MainMask/MarginContainer/ScrollContainer/MarginContainer/ContentsBox/Game")
+metadata/_custom_type_script = "uid://dxi6fnm2sjccx"
+
+[sub_resource type="Resource" id="Resource_2s86n"]
+script = ExtResource("9")
+string_key = "menu/settings/controls"
+tab_control = NodePath("../../SectionedPanel/MainMask/MarginContainer/ScrollContainer/MarginContainer/ContentsBox/Controls")
+metadata/_custom_type_script = "uid://dxi6fnm2sjccx"
+
+[sub_resource type="Animation" id="Animation_mlc0c"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PositionRoot:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_osk8h"]
+resource_name = "appear"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PositionRoot:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3),
+"transitions": PackedFloat32Array(0.30778608, 2.0705302, 1),
+"update": 0,
+"values": [Vector2(0, 227), Vector2(0, -4), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_4duxq"]
+resource_name = "disappear"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PositionRoot:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3),
+"transitions": PackedFloat32Array(0.3077861, 2.0705302, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -4), Vector2(0, 227)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_osk8h"]
+_data = {
+&"RESET": SubResource("Animation_mlc0c"),
+&"appear": SubResource("Animation_osk8h"),
+&"disappear": SubResource("Animation_4duxq")
+}
+
+[node name="SettingsMenu" type="Control" unique_id=1592660299 node_paths=PackedStringArray("anim", "panel")]
+layout_mode = 3
+anchors_preset = 0
+focus_mode = 2
+mouse_filter = 2
+script = ExtResource("1")
+anim = NodePath("AnimationPlayer")
+panel = NodePath("PositionRoot/Panel")
+
+[node name="PositionRoot" type="Control" parent="." unique_id=984256811]
+anchors_preset = 0
+mouse_filter = 2
+
+[node name="Panel" type="Panel" parent="PositionRoot" unique_id=821560348]
+layout_mode = 0
+offset_top = -204.0
+offset_right = 185.0
+offset_bottom = 4.0
+mouse_filter = 2
+theme_type_variation = &"MenuTicketBottomSmooth"
+
+[node name="SectionedPanel" parent="PositionRoot/Panel" unique_id=1400204219 instance=ExtResource("2")]
+unique_name_in_owner = true
+layout_mode = 1
+mask_type = "MenuTicketBottomSmoothMask"
+mask_no_aa_type = "MenuTicketBottomSmoothMask"
+
+[node name="PageMask" parent="PositionRoot/Panel/SectionedPanel" index="0" unique_id=711574092]
+theme_type_variation = &"MenuTicketBottomSmoothMask"
+
+[node name="AlternatingPageBox" parent="PositionRoot/Panel/SectionedPanel/PageMask/MarginContainer/LinkedScrollContainer/MarginContainer" parent_id_path=PackedInt32Array(1400204219, 1393533725) index="0" unique_id=1381074398 node_paths=PackedStringArray("source_boxes")]
+last_panel_must_be_base = true
+source_boxes = [NodePath("../../../../../MainMask/MarginContainer/ScrollContainer/MarginContainer/ContentsBox/General"), NodePath("../../../../../MainMask/MarginContainer/ScrollContainer/MarginContainer/ContentsBox/Game"), NodePath("../../../../../MainMask/MarginContainer/ScrollContainer/MarginContainer/ContentsBox/Controls"), NodePath("../../../../../MainMask/MarginContainer/ScrollContainer/MarginContainer/ContentsBox/Controls/Hotkeys"), NodePath("../../../../../MainMask/MarginContainer/ScrollContainer/MarginContainer/ContentsBox/Controls/Controller")]
+
+[node name="MainMask" parent="PositionRoot/Panel/SectionedPanel" index="1" unique_id=402416624]
+theme_type_variation = &"MenuTicketBottomSmoothMask"
+
+[node name="ScrollContainer" parent="PositionRoot/Panel/SectionedPanel/MainMask/MarginContainer" parent_id_path=PackedInt32Array(1400204219, 147788459) index="0" unique_id=384839278]
+follow_focus = true
+vertical_scroll_mode = 4
+
+[node name="MarginContainer" parent="PositionRoot/Panel/SectionedPanel/MainMask/MarginContainer/ScrollContainer" index="0" unique_id=454863863]
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 1
+
+[node name="General" type="VBoxContainer" parent="PositionRoot/Panel/SectionedPanel/MainMask/MarginContainer/ScrollContainer/MarginContainer/ContentsBox" parent_id_path=PackedInt32Array(1400204219, 828913805) index="0" unique_id=338649415]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Fullscreen" parent="PositionRoot/Panel/SectionedPanel/MainMask/MarginContainer/ScrollContainer/MarginContainer/ContentsBox/General" unique_id=1171913919 instance=ExtResource("3")]
+unique_name_in_owner = true
+layout_mode = 2
+setting_name = "menu/settings/fullscreen"
+
+[node name="PixelPerfect" parent="PositionRoot/Panel/SectionedPanel/MainMask/MarginContainer/ScrollContainer/MarginContainer/ContentsBox/General" unique_id=124248339 instance=ExtResource("3")]
+unique_name_in_owner = true
+layout_mode = 2
+setting_name = "menu/settings/pixel_perfect"
+
+[node name="Resolution" parent="PositionRoot/Panel/SectionedPanel/MainMask/MarginContainer/ScrollContainer/MarginContainer/ContentsBox/General" unique_id=1467343028 instance=ExtResource("4")]
+unique_name_in_owner = true
+layout_mode = 2
+setting_name = "menu/settings/resolution"
+
+[node name="Monitor" parent="PositionRoot/Panel/SectionedPanel/MainMask/MarginContainer/ScrollContainer/MarginContainer/ContentsBox/General" unique_id=1791083706 instance=ExtResource("4")]
+unique_name_in_owner = true
+layout_mode = 2
+setting_name = "menu/settings/monitor"
+
+[node name="MaxFPS" parent="PositionRoot/Panel/SectionedPanel/MainMask/MarginContainer/ScrollContainer/MarginContainer/ContentsBox/General" unique_id=954874099 instance=ExtResource("4")]
+unique_name_in_owner = true
+layout_mode = 2
+setting_name = "menu/settings/max_fps"
+
+[node name="Music" parent="PositionRoot/Panel/SectionedPanel/MainMask/MarginContainer/ScrollContainer/MarginContainer/ContentsBox/General" unique_id=52692670 instance=ExtResource("5")]
+unique_name_in_owner = true
+layout_mode = 2
+setting_name = "menu/settings/music"
+
+[node name="Sound" parent="PositionRoot/Panel/SectionedPanel/MainMask/MarginContainer/ScrollContainer/MarginContainer/ContentsBox/General" unique_id=1754383898 instance=ExtResource("5")]
+unique_name_in_owner = true
+layout_mode = 2
+setting_name = "menu/settings/sound"
+
+[node name="Screenshake" parent="PositionRoot/Panel/SectionedPanel/MainMask/MarginContainer/ScrollContainer/MarginContainer/ContentsBox/General" unique_id=1111305908 instance=ExtResource("5")]
+unique_name_in_owner = true
+layout_mode = 2
+setting_name = "menu/settings/screenshake"
+
+[node name="MenuShake" parent="PositionRoot/Panel/SectionedPanel/MainMask/MarginContainer/ScrollContainer/MarginContainer/ContentsBox/General" unique_id=1942963325 instance=ExtResource("3")]
+unique_name_in_owner = true
+layout_mode = 2
+setting_name = "menu/settings/menu_shake"
+
+[node name="CursorScale" parent="PositionRoot/Panel/SectionedPanel/MainMask/MarginContainer/ScrollContainer/MarginContainer/ContentsBox/General" unique_id=1583252421 instance=ExtResource("4")]
+unique_name_in_owner = true
+layout_mode = 2
+options = ["menu/settings/auto", "100%", "200%", "300%", "400%", "500%", "600%", "700%", "800%"]
+switcher_string_key = true
+setting_name = "menu/settings/cursor_scale"
+
+[node name="Game" type="VBoxContainer" parent="PositionRoot/Panel/SectionedPanel/MainMask/MarginContainer/ScrollContainer/MarginContainer/ContentsBox" parent_id_path=PackedInt32Array(1400204219, 828913805) index="1" unique_id=101734297]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="BattleTimer" parent="PositionRoot/Panel/SectionedPanel/MainMask/MarginContainer/ScrollContainer/MarginContainer/ContentsBox/Game" unique_id=1951886660 instance=ExtResource("3")]
+unique_name_in_owner = true
+layout_mode = 2
+setting_name = "menu/settings/battle_timer"
+
+[node name="CritChance" parent="PositionRoot/Panel/SectionedPanel/MainMask/MarginContainer/ScrollContainer/MarginContainer/ContentsBox/Game" unique_id=42855596 instance=ExtResource("3")]
+unique_name_in_owner = true
+layout_mode = 2
+setting_name = "menu/settings/show_crit_chance"
+
+[node name="HideDefaultTileTooltips" parent="PositionRoot/Panel/SectionedPanel/MainMask/MarginContainer/ScrollContainer/MarginContainer/ContentsBox/Game" unique_id=2071566014 instance=ExtResource("3")]
+unique_name_in_owner = true
+layout_mode = 2
+setting_name = "menu/settings/hide_default_tile_tooltips"
+
+[node name="SkipRepeatDialogue" parent="PositionRoot/Panel/SectionedPanel/MainMask/MarginContainer/ScrollContainer/MarginContainer/ContentsBox/Game" unique_id=248995377 instance=ExtResource("3")]
+unique_name_in_owner = true
+layout_mode = 2
+setting_name = "menu/settings/skip_repeat_dialogue"
+
+[node name="HideSteamInfo" parent="PositionRoot/Panel/SectionedPanel/MainMask/MarginContainer/ScrollContainer/MarginContainer/ContentsBox/Game" unique_id=607064002 instance=ExtResource("3")]
+unique_name_in_owner = true
+layout_mode = 2
+setting_name = "menu/settings/hide_steam_info"
+
+[node name="Unlocks" parent="PositionRoot/Panel/SectionedPanel/MainMask/MarginContainer/ScrollContainer/MarginContainer/ContentsBox/Game" unique_id=85793883 instance=ExtResource("3")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+setting_name = "menu/settings/disable_unlocks"
+
+[node name="Controls" type="VBoxContainer" parent="PositionRoot/Panel/SectionedPanel/MainMask/MarginContainer/ScrollContainer/MarginContainer/ContentsBox" parent_id_path=PackedInt32Array(1400204219, 828913805) index="2" unique_id=642530477]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="SpellGamepadLayout" parent="PositionRoot/Panel/SectionedPanel/MainMask/MarginContainer/ScrollContainer/MarginContainer/ContentsBox/Controls" unique_id=1332410344 instance=ExtResource("4")]
+unique_name_in_owner = true
+layout_mode = 2
+options = ["menu/settings/gamepad_layout_0", "menu/settings/gamepad_layout_1"]
+switcher_string_key = true
+setting_name = "menu/settings/spell_gamepad_layout"
+
+[node name="Vibration" parent="PositionRoot/Panel/SectionedPanel/MainMask/MarginContainer/ScrollContainer/MarginContainer/ContentsBox/Controls" unique_id=694797864 instance=ExtResource("3")]
+unique_name_in_owner = true
+layout_mode = 2
+setting_name = "menu/settings/vibration"
+
+[node name="GamepadPrompts" parent="PositionRoot/Panel/SectionedPanel/MainMask/MarginContainer/ScrollContainer/MarginContainer/ContentsBox/Controls" unique_id=2068776880 instance=ExtResource("3")]
+unique_name_in_owner = true
+layout_mode = 2
+setting_name = "menu/settings/gamepad_prompts"
+
+[node name="Hotkeys" parent="PositionRoot/Panel/SectionedPanel/MainMask/MarginContainer/ScrollContainer/MarginContainer/ContentsBox/Controls" unique_id=1488139654 instance=ExtResource("6")]
+unique_name_in_owner = true
+layout_mode = 2
+string_key = "controls/hotkeys"
+
+[node name="Controller" parent="PositionRoot/Panel/SectionedPanel/MainMask/MarginContainer/ScrollContainer/MarginContainer/ContentsBox/Controls" unique_id=268683256 instance=ExtResource("6")]
+unique_name_in_owner = true
+layout_mode = 2
+string_key = "controls/controller"
+
+[node name="InfoMarginContainer" type="MarginContainer" parent="PositionRoot/Panel/SectionedPanel/MainMask/MarginContainer/ScrollContainer/MarginContainer/ContentsBox" parent_id_path=PackedInt32Array(1400204219, 828913805) index="3" unique_id=1884867562 groups=["no_bg_panel"]]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 17)
+layout_mode = 2
+size_flags_vertical = 10
+
+[node name="InfoContainer" type="VBoxContainer" parent="PositionRoot/Panel/SectionedPanel/MainMask/MarginContainer/ScrollContainer/MarginContainer/ContentsBox/InfoMarginContainer" unique_id=793319443]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = -4
+alignment = 1
+
+[node name="SeedLabel" type="Label" parent="PositionRoot/Panel/SectionedPanel/MainMask/MarginContainer/ScrollContainer/MarginContainer/ContentsBox/InfoMarginContainer/InfoContainer" unique_id=1921951371]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+theme_type_variation = &"OptionsLabel"
+theme_override_font_sizes/font_size = 6
+text = "Seed: FFFFFFFF"
+
+[node name="UnlocksDisabledLabel" type="Label" parent="PositionRoot/Panel/SectionedPanel/MainMask/MarginContainer/ScrollContainer/MarginContainer/ContentsBox/InfoMarginContainer/InfoContainer" unique_id=1650514362]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+theme_type_variation = &"OptionsLabel"
+theme_override_font_sizes/font_size = 7
+text = "Unlocks disabled for this run."
+
+[node name="ShadowCloner" type="Node2D" parent="PositionRoot/Panel" unique_id=257260186]
+position = Vector2(2, 2)
+script = ExtResource("7")
+metadata/_custom_type_script = "uid://cfpkpmdehkp8u"
+
+[node name="Control" type="Control" parent="PositionRoot/Panel" unique_id=19899189]
+layout_mode = 1
+anchors_preset = 0
+mouse_filter = 2
+
+[node name="TopMarker" type="Marker2D" parent="PositionRoot/Panel/Control" unique_id=1772861064]
+unique_name_in_owner = true
+position = Vector2(0, -22)
+
+[node name="TabController" type="Control" parent="PositionRoot/Panel/Control" unique_id=130296830 node_paths=PackedStringArray("menu_panel")]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 0
+script = ExtResource("8")
+tab_definitions = [SubResource("Resource_6gur4"), SubResource("Resource_e000g"), SubResource("Resource_2s86n")]
+menu_panel = NodePath("../../../..")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=209002311]
+libraries/ = SubResource("AnimationLibrary_osk8h")
+
+[connection signal="start_appearing" from="." to="." method="_on_start_appearing"]
+[connection signal="start_disappearing" from="." to="." method="_on_start_disappearing"]
+[connection signal="slider_drag_end" from="PositionRoot/Panel/SectionedPanel/MainMask/MarginContainer/ScrollContainer/MarginContainer/ContentsBox/General/Music" to="." method="_on_music_slider_drag_ended"]
+[connection signal="slider_drag_start" from="PositionRoot/Panel/SectionedPanel/MainMask/MarginContainer/ScrollContainer/MarginContainer/ContentsBox/General/Music" to="." method="_on_music_slider_drag_started"]
+[connection signal="value_changed" from="PositionRoot/Panel/SectionedPanel/MainMask/MarginContainer/ScrollContainer/MarginContainer/ContentsBox/General/Screenshake" to="." method="_on_screenshake_value_changed"]
+[connection signal="value_changed" from="PositionRoot/Panel/SectionedPanel/MainMask/MarginContainer/ScrollContainer/MarginContainer/ContentsBox/Controls/Vibration" to="." method="_on_vibration_value_changed"]
+[connection signal="tab_changed" from="PositionRoot/Panel/Control/TabController" to="." method="_on_tabs_tab_changed"]
+
+[editable path="PositionRoot/Panel/SectionedPanel"]

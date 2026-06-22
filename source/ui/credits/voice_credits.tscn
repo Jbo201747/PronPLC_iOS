@@ -1,0 +1,212 @@
+[gd_scene format=3 uid="uid://b2uak8gtvckdp"]
+
+[ext_resource type="Script" uid="uid://hgb5gjrjblem" path="res://source/ui/credits/voice_credits.gd" id="1"]
+[ext_resource type="PackedScene" uid="uid://blawn3u2gfjxu" path="res://source/ui/credits/voice_credit_row.tscn" id="2"]
+[ext_resource type="PackedScene" uid="uid://bky3k7r7oh6xi" path="res://source/ui/credits/voice_credit_sprite.tscn" id="3"]
+
+[node name="VoiceCredits" type="MarginContainer" unique_id=850788446]
+anchor_right = 1.0
+offset_bottom = 428.0
+grow_horizontal = 2
+script = ExtResource("1")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=61623290]
+layout_mode = 2
+
+[node name="VoiceCreditRow12" parent="VBoxContainer" unique_id=379948351 instance=ExtResource("2")]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+theme_override_constants/separation = -70
+
+[node name="VoiceCreditSprite" parent="VBoxContainer/VoiceCreditRow12" unique_id=525315536 instance=ExtResource("3")]
+layout_mode = 2
+id = "lexicographer"
+is_enemy = false
+
+[node name="VoiceCreditSprite3" parent="VBoxContainer/VoiceCreditRow12" unique_id=178940977 instance=ExtResource("3")]
+layout_mode = 2
+id = "jubilist"
+is_enemy = false
+
+[node name="VoiceCreditSprite2" parent="VBoxContainer/VoiceCreditRow12" unique_id=612649402 instance=ExtResource("3")]
+layout_mode = 2
+id = "child"
+is_enemy = false
+
+[node name="VoiceCreditSprite4" parent="VBoxContainer/VoiceCreditRow12" unique_id=1718842419 instance=ExtResource("3")]
+layout_mode = 2
+id = "fisher"
+is_enemy = false
+
+[node name="VoiceCreditSprite5" parent="VBoxContainer/VoiceCreditRow12" unique_id=439955380 instance=ExtResource("3")]
+layout_mode = 2
+id = "addict"
+is_enemy = false
+
+[node name="VoiceCreditRow" parent="VBoxContainer" unique_id=1203556114 instance=ExtResource("2")]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+
+[node name="VoiceCreditSprite" parent="VBoxContainer/VoiceCreditRow" unique_id=944889928 instance=ExtResource("3")]
+layout_mode = 2
+id = "cat"
+
+[node name="VoiceCreditSprite2" parent="VBoxContainer/VoiceCreditRow" unique_id=1016920098 instance=ExtResource("3")]
+layout_mode = 2
+id = "npcs"
+
+[node name="VoiceCreditSprite3" parent="VBoxContainer/VoiceCreditRow" unique_id=1306895964 instance=ExtResource("3")]
+layout_mode = 2
+id = "bottom_feeder"
+
+[node name="VoiceCreditRow2" parent="VBoxContainer" unique_id=1716704280 instance=ExtResource("2")]
+custom_minimum_size = Vector2(0, 160)
+layout_mode = 2
+
+[node name="VoiceCreditSprite" parent="VBoxContainer/VoiceCreditRow2" unique_id=1932209251 instance=ExtResource("3")]
+layout_mode = 2
+id = "noppy"
+
+[node name="VoiceCreditSprite2" parent="VBoxContainer/VoiceCreditRow2" unique_id=1549252455 instance=ExtResource("3")]
+layout_mode = 2
+id = "people"
+
+[node name="VoiceCreditSprite3" parent="VBoxContainer/VoiceCreditRow2" unique_id=157549443 instance=ExtResource("3")]
+layout_mode = 2
+id = "stoker"
+
+[node name="VoiceCreditRow3" parent="VBoxContainer" unique_id=485253778 instance=ExtResource("2")]
+custom_minimum_size = Vector2(0, 140)
+layout_mode = 2
+
+[node name="VoiceCreditSprite" parent="VBoxContainer/VoiceCreditRow3" unique_id=1427118203 instance=ExtResource("3")]
+layout_mode = 2
+id = "bookworm"
+
+[node name="VoiceCreditSprite2" parent="VBoxContainer/VoiceCreditRow3" unique_id=1040239387 instance=ExtResource("3")]
+layout_mode = 2
+id = "fat_cat"
+
+[node name="VoiceCreditSprite3" parent="VBoxContainer/VoiceCreditRow3" unique_id=386187596 instance=ExtResource("3")]
+layout_mode = 2
+id = "urchin"
+
+[node name="VoiceCreditRow4" parent="VBoxContainer" unique_id=1041059220 instance=ExtResource("2")]
+custom_minimum_size = Vector2(0, 160)
+layout_mode = 2
+
+[node name="VoiceCreditSprite" parent="VBoxContainer/VoiceCreditRow4" unique_id=660439861 instance=ExtResource("3")]
+layout_mode = 2
+id = "anti_sex_worker"
+
+[node name="VoiceCreditSprite2" parent="VBoxContainer/VoiceCreditRow4" unique_id=1784305457 instance=ExtResource("3")]
+layout_mode = 2
+id = "snowball"
+
+[node name="VoiceCreditSprite3" parent="VBoxContainer/VoiceCreditRow4" unique_id=1017495598 instance=ExtResource("3")]
+layout_mode = 2
+id = "paddlers"
+
+[node name="VoiceCreditRow5" parent="VBoxContainer" unique_id=1610760132 instance=ExtResource("2")]
+custom_minimum_size = Vector2(0, 160)
+layout_mode = 2
+
+[node name="VoiceCreditSprite" parent="VBoxContainer/VoiceCreditRow5" unique_id=753874596 instance=ExtResource("3")]
+layout_mode = 2
+id = "freezer"
+
+[node name="VoiceCreditSprite2" parent="VBoxContainer/VoiceCreditRow5" unique_id=947202136 instance=ExtResource("3")]
+layout_mode = 2
+id = "liquid_human"
+
+[node name="VoiceCreditSprite3" parent="VBoxContainer/VoiceCreditRow5" unique_id=1716391383 instance=ExtResource("3")]
+layout_mode = 2
+id = "strawman"
+
+[node name="VoiceCreditRow6" parent="VBoxContainer" unique_id=1233641711 instance=ExtResource("2")]
+custom_minimum_size = Vector2(0, 160)
+layout_mode = 2
+
+[node name="VoiceCreditSprite" parent="VBoxContainer/VoiceCreditRow6" unique_id=2042653555 instance=ExtResource("3")]
+layout_mode = 2
+id = "greeb"
+
+[node name="VoiceCreditSprite2" parent="VBoxContainer/VoiceCreditRow6" unique_id=1917366878 instance=ExtResource("3")]
+layout_mode = 2
+id = "dew_jubilist"
+
+[node name="VoiceCreditSprite3" parent="VBoxContainer/VoiceCreditRow6" unique_id=2005641135 instance=ExtResource("3")]
+layout_mode = 2
+id = "xrafstar"
+
+[node name="VoiceCreditRow7" parent="VBoxContainer" unique_id=267143517 instance=ExtResource("2")]
+custom_minimum_size = Vector2(0, 220)
+layout_mode = 2
+
+[node name="VoiceCreditSprite" parent="VBoxContainer/VoiceCreditRow7" unique_id=62815885 instance=ExtResource("3")]
+layout_mode = 2
+id = "herarra"
+
+[node name="VoiceCreditSprite2" parent="VBoxContainer/VoiceCreditRow7" unique_id=1675733448 instance=ExtResource("3")]
+layout_mode = 2
+id = "prole_service"
+
+[node name="VoiceCreditSprite3" parent="VBoxContainer/VoiceCreditRow7" unique_id=1367382748 instance=ExtResource("3")]
+layout_mode = 2
+id = "prodigy"
+
+[node name="VoiceCreditRow8" parent="VBoxContainer" unique_id=119058237 instance=ExtResource("2")]
+custom_minimum_size = Vector2(0, 160)
+layout_mode = 2
+
+[node name="VoiceCreditSprite" parent="VBoxContainer/VoiceCreditRow8" unique_id=2030803400 instance=ExtResource("3")]
+layout_mode = 2
+id = "umami"
+
+[node name="VoiceCreditSprite2" parent="VBoxContainer/VoiceCreditRow8" unique_id=1366142849 instance=ExtResource("3")]
+layout_mode = 2
+id = "rubber_animal"
+
+[node name="VoiceCreditSprite3" parent="VBoxContainer/VoiceCreditRow8" unique_id=1934648958 instance=ExtResource("3")]
+layout_mode = 2
+id = "paradigm"
+
+[node name="VoiceCreditRow9" parent="VBoxContainer" unique_id=91277391 instance=ExtResource("2")]
+custom_minimum_size = Vector2(0, 190)
+layout_mode = 2
+
+[node name="VoiceCreditSprite" parent="VBoxContainer/VoiceCreditRow9" unique_id=1128751212 instance=ExtResource("3")]
+layout_mode = 2
+id = "new_cop"
+
+[node name="VoiceCreditSprite2" parent="VBoxContainer/VoiceCreditRow9" unique_id=1083562484 instance=ExtResource("3")]
+layout_mode = 2
+id = "vampire"
+
+[node name="VoiceCreditSprite3" parent="VBoxContainer/VoiceCreditRow9" unique_id=854450541 instance=ExtResource("3")]
+layout_mode = 2
+id = "age_regressor"
+
+[node name="VoiceCreditRow10" parent="VBoxContainer" unique_id=56456582 instance=ExtResource("2")]
+custom_minimum_size = Vector2(0, 170)
+layout_mode = 2
+
+[node name="VoiceCreditSprite" parent="VBoxContainer/VoiceCreditRow10" unique_id=579915874 instance=ExtResource("3")]
+layout_mode = 2
+id = "elmer"
+
+[node name="VoiceCreditSprite2" parent="VBoxContainer/VoiceCreditRow10" unique_id=1311416030 instance=ExtResource("3")]
+layout_mode = 2
+id = "brutalist"
+
+[node name="VoiceCreditSprite3" parent="VBoxContainer/VoiceCreditRow10" unique_id=968089784 instance=ExtResource("3")]
+layout_mode = 2
+id = "bammon"
+
+[node name="VoiceCreditRow11" parent="VBoxContainer" unique_id=1111404291 instance=ExtResource("2")]
+custom_minimum_size = Vector2(0, 170)
+layout_mode = 2
+
+[node name="VoiceCreditSprite" parent="VBoxContainer/VoiceCreditRow11" unique_id=1146926359 instance=ExtResource("3")]
+layout_mode = 2
+id = "nobody"

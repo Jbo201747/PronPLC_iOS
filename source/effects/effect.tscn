@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://cxts1k0ouobyg"]
+
+[ext_resource type="Script" uid="uid://ednb5csp7uiu" path="res://source/effects/effect.gd" id="1"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1sxf5"]
+
+[node name="Effect" type="AnimatedSprite2D" unique_id=1220231936]
+z_index = 105
+sprite_frames = SubResource("SpriteFrames_1sxf5")
+script = ExtResource("1")

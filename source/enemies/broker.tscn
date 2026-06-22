@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://dbtpdqb5mhsd"]
+
+[ext_resource type="PackedScene" uid="uid://cbdk6hv7wu8im" path="res://source/battle_unit/enemy.tscn" id="1"]
+[ext_resource type="Script" uid="uid://b72i3fskf1nm6" path="res://source/enemies/broker.gd" id="2"]
+[ext_resource type="PackedScene" uid="uid://bqkjk8xfkb67a" path="res://source/enemies/sprites/broker_sprite.tscn" id="3"]
+
+[node name="Broker" unique_id=2064773669 instance=ExtResource("1")]
+script = ExtResource("2")
+
+[node name="Sprite" parent="." index="0" unique_id=1801926171 instance=ExtResource("3")]

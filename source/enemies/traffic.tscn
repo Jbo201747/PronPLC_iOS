@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://dwotjcf250sf2"]
+
+[ext_resource type="PackedScene" uid="uid://cbdk6hv7wu8im" path="res://source/battle_unit/enemy.tscn" id="1"]
+[ext_resource type="Script" uid="uid://ch2kvdj5wga3l" path="res://source/enemies/traffic.gd" id="2"]
+[ext_resource type="PackedScene" uid="uid://dsqsqgpg1wh6" path="res://source/enemies/sprites/traffic_sprite.tscn" id="3"]
+
+[node name="Traffic" unique_id=485209277 instance=ExtResource("1")]
+script = ExtResource("2")
+idle_after_flinching = false
+
+[node name="Sprite" parent="." index="0" unique_id=1312454957 instance=ExtResource("3")]
+
+[connection signal="npc_respawning" from="Sprite" to="." method="_on_sprite_npc_respawning"]

@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://vq4fej71v3om"]
+
+[ext_resource type="Script" uid="uid://cfpkpmdehkp8u" path="res://source/ui/generic/shadow_cloner.gd" id="1"]
+
+[node name="CreditLabel" type="Label" unique_id=1783995609]
+z_index = 10
+size_flags_horizontal = 4
+theme_type_variation = &"BoldOutlineLabel"
+
+[node name="ShadowCloner" type="Node2D" parent="." unique_id=353258047]
+position = Vector2(2, 2)
+script = ExtResource("1")
+local_shadow_group = true
+metadata/_custom_type_script = "uid://cfpkpmdehkp8u"

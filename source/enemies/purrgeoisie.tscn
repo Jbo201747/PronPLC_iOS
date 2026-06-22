@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://1qy6vj6vpodn"]
+
+[ext_resource type="PackedScene" uid="uid://cbdk6hv7wu8im" path="res://source/battle_unit/enemy.tscn" id="1"]
+[ext_resource type="Script" uid="uid://cwkwwjnygycwl" path="res://source/enemies/purrgeoisie.gd" id="2"]
+[ext_resource type="PackedScene" uid="uid://bvj6rbtqf1ywt" path="res://source/enemies/sprites/purrgeoisie_sprite.tscn" id="3"]
+
+[node name="Purrgeoisie" unique_id=1390368936 instance=ExtResource("1")]
+script = ExtResource("2")
+
+[node name="Sprite" parent="." index="0" unique_id=1032877261 instance=ExtResource("3")]

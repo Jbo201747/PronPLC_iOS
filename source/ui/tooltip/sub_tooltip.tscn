@@ -1,0 +1,84 @@
+[gd_scene format=3 uid="uid://bd4tf18d6evks"]
+
+[ext_resource type="Script" uid="uid://bugxgsxmhxq4v" path="res://source/ui/tooltip/sub_tooltip.gd" id="1"]
+[ext_resource type="FontFile" uid="uid://2h7fup58h8vn" path="res://fonts/Suwannaphum-Bold.ttf" id="2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_clp4f"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c7gpy"]
+
+[node name="SubTooltip" type="MarginContainer" unique_id=1952581557]
+offset_right = 92.0
+offset_bottom = 34.0
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_bottom = 2
+script = ExtResource("1")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1331179973]
+layout_mode = 2
+size_flags_vertical = 0
+mouse_filter = 2
+theme_override_constants/separation = -2
+
+[node name="Title" type="Label" parent="VBoxContainer" unique_id=373804453]
+unique_name_in_owner = true
+z_index = 1
+custom_minimum_size = Vector2(92, 0)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("2")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_clp4f")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_c7gpy")
+text = "Wooden Tile"
+horizontal_alignment = 1
+visible_characters_behavior = 1
+
+[node name="Description" type="RichTextLabel" parent="VBoxContainer" unique_id=147280249]
+unique_name_in_owner = true
+z_index = 1
+custom_minimum_size = Vector2(92, 0)
+clip_contents = false
+layout_mode = 2
+size_flags_vertical = 0
+mouse_filter = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/line_separation = -4
+theme_override_constants/paragraph_separation = 1
+theme_override_font_sizes/normal_font_size = 6
+theme_override_font_sizes/bold_font_size = 6
+bbcode_enabled = true
+text = "+1 Attack when played.
+Second line."
+fit_content = true
+scroll_active = false
+shortcut_keys_enabled = false
+
+[node name="TileContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=1176825832]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+alignment = 1
+
+[node name="TileDescription" type="RichTextLabel" parent="VBoxContainer" unique_id=1378721108]
+unique_name_in_owner = true
+visible = false
+z_index = 1
+custom_minimum_size = Vector2(92, 0)
+clip_contents = false
+layout_mode = 2
+size_flags_vertical = 0
+mouse_filter = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/line_separation = -4
+theme_override_constants/paragraph_separation = 1
+theme_override_font_sizes/normal_font_size = 6
+theme_override_font_sizes/bold_font_size = 6
+bbcode_enabled = true
+fit_content = true
+scroll_active = false
+shortcut_keys_enabled = false

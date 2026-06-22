@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://rgrcocjv745e"]
+
+[ext_resource type="PackedScene" uid="uid://cbdk6hv7wu8im" path="res://source/battle_unit/enemy.tscn" id="1"]
+[ext_resource type="Script" uid="uid://cbub5b7ynlctd" path="res://source/enemies/decedent.gd" id="2"]
+[ext_resource type="PackedScene" uid="uid://c4s1883m8pbwj" path="res://source/enemies/sprites/decedent_sprite.tscn" id="3"]
+
+[node name="Decedent" unique_id=103158329 instance=ExtResource("1")]
+script = ExtResource("2")
+
+[node name="Sprite" parent="." index="0" unique_id=1320940613 instance=ExtResource("3")]

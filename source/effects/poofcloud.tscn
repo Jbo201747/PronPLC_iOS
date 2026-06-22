@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://dv54w47hgbmi6"]
+
+[ext_resource type="PackedScene" uid="uid://cxts1k0ouobyg" path="res://source/effects/effect.tscn" id="1"]
+[ext_resource type="Texture2D" uid="uid://cfpphbpys4c55" path="res://arte/effects/poofcloud.png" id="2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tgb5w"]
+atlas = ExtResource("2")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wg1ds"]
+atlas = ExtResource("2")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lcxkb"]
+atlas = ExtResource("2")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w0nx8"]
+atlas = ExtResource("2")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4tr0v"]
+atlas = ExtResource("2")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qvq4r"]
+atlas = ExtResource("2")
+region = Rect2(128, 64, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pikle"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tgb5w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wg1ds")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lcxkb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w0nx8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4tr0v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qvq4r")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Poofcloud" unique_id=1030336543 instance=ExtResource("1")]
+sprite_frames = SubResource("SpriteFrames_pikle")
+frame_progress = 0.8526315
+speed_scale = 2.0

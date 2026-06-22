@@ -1,0 +1,199 @@
+[gd_scene format=3 uid="uid://cju1e8tsptrsx"]
+
+[ext_resource type="PackedScene" uid="uid://b3i1vst4708al" path="res://source/background/chunks/base/sprite_chunk.tscn" id="1"]
+[ext_resource type="Script" uid="uid://do7gcrhkvbowc" path="res://source/background/chunks/act_3/nobody_office.gd" id="2"]
+[ext_resource type="Texture2D" uid="uid://blkpetj8ntygt" path="res://arte/backgrounds/act_3/nobody_office.png" id="3"]
+[ext_resource type="Shader" uid="uid://bucjx55c12q7u" path="res://source/background/chunks/act_3/nobody_office_smoke_mask.gdshader" id="4"]
+[ext_resource type="Texture2D" uid="uid://cfmdicte7j4d4" path="res://arte/backgrounds/act_3/nobody_office_smoky.png" id="5"]
+[ext_resource type="Texture2D" uid="uid://bgwx5um7mj808" path="res://arte/backgrounds/act_3/nobody_smoke.png" id="6"]
+[ext_resource type="Texture2D" uid="uid://fygn77dibw7m" path="res://arte/backgrounds/act_3/nobody_smoke_outline.png" id="7"]
+[ext_resource type="Texture2D" uid="uid://b1tjcixghrf4v" path="res://arte/backgrounds/act_3/nobody_smoke_inner_outline.png" id="8"]
+[ext_resource type="Script" uid="uid://ddinato40k13" path="res://source/background/overlap_indicator.gd" id="9"]
+[ext_resource type="Script" uid="uid://cwkvx3vrqfg0k" path="res://source/background/interrupt_marker.gd" id="10"]
+[ext_resource type="Script" uid="uid://drgtw8sp4tp8n" path="res://source/library/anim_player.gd" id="11"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xt6s7"]
+shader = ExtResource("4")
+shader_parameter/frequency = 0.05
+shader_parameter/height = 128.0
+shader_parameter/amplitude = 4.0
+shader_parameter/sprite_scale = Vector2(0.25, 0.2677305)
+shader_parameter/pixel_snap = false
+shader_parameter/dark_room = ExtResource("5")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_8wwcf"]
+viewport_path = NodePath("SmokeViewport")
+
+[sub_resource type="Animation" id="Animation_n45hp"]
+resource_name = "RESET"
+length = 0.033333335
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SmokeViewport/SmokeMarker2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-124, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_f5d2n"]
+resource_name = "appear"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SmokeViewport/SmokeMarker2D:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(-2, 1),
+"update": 0,
+"values": [-49.0, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_k1xth"]
+resource_name = "disappear"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SmokeViewport/SmokeMarker2D:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(-2, 1),
+"update": 0,
+"values": [0.0, -49.0]
+}
+
+[sub_resource type="Animation" id="Animation_cg4f1"]
+resource_name = "initial"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SmokeViewport/SmokeMarker2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-124, -49)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wpma5"]
+_data = {
+&"RESET": SubResource("Animation_n45hp"),
+&"appear": SubResource("Animation_f5d2n"),
+&"disappear": SubResource("Animation_k1xth"),
+&"initial": SubResource("Animation_cg4f1")
+}
+
+[node name="BackgroundChunk" unique_id=2067303933 groups=["nobody_office_chunk"] instance=ExtResource("1")]
+script = ExtResource("2")
+
+[node name="Sprite2D" parent="." index="0" unique_id=174746349]
+position = Vector2(-398, -151)
+texture = ExtResource("3")
+centered = false
+
+[node name="SmokeViewportSprite" type="Sprite2D" parent="." index="1" unique_id=239509475 groups=["nobody_smoke_viewport_sprite"]]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_xt6s7")
+position = Vector2(-398, -151)
+scale = Vector2(0.25, 0.2677305)
+texture = SubResource("ViewportTexture_8wwcf")
+centered = false
+
+[node name="SmokeViewport" type="SubViewport" parent="." index="2" unique_id=454385179 groups=["nobody_particle_target"]]
+unique_name_in_owner = true
+transparent_bg = true
+canvas_item_default_texture_filter = 0
+size = Vector2i(2616, 1128)
+size_2d_override = Vector2i(654, 302)
+size_2d_override_stretch = true
+
+[node name="SmokeMarker2D" type="Marker2D" parent="SmokeViewport" index="0" unique_id=1614505254]
+position = Vector2(-124, 0)
+
+[node name="Smoke" type="Sprite2D" parent="SmokeViewport/SmokeMarker2D" index="0" unique_id=237553979]
+unique_name_in_owner = true
+z_index = 1
+texture_repeat = 2
+position = Vector2(158, 0)
+texture = ExtResource("6")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 636, 270)
+
+[node name="SmokeOutline" type="Sprite2D" parent="SmokeViewport/SmokeMarker2D" index="1" unique_id=1137361316]
+unique_name_in_owner = true
+texture_repeat = 2
+position = Vector2(158, 16)
+texture = ExtResource("7")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 636, 270)
+
+[node name="SmokeInnerOutline" type="Sprite2D" parent="SmokeViewport/SmokeMarker2D" index="2" unique_id=610587998]
+unique_name_in_owner = true
+z_index = 2
+texture_repeat = 2
+position = Vector2(158, 16)
+texture = ExtResource("8")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 636, 270)
+
+[node name="Ground" type="Control" parent="LeftOverlap" parent_id_path=PackedInt32Array(1030252478) index="0" unique_id=1073974523]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -240.0
+offset_right = -240.0
+offset_bottom = 40.0
+script = ExtResource("9")
+metadata/_custom_type_script = "uid://ddinato40k13"
+
+[node name="Ground" type="Control" parent="RightOverlap" parent_id_path=PackedInt32Array(582485431) index="0" unique_id=1053090579]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 240.0
+offset_right = 240.0
+offset_bottom = 40.0
+script = ExtResource("9")
+metadata/_custom_type_script = "uid://ddinato40k13"
+
+[node name="SpawnNobody" type="Marker2D" parent="." index="5" unique_id=1136685999]
+position = Vector2(-240, 0)
+script = ExtResource("10")
+trigger_enemy_spawn = true
+enemy_spawn_offset = 392
+metadata/_custom_type_script = "uid://cwkvx3vrqfg0k"
+
+[node name="StopScrolling" type="Marker2D" parent="." index="6" unique_id=1992864337]
+position = Vector2(240, 0)
+script = ExtResource("10")
+use_deceleration = true
+metadata/_custom_type_script = "uid://cwkvx3vrqfg0k"
+
+[node name="SmokeAnimPlayer" type="AnimationPlayer" parent="." index="7" unique_id=261945984 groups=["nobody_smoke_anim_player"]]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_wpma5")
+autoplay = &"initial"
+script = ExtResource("11")
+metadata/_custom_type_script = "uid://drgtw8sp4tp8n"
+
+[node name="BGInterruptMarker" type="Marker2D" parent="." index="8" unique_id=1290604902]
+position = Vector2(-80, 0)
+script = ExtResource("10")
+fire_signal = true
+metadata/_custom_type_script = "uid://cwkvx3vrqfg0k"
+
+[connection signal="triggered" from="BGInterruptMarker" to="." method="_on_bg_interrupt_marker_triggered"]

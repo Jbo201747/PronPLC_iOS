@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://w3jcn3h8ko8p"]
+
+[ext_resource type="PackedScene" uid="uid://cbdk6hv7wu8im" path="res://source/battle_unit/enemy.tscn" id="1"]
+[ext_resource type="Script" uid="uid://diveuyf706m5a" path="res://source/enemies/sheriff.gd" id="2"]
+[ext_resource type="PackedScene" uid="uid://crk1ki87d5cfq" path="res://source/enemies/sprites/sheriff_sprite.tscn" id="3"]
+
+[node name="Sheriff" unique_id=2004424687 instance=ExtResource("1")]
+script = ExtResource("2")
+
+[node name="Sprite" parent="." index="0" unique_id=193285657 instance=ExtResource("3")]

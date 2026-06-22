@@ -1,0 +1,134 @@
+:tutorial:
+	Tutorial
+
+:first_turn:
+	::
+		:line:
+			Okay, let’s get down
+			to the brass tacks!
+
+		:flags:
+			disable_game_action hide_intent
+
+	::
+		I am an enemy! You can
+		spell words to defeat me.
+
+	::
+		Wood tiles deal damage.
+		Plastic tiles give defense.
+
+	::
+		Important to note, but defense
+		doesn’t get reduced when you
+		take damage.
+
+	::
+		:line:
+			See the icon over my head?
+			Try hovering your cursor over it.
+
+		:flags:
+			hover_intent show_intent
+
+	::
+		Yup, that’s right! I’m gonna
+		knock those stupid glasses
+		off your face!
+
+	::
+		Since I’m going to attack for
+		1 damage 3 times, you only
+		need 1 defense this turn.
+
+	::
+		:line:
+			Alright. Try spelling a word
+			with 1 defense!
+
+		:flags:
+			enable_game_action
+
+:second_turn:
+	::
+		:line:
+			Yeowch! Uncle! Uncle!
+			Meow purr.
+
+		:alt:
+			::
+				Woah, what the fuck? I can see
+				the sweat glistening off your receding hairline.
+
+			::
+				Look who just got off the short bus! You wasted all your defense and didn’t even hit me.
+
+			::
+				Seriously? That’s the best you
+				can do? You didn’t even hit me!
+
+			::
+				Well, you didn’t need thaaat
+				much defense. But maybe
+				you’ll still live!
+
+			::
+				Well, I would have used a plastic tile to defend, personally. But
+				what do I know?
+
+		:flags:
+			alt_almost_killed alt_no_hit_defense_wasted alt_no_hit alt_over_defended alt_no_defense disable_game_action hide_intent
+
+	::
+		Haha. Okay but seriously
+		one last thing.
+
+	::
+		:line:
+			See that spell in the bottom left? You can use it to remove tiles.
+
+		:flags:
+			add_spell
+
+	::
+		:line:
+			Use your Letter Opener to get
+			rid of that sick, revolting {letter upper}!
+
+		:flags:
+			letter_opener enable_spells
+
+	::
+		:line:
+			Phew! I thought I
+			was gonna throw up.
+
+		:alt:
+			Yeah, sure, get rid of
+			your good letters.
+
+		:flags:
+			alt_wrong_remove disable_spells
+
+	::
+		As a tip, you can see which
+		letter is queued above each
+		column.
+
+	::
+		Also, your Letter Opener is down a use now. Notice those squares on the spell with an E?
+
+	::
+		Try spelling a word with at least one E to replenish your spell!
+
+	::
+		Or not! Honestly I don’t care
+		anymore. That’s everything I
+		had to say to you.
+
+	::
+		:line:
+			I’m gonna bite you now, sucka!
+
+		:flags:
+			end_tutorial enable_game_action show_intent set_viewed_tutorial

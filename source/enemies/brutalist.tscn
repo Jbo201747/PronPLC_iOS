@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://c8778wktirlup"]
+
+[ext_resource type="PackedScene" uid="uid://cbdk6hv7wu8im" path="res://source/battle_unit/enemy.tscn" id="1"]
+[ext_resource type="Script" uid="uid://lorlggkm5sjt" path="res://source/enemies/brutalist.gd" id="2"]
+[ext_resource type="PackedScene" uid="uid://cpg388pkwgtsl" path="res://source/enemies/sprites/brutalist_sprite.tscn" id="3"]
+
+[node name="Brutalist" unique_id=1793154659 instance=ExtResource("1")]
+script = ExtResource("2")
+
+[node name="Sprite" parent="." index="0" unique_id=1701977725 instance=ExtResource("3")]

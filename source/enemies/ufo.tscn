@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://d1daj7hiun4wv"]
+
+[ext_resource type="PackedScene" uid="uid://cbdk6hv7wu8im" path="res://source/battle_unit/enemy.tscn" id="1"]
+[ext_resource type="Script" uid="uid://2s2thlotw8xr" path="res://source/enemies/ufo.gd" id="2"]
+[ext_resource type="PackedScene" uid="uid://bg45rccmb0a0s" path="res://source/enemies/sprites/ufo_sprite.tscn" id="3"]
+
+[node name="UFO" unique_id=1592755577 instance=ExtResource("1")]
+z_index = 20
+script = ExtResource("2")
+
+[node name="Sprite" parent="." index="0" unique_id=1948538414 instance=ExtResource("3")]

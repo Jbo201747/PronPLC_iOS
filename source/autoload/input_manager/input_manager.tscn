@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://cly0bhskjloqx"]
+
+[ext_resource type="Script" uid="uid://dfob7gmtfw24t" path="res://source/autoload/input_manager/input_manager.gd" id="1"]
+[ext_resource type="PackedScene" uid="uid://dp4ygasr2ddlh" path="res://source/autoload/input_manager/virtual_cursor.tscn" id="2"]
+
+[node name="InputManager" type="CanvasLayer" unique_id=594114414]
+layer = 5
+script = ExtResource("1")
+
+[node name="VirtualCursor" parent="." unique_id=456519640 instance=ExtResource("2")]
+unique_name_in_owner = true
+visible = false

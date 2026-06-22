@@ -1,0 +1,242 @@
+[gd_scene format=3 uid="uid://ltlfocltly3h"]
+
+[ext_resource type="PackedScene" uid="uid://c08jo0f88gebb" path="res://source/ui/menu/generic/sectioned_panel_no_lines.tscn" id="1"]
+[ext_resource type="Script" uid="uid://dc56o6v7jqaqg" path="res://source/ui/menu/summary/summary.gd" id="2"]
+[ext_resource type="Script" uid="uid://blxt2xfbu02t5" path="res://source/ui/generic/string_key_label.gd" id="3"]
+[ext_resource type="PackedScene" uid="uid://dqnbk16giqdst" path="res://source/ui/menu/summary/fight_summary.tscn" id="4"]
+
+[node name="SectionedPanel" unique_id=1400204219 instance=ExtResource("1")]
+custom_maximum_size = Vector2(221, -1)
+script = ExtResource("2")
+mask_type = "MenuTicketMask"
+mask_no_aa_type = "MenuTicketMaskNoAA"
+
+[node name="PageMask" parent="." index="0" unique_id=711574092]
+theme_type_variation = &"MenuTicketMaskNoAA"
+
+[node name="AlternatingPageBox" parent="PageMask/MarginContainer/LinkedScrollContainer/MarginContainer" parent_id_path=PackedInt32Array(1393533725) index="0" unique_id=1381074398 node_paths=PackedStringArray("source_boxes")]
+source_boxes = [NodePath("../../../../../MainMask/MarginContainer/ScrollContainer/MarginContainer/ContentsBox"), NodePath("../../../../../MainMask/MarginContainer/ScrollContainer/MarginContainer/ContentsBox/PrimarySummary"), NodePath("../../../../../MainMask/MarginContainer/ScrollContainer/MarginContainer/ContentsBox/PrimarySummary/MarginContainer/LongestWordsBox"), NodePath("../../../../../MainMask/MarginContainer/ScrollContainer/MarginContainer/ContentsBox/Fights"), NodePath("../../../../../MainMask/MarginContainer/ScrollContainer/MarginContainer/ContentsBox/Fights/FightsContainer"), NodePath("../../../../../MainMask/MarginContainer/ScrollContainer/MarginContainer/ContentsBox/Spells"), NodePath("../../../../../MainMask/MarginContainer/ScrollContainer/MarginContainer/ContentsBox/Spells/SpellsContainer"), NodePath("../../../../../MainMask/MarginContainer/ScrollContainer/MarginContainer/ContentsBox/Words"), NodePath("../../../../../MainMask/MarginContainer/ScrollContainer/MarginContainer/ContentsBox/Words/WordsContainer")]
+
+[node name="MainMask" parent="." index="1" unique_id=402416624]
+theme_type_variation = &"MenuTicketMask"
+
+[node name="MarginContainer" parent="MainMask/MarginContainer/ScrollContainer" parent_id_path=PackedInt32Array(384839278) index="0" unique_id=454863863]
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+
+[node name="PrimarySummary" type="VBoxContainer" parent="MainMask/MarginContainer/ScrollContainer/MarginContainer/ContentsBox" parent_id_path=PackedInt32Array(828913805) index="0" unique_id=115545741]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 231)
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Title" type="Label" parent="MainMask/MarginContainer/ScrollContainer/MarginContainer/ContentsBox/PrimarySummary" index="0" unique_id=660418756 groups=["always_base_panel"]]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"MenuDescriptionLabel"
+theme_override_font_sizes/font_size = 18
+text = "Victory!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Time" type="Label" parent="MainMask/MarginContainer/ScrollContainer/MarginContainer/ContentsBox/PrimarySummary" index="1" unique_id=1919784 groups=["always_base_panel"]]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 2
+theme_type_variation = &"MenuDescriptionLabel"
+text = "Total Deliberation Time: 37:47"
+vertical_alignment = 1
+
+[node name="ActTimes" type="Label" parent="MainMask/MarginContainer/ScrollContainer/MarginContainer/ContentsBox/PrimarySummary" index="2" unique_id=1058593670 groups=["always_base_panel"]]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 11)
+layout_mode = 2
+theme_type_variation = &"MenuDescriptionLabel"
+theme_override_font_sizes/font_size = 6
+text = "12:31 / 08:10 / 17:06"
+vertical_alignment = 1
+
+[node name="LongestWords" type="Label" parent="MainMask/MarginContainer/ScrollContainer/MarginContainer/ContentsBox/PrimarySummary" index="3" unique_id=203239441 groups=["always_base_panel"]]
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 2
+theme_type_variation = &"MenuDescriptionLabel"
+text = "Longest Words:"
+vertical_alignment = 1
+script = ExtResource("3")
+key = "summary/longest_words"
+metadata/_custom_type_script = "uid://blxt2xfbu02t5"
+
+[node name="MarginContainer" type="MarginContainer" parent="MainMask/MarginContainer/ScrollContainer/MarginContainer/ContentsBox/PrimarySummary" index="4" unique_id=669802215]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+
+[node name="LongestWordsBox" type="VBoxContainer" parent="MainMask/MarginContainer/ScrollContainer/MarginContainer/ContentsBox/PrimarySummary/MarginContainer" index="0" unique_id=1409845902]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Word1" type="Label" parent="MainMask/MarginContainer/ScrollContainer/MarginContainer/ContentsBox/PrimarySummary/MarginContainer/LongestWordsBox" index="0" unique_id=1139206002]
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 2
+theme_type_variation = &"MenuDescriptionLabel"
+text = "• redundant"
+vertical_alignment = 1
+
+[node name="Word2" type="Label" parent="MainMask/MarginContainer/ScrollContainer/MarginContainer/ContentsBox/PrimarySummary/MarginContainer/LongestWordsBox" index="1" unique_id=781761800]
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 2
+theme_type_variation = &"MenuDescriptionLabel"
+text = "• redundant"
+vertical_alignment = 1
+
+[node name="Word3" type="Label" parent="MainMask/MarginContainer/ScrollContainer/MarginContainer/ContentsBox/PrimarySummary/MarginContainer/LongestWordsBox" index="2" unique_id=1017700165]
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 2
+theme_type_variation = &"MenuDescriptionLabel"
+text = "• redundant"
+vertical_alignment = 1
+
+[node name="Word4" type="Label" parent="MainMask/MarginContainer/ScrollContainer/MarginContainer/ContentsBox/PrimarySummary/MarginContainer/LongestWordsBox" index="3" unique_id=1129105074]
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 2
+theme_type_variation = &"MenuDescriptionLabel"
+text = "• redundant"
+vertical_alignment = 1
+
+[node name="Word5" type="Label" parent="MainMask/MarginContainer/ScrollContainer/MarginContainer/ContentsBox/PrimarySummary/MarginContainer/LongestWordsBox" index="4" unique_id=716605340]
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 2
+theme_type_variation = &"MenuDescriptionLabel"
+text = "• redundant"
+vertical_alignment = 1
+
+[node name="LongestFight" parent="MainMask/MarginContainer/ScrollContainer/MarginContainer/ContentsBox/PrimarySummary" index="5" unique_id=1986654720 groups=["always_base_panel"] instance=ExtResource("4")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="ShortestFight" parent="MainMask/MarginContainer/ScrollContainer/MarginContainer/ContentsBox/PrimarySummary" index="6" unique_id=1045848346 groups=["always_base_panel"] instance=ExtResource("4")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="HighestDamage" type="Label" parent="MainMask/MarginContainer/ScrollContainer/MarginContainer/ContentsBox/PrimarySummary" index="7" unique_id=1821004019 groups=["always_base_panel"]]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 2
+theme_type_variation = &"MenuDescriptionLabel"
+text = "Highest Damage Dealt: 24"
+vertical_alignment = 1
+
+[node name="ClearanceBox" type="HBoxContainer" parent="MainMask/MarginContainer/ScrollContainer/MarginContainer/ContentsBox/PrimarySummary" index="8" unique_id=1278047958 groups=["always_base_panel"]]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Clearance" type="Label" parent="MainMask/MarginContainer/ScrollContainer/MarginContainer/ContentsBox/PrimarySummary/ClearanceBox" index="0" unique_id=272517870]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 2
+theme_type_variation = &"MenuDescriptionLabel"
+text = "Beige Clearance"
+vertical_alignment = 1
+
+[node name="Info" type="Label" parent="MainMask/MarginContainer/ScrollContainer/MarginContainer/ContentsBox/PrimarySummary/ClearanceBox" index="1" unique_id=209346438]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 11)
+layout_mode = 2
+theme_type_variation = &"MenuDescriptionLabel"
+theme_override_font_sizes/font_size = 6
+text = "(Seed: AF156ED9)"
+vertical_alignment = 1
+
+[node name="PrimaryPageFiller" type="Control" parent="MainMask/MarginContainer/ScrollContainer/MarginContainer/ContentsBox/PrimarySummary" index="9" unique_id=2018821383 groups=["always_base_panel"]]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="Fights" type="VBoxContainer" parent="MainMask/MarginContainer/ScrollContainer/MarginContainer/ContentsBox" parent_id_path=PackedInt32Array(828913805) index="1" unique_id=2143626055]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 231)
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Title" type="Label" parent="MainMask/MarginContainer/ScrollContainer/MarginContainer/ContentsBox/Fights" index="0" unique_id=538066551 groups=["always_base_panel"]]
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 2
+theme_type_variation = &"MenuDescriptionLabel"
+theme_override_font_sizes/font_size = 13
+text = "Fights"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("3")
+key = "summary/fights_title"
+metadata/_custom_type_script = "uid://blxt2xfbu02t5"
+
+[node name="FightsContainer" type="VBoxContainer" parent="MainMask/MarginContainer/ScrollContainer/MarginContainer/ContentsBox/Fights" index="1" unique_id=453806864]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="PageFiller" type="Control" parent="MainMask/MarginContainer/ScrollContainer/MarginContainer/ContentsBox/Fights" index="2" unique_id=1339413779 groups=["always_base_panel"]]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="Spells" type="VBoxContainer" parent="MainMask/MarginContainer/ScrollContainer/MarginContainer/ContentsBox" parent_id_path=PackedInt32Array(828913805) index="2" unique_id=2047468486]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 231)
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Title" type="Label" parent="MainMask/MarginContainer/ScrollContainer/MarginContainer/ContentsBox/Spells" index="0" unique_id=879608926 groups=["always_base_panel"]]
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 2
+theme_type_variation = &"MenuDescriptionLabel"
+theme_override_font_sizes/font_size = 13
+text = "Spells Used"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("3")
+key = "summary/spells_used_title"
+metadata/_custom_type_script = "uid://blxt2xfbu02t5"
+
+[node name="SpellsContainer" type="VBoxContainer" parent="MainMask/MarginContainer/ScrollContainer/MarginContainer/ContentsBox/Spells" index="1" unique_id=1278915878]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="PageFiller" type="Control" parent="MainMask/MarginContainer/ScrollContainer/MarginContainer/ContentsBox/Spells" index="2" unique_id=139192872 groups=["always_base_panel"]]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="Words" type="VBoxContainer" parent="MainMask/MarginContainer/ScrollContainer/MarginContainer/ContentsBox" parent_id_path=PackedInt32Array(828913805) index="3" unique_id=1085021027]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 231)
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Title" type="Label" parent="MainMask/MarginContainer/ScrollContainer/MarginContainer/ContentsBox/Words" index="0" unique_id=64131355 groups=["always_base_panel"]]
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 2
+theme_type_variation = &"MenuDescriptionLabel"
+theme_override_font_sizes/font_size = 13
+text = "Words Spelled"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("3")
+key = "summary/words_title"
+metadata/_custom_type_script = "uid://blxt2xfbu02t5"
+
+[node name="WordsContainer" type="VBoxContainer" parent="MainMask/MarginContainer/ScrollContainer/MarginContainer/ContentsBox/Words" index="1" unique_id=1537938293]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="PageFiller" type="Control" parent="MainMask/MarginContainer/ScrollContainer/MarginContainer/ContentsBox/Words" index="2" unique_id=1811442581 groups=["always_base_panel"]]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2

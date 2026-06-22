@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://hcht2a0q4uy0"]
+
+[ext_resource type="Script" uid="uid://cx8eu6vmgioq5" path="res://source/ui/tooltip/mega_tooltip.gd" id="1"]
+
+[node name="MegaTooltip" type="MarginContainer" unique_id=1952581557]
+custom_minimum_size = Vector2(389, 210)
+offset_right = 92.0
+offset_bottom = 34.0
+mouse_filter = 2
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_bottom = 2
+script = ExtResource("1")
+
+[node name="VFlowContainer" type="VFlowContainer" parent="." unique_id=370527572]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 2
+theme_override_constants/h_separation = 3
+theme_override_constants/v_separation = 0

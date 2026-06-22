@@ -1,0 +1,162 @@
+[gd_scene format=3 uid="uid://bayy57vdoc8ej"]
+
+[ext_resource type="Script" uid="uid://bum0kwx2ltng4" path="res://source/ui/cutscenes/cutscene_player.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://ddaxs42kcotwm" path="res://arte/ui/scrolling_zigzag.png" id="2"]
+[ext_resource type="Script" uid="uid://drgtw8sp4tp8n" path="res://source/library/anim_player.gd" id="3"]
+[ext_resource type="PackedScene" uid="uid://b50abti2bvkif" path="res://source/ui/screen_wipe.tscn" id="4"]
+
+[sub_resource type="Animation" id="Animation_fjrfo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CutsceneVisibility/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.23137255, 0.24705882, 0.25882354, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CutsceneVisibility/Zigzag:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_lgbi2"]
+resource_name = "finish_cutscene"
+length = 1.5
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CutsceneVisibility/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(2.2973986, 0.4665164),
+"update": 0,
+"values": [Color(0.23137255, 0.24705882, 0.25882354, 1), Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CutsceneVisibility/Zigzag:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5, 1),
+"transitions": PackedFloat32Array(1.8025017, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_7eshn"]
+resource_name = "start_cutscene"
+length = 2.0
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CutsceneVisibility/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.4665164, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0.23137255, 0.24705882, 0.25882354, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CutsceneVisibility/Zigzag:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1, 2),
+"transitions": PackedFloat32Array(0.4061258, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lgbi2"]
+_data = {
+&"RESET": SubResource("Animation_fjrfo"),
+&"finish_cutscene": SubResource("Animation_lgbi2"),
+&"start_cutscene": SubResource("Animation_7eshn")
+}
+
+[node name="CutscenePlayer" type="Control" unique_id=759127968 groups=["strong_focus"]]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 2
+script = ExtResource("1")
+metadata/_edit_lock_ = true
+
+[node name="CutsceneVisibility" type="Control" parent="." unique_id=1934793113]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="ColorRect" type="ColorRect" parent="CutsceneVisibility" unique_id=798358059]
+custom_minimum_size = Vector2(480, 270)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.23137255, 0.24705882, 0.25882354, 1)
+metadata/_edit_lock_ = true
+
+[node name="Zigzag" type="Sprite2D" parent="CutsceneVisibility" unique_id=1024685844]
+unique_name_in_owner = true
+texture_repeat = 2
+texture = ExtResource("2")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 480, 270)
+metadata/_edit_lock_ = true
+
+[node name="ShadowGroup" type="CanvasGroup" parent="CutsceneVisibility" unique_id=1096447319]
+unique_name_in_owner = true
+self_modulate = Color(1, 1, 1, 0.23921569)
+
+[node name="AnimPlayer" type="AnimationPlayer" parent="CutsceneVisibility" unique_id=854758260]
+unique_name_in_owner = true
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_lgbi2")
+script = ExtResource("3")
+metadata/_custom_type_script = "uid://drgtw8sp4tp8n"
+
+[node name="ScreenWipe" parent="CutsceneVisibility" unique_id=2122016571 instance=ExtResource("4")]
+unique_name_in_owner = true
+z_index = 100
+layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 20.0
+offset_bottom = 302.0
+
+[connection signal="event_emitted" from="CutsceneVisibility/AnimPlayer" to="." method="_on_anim_player_event_emitted"]

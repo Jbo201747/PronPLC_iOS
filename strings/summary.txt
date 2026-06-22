@@ -1,0 +1,93 @@
+:encounter:
+	{enemy}
+
+:spell_usage:
+	{spell}: {times_used}
+
+:title:
+	{:act_cleared_title: not act -1}{:game_finished_title: if act -1}
+
+:act_cleared_title:
+	Act Cleared
+
+:game_finished_title:
+	{"Victory!" if victory}{"Game Over..." not victory}
+
+:time:
+	{"Total Deliberation Time" if act -1}{"Time Spent Deliberating" not act -1}: {time}
+
+:act_times:
+	{times list_delim " / "}
+
+:highest_damage:
+	Highest Damage Dealt: {damage}
+
+:longest_fight:
+	Longest Fight: {enemy}
+
+:shortest_fight:
+	Shortest Fight: {enemy}
+
+:enemy_stats:
+	({time}, {+damage_taken})
+
+:difficulty:
+	Difficulty: {difficulty}
+
+:run_info_string:
+	({:daily_string: if daily}{:seed_string: not daily})
+
+:seed_string:
+	Seed: {seed}
+
+:daily_string:
+	Daily {month}/{day}/{year}
+
+:longest_words:
+	Longest Words:
+
+:word:
+	• {word}
+
+:forgot:
+	Looks like you forgot to spell any words :(
+
+:fights_title:
+	Fights
+
+:spells_used_title:
+	Spells Used
+
+:words_title:
+	Words Spelled
+
+:leaderboard_entry:
+	:act:
+		{:act_known: if act}{:act_unknown: not act}
+
+	:act_unknown:
+		?-?
+
+	:act_known:
+		{act}-{floor}
+
+	:lost_description:
+		{:died: not forfeited}{:forfeited: if forfeited}
+
+	:died:
+		{:died_enemy: if enemy_name}{:died_generic: not enemy_name}
+
+	:died_generic:
+		Died
+
+	:died_enemy:
+		Died to {enemy_name}
+
+	:forfeited:
+		{:forfeited_enemy: if enemy_name}{:forfeited_generic: not enemy_name}
+
+	:forfeited_generic:
+		Forfeited
+
+	:forfeited_enemy:
+		Forfeited at {enemy_name}

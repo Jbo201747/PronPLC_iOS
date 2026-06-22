@@ -1,0 +1,715 @@
+:p:
+	{"." not control}{"$" if control}
+:c:
+	{"," not control}{"$" if control}
+
+:emd:
+	{"." if control}{"—" not control}
+
+:lexicographer:
+	:first_run:
+		:image:
+			lexicographer_1
+
+		:name:
+			Wilson Nguyen’s Letter
+
+		:0:
+			Wilson Nguyen,
+
+		:1:
+			You were found to be in possession of illegal pronouns.
+
+		:2:
+			For public safety, your pronouns were confiscated
+			from your person at 3:15 this morning by the New Police.
+
+		:3:
+			We expect this shall improve the
+			quality of your work performance.
+
+		:4:
+			Recall that language is the enemy of truth.
+
+		:5:
+			The Bureau of Information
+
+	:first_win:
+		:image:
+			lexicographer_2
+
+		:name:
+			Wryn Nguyen’s Letter
+
+		::
+			Wryn Nguyen,
+
+		::
+			Please submit the proper paperwork
+			before taking any unpaid time off.
+
+		::
+			The hours of labor you owe to the Party will be repaid through
+			rigorous torture at a time that is unclear and inconvenient to you.
+
+		::
+			Regarding a previous clerical error, your
+			former name and pronouns have been reinstated.
+
+		::
+			::
+				The correct paperwork existed all along.
+
+			::
+				The prior letter was never written or received.
+
+		::
+			We expect this shall improve the
+			quality of your work performance.
+
+		::
+			The Bureau of Information
+
+:jubilist:
+	:first_run:
+		:image:
+			jubilist_1
+
+		:name:
+			Vivian Quynh’s Letter
+
+		:0:
+			Vivian Quynh,
+
+		:1:
+			:0:
+				We read your manifesto.
+			:1:
+				It was invigorating and politically impotent.
+
+		:2:
+			It is a model work for the recuperation
+			of the ideas found therein.
+
+		:3:
+			We are already producing edited copies of your
+			work to disseminate among political traitors.
+
+		:4:
+			:0:
+				None of them will ever know your name.
+			:1:
+				They won’t know your pronouns, either.
+
+		:5:
+			Keep up the good work.
+
+		:6:
+			The Bureau of Records
+
+	:first_win:
+		:image:
+			jubilist_2
+
+		:name:
+			V’s Letter
+
+		::
+			V,
+
+		::
+			If you even bother to open this letter...
+
+		::
+			Know that your manifesto{:emd:}our manifesto{:emd:}has
+			sent shockwaves throughout the bureaucracy.
+
+		::
+			Would-be traitors are exposing their criminal predilections to betray
+			the Party without The Bureau of Love so much as lifting a finger.
+
+		::
+			Amusingly, the energy and fervor of these “Jubilists” has been
+			consistently channeled into arbitrary and unproductive projects.
+
+		::
+			Your words have inspired a generation of useless radicals
+			preoccupied with the political drama of other useless radicals.
+
+		::
+			To preempt investigation into the mystique
+			of this manifesto’s pseudonymous author...
+
+		::
+			... we have contrived a figurehead vaguely in
+			your image to take accountability for your work.
+
+		::
+			We haven’t worked out the rest of the details,
+			but do keep an eye on your television set.
+
+		::
+			We’re sure you’ll find the
+			depiction to be quite flattering.
+
+		::
+			As for your pronouns, we have no further need
+			of them, nor have we any further need of you.
+
+		::
+			::
+				Keep them; they’re on us.
+			::
+				Let your pronouns keep you comfortable in your remaining days.
+
+		::
+			Keep up the good work.
+
+		::
+			The Bureau of Records
+
+:child:
+	:first_run:
+		:image:
+			child_1
+
+		:name:
+			Mr. & Mrs. Young’s Letter
+
+		:0:
+			Dear Mr{:p:} & Mrs{:p:} Young,
+
+		:1:
+			Your daughter has made
+			a full ideological recovery.
+
+		:2:
+			Once she was subjected to enhanced therapeutic techniques,
+			she quickly understood it wasn’t in her nature to be a boy.
+
+		:3:
+			However, there was nothing we could
+			do about the irreversible damage.
+
+		:4:
+			Your daughter will never have children.
+
+		:5:
+			It is with a heavy heart that we recommend forgetting
+			about this one and trying for a second child.
+
+		:6:
+			The Bureau of the Census
+
+	:first_win:
+		:image:
+			child_2
+
+		:name:
+			Mom and Dad’s Letter
+
+		::
+			Dear Mom And Dad,
+
+		::
+			::
+				I said Thank You when you made me be a girl again.
+			::
+				But I didn’t mean it! So I ran away.
+
+		::
+			well today I got my pronouns back
+			from some old lady in a office.
+
+		::
+			then I saw a New Police and told them
+			what you said about are food last week
+
+		::
+			Do you remember? Dad said The Party Rations
+			Are Too Salty and Mom said I Agree.
+
+		::
+			The New Police said I Am
+			Really Brave for telling them!
+
+		::
+			And they said They Have Special Therapy for
+			adults Who Say bad things about The Party.
+
+		::
+			I think they meant they are going
+			to tortore you like you did to me
+
+		::
+			So I also remembered when you said Our
+			State Apartment Has Lowzy Insilation
+
+		::
+			But I’m zipping my lips and
+			didn’t tell them you said that.
+
+		::
+			But I can!
+
+		::
+			maybe if you don’t tell that I was born a girl
+			then I won’t tell you were rude to The Party?
+
+		::
+			Love, Your Son
+
+:fisher:
+	:first_run:
+		:image:
+			fisher_1
+
+		:name:
+			William Stone’s Letter
+
+		:0:
+			William Stone,
+
+		:1:
+			We are going to be curt.
+
+		:2:
+			Normally, when people are underperforming,
+			it’s out of petty resistance to the Party.
+
+		:3:
+			You are just plain incompetent.
+
+		:4:
+			We were willing to turn a blind eye to your
+			transition if it would help you meet quotas.
+
+		:5:
+			But if anything, you only got worse.
+
+		:6:
+			We’re relocating you to
+			the suburbs indefinitely.
+
+		:7:
+			::
+				Our advice? We hear flounders should be in season soon.
+
+			::
+				Try Limestock. You won’t find a man Limestock turned down.
+
+		:8:
+			::
+				Emphasis on “man.”
+
+			::
+				We’re revoking your pronouns, too.
+
+		:9:
+			Normally, we don’t care what
+			the proles think about gender...
+
+		:10:
+			... but it would reflect poorly on
+			us if you were out there as a girl.
+
+		:11:
+			The Bureau of Love
+
+	:first_win:
+		:image:
+			fisher_2
+
+		:name:
+			Leslie Stone’s Letter
+
+		::
+			Leslie Stone,
+
+		::
+			Your application to the Bureau of
+			Fish and Game has been denied.
+
+		::
+			Recall that fabricating a history of
+			work within the Party is a serious crime.
+
+		::
+			You appear to possess restricted qualifications that are
+			illegal for someone of your socioeconomic status to have.
+
+		::
+			The references you listed at the Bureau of Love
+			denied any knowledge of your name or existence.
+
+		::
+			The references you listed are, furthermore, restricted and illegal
+			for those of your socioeconomic status to have knowledge of.
+
+		::
+			By all accounts, you appear to be
+			illegally qualified for this job.
+
+		::
+			We would again like to firmly remind you that fabricating
+			a history of work within the Party is a serious crime.
+
+		::
+			::
+				You have never worked for the Party.
+			::
+				You will never work for the Party.
+
+		::
+			All employment history save for your
+			current occupation has been expunged.
+
+		::
+			Further applications to positions within the Party
+			will be prosecuted to the fullest extent of the law.
+
+		::
+			Do not write back.
+
+		::
+			The Bureau of Fish and Game
+
+:addict:
+	:exes_name:
+		[img align=center,center width=28 height=1.2em]arte/ui/redact.png[/img] [img align=center,center width=54 height=1.2em]arte/ui/redact.png[/img]
+
+	:first_run:
+		:image:
+			addict_1
+
+		:name:
+			Martha [img align=center,center width=54 height=1.2em]arte/ui/redact.png[/img]’s Letter
+
+		:0:
+			Dear Martha,
+
+		:1:
+			I just can’t accept that you would
+			rather be a man than be with me.
+
+		:2:
+			When we were in charge, every
+			queer was just another pederast.
+
+		:3:
+			Everyone but us.
+
+		:4:
+			You used to love it when we would strap them
+			down in my office and pull their teeth out.
+
+		:5:
+			You said it made our love “more special.”
+
+		:6:
+			What happened? Why now?
+
+		:7:
+			:0:
+				You think you’re untouchable, but I put a word in.
+			:1:
+				Your pronouns aren’t special. We can take yours, too.
+
+		:8:
+			It’s not too late to come to your senses.
+
+		:9:
+			{:exes_name:}
+
+	:first_win:
+		:image:
+			addict_2
+
+		:name:
+			Valence [img align=center,center width=44 height=1.2em]arte/ui/redact.png[/img]’s Letter
+
+		::
+			Dear “Valence,”
+
+		::
+			Since you are so insistent on becoming this other person,
+			I’ve included a divorce petition alongside this letter.
+
+		::
+			Please be diligent and sign it
+			as soon as you’re feeling sober.
+
+		::
+			I think I owe you the courtesy of saying that I’ve been
+			seeing other women in the time since we last met.
+
+		::
+			::
+				Just the typical office dregs.
+
+			::
+				Nobody who matters, or that you would know.
+
+		::
+			If you can believe it, some of
+			them were even transgender.
+
+		::
+			You would be surprised how much nicer the
+			real thing is than that toy you used to wear.
+
+		::
+			I panicked and had them disappeared afterwards,
+			so don’t think you can track them down either.
+
+		::
+			Even so, I’ve come to reflect on my prejudices.
+
+		::
+			::
+				I understand now that trans people aren’t the problem.
+
+			::
+				Trans men are.
+
+		::
+			{:exes_name:}
+
+	:speedrun:
+		:image:
+			addict_toplessooyummyyyy
+
+		:name:
+			Addicted
+
+		:flags:
+			hide_until_viewed
+
+		:minutes:
+			{run.time|stats.fastest_win_addict time "m"}
+
+		:seconds:
+			{run.time|stats.fastest_win_addict time "s"}
+
+		::
+			{run.time|stats.fastest_win_addict time "m:ss"}.
+
+		::
+			{:minutes:} minute{:minutes: plural s} and {:seconds:} second{:seconds: plural s}.
+
+		::
+			::
+				Watch it happen.
+			::
+				Do it again. For fun, even.
+
+		::
+			Rinse the salt with bourbon
+			and help yourself to seconds.
+
+		::
+			::
+				Get the weight off your chest.
+			::
+				Another time.
+
+		::
+			It feels so fucking good to take 5{:c:}000 mg of
+			amphetamines and beat up sexual minorities.
+
+:black:
+	:first_run:
+		:image:
+			black_1
+
+		:name:
+			Return
+
+		::
+			The Pronoun Palace beckons.
+
+		::
+			It could be a formal renewal, an investigation,
+			drama pulling you back to the same cement...
+
+		::
+			::
+				The reason is always changing.
+
+			::
+				The details don’t matter, though.
+
+		::
+			The Party will never take your pronouns again.
+
+	:first_win:
+		:image:
+			black_2
+
+		:name:
+			No Address
+
+		::
+			A bureaucrat sits in her office.
+
+		::
+			Tonight, when she is home, she will pour
+			herself a small glass of Victory Whiskey.
+
+		::
+			She has been browbeaten by her cohorts, her superiors,
+			proletarians, actual clowns, even children.
+
+		::
+			All over a few forms that barely concern her.
+
+		::
+			::
+				Pronouns? Who do they think they are in this world?
+
+			::
+				Individuals?
+
+		::
+			::
+				The Party doesn’t care if you transition.
+
+			::
+				The lesson is obvious.
+
+		::
+			The only pronoun that matters is “we.”
+
+		::
+			If they really care so much, why didn’t THEY
+			spend years applying to the Bureau of Pronouns?
+
+		::
+			You’re telling her she could have just waltzed
+			in here on any given afternoon and done the same?
+
+		::
+			Why is SHE being punished for their ineptitude?
+
+		::
+			::
+				She rubs a sore spot. The room fills with smoke.
+
+			::
+				She will rest, and tomorrow will be the same.
+
+:hazel_clearance:
+	:first_run:
+		:image:
+			hazel
+
+		:name:
+			Developer Difficulty
+
+		:flags:
+			hide_until_viewed evil_laugh
+
+		:0:
+			:0:
+				Just to be clear, you already beat the game.
+
+			:1:
+				Like, this doesn’t count toward 100%.
+
+		:1:
+			This is the part afterwards where
+			the developers torture you for fun.
+
+		:2:
+			We turned up all the previous difficulty levels,
+			cursed all your spells, and got rid of 20% of
+			your defense tiles.
+
+		:3:
+			Also, we stole your pronouns again.
+
+		:4:
+			Have fun!
+
+	:first_win:
+		:image:
+			hazel
+
+		:name:
+			Try Harder
+
+		:flags:
+			hide_until_viewed evil_laugh
+
+		::
+			Congratulations!
+
+		::
+			You’ve beaten one of the hardest
+			challenges the game has to offer.
+
+		::
+			Now do it four more times.
+
+		::
+			That was the easy character anyway.
+
+
+	:last_win:
+		:image:
+			hazel
+
+		:name:
+			Nerd Sniped
+
+		:flags:
+			hide_until_viewed evil_laugh
+
+		::
+			::
+				That’s the last of it.
+
+			::
+				Good job!
+
+		::
+			Nerrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrd.
+
+		::
+			Maybe now you can go outside and
+			find your own pronouns or something.
+
+		::
+			If you aren’t transgender already you should just
+			get a head start on shoving pills up your ass now.
+
+		::
+			Until next time!
+
+:extra:
+	:credits:
+		:name:
+			Credits
+
+		:flags:
+			credits hide_until_viewed
+
+	:credits_red:
+		:flags:
+			credits shadow
+
+:vanity:
+	:cadence:
+		Cadence Petersen
+
+	:hazel:
+		Hazel Fackler
+
+	:renren:
+		RENREN
+
+	:present:
+		PRESENT
+
+	:flags:
+		vanity

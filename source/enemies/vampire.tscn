@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bv7umj6a0ife5"]
+
+[ext_resource type="PackedScene" uid="uid://cbdk6hv7wu8im" path="res://source/battle_unit/enemy.tscn" id="1"]
+[ext_resource type="Script" uid="uid://d2xik1xrrx74t" path="res://source/enemies/vampire.gd" id="2"]
+[ext_resource type="PackedScene" uid="uid://bjgjb0f4uw85p" path="res://source/enemies/sprites/vampire_sprite.tscn" id="3"]
+
+[node name="Vampire" unique_id=1114394475 instance=ExtResource("1")]
+script = ExtResource("2")
+
+[node name="Sprite" parent="." index="0" unique_id=571761382 instance=ExtResource("3")]

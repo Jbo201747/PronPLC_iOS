@@ -1,0 +1,478 @@
+# Start a line with # to make a comment
+# :identifier: marks a new string, strings continue until next identifier, have leading and trailing whitespace trimmed
+
+:status_tile_value:
+	X{+balance.status_added_value not balance.status_added_value 0}
+
+:plus_status_tile_value:
+	+{:status_tile_value:}
+
+:in_x_turns:
+	{:on_turn_end: if turns 1}
+	{:in_turns: not turns 1}
+
+:in_turns:
+	in {turns} turns
+
+:on_turn_end:
+	on turn end
+
+:space_statuses:
+	hole screw
+
+:default:
+	:name:
+		{:wooden_name: if wooden}
+		{:plastic_name: if plastic}
+
+	:tile_name:
+		{:name:} Tile
+
+	:description:
+		{:wooden_description: if wooden}
+		{:plastic_description: if plastic}
+
+	:wooden_name:
+		Wooden
+
+	:wooden_description:
+		{+value} attack when played.
+
+	:plastic_name:
+		Plastic
+
+	:plastic_description:
+		{+value} defense when played.
+
+	:flags:
+		spray_exempt
+
+
+:crit:
+	:name:
+		Crit
+
+	:description:
+		{:multiplier:} when played.
+		{:crit_chance_description: if show_crit_chance}
+
+	:crit_chance_description:
+		Spelling longer words increases the odds of crits appearing.
+
+	:multiplier:
+		{:damage_multiplier: if wooden}
+		{:defense_multiplier: if plastic}
+		{:generic_multiplier: not wooden|plastic}
+
+	:damage_multiplier:
+		x{balance.crit_value} Attack
+
+	:defense_multiplier:
+		x{balance.crit_value} Defense
+
+	:generic_multiplier:
+		x1.5 Attack or Defense
+
+:spicy:
+	:name:
+		Burning
+
+	:description:
+		Becomes a useless coal tile on turn end.
+
+:coal:
+	:name:
+		Coal
+
+	:tile_name:
+		Coal Tile
+
+	:description:
+		{"Can’t be played." not space}
+		Tile is removed {:in_x_turns: with turns coal_turns|balance.coal_turns}.
+
+	:flags:
+		faceless override_default_title spray_destroys
+
+:acid:
+	:name:
+		Acid
+
+	:description:
+		Removes the tile below on turn end.
+		Falls out and deals {status_value|:status_tile_value:} unblockable damage upon reaching the bottom row.
+
+	:flags:
+		harmful
+
+:bruise:
+	:name:
+		Bruised
+
+	:description:
+		{+status_value|:plus_status_tile_value:} to all unblocked damage taken when played.
+
+	:flags:
+		harmful
+
+:ash:
+	:name:
+		Ash
+
+	:description:
+		Tile is removed on turn end.
+
+	:flags:
+		destroy_on_turn_end
+
+:bleed:
+	:name:
+		Bleed
+
+	:description:
+		{+balance.bleed_damage} damage taken when unplayed, regardless of tile value.
+
+	:flags:
+		harmful
+
+:period:
+	:name:
+		Period
+
+	:description:
+		Must be the last tile in a word.
+
+	:flags:
+		shared no_faceless_effect face_status
+
+:capital:
+	:name:
+		Capital
+
+	:description:
+		Must be the first tile in a word.
+
+	:flags:
+		shared no_faceless_effect face_status
+
+:frozen:
+	:name:
+		Frozen
+
+	:description:
+		{:default/wooden_description: if plastic}{:default/plastic_description: if wooden}
+		Counts for attack and defense.
+		Status is removed on turn end.
+
+	:flags:
+		no_faceless_effect
+
+:poison:
+	:name:
+		Poison
+
+	:description:
+		{+status_value|:plus_status_tile_value:} damage taken when unplayed.
+		Tile is removed on turn end.
+
+	:flags:
+		harmful destroy_on_turn_end
+
+:gay:
+	:name:
+		{:generic_name: not wooden|plastic}
+		{:yuri_name: if wooden}
+		{:yaoi_name: if plastic}
+
+	:description:
+		{:generic_description: not wooden|plastic}
+		{:yuri_description: if wooden}
+		{:yaoi_description: if plastic}
+
+	:generic_name:
+		Gay
+
+	:generic_description:
+		Yuri and yaoi tiles can’t be played next to each other.
+		Tile is removed on turn end.
+
+	:yuri_name:
+		Yuri
+
+	:yuri_description:
+		Can’t be played next to yaoi tiles.
+		Tile is removed on turn end.
+
+	:yaoi_name:
+		Yaoi
+
+	:yaoi_description:
+		Can’t be played next to yuri tiles.
+		Tile is removed on turn end.
+
+	:flags:
+		destroy_on_turn_end type_unique_status
+
+:linked:
+	:name:
+		Linked
+
+	:description:
+		{:color_description: if linked_color}{:colorless_description: not linked_color}
+		Status is removed {:in_x_turns: with turns linked_turns|balance.linked_turns}.
+
+	:color_description:
+		All {linked_color} linked tiles must be used together.
+
+	:colorless_description:
+		All linked tiles with a matching color must be used together.
+
+	:flags:
+		shared
+
+:candy:
+	:name:
+		Candy
+
+	:description:
+		{+value} healing when played.
+
+	:flags:
+		no_faceless_effect
+
+:bomb:
+	:name:
+		Bomb
+
+	:description:
+		Explodes {:in_x_turns: with turns bomb_turns}, dealing {status_value|:bomb_value:} damage.
+		{:crit/multiplier:} when played{" with 1 turn left" not bomb_turns 1}.
+		Explodes if removed.
+
+	:bomb_value:
+		{balance.bomb_multiplier}X
+
+	:flags:
+		harmful
+
+:enhanced:
+	:name:
+		{:generic_name: not wooden|plastic}
+		{:ivory_name: if wooden}
+		{:concrete_name: if plastic}
+
+	:description:
+		{:generic_description: not wooden|plastic}
+		{:ivory_description: if wooden}
+		{:concrete_description: if plastic}
+
+	:generic_name:
+		Enhanced
+
+	:generic_description:
+		+1 to tile value.
+
+	:ivory_name:
+		Ivory
+
+	:ivory_description:
+		Enhanced. +1 to tile value.
+
+	:concrete_name:
+		Concrete
+
+	:concrete_description:
+		Enhanced. +1 to tile value.
+
+	:flags:
+		no_faceless_effect type_unique_status
+
+:cursed:
+	:name:
+		Cursed
+
+	:description:
+		{+status_value|:plus_status_tile_value:} damage taken when unplayed.
+		Can’t be removed.
+
+	:flags:
+		harmful indestructible
+
+:poop:
+	:name:
+		Tarnished
+
+	:description:
+		Tile value isn’t counted.
+		Status is removed on turn end.
+
+	:flags:
+		no_faceless_effect
+
+:money:
+	:name:
+		Money
+
+	:description:
+		Tile value isn’t counted.
+
+	:flags:
+		no_faceless_effect
+
+:mystery:
+	:name:
+		Mystery
+
+	:description:
+		Tile face is unknown.
+		{:generic_hint: not tile}{:letter_hint: if faces}
+
+	:generic_hint:
+		Up to {balance.mystery_options} possible options will be revealed in the tile tooltip.
+
+	:letter_hint:
+		It could be:
+		[center]{faces list_or upper}[/center]
+
+	:flags:
+		shared no_faceless_effect face_status
+
+:haze:
+	:name:
+		Haze
+
+	:description:
+		{+balance.bleed_damage} damage taken when unplayed, regardless of tile value.
+		Spreads every {balance.haze_time} seconds.
+		Tile is removed on turn end.
+
+	:flags:
+		harmful
+
+:eternal:
+	:name:
+		Eternal
+
+	:description:
+		{+status_value|:plus_status_tile_value:} damage taken when unplayed.
+		Returns to the board when played.
+		Cannot be removed. Tile is removed on battle end.
+
+	:flags:
+		harmful indestructible
+
+:gunk:
+	:name:
+		Gunk
+
+	:description:
+		Tile is stuck in place.
+
+	:flags:
+		prevents_falling
+
+:hole:
+	:name:
+		Hole
+
+	:tile_name:
+		Hole Tile
+
+	:description:
+		Counts as a space; can be used to submit multiple words.
+
+	:exclusive_with:
+		{:space_statuses:}
+
+	:flags:
+		shared space faceless override_default_title spray_exempt priority_99
+
+:screw:
+	:name:
+		Screw
+
+	:tile_name:
+		Screw Tile
+
+	:description:
+		Tile is stuck in place.
+		{:hole/description: if screw_turns|balance.screw_turns 0}{:screw_description: not screw_turns|balance.screw_turns 0}
+
+	:screw_description:
+		Will become a space {:in_x_turns: with turns screw_turns|balance.screw_turns}.
+
+	:exclusive_with:
+		{:space_statuses:}
+
+	:flags:
+		prevents_falling shared faceless override_default_title spray_exempt priority_99
+
+# Non-status effects
+:wildcard:
+	:name:
+		Wildcard
+
+	:description:
+		Wildcards are always the strongest letter possible.
+		{:wildcard_chance_description: if show_wildcard_chance}
+
+	:wildcard_chance_description:
+		Spelling longer words increases the odds of wildcards appearing.
+
+:number:
+	:name:
+		Number
+
+	:description:
+		{:specific_description: if number}
+		{:generic_description: not number}
+
+	:specific_description:
+		{number} can be used as {letters list_or upper}.
+
+	:generic_description:
+		Numbers can be used as any letter found on their phone key.
+		Numbers are always the strongest letter possible.
+
+:suit:
+	:name:
+		Suit
+
+	:description:
+		Suits are wildcards.
+		Suits of the same kind in the same word must be the same letter.
+
+:slashed:
+	:name:
+		Slashed
+
+	:description:
+		{:specific_description: if faces}
+		{:generic_description: not faces}
+
+	:specific_description:
+		Can be used as either {faces list_or upper}.
+
+	:generic_description:
+		Can be used as one of two letters.
+
+
+:shimmering:
+	:name:
+		Shimmering
+
+	:description:
+		Tile has multiple faces.
+		Every permutation of faces must form a word.
+
+:bigram:
+	:name:
+		Bigram
+
+:trigram:
+	:name:
+		Trigram
+
+:suffix:
+	:name:
+		Suffix

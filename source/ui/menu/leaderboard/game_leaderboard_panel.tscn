@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://8fu0r542p7ev"]
+
+[ext_resource type="PackedScene" uid="uid://cs52ap4sy0spu" path="res://source/ui/menu/generic/big_menu_panel_top.tscn" id="1"]
+[ext_resource type="Script" uid="uid://d2ys65xp12ly4" path="res://source/ui/menu/leaderboard/leaderboard_menu.gd" id="2"]
+[ext_resource type="PackedScene" uid="uid://xip12qolvf62" path="res://source/ui/menu/leaderboard/leaderboard.tscn" id="3"]
+
+[node name="LeaderboardPanel" unique_id=508888732 instance=ExtResource("1")]
+focus_mode = 2
+script = ExtResource("2")
+
+[node name="Panel" parent="PositionRoot" parent_id_path=PackedInt32Array(1793859846) index="0" unique_id=1955025572]
+offset_left = 112.0
+offset_right = 369.0
+
+[node name="Leaderboard" parent="PositionRoot/Panel" index="1" unique_id=1422213164 instance=ExtResource("3")]
+unique_name_in_owner = true
+layout_mode = 1
+top_of_screen_leaderboard = true
+
+[connection signal="start_appearing" from="." to="." method="_on_start_appearing"]
+[connection signal="start_disappearing" from="." to="." method="_on_start_disappearing"]

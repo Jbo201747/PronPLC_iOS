@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://ddx8f3s1ssr7p"]
+
+[ext_resource type="PackedScene" uid="uid://bkxi3xipa3jye" path="res://source/ui/menu/settings/setting.tscn" id="1"]
+
+[node name="Setting" unique_id=607064002 node_paths=PackedStringArray("main_control") instance=ExtResource("1")]
+offset_right = 49.0
+main_control = NodePath("CheckBoxContainer/CheckBox")
+
+[node name="CheckBoxContainer" type="MarginContainer" parent="." index="1" unique_id=955543356]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_constants/margin_top = -4
+theme_override_constants/margin_right = -3
+theme_override_constants/margin_bottom = -5
+
+[node name="CheckBox" type="CheckBox" parent="CheckBoxContainer" index="0" unique_id=1853702022]
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+mouse_filter = 1
+
+[connection signal="toggled" from="CheckBoxContainer/CheckBox" to="." method="_button_toggled"]

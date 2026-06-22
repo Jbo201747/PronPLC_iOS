@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="BGLayers" format=3 uid="uid://6jpqh1iygn3g"]
+
+[ext_resource type="Resource" uid="uid://8sojw4yhuq0s" path="res://data/backgrounds/act_1/sky.tres" id="1"]
+[ext_resource type="Resource" uid="uid://bijcj3eajmuby" path="res://data/backgrounds/act_1/clouds_far.tres" id="2"]
+[ext_resource type="Resource" uid="uid://l10ycymlinio" path="res://data/backgrounds/act_1/clouds_near.tres" id="3"]
+[ext_resource type="Resource" uid="uid://bp475vb8c3k60" path="res://data/backgrounds/act_1/skyline.tres" id="4"]
+[ext_resource type="Resource" uid="uid://lcua1osds5gy" path="res://data/backgrounds/act_1/ground.tres" id="5"]
+[ext_resource type="Resource" uid="uid://dsdcyvysapmaw" path="res://data/backgrounds/act_1/buildings.tres" id="6"]
+[ext_resource type="Resource" uid="uid://cajup5ypw62py" path="res://data/backgrounds/act_1/props_far.tres" id="7"]
+[ext_resource type="Resource" uid="uid://bgrtdchy43ahm" path="res://data/backgrounds/act_1/sidewalk.tres" id="8"]
+[ext_resource type="Script" uid="uid://k1ocv1g3h17l" path="res://source/background/resources/layers.gd" id="9"]
+
+[resource]
+script = ExtResource("9")
+layers = [ExtResource("1"), ExtResource("2"), ExtResource("3"), ExtResource("4"), ExtResource("5"), ExtResource("6"), ExtResource("7"), ExtResource("8")]
+metadata/_custom_type_script = "uid://k1ocv1g3h17l"

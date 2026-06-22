@@ -1,0 +1,137 @@
+[gd_scene format=3 uid="uid://kjvf7kso7d3l"]
+
+[ext_resource type="Script" uid="uid://cdy4d3ygnlv5x" path="res://source/enemies/sprites/generic_sprite.gd" id="1"]
+[ext_resource type="PackedScene" uid="uid://d1yvwgkpq0i42" path="res://source/library/ref_marker.tscn" id="2"]
+[ext_resource type="PackedScene" uid="uid://cwgxm2sx00xxq" path="res://source/characters/sprites/lexicographer_sprite.tscn" id="3"]
+[ext_resource type="Texture2D" uid="uid://bysvu0b5uhoi7" path="res://arte/enemies/elmer_broadcasters.png" id="4"]
+
+[sub_resource type="Animation" id="Animation_32iy8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-160, -25)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-25, -39)]
+}
+
+[sub_resource type="Animation" id="Animation_xp73w"]
+resource_name = "attack_coffee"
+length = 3.0
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [2, 3, 2]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:offset")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 2.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(9, -47), Vector2(-25, -39), Vector2(9, -47)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.79999995, 1, 1.05, 1.1, 1.15, 1.2, 1.3000001, 2.1, 2.5, 2.6000001, 3),
+"transitions": PackedFloat32Array(0.20306328, 0, 1, 1, 1, 1, 1, 1, 0.31864014, 1, 0.3077861, 0.20306328),
+"update": 0,
+"values": [Vector2(-160, -25), Vector2(68, -25), Vector2(68, -7), Vector2(66, -7), Vector2(70, -7), Vector2(67, -7), Vector2(69, -7), Vector2(68, -7), Vector2(68, -7), Vector2(76, -25), Vector2(76, -25), Vector2(-160, -25)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.8, 1, 1.1, 1.3, 1.6999999, 1.9, 2.1, 2.2999997),
+"transitions": PackedFloat32Array(1, 0, 0.35355353, 0.35355353, 1, 0.35355338, 0.3077861, 0.35355353, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1), Vector2(1.1, 0.9), Vector2(0.95, 1.05), Vector2(1, 1), Vector2(1, 1), Vector2(1.05, 0.95), Vector2(0.9, 1.1), Vector2(1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprite:z_index")
+tracks/4/interp = 0
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1, 2.1000001),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0, 10, 0]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": ["hit"],
+"method": &"emit_signal"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vvh3n"]
+_data = {
+&"RESET": SubResource("Animation_32iy8"),
+&"attack_coffee": SubResource("Animation_xp73w")
+}
+
+[node name="BroadcasterSprite" type="Node2D" unique_id=759473502]
+script = ExtResource("1")
+
+[node name="RefMarker" parent="." unique_id=762703987 instance=ExtResource("2")]
+modulate = Color(1, 1, 1, 0.36078432)
+
+[node name="WinstonSprite" parent="RefMarker" unique_id=2086834665 instance=ExtResource("3")]
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=1807591379]
+position = Vector2(-160, -25)
+texture = ExtResource("4")
+offset = Vector2(-25, -39)
+hframes = 2
+vframes = 2
+frame = 2
+
+[node name="AnimPlayer" type="AnimationPlayer" parent="." unique_id=509193744]
+libraries/ = SubResource("AnimationLibrary_vvh3n")

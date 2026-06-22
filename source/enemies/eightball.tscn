@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bwifl4spo41h6"]
+
+[ext_resource type="PackedScene" uid="uid://cbdk6hv7wu8im" path="res://source/battle_unit/enemy.tscn" id="1"]
+[ext_resource type="Script" uid="uid://lkgeg7u5r3hv" path="res://source/enemies/eightball.gd" id="2"]
+[ext_resource type="PackedScene" uid="uid://d3m5c0nog7xyo" path="res://source/enemies/sprites/eightball_sprite.tscn" id="3"]
+
+[node name="Eightball" unique_id=908589735 instance=ExtResource("1")]
+script = ExtResource("2")
+
+[node name="Sprite" parent="." index="0" unique_id=252273527 instance=ExtResource("3")]

@@ -1,0 +1,147 @@
+[gd_scene format=3 uid="uid://cah4ixgylwv8h"]
+
+[ext_resource type="Script" uid="uid://benvexrxjxwoh" path="res://source/ui/menu/stats/spell_stats_entry.gd" id="1"]
+[ext_resource type="PackedScene" uid="uid://b8wqs3a6tthoa" path="res://source/spell/spell_sprite.tscn" id="2"]
+[ext_resource type="Script" uid="uid://cfpkpmdehkp8u" path="res://source/ui/generic/shadow_cloner.gd" id="3"]
+[ext_resource type="PackedScene" uid="uid://dgtvtcn5lo1dl" path="res://source/ui/tooltip/menu_tooltip_collision.tscn" id="4"]
+[ext_resource type="Script" uid="uid://7xvadspst3p5" path="res://source/ui/generic/hover_handler.gd" id="5"]
+[ext_resource type="PackedScene" uid="uid://cygwfgm3xai0o" path="res://source/ui/menu/stats/spell_stat.tscn" id="6"]
+[ext_resource type="PackedScene" uid="uid://b685c0jjbaral" path="res://source/ui/menu/generic/menu_icon.tscn" id="7"]
+[ext_resource type="Texture2D" uid="uid://bvefh4muoc433" path="res://arte/ui/floppy_disks.png" id="8"]
+
+[node name="SpellStatsEntry" type="Control" unique_id=316895796]
+custom_minimum_size = Vector2(210, 40)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 180.0
+offset_bottom = 36.0
+size_flags_horizontal = 0
+mouse_filter = 2
+script = ExtResource("1")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1246853795]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_right = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=431448349]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 8
+
+[node name="Spell" type="Control" parent="MarginContainer/HBoxContainer" unique_id=359346540]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+
+[node name="SpellSprite" parent="MarginContainer/HBoxContainer/Spell" unique_id=1448247384 instance=ExtResource("2")]
+unique_name_in_owner = true
+
+[node name="ShadowCloner" type="Node2D" parent="MarginContainer/HBoxContainer/Spell/SpellSprite" unique_id=525176318 node_paths=PackedStringArray("clone_offset")]
+position = Vector2(2, 2)
+script = ExtResource("3")
+clone_offset = NodePath("..")
+local_shadow = true
+use_solid_shadow = true
+awaiting_reparent = true
+solid_shadow_color = Color(0.8235294, 0.60784316, 0.60784316, 1)
+metadata/_custom_type_script = "uid://cfpkpmdehkp8u"
+
+[node name="MenuTooltipCollision" parent="MarginContainer/HBoxContainer/Spell" unique_id=1758529479 instance=ExtResource("4")]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+position_offset = Vector2(0, -1)
+
+[node name="HoverHandler" type="Node2D" parent="MarginContainer/HBoxContainer/Spell" unique_id=2122157369 node_paths=PackedStringArray("hovering", "source")]
+script = ExtResource("5")
+hovering = NodePath("../SpellSprite")
+source = NodePath("../MenuTooltipCollision")
+hovered_position = Vector2(0, -2)
+use_focus = false
+metadata/_custom_type_script = "uid://7xvadspst3p5"
+
+[node name="StatsContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=479594668]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/StatsContainer" unique_id=622249557]
+layout_mode = 2
+theme_override_constants/margin_top = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/StatsContainer/MarginContainer" unique_id=1305632516]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/StatsContainer/MarginContainer/VBoxContainer" unique_id=348366546]
+layout_mode = 2
+
+[node name="Taken" parent="MarginContainer/HBoxContainer/StatsContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=301375696 instance=ExtResource("6")]
+unique_name_in_owner = true
+layout_mode = 2
+string_identifier = "menu/stats/times_taken"
+stat_text = "99999"
+
+[node name="Used" parent="MarginContainer/HBoxContainer/StatsContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1828464388 instance=ExtResource("6")]
+unique_name_in_owner = true
+layout_mode = 2
+frame = 2
+string_identifier = "menu/stats/times_used"
+stat_text = "99999"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/HBoxContainer/StatsContainer/MarginContainer/VBoxContainer" unique_id=443700322]
+layout_mode = 2
+
+[node name="Found" parent="MarginContainer/HBoxContainer/StatsContainer/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=2040090450 instance=ExtResource("6")]
+unique_name_in_owner = true
+layout_mode = 2
+frame = 1
+string_identifier = "menu/stats/times_found"
+stat_text = "99999"
+
+[node name="Wins" parent="MarginContainer/HBoxContainer/StatsContainer/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=2041250804 instance=ExtResource("6")]
+unique_name_in_owner = true
+layout_mode = 2
+frame = 3
+string_identifier = "menu/stats/times_won_with"
+stat_text = "99999"
+
+[node name="MaxDifficultyContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/StatsContainer" unique_id=302479519]
+layout_mode = 2
+
+[node name="MaxDifficulty" parent="MarginContainer/HBoxContainer/StatsContainer/MaxDifficultyContainer" unique_id=7840853 instance=ExtResource("7")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_vertical = 4
+mouse_filter = 1
+texture = ExtResource("8")
+hv_frames = Vector2i(4, 3)
+string_identifier = "menu/stats/highest_difficulty"
+tooltip_position_offset = Vector2(0, 0)
+shadow_offset = Vector2(2, 2)
+
+[node name="HoverHandler" type="Node2D" parent="MarginContainer/HBoxContainer/StatsContainer/MaxDifficultyContainer" unique_id=1869675202 node_paths=PackedStringArray("hovering", "source")]
+script = ExtResource("5")
+hovering = NodePath("../MaxDifficulty/Sprite2D")
+source = NodePath("../MaxDifficulty")
+hovered_position = Vector2(0, -2)
+use_focus = false
+metadata/_custom_type_script = "uid://7xvadspst3p5"

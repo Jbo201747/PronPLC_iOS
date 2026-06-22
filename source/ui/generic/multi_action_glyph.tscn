@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://obask3ap26rq"]
+
+[ext_resource type="Script" uid="uid://dc18gsgs0u0df" path="res://source/ui/generic/multi_action_glyph.gd" id="1"]
+
+[node name="MultiActionGlyph" type="HBoxContainer" unique_id=381215235]
+size_flags_vertical = 4
+theme_override_constants/separation = 4
+script = ExtResource("1")

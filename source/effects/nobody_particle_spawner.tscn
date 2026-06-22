@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cftph66yvd5kx"]
+
+[ext_resource type="Script" uid="uid://c43b36trq315o" path="res://source/effects/nobody_particle_spawner.gd" id="1"]
+
+[node name="NobodyParticleSpawner" type="Node2D" unique_id=409579937]
+script = ExtResource("1")

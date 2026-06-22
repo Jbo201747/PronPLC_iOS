@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://0jtwnmxskvto"]
+
+[ext_resource type="PackedScene" uid="uid://cbdk6hv7wu8im" path="res://source/battle_unit/enemy.tscn" id="1"]
+[ext_resource type="Script" uid="uid://jqij2d7da253" path="res://source/enemies/elmer.gd" id="2"]
+[ext_resource type="PackedScene" uid="uid://vi1w557j2105" path="res://source/enemies/sprites/elmer_sprite.tscn" id="3"]
+
+[node name="Elmer" unique_id=1449444735 instance=ExtResource("1")]
+script = ExtResource("2")
+
+[node name="Sprite" parent="." index="0" unique_id=864232547 instance=ExtResource("3")]

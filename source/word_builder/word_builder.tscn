@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://pofaiw6s2usv"]
+
+[ext_resource type="Script" uid="uid://bd8faqqg6vx35" path="res://source/word_builder/word_builder.gd" id="1"]
+[ext_resource type="PackedScene" uid="uid://ck3560dnn7g4p" path="res://source/word_builder/word_hint.tscn" id="2"]
+[ext_resource type="PackedScene" uid="uid://dt1pe1c84u2cl" path="res://source/word_builder/new_word.tscn" id="3"]
+[ext_resource type="PackedScene" uid="uid://bq10vbs3au1dg" path="res://source/word_builder/word_holder.tscn" id="4"]
+[ext_resource type="PackedScene" uid="uid://4phvrwykdbp8" path="res://source/word_builder/tile_slot.tscn" id="5"]
+[ext_resource type="PackedScene" uid="uid://he4ysnrw8fiq" path="res://source/ui/intents/intent_container.tscn" id="6"]
+
+[node name="WordBuilder" type="Node2D" unique_id=1580033577]
+position = Vector2(240, 58)
+script = ExtResource("1")
+
+[node name="WordHint" parent="." unique_id=1180338209 instance=ExtResource("2")]
+unique_name_in_owner = true
+visible = false
+offset_top = -24.0
+offset_bottom = -24.0
+
+[node name="NewWord" parent="." unique_id=652600080 instance=ExtResource("3")]
+unique_name_in_owner = true
+
+[node name="WordHolder" parent="." unique_id=65437081 instance=ExtResource("4")]
+slot_scene = ExtResource("5")
+
+[node name="IntentContainer" parent="." unique_id=390340618 instance=ExtResource("6")]
+position = Vector2(0, 30)
+sort_intents = true
+fade_with_minigame = true
+
+[node name="IntentHighPosition" type="Marker2D" parent="." unique_id=876562137]
+unique_name_in_owner = true
+position = Vector2(0, -30)
+
+[connection signal="updated" from="WordHolder" to="." method="_on_word_holder_updated"]
+[connection signal="updated_tiles" from="WordHolder" to="." method="_on_word_holder_updated_tiles"]

@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://d4bc230sm4m70"]
+
+[ext_resource type="PackedScene" uid="uid://cbdk6hv7wu8im" path="res://source/battle_unit/enemy.tscn" id="1"]
+[ext_resource type="Script" uid="uid://do2wkluggjoed" path="res://source/enemies/age_regressor.gd" id="2"]
+[ext_resource type="PackedScene" uid="uid://f1vt4lnk0hf0" path="res://source/enemies/sprites/age_regressor_sprite.tscn" id="3"]
+
+[node name="AgeRegressor" unique_id=201606631 instance=ExtResource("1")]
+script = ExtResource("2")
+
+[node name="Sprite" parent="." index="0" unique_id=2001352075 instance=ExtResource("3")]

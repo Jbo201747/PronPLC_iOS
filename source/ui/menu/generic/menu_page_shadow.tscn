@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://dat3nkol372xh"]
+
+[ext_resource type="Script" uid="uid://hoi7hiqibdfo" path="res://source/ui/menu/generic/menu_page_shadow.gd" id="1"]
+
+[node name="ShadowCloner" type="Node2D" unique_id=255702735]
+script = ExtResource("1")
+local_shadow = true
+use_solid_shadow = true
+solid_shadow_color = Color(0.76862746, 0.6313726, 0.6313726, 1)
+metadata/_custom_type_script = "uid://cfpkpmdehkp8u"

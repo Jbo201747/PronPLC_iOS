@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://k0niwxtth6ss"]
+
+[ext_resource type="PackedScene" uid="uid://0omgegt2hi2e" path="res://source/enemies/sprites/liquid_human_sprite.tscn" id="1"]
+[ext_resource type="Texture2D" uid="uid://c6a4k8bs4k6w7" path="res://arte/enemies/proto_cop.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://1sfufxvaofpa" path="res://arte/enemies/proto_cop_eyes.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://c8o8kbyl0xxrs" path="res://arte/enemies/proto_cop_blood.png" id="4"]
+
+[node name="ProtoCopSprite" unique_id=1689162421 instance=ExtResource("1")]
+
+[node name="Sprite" parent="." index="1" unique_id=1320405828]
+texture = ExtResource("2")
+
+[node name="LeftEye" parent="Sprite" index="0" unique_id=908685887]
+texture = ExtResource("3")
+
+[node name="RightEye" parent="Sprite" index="1" unique_id=190605050]
+texture = ExtResource("3")
+
+[node name="Blood" parent="Sprite" index="3" unique_id=463846514]
+texture = ExtResource("4")

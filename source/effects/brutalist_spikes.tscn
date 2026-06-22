@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://duqwqpmuxttew"]
+
+[ext_resource type="PackedScene" uid="uid://hx32hhqwtvrq" path="res://source/effects/brutalist_spike.tscn" id="1"]
+
+[sub_resource type="Animation" id="Animation_k4gs5"]
+resource_name = "spike_wave"
+length = 1.8
+step = 0.1
+tracks/0/type = "animation"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BrutalistSpike/AnimPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": PackedStringArray("spike"),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "animation"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BrutalistSpike2/AnimPlayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": PackedStringArray("spike"),
+"times": PackedFloat32Array(0.2)
+}
+tracks/2/type = "animation"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BrutalistSpike3/AnimPlayer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": PackedStringArray("spike"),
+"times": PackedFloat32Array(0.39999998)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_f5qdh"]
+_data = {
+&"spike_wave": SubResource("Animation_k4gs5")
+}
+
+[node name="BrutalistSpikes" type="Node2D" unique_id=753865029]
+
+[node name="BrutalistSpike" parent="." unique_id=88822253 instance=ExtResource("1")]
+position = Vector2(24, 0)
+
+[node name="BrutalistSpike2" parent="." unique_id=797966344 instance=ExtResource("1")]
+position = Vector2(0, 0)
+
+[node name="BrutalistSpike3" parent="." unique_id=241052606 instance=ExtResource("1")]
+position = Vector2(-24, 0)
+
+[node name="AnimPlayer" type="AnimationPlayer" parent="." unique_id=957222109]
+libraries/ = SubResource("AnimationLibrary_f5qdh")
+
+[editable path="BrutalistSpike"]
+[editable path="BrutalistSpike2"]
+[editable path="BrutalistSpike3"]

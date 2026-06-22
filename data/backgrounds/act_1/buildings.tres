@@ -1,0 +1,109 @@
+[gd_resource type="Resource" script_class="BGLayer" format=3 uid="uid://dsdcyvysapmaw"]
+
+[ext_resource type="Script" uid="uid://cgt3v7pqo2f3s" path="res://source/background/resources/group.gd" id="1"]
+[ext_resource type="PackedScene" uid="uid://c1skdfcsc33ou" path="res://source/background/chunks/act_1/connectors/rubble_1.tscn" id="2"]
+[ext_resource type="Script" uid="uid://eanwv1abiw6y" path="res://source/background/resources/chunk_entry.gd" id="3"]
+[ext_resource type="Script" uid="uid://4xnkv17k7r2u" path="res://source/background/resources/pattern.gd" id="4"]
+[ext_resource type="Script" uid="uid://dyac22bllw18l" path="res://source/background/resources/group_entry.gd" id="5"]
+[ext_resource type="Script" uid="uid://bgl3ksyduwsya" path="res://source/background/resources/subpattern_entry.gd" id="6"]
+[ext_resource type="Script" uid="uid://bio02cenhh5hr" path="res://source/background/resources/pattern_step.gd" id="7"]
+[ext_resource type="Script" uid="uid://dkmj8b7llyv41" path="res://source/background/resources/layer.gd" id="8"]
+
+[sub_resource type="Resource" id="Resource_f3rjf"]
+script = ExtResource("1")
+id = "buildings"
+chunk_scene_folder = "res://source/background/chunks/act_1/buildings"
+default_repeat_delay = 1
+metadata/_custom_type_script = "uid://cgt3v7pqo2f3s"
+
+[sub_resource type="Resource" id="Resource_uf3ks"]
+script = ExtResource("1")
+id = "suburb_buildings"
+chunk_scene_folder = "res://source/background/chunks/act_1/suburb_buildings"
+default_repeat_delay = 1
+metadata/_custom_type_script = "uid://cgt3v7pqo2f3s"
+
+[sub_resource type="Resource" id="Resource_k060a"]
+script = ExtResource("3")
+chunk = ExtResource("2")
+weight = 0.5
+repeat_delay = 2
+metadata/_custom_type_script = "uid://eanwv1abiw6y"
+
+[sub_resource type="Resource" id="Resource_hjwk3"]
+script = ExtResource("1")
+id = "connectors"
+entries = [SubResource("Resource_k060a")]
+chunk_scene_folder = "res://source/background/chunks/act_1/connectors"
+default_repeat_delay = 1
+metadata/_custom_type_script = "uid://cgt3v7pqo2f3s"
+
+[sub_resource type="Resource" id="Resource_vy6mh"]
+script = ExtResource("5")
+id = "buildings"
+weight = 0.6
+metadata/_custom_type_script = "uid://dyac22bllw18l"
+
+[sub_resource type="Resource" id="Resource_7dwng"]
+script = ExtResource("6")
+id = "suburb"
+weight = 0.4
+repeat_delay = 1
+metadata/_custom_type_script = "uid://bgl3ksyduwsya"
+
+[sub_resource type="Resource" id="Resource_a8585"]
+script = ExtResource("7")
+entries = [SubResource("Resource_vy6mh"), SubResource("Resource_7dwng")]
+metadata/_custom_type_script = "uid://bio02cenhh5hr"
+
+[sub_resource type="Resource" id="Resource_vehpi"]
+script = ExtResource("5")
+id = "connectors"
+metadata/_custom_type_script = "uid://dyac22bllw18l"
+
+[sub_resource type="Resource" id="Resource_klt1f"]
+script = ExtResource("7")
+entries = [SubResource("Resource_vehpi")]
+metadata/_custom_type_script = "uid://bio02cenhh5hr"
+
+[sub_resource type="Resource" id="Resource_gdkkl"]
+script = ExtResource("4")
+id = "loop"
+next = "loop"
+steps = [SubResource("Resource_a8585"), SubResource("Resource_klt1f")]
+metadata/_custom_type_script = "uid://4xnkv17k7r2u"
+
+[sub_resource type="Resource" id="Resource_0mciu"]
+script = ExtResource("5")
+id = "buildings"
+metadata/_custom_type_script = "uid://dyac22bllw18l"
+
+[sub_resource type="Resource" id="Resource_t6f77"]
+script = ExtResource("5")
+id = "suburb_buildings"
+repeat_delay = 1
+metadata/_custom_type_script = "uid://dyac22bllw18l"
+
+[sub_resource type="Resource" id="Resource_jnurl"]
+script = ExtResource("7")
+entries = [SubResource("Resource_0mciu"), SubResource("Resource_t6f77")]
+repeat_count = {
+2: 0.6,
+3: 0.4
+}
+metadata/_custom_type_script = "uid://bio02cenhh5hr"
+
+[sub_resource type="Resource" id="Resource_c648g"]
+script = ExtResource("4")
+id = "suburb"
+steps = [SubResource("Resource_jnurl")]
+metadata/_custom_type_script = "uid://4xnkv17k7r2u"
+
+[resource]
+script = ExtResource("8")
+z_index = -50
+motion_scale = 0.9
+extra_deadzone = 50
+groups = [SubResource("Resource_f3rjf"), SubResource("Resource_uf3ks"), SubResource("Resource_hjwk3")]
+patterns = [SubResource("Resource_gdkkl"), SubResource("Resource_c648g")]
+metadata/_custom_type_script = "uid://dkmj8b7llyv41"

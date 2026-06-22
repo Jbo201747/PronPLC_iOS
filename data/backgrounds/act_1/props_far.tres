@@ -1,0 +1,237 @@
+[gd_resource type="Resource" script_class="BGLayer" format=3 uid="uid://cajup5ypw62py"]
+
+[ext_resource type="Script" uid="uid://cgt3v7pqo2f3s" path="res://source/background/resources/group.gd" id="1"]
+[ext_resource type="Script" uid="uid://dyac22bllw18l" path="res://source/background/resources/group_entry.gd" id="2"]
+[ext_resource type="Script" uid="uid://4xnkv17k7r2u" path="res://source/background/resources/pattern.gd" id="3"]
+[ext_resource type="Script" uid="uid://bgl3ksyduwsya" path="res://source/background/resources/subpattern_entry.gd" id="4"]
+[ext_resource type="Script" uid="uid://bio02cenhh5hr" path="res://source/background/resources/pattern_step.gd" id="5"]
+[ext_resource type="Script" uid="uid://dg2sbx0ywm212" path="res://source/background/resources/empty_entry.gd" id="6"]
+[ext_resource type="Script" uid="uid://dkmj8b7llyv41" path="res://source/background/resources/layer.gd" id="7"]
+
+[sub_resource type="Resource" id="Resource_jw0yb"]
+script = ExtResource("1")
+id = "grass"
+chunk_scene_folder = "res://source/background/chunks/act_1/props/grass"
+default_repeat_delay = 2
+metadata/_custom_type_script = "uid://cgt3v7pqo2f3s"
+
+[sub_resource type="Resource" id="Resource_6jpj7"]
+script = ExtResource("1")
+id = "dandelions"
+chunk_scene_folder = "res://source/background/chunks/act_1/props/dandelions"
+metadata/_custom_type_script = "uid://cgt3v7pqo2f3s"
+
+[sub_resource type="Resource" id="Resource_eybdx"]
+script = ExtResource("1")
+id = "dandelions_big"
+chunk_scene_folder = "res://source/background/chunks/act_1/props/dandelions_big"
+metadata/_custom_type_script = "uid://cgt3v7pqo2f3s"
+
+[sub_resource type="Resource" id="Resource_6tkys"]
+script = ExtResource("2")
+id = "dandelions"
+weight = 0.65
+metadata/_custom_type_script = "uid://dyac22bllw18l"
+
+[sub_resource type="Resource" id="Resource_du6g7"]
+script = ExtResource("2")
+id = "dandelions_big"
+weight = 0.35
+metadata/_custom_type_script = "uid://dyac22bllw18l"
+
+[sub_resource type="Resource" id="Resource_bh4ce"]
+script = ExtResource("1")
+id = "sporadic_dandelions"
+entries = [SubResource("Resource_6tkys"), SubResource("Resource_du6g7")]
+metadata/_custom_type_script = "uid://cgt3v7pqo2f3s"
+
+[sub_resource type="Resource" id="Resource_iwlvh"]
+script = ExtResource("2")
+id = "grass"
+weight = 4.0
+metadata/_custom_type_script = "uid://dyac22bllw18l"
+
+[sub_resource type="Resource" id="Resource_e3naa"]
+script = ExtResource("2")
+id = "dandelions"
+repeat_delay = 3
+metadata/_custom_type_script = "uid://dyac22bllw18l"
+
+[sub_resource type="Resource" id="Resource_rnfhb"]
+script = ExtResource("1")
+id = "tuft"
+entries = [SubResource("Resource_iwlvh"), SubResource("Resource_e3naa")]
+metadata/_custom_type_script = "uid://cgt3v7pqo2f3s"
+
+[sub_resource type="Resource" id="Resource_674uc"]
+script = ExtResource("4")
+id = "dandelion_field"
+repeat_delay = 15
+metadata/_custom_type_script = "uid://bgl3ksyduwsya"
+
+[sub_resource type="Resource" id="Resource_uyp2e"]
+script = ExtResource("4")
+id = "grass_clump"
+weight = 9.5
+metadata/_custom_type_script = "uid://bgl3ksyduwsya"
+
+[sub_resource type="Resource" id="Resource_xiuqr"]
+script = ExtResource("2")
+id = "tuft"
+weight = 9.5
+metadata/_custom_type_script = "uid://dyac22bllw18l"
+
+[sub_resource type="Resource" id="Resource_7msgq"]
+script = ExtResource("5")
+entries = [SubResource("Resource_674uc"), SubResource("Resource_uyp2e"), SubResource("Resource_xiuqr")]
+metadata/_custom_type_script = "uid://bio02cenhh5hr"
+
+[sub_resource type="Resource" id="Resource_ftu0r"]
+script = ExtResource("6")
+minimum_distance = 25
+maximum_distance = 80
+metadata/_custom_type_script = "uid://dg2sbx0ywm212"
+
+[sub_resource type="Resource" id="Resource_ye8lq"]
+script = ExtResource("5")
+entries = [SubResource("Resource_ftu0r")]
+metadata/_custom_type_script = "uid://bio02cenhh5hr"
+
+[sub_resource type="Resource" id="Resource_4eadq"]
+script = ExtResource("3")
+id = "loop"
+next = "loop"
+steps = [SubResource("Resource_7msgq"), SubResource("Resource_ye8lq")]
+metadata/_custom_type_script = "uid://4xnkv17k7r2u"
+
+[sub_resource type="Resource" id="Resource_tov5u"]
+script = ExtResource("4")
+id = "spaced_dandelions"
+randomize_start_and_end = true
+metadata/_custom_type_script = "uid://bgl3ksyduwsya"
+
+[sub_resource type="Resource" id="Resource_jci0m"]
+script = ExtResource("5")
+entries = [SubResource("Resource_tov5u")]
+repeat_count = {
+2: 1.0,
+3: 1.0
+}
+metadata/_custom_type_script = "uid://bio02cenhh5hr"
+
+[sub_resource type="Resource" id="Resource_okasf"]
+script = ExtResource("2")
+id = "dandelions"
+repeat_delay = 1
+metadata/_custom_type_script = "uid://dyac22bllw18l"
+
+[sub_resource type="Resource" id="Resource_ecyce"]
+script = ExtResource("2")
+id = "dandelions_big"
+metadata/_custom_type_script = "uid://dyac22bllw18l"
+
+[sub_resource type="Resource" id="Resource_r64ig"]
+script = ExtResource("5")
+entries = [SubResource("Resource_okasf"), SubResource("Resource_ecyce")]
+repeat_count = {
+3: 1.0
+}
+metadata/_custom_type_script = "uid://bio02cenhh5hr"
+
+[sub_resource type="Resource" id="Resource_7d8la"]
+script = ExtResource("4")
+id = "spaced_dandelions"
+randomize_start_and_end = true
+metadata/_custom_type_script = "uid://bgl3ksyduwsya"
+
+[sub_resource type="Resource" id="Resource_mjp7o"]
+script = ExtResource("5")
+entries = [SubResource("Resource_7d8la")]
+repeat_count = {
+2: 1.0,
+3: 1.0
+}
+metadata/_custom_type_script = "uid://bio02cenhh5hr"
+
+[sub_resource type="Resource" id="Resource_niieu"]
+script = ExtResource("3")
+id = "dandelion_field"
+steps = [SubResource("Resource_jci0m"), SubResource("Resource_r64ig"), SubResource("Resource_mjp7o")]
+metadata/_custom_type_script = "uid://4xnkv17k7r2u"
+
+[sub_resource type="Resource" id="Resource_y7ck2"]
+script = ExtResource("2")
+id = "dandelions"
+metadata/_custom_type_script = "uid://dyac22bllw18l"
+
+[sub_resource type="Resource" id="Resource_nvfs7"]
+script = ExtResource("5")
+entries = [SubResource("Resource_y7ck2")]
+metadata/_custom_type_script = "uid://bio02cenhh5hr"
+
+[sub_resource type="Resource" id="Resource_rmm55"]
+script = ExtResource("6")
+minimum_distance = 4
+maximum_distance = 14
+metadata/_custom_type_script = "uid://dg2sbx0ywm212"
+
+[sub_resource type="Resource" id="Resource_yiqvg"]
+script = ExtResource("5")
+entries = [SubResource("Resource_rmm55")]
+metadata/_custom_type_script = "uid://bio02cenhh5hr"
+
+[sub_resource type="Resource" id="Resource_dw4ta"]
+script = ExtResource("3")
+id = "spaced_dandelions"
+steps = [SubResource("Resource_nvfs7"), SubResource("Resource_yiqvg")]
+metadata/_custom_type_script = "uid://4xnkv17k7r2u"
+
+[sub_resource type="Resource" id="Resource_3fuqa"]
+script = ExtResource("2")
+id = "grass"
+metadata/_custom_type_script = "uid://dyac22bllw18l"
+
+[sub_resource type="Resource" id="Resource_fje5w"]
+script = ExtResource("5")
+entries = [SubResource("Resource_3fuqa")]
+metadata/_custom_type_script = "uid://bio02cenhh5hr"
+
+[sub_resource type="Resource" id="Resource_mtjd2"]
+script = ExtResource("2")
+id = "grass"
+weight = 4.0
+metadata/_custom_type_script = "uid://dyac22bllw18l"
+
+[sub_resource type="Resource" id="Resource_l8mfo"]
+script = ExtResource("2")
+id = "sporadic_dandelions"
+repeat_delay = 2
+metadata/_custom_type_script = "uid://dyac22bllw18l"
+
+[sub_resource type="Resource" id="Resource_yl0cv"]
+script = ExtResource("5")
+entries = [SubResource("Resource_mtjd2"), SubResource("Resource_l8mfo")]
+repeat_count = {
+0: 0.5,
+1: 1.0,
+2: 0.5
+}
+metadata/_custom_type_script = "uid://bio02cenhh5hr"
+
+[sub_resource type="Resource" id="Resource_31uod"]
+script = ExtResource("5")
+entries = [SubResource("Resource_3fuqa")]
+metadata/_custom_type_script = "uid://bio02cenhh5hr"
+
+[sub_resource type="Resource" id="Resource_jdvap"]
+script = ExtResource("3")
+id = "grass_clump"
+steps = [SubResource("Resource_fje5w"), SubResource("Resource_yl0cv"), SubResource("Resource_31uod")]
+metadata/_custom_type_script = "uid://4xnkv17k7r2u"
+
+[resource]
+script = ExtResource("7")
+motion_scale = 0.95
+groups = [SubResource("Resource_jw0yb"), SubResource("Resource_6jpj7"), SubResource("Resource_eybdx"), SubResource("Resource_bh4ce"), SubResource("Resource_rnfhb")]
+patterns = [SubResource("Resource_4eadq"), SubResource("Resource_niieu"), SubResource("Resource_dw4ta"), SubResource("Resource_jdvap")]
+metadata/_custom_type_script = "uid://dkmj8b7llyv41"

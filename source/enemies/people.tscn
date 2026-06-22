@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://q4wn3koeoqce"]
+
+[ext_resource type="PackedScene" uid="uid://cbdk6hv7wu8im" path="res://source/battle_unit/enemy.tscn" id="1"]
+[ext_resource type="Script" uid="uid://birkyrnby4vcg" path="res://source/enemies/people.gd" id="2"]
+[ext_resource type="PackedScene" uid="uid://djaen2qr5hdtv" path="res://source/enemies/sprites/people_sprite.tscn" id="3"]
+
+[node name="People" unique_id=545791712 instance=ExtResource("1")]
+script = ExtResource("2")
+
+[node name="Sprite" parent="." index="0" unique_id=1028349892 instance=ExtResource("3")]

@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://8rcrn0byw6p4"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_qaqr5"]
+color = Color(0.337255, 0.337255, 0.337255, 1)
+grow_begin = 3.0
+grow_end = 3.0
+
+[node name="TooltipSeparator" type="HSeparator" unique_id=1481127888]
+theme_override_styles/separator = SubResource("StyleBoxLine_qaqr5")

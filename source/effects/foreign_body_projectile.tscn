@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://bwne2h477quqc"]
+
+[ext_resource type="PackedScene" uid="uid://cx4qks1p038l5" path="res://source/effects/freezer_projectile.tscn" id="1"]
+[ext_resource type="Texture2D" uid="uid://bks1omyh1pacq" path="res://arte/enemies/foreign_body.png" id="2"]
+
+[sub_resource type="Animation" id="Animation_wqfnh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 3
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_siifn"]
+resource_name = "spin"
+length = 0.4
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0, 3, 2, 1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 3
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.09, 0.1, 0.19, 0.2, 0.29, 0.3, 0.39),
+"transitions": PackedFloat32Array(1, 0, 1, 0, 1, 0, 1, 0),
+"update": 0,
+"values": [0.0, 0.42785382, 0.0, 0.73784226, 0.0, 0.7981386, 0.0, 0.6293734]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6m15l"]
+_data = {
+&"RESET": SubResource("Animation_wqfnh"),
+&"spin": SubResource("Animation_siifn")
+}
+
+[node name="ForeignBodyProjectile" unique_id=20325527 instance=ExtResource("1")]
+
+[node name="Sprite" parent="." index="0" unique_id=356019280]
+texture = ExtResource("2")
+
+[node name="AnimationPlayer" parent="Sprite" index="1" unique_id=1772280241]
+libraries/ = SubResource("AnimationLibrary_6m15l")

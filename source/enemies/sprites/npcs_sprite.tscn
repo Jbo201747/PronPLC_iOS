@@ -1,0 +1,170 @@
+[gd_scene format=3 uid="uid://2e03avgp46y2"]
+
+[ext_resource type="PackedScene" uid="uid://dmg180a1myio" path="res://source/battle_unit/battle_unit_sprite.tscn" id="1"]
+[ext_resource type="Script" uid="uid://nv64w42w2gf7" path="res://source/enemies/sprites/npcs_sprite.gd" id="2"]
+[ext_resource type="PackedScene" uid="uid://dv2uswh8ojwli" path="res://source/enemies/sprites/npc_sprite.tscn" id="3"]
+[ext_resource type="PackedScene" uid="uid://dbsi5yeqgd1hv" path="res://source/library/npc_marker.tscn" id="4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_eomj4"]
+radius = 47.095646
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wmfk5"]
+radius = 38.0
+height = 116.0
+
+[node name="NPCsSprite" unique_id=462475492 instance=ExtResource("1")]
+y_sort_enabled = true
+script = ExtResource("2")
+NPC = ExtResource("3")
+start_still = false
+phonebook_npcs = 3
+
+[node name="Markers3" type="Node2D" parent="." index="0" unique_id=2039632149]
+unique_name_in_owner = true
+visible = false
+y_sort_enabled = true
+
+[node name="NPCMarkerA" parent="Markers3" index="0" unique_id=159163337 instance=ExtResource("4")]
+position = Vector2(-21, 0)
+
+[node name="NPCMarkerB" parent="Markers3" index="1" unique_id=182941137 instance=ExtResource("4")]
+position = Vector2(8, -12)
+
+[node name="NPCMarkerC" parent="Markers3" index="2" unique_id=787488239 instance=ExtResource("4")]
+position = Vector2(29, 5)
+
+[node name="Markers4" type="Node2D" parent="." index="1" unique_id=1273818830]
+unique_name_in_owner = true
+visible = false
+y_sort_enabled = true
+
+[node name="NPCMarkerA" parent="Markers4" index="0" unique_id=939157852 instance=ExtResource("4")]
+position = Vector2(-26, 0)
+
+[node name="NPCMarkerB" parent="Markers4" index="1" unique_id=750585682 instance=ExtResource("4")]
+position = Vector2(3, -16)
+
+[node name="NPCMarkerC" parent="Markers4" index="2" unique_id=1339742966 instance=ExtResource("4")]
+position = Vector2(15, 11)
+
+[node name="NPCMarkerD" parent="Markers4" index="3" unique_id=1977266936 instance=ExtResource("4")]
+position = Vector2(42, -3)
+
+[node name="Markers5" type="Node2D" parent="." index="2" unique_id=781231046]
+unique_name_in_owner = true
+y_sort_enabled = true
+
+[node name="NPCMarkerA" parent="Markers5" index="0" unique_id=785205724 instance=ExtResource("4")]
+position = Vector2(-43, 0)
+
+[node name="NPCMarkerB" parent="Markers5" index="1" unique_id=1721368740 instance=ExtResource("4")]
+position = Vector2(-16, -23)
+
+[node name="NPCMarkerC" parent="Markers5" index="2" unique_id=1572029890 instance=ExtResource("4")]
+position = Vector2(-3, 9)
+
+[node name="NPCMarkerD" parent="Markers5" index="3" unique_id=1689366143 instance=ExtResource("4")]
+position = Vector2(19, -14)
+
+[node name="NPCMarkerE" parent="Markers5" index="4" unique_id=1404557284 instance=ExtResource("4")]
+position = Vector2(47, 2)
+
+[node name="Markers6" type="Node2D" parent="." index="3" unique_id=1309041937]
+unique_name_in_owner = true
+visible = false
+y_sort_enabled = true
+
+[node name="NPCMarkerA" parent="Markers6" index="0" unique_id=388052373 instance=ExtResource("4")]
+position = Vector2(-43, 0)
+
+[node name="NPCMarkerB" parent="Markers6" index="1" unique_id=146540068 instance=ExtResource("4")]
+position = Vector2(-16, -23)
+
+[node name="NPCMarkerC" parent="Markers6" index="2" unique_id=1931263083 instance=ExtResource("4")]
+position = Vector2(-3, 9)
+
+[node name="NPCMarkerD" parent="Markers6" index="3" unique_id=1713194692 instance=ExtResource("4")]
+position = Vector2(22, -20)
+
+[node name="NPCMarkerE" parent="Markers6" index="4" unique_id=808728922 instance=ExtResource("4")]
+position = Vector2(42, 11)
+
+[node name="NPCMarkerF" parent="Markers6" index="5" unique_id=1200920108 instance=ExtResource("4")]
+position = Vector2(60, -14)
+
+[node name="Markers7" type="Node2D" parent="." index="4" unique_id=351938680]
+unique_name_in_owner = true
+visible = false
+y_sort_enabled = true
+
+[node name="NPCMarkerA" parent="Markers7" index="0" unique_id=1863451926 instance=ExtResource("4")]
+position = Vector2(-43, 0)
+
+[node name="NPCMarkerB" parent="Markers7" index="1" unique_id=1168269321 instance=ExtResource("4")]
+position = Vector2(-16, -23)
+
+[node name="NPCMarkerC" parent="Markers7" index="2" unique_id=1864641610 instance=ExtResource("4")]
+position = Vector2(-3, 9)
+
+[node name="NPCMarkerD" parent="Markers7" index="3" unique_id=63726578 instance=ExtResource("4")]
+position = Vector2(18, -14)
+
+[node name="NPCMarkerE" parent="Markers7" index="4" unique_id=168500487 instance=ExtResource("4")]
+position = Vector2(42, 11)
+
+[node name="NPCMarkerF" parent="Markers7" index="5" unique_id=1407648626 instance=ExtResource("4")]
+position = Vector2(42, -34)
+
+[node name="NPCMarkerG" parent="Markers7" index="6" unique_id=385503409 instance=ExtResource("4")]
+position = Vector2(60, -14)
+
+[node name="Markers8" type="Node2D" parent="." index="5" unique_id=12732415]
+unique_name_in_owner = true
+visible = false
+y_sort_enabled = true
+
+[node name="NPCMarkerA" parent="Markers8" index="0" unique_id=1232921737 instance=ExtResource("4")]
+position = Vector2(-57, -5)
+
+[node name="NPCMarkerB" parent="Markers8" index="1" unique_id=724316468 instance=ExtResource("4")]
+position = Vector2(-30, -24)
+
+[node name="NPCMarkerC" parent="Markers8" index="2" unique_id=2126071011 instance=ExtResource("4")]
+position = Vector2(-20, 11)
+
+[node name="NPCMarkerD" parent="Markers8" index="3" unique_id=1479660558 instance=ExtResource("4")]
+position = Vector2(2, -5)
+
+[node name="NPCMarkerE" parent="Markers8" index="4" unique_id=213814911 instance=ExtResource("4")]
+position = Vector2(19, -30)
+
+[node name="NPCMarkerF" parent="Markers8" index="5" unique_id=239490948 instance=ExtResource("4")]
+position = Vector2(32, 10)
+
+[node name="NPCMarkerG" parent="Markers8" index="6" unique_id=812613055 instance=ExtResource("4")]
+position = Vector2(50, -20)
+
+[node name="NPCMarkerH" parent="Markers8" index="7" unique_id=1595412966 instance=ExtResource("4")]
+position = Vector2(66, 4)
+
+[node name="HitMarker" parent="." index="6" unique_id=1651044017]
+position = Vector2(-47, -50)
+
+[node name="IntentMarker" parent="." index="7" unique_id=444731721]
+visible = true
+position = Vector2(0, -97)
+
+[node name="BleedZone" parent="BleedArea" parent_id_path=PackedInt32Array(1768612656) index="0" unique_id=659443964]
+position = Vector2(3, -38)
+shape = SubResource("CircleShape2D_eomj4")
+
+[node name="CollisionShape2D" parent="HoverArea" parent_id_path=PackedInt32Array(1946856293) index="0" unique_id=2067959912]
+visible = true
+position = Vector2(1, -32)
+rotation = -1.5707964
+shape = SubResource("CapsuleShape2D_wmfk5")
+
+[node name="PhonebookPortrait" parent="." index="11" unique_id=512451111]
+anchors_preset = -1
+offset_top = -116.0
+offset_bottom = 24.0

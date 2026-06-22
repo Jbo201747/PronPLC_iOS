@@ -1,0 +1,214 @@
+[gd_scene format=3 uid="uid://c7px2r1c1leo8"]
+
+[ext_resource type="Script" uid="uid://bh4dwo5f2qgif" path="res://source/ui/menu/character_select/seed_button.gd" id="1"]
+[ext_resource type="Script" uid="uid://bofahnrm24rou" path="res://source/ui/generic/action_button.gd" id="2"]
+[ext_resource type="FontFile" uid="uid://cvccxq5uajqkm" path="res://fonts/Suwannaphum-Regular.ttf" id="3"]
+[ext_resource type="Script" uid="uid://d052l8eqsjvtj" path="res://source/ui/generic/restrictable_line_edit.gd" id="4"]
+[ext_resource type="PackedScene" uid="uid://dgtvtcn5lo1dl" path="res://source/ui/tooltip/menu_tooltip_collision.tscn" id="5"]
+[ext_resource type="Script" uid="uid://7xvadspst3p5" path="res://source/ui/generic/hover_handler.gd" id="6"]
+[ext_resource type="Script" uid="uid://cfpkpmdehkp8u" path="res://source/ui/generic/shadow_cloner.gd" id="7"]
+[ext_resource type="PackedScene" uid="uid://d4a7isuy7vbow" path="res://source/ui/generic/action_glyph.tscn" id="8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nnbe4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wb26h"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f3kje"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8dmqw"]
+
+[sub_resource type="Animation" id="Animation_47s4e"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PositionOffset:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_1t167"]
+resource_name = "appear"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PositionOffset:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3),
+"transitions": PackedFloat32Array(0.3077863, 2.0705302, 1),
+"update": 0,
+"values": [Vector2(79, 0), Vector2(-4, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_x7cah"]
+resource_name = "disappear"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PositionOffset:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3),
+"transitions": PackedFloat32Array(0.30778638, 2.070531, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-4, 0), Vector2(78, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_h7i0l"]
+_data = {
+&"RESET": SubResource("Animation_47s4e"),
+&"appear": SubResource("Animation_1t167"),
+&"disappear": SubResource("Animation_x7cah")
+}
+
+[node name="SeedButton" type="Control" unique_id=976048544 node_paths=PackedStringArray("anim", "panel")]
+layout_mode = 3
+anchors_preset = 0
+mouse_filter = 2
+script = ExtResource("1")
+action = &"menu_extra_button"
+anim = NodePath("AnimationPlayer")
+panel = NodePath("PositionOffset/HoverOffset/Panel")
+
+[node name="PositionOffset" type="Control" parent="." unique_id=1008506462]
+anchors_preset = 0
+mouse_filter = 2
+
+[node name="HoverOffset" type="Control" parent="PositionOffset" unique_id=1495411631]
+anchors_preset = 0
+mouse_filter = 2
+
+[node name="Panel" type="Panel" parent="PositionOffset/HoverOffset" unique_id=923176185]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = -78.0
+offset_top = -43.0
+offset_right = 6.0
+mouse_filter = 2
+theme_type_variation = &"MenuTicketRight"
+
+[node name="Button" type="Button" parent="PositionOffset/HoverOffset/Panel" unique_id=1793436904 groups=["weak_focus"]]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_styles/focus = SubResource("StyleBoxEmpty_nnbe4")
+flat = true
+script = ExtResource("2")
+metadata/_custom_type_script = "uid://bofahnrm24rou"
+
+[node name="MarginContainer" type="MarginContainer" parent="PositionOffset/HoverOffset/Panel" unique_id=2076307680]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PositionOffset/HoverOffset/Panel/MarginContainer" unique_id=2111895265]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = -4
+
+[node name="Label" type="Label" parent="PositionOffset/HoverOffset/Panel/MarginContainer/VBoxContainer" unique_id=1110225378]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 1
+theme_type_variation = &"MainMenuLabel"
+text = "Seed"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LineEdit" type="LineEdit" parent="PositionOffset/HoverOffset/Panel/MarginContainer/VBoxContainer" unique_id=1090204515 groups=["weak_focus"]]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_uneditable_color = Color(0, 0, 0, 1)
+theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
+theme_override_colors/font_placeholder_color = Color(0, 0, 0, 0.6)
+theme_override_fonts/font = ExtResource("3")
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxEmpty_wb26h")
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_f3kje")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_8dmqw")
+placeholder_text = "Random"
+alignment = 1
+max_length = 8
+editable = false
+expand_to_text_length = true
+context_menu_enabled = false
+selecting_enabled = false
+drag_and_drop_selection_enabled = false
+flat = true
+select_all_on_focus = true
+script = ExtResource("4")
+character_regex = "[a-fA-F0-9]"
+metadata/_custom_type_script = "uid://d052l8eqsjvtj"
+
+[node name="MenuTooltipCollision" parent="PositionOffset/HoverOffset/Panel" unique_id=1758529479 node_paths=PackedStringArray("focus_source") instance=ExtResource("5")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
+string_identifier = "menu/character_select/disables_unlocks"
+position_offset = Vector2(-4, -4)
+focus_source = NodePath("../Button")
+
+[node name="HoverHandler" type="Node2D" parent="PositionOffset/HoverOffset/Panel" unique_id=1849040054 node_paths=PackedStringArray("hovering", "source")]
+unique_name_in_owner = true
+script = ExtResource("6")
+hovering = NodePath("../..")
+source = NodePath("../Button")
+hovered_position = Vector2(-4, 0)
+pressed_position = Vector2(-2, 0)
+metadata/_custom_type_script = "uid://7xvadspst3p5"
+
+[node name="ShadowCloner" type="Node2D" parent="PositionOffset/HoverOffset/Panel" unique_id=1615992515]
+position = Vector2(2, 2)
+script = ExtResource("7")
+metadata/_custom_type_script = "uid://cfpkpmdehkp8u"
+
+[node name="ActionGlyph" parent="PositionOffset/HoverOffset/Panel" unique_id=1185166845 instance=ExtResource("8")]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 12.0
+offset_bottom = 12.0
+controller_mode_only = true
+with_setting_only = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1205164107]
+callback_mode_process = 0
+libraries/ = SubResource("AnimationLibrary_h7i0l")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]
+[connection signal="focus_entered" from="PositionOffset/HoverOffset/Panel/Button" to="." method="_on_button_focus_entered"]
+[connection signal="pressed" from="PositionOffset/HoverOffset/Panel/Button" to="." method="_on_button_pressed"]
+[connection signal="editing_toggled" from="PositionOffset/HoverOffset/Panel/MarginContainer/VBoxContainer/LineEdit" to="." method="_on_line_edit_editing_toggled"]

@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://gvdlnfp2nyls"]
+
+[ext_resource type="Script" uid="uid://c4pao2u7ykehg" path="res://source/ui/generic/string_key_rich_label.gd" id="1"]
+[ext_resource type="Script" uid="uid://cfpkpmdehkp8u" path="res://source/ui/generic/shadow_cloner.gd" id="2"]
+
+[node name="CreditsHeader" type="RichTextLabel" unique_id=1882271877]
+clip_contents = false
+size_flags_horizontal = 4
+theme_type_variation = &"CutsceneLabel"
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/normal_font_size = 17
+text = "Featuring"
+fit_content = true
+autowrap_mode = 0
+script = ExtResource("1")
+key = "credits/featuring"
+metadata/_custom_type_script = "uid://c4pao2u7ykehg"
+
+[node name="ShadowCloner" type="Node2D" parent="." unique_id=1330003222]
+position = Vector2(2, 2)
+script = ExtResource("2")
+local_shadow_group = true
+metadata/_custom_type_script = "uid://cfpkpmdehkp8u"

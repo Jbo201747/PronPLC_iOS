@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://byt2jeptqejxl"]
+
+[ext_resource type="Texture2D" uid="uid://de1iobl12lqrk" path="res://arte/backgrounds/guidelines.png" id="1"]
+
+[node name="Guidelines" type="Sprite2D" unique_id=1491298912]
+modulate = Color(1, 1, 1, 0.278431)
+texture = ExtResource("1")

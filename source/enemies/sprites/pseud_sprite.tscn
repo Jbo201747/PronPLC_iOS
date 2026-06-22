@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://nqrk3h7ubkc8"]
+
+[ext_resource type="PackedScene" uid="uid://nyr3lu8b1bst" path="res://source/enemies/sprites/xrafstar_sprite.tscn" id="1"]
+[ext_resource type="Texture2D" uid="uid://bubqbhsnouce1" path="res://arte/enemies/pseud.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://brom2lv5nbhkc" path="res://arte/enemies/pseud_tail.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://bpkfu43gpseuq" path="res://arte/enemies/pseud_bile.png" id="4"]
+
+[node name="PseudSprite" unique_id=2078428750 instance=ExtResource("1")]
+
+[node name="Sprite" parent="." index="0" unique_id=415611098]
+texture = ExtResource("2")
+
+[node name="Tail" parent="Sprite" index="0" unique_id=505306615]
+texture = ExtResource("3")
+
+[node name="TailHead" parent="Sprite/Tail" index="0" unique_id=1398639360]
+texture = ExtResource("3")
+
+[node name="Bile" parent="." index="1" unique_id=1144448171]
+texture = ExtResource("4")

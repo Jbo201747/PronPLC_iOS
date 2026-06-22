@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://br3fondn01m2"]
+
+[ext_resource type="PackedScene" uid="uid://1yq1spgaiwea" path="res://source/enemies/sprites/strawman_sprite.tscn" id="1"]
+[ext_resource type="Script" uid="uid://cycgj4x34s7te" path="res://source/enemies/sprites/housebroken_sprite.gd" id="2"]
+[ext_resource type="Texture2D" uid="uid://cxhxglqgd3lpf" path="res://arte/enemies/housebroken.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://bm7u2rd67fnpy" path="res://arte/enemies/housebroken_face.png" id="4"]
+
+[node name="HousebrokenSprite" unique_id=774466444 instance=ExtResource("1")]
+script = ExtResource("2")
+
+[node name="Sprite" parent="." index="0" unique_id=1573879839]
+texture = ExtResource("3")
+
+[node name="ExplosionOverlay" parent="Sprite" index="0" unique_id=1961865988]
+texture = ExtResource("3")
+
+[node name="Face" parent="Sprite/FaceOffset" parent_id_path=PackedInt32Array(1627100311) index="0" unique_id=88521469]
+texture = ExtResource("4")
+hframes = 4

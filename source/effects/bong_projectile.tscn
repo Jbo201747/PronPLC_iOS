@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://b3tgq2npd8udo"]
+
+[ext_resource type="PackedScene" uid="uid://b50yios7hip53" path="res://source/effects/arcing_projectile.tscn" id="1"]
+[ext_resource type="Texture2D" uid="uid://cgeg4qactwr7a" path="res://arte/effects/bong.png" id="2"]
+[ext_resource type="PackedScene" uid="uid://8swa18bv0fn" path="res://source/effects/mist_spawner.tscn" id="3"]
+
+[node name="BongProjectile" unique_id=254422253 instance=ExtResource("1")]
+poof_color = "ASH"
+
+[node name="Sprite" type="Sprite2D" parent="." index="0" unique_id=19266449]
+texture = ExtResource("2")
+
+[node name="MistSpawner" parent="." index="1" unique_id=801080068 instance=ExtResource("3")]
+group = ""

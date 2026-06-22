@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://c5umilei77gjm"]
+
+[ext_resource type="PackedScene" uid="uid://cbdk6hv7wu8im" path="res://source/battle_unit/enemy.tscn" id="1"]
+[ext_resource type="Script" uid="uid://ne3jvshbwpxr" path="res://source/enemies/soppy.gd" id="2"]
+[ext_resource type="PackedScene" uid="uid://cl7cyh3xctpw7" path="res://source/enemies/sprites/soppy_sprite.tscn" id="3"]
+
+[node name="Soppy" unique_id=231569597 instance=ExtResource("1")]
+script = ExtResource("2")
+
+[node name="Sprite" parent="." index="0" unique_id=1574868958 instance=ExtResource("3")]

@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://bjke5cyvno7we"]
+
+[ext_resource type="PackedScene" uid="uid://cufxgdjv27ia3" path="res://source/background/background_chunk.tscn" id="1"]
+[ext_resource type="Script" uid="uid://bk2q8c4y6x1rb" path="res://source/background/chunks/act_3/nobody_variable_carpet.gd" id="2"]
+[ext_resource type="Texture2D" uid="uid://djj1gv8yhb2k1" path="res://arte/backgrounds/act_3/nobody_variable_carpet.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://dgt5rk6tp71bp" path="res://arte/backgrounds/act_3/carpet_2.png" id="4"]
+
+[node name="BackgroundChunk" unique_id=720532691 instance=ExtResource("1")]
+script = ExtResource("2")
+
+[node name="VariableCarpetLeft" type="TextureRect" parent="." index="0" unique_id=831214275 groups=["light_clone", "nobody_darkenable"]]
+unique_name_in_owner = true
+offset_top = 31.0
+offset_right = 36.0
+offset_bottom = 79.0
+mouse_filter = 2
+texture = ExtResource("3")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="CarpetSprite" type="Sprite2D" parent="." index="1" unique_id=1194588068 groups=["light_clone", "nobody_darkenable"]]
+unique_name_in_owner = true
+position = Vector2(36, 31)
+texture = ExtResource("4")
+centered = false
+
+[node name="VariableCarpetRight" type="TextureRect" parent="." index="2" unique_id=1445120035 groups=["light_clone", "nobody_darkenable"]]
+unique_name_in_owner = true
+offset_left = 160.0
+offset_top = 31.0
+offset_right = 196.0
+offset_bottom = 79.0
+mouse_filter = 2
+texture = ExtResource("3")
+expand_mode = 1
+stretch_mode = 1

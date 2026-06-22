@@ -1,0 +1,301 @@
+[gd_scene format=3 uid="uid://d1itq3oy6wgua"]
+
+[ext_resource type="Shader" uid="uid://cdntiauj10va6" path="res://source/tile/hole.gdshader" id="1"]
+[ext_resource type="Texture2D" uid="uid://148kaduvpg0r" path="res://arte/tiles/hole_mask.png" id="2"]
+[ext_resource type="Script" uid="uid://bblq4vp7ma27d" path="res://source/tile/tile.gd" id="3"]
+[ext_resource type="Script" uid="uid://t2qumytdskwu" path="res://source/effects/sway_handler.gd" id="4"]
+[ext_resource type="PackedScene" uid="uid://dskjl26i1vckh" path="res://source/tile/tile_sprite.tscn" id="5"]
+[ext_resource type="Script" uid="uid://css7wg4jshugl" path="res://source/tile/tile_collision.gd" id="6"]
+[ext_resource type="Script" uid="uid://bsc1atfkh653q" path="res://source/ui/generic/drag_handler.gd" id="7"]
+[ext_resource type="PackedScene" uid="uid://xrcrntebt85c" path="res://source/ui/tooltip/tooltip_collision.tscn" id="8"]
+[ext_resource type="Script" uid="uid://7xvadspst3p5" path="res://source/ui/generic/hover_handler.gd" id="9"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vhwo1"]
+resource_local_to_scene = true
+shader = ExtResource("1")
+shader_parameter/viewport_scale = Vector2(0, 0)
+shader_parameter/hole_mask = ExtResource("2")
+
+[sub_resource type="Animation" id="Animation_jm8bo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HoverContainer/SwayHandler/TileSprite:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HoverContainer/SwayHandler/TileSprite:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_gmkm6"]
+resource_name = "bounce"
+length = 0.5
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HoverContainer/SwayHandler/TileSprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.2, 0.4, 0.5),
+"transitions": PackedFloat32Array(0.366022, 0.217638, 2.14355, 0.366021, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 2), Vector2(0, -8), Vector2(0, 2), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_sb0gj"]
+resource_name = "cursed_fish_chomp"
+length = 0.25
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.15, 0.25),
+"transitions": PackedFloat32Array(0.24148414, 0.2679434, 0.27739242, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.9, 1.1), Vector2(1.1, 0.9), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_lvg40"]
+resource_name = "idle"
+
+[sub_resource type="Animation" id="Animation_eb7dv"]
+resource_name = "jitter"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HoverContainer/SwayHandler/TileSprite:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.174533, 0.174533, -0.10472, 0.10472, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_ramxw"]
+resource_name = "pressed"
+length = 0.3
+step = 0.025
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HoverContainer/SwayHandler/TileSprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.15, 0.2, 0.25, 0.3),
+"transitions": PackedFloat32Array(0.287175, 0.112656, 1e-05, 2.14355, 0.366021, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 6), Vector2(0, 4), Vector2(0, -4), Vector2(0, 2), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HoverContainer/SwayHandler/TileSprite:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15),
+"transitions": PackedFloat32Array(0.34151, 2.07053, 0.366022, 1),
+"update": 0,
+"values": [0.0, -0.0872665, 0.0872665, 0.0]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": ["anim_flag"],
+"method": &"emit_signal"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_4oaa1"]
+resource_name = "reroll"
+length = 0.2
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HoverContainer/SwayHandler/TileSprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.15, 0.2),
+"transitions": PackedFloat32Array(0.406126, 0.287175, 3.24901, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(2, 0), Vector2(-1, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_d0d8i"]
+resource_name = "shake"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HoverContainer/SwayHandler/TileSprite:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.214593, 0.208412, -0.0545458, 0.00877496, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HoverContainer/SwayHandler/TileSprite:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_61t6r"]
+_data = {
+&"RESET": SubResource("Animation_jm8bo"),
+&"bounce": SubResource("Animation_gmkm6"),
+&"cursed_fish_chomp": SubResource("Animation_sb0gj"),
+&"idle": SubResource("Animation_lvg40"),
+&"jitter": SubResource("Animation_eb7dv"),
+&"pressed": SubResource("Animation_ramxw"),
+&"reroll": SubResource("Animation_4oaa1"),
+&"shake": SubResource("Animation_d0d8i")
+}
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cupsr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_shmsw"]
+
+[node name="Tile" type="Node2D" unique_id=89225296]
+z_as_relative = false
+material = SubResource("ShaderMaterial_vhwo1")
+script = ExtResource("3")
+
+[node name="HoverContainer" type="Node2D" parent="." unique_id=956049171]
+unique_name_in_owner = true
+
+[node name="SwayHandler" type="Node2D" parent="HoverContainer" unique_id=1465387899]
+unique_name_in_owner = true
+script = ExtResource("4")
+maximum_sway = 25.0
+decay = 0.25
+metadata/_custom_type_script = "uid://t2qumytdskwu"
+
+[node name="TileSprite" parent="HoverContainer/SwayHandler" unique_id=966228048 instance=ExtResource("5")]
+unique_name_in_owner = true
+
+[node name="TileCollision" type="Control" parent="." unique_id=472828401]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = -10.0
+offset_top = -10.0
+offset_right = 10.0
+offset_bottom = 10.0
+focus_mode = 2
+mouse_filter = 1
+script = ExtResource("6")
+
+[node name="DragHandler" type="Control" parent="TileCollision" unique_id=1637292095]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("7")
+drop_group = "tile_droppable"
+metadata/_custom_type_script = "uid://bsc1atfkh653q"
+
+[node name="TooltipCollision" parent="TileCollision" unique_id=742560097 node_paths=PackedStringArray("focus_source") instance=ExtResource("8")]
+unique_name_in_owner = true
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
+active_with_spells = true
+focus_source = NodePath("..")
+metadata/_edit_use_anchors_ = true
+
+[node name="HoverHandler" type="Node2D" parent="." unique_id=697981601 node_paths=PackedStringArray("hovering", "source", "expand_control")]
+unique_name_in_owner = true
+script = ExtResource("9")
+hovering = NodePath("../HoverContainer")
+source = NodePath("../TileCollision")
+expand_control = NodePath("../TileCollision")
+hovered_position = Vector2(0, -5)
+pressed_position = Vector2(0, -2)
+metadata/_custom_type_script = "uid://7xvadspst3p5"
+
+[node name="Animation" type="AnimationPlayer" parent="." unique_id=1388317411]
+libraries/ = SubResource("AnimationLibrary_61t6r")
+
+[node name="LineEdit" type="LineEdit" parent="." unique_id=173370895]
+visible = false
+offset_left = -34.0
+offset_top = -14.0
+offset_right = 36.0625
+offset_bottom = 12.88
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxEmpty_cupsr")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_shmsw")
+alignment = 1
+expand_to_text_length = true
+context_menu_enabled = false
+select_all_on_focus = true
+caret_blink = true
+
+[connection signal="finished_3d" from="HoverContainer/SwayHandler/TileSprite" to="." method="update_z_index"]
+[connection signal="started_3d" from="HoverContainer/SwayHandler/TileSprite" to="." method="update_z_index"]
+[connection signal="drag_released" from="TileCollision/DragHandler" to="." method="_on_drag_handler_drag_released"]
+[connection signal="drag_started" from="TileCollision/DragHandler" to="." method="_on_drag_handler_drag_started"]
+[connection signal="dragged" from="TileCollision/DragHandler" to="." method="_on_drag_handler_dragged"]
+[connection signal="check_generate_tooltip" from="TileCollision/TooltipCollision" to="." method="_on_check_generate_tooltip"]
+[connection signal="generate_tooltip" from="TileCollision/TooltipCollision" to="." method="_on_generate_tooltip"]
+[connection signal="hovered_off" from="TileCollision/TooltipCollision" to="." method="_on_tooltip_collision_hovered_off"]
+[connection signal="hovered_on" from="TileCollision/TooltipCollision" to="." method="_on_tooltip_collision_hovered_on"]
+[connection signal="focus_exited" from="LineEdit" to="." method="_on_line_edit_focus_exited"]
+[connection signal="text_submitted" from="LineEdit" to="." method="_on_line_edit_text_submitted"]

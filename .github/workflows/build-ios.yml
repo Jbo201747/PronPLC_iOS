@@ -1,0 +1,66 @@
+name: Build iOS
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          lfs: true
+
+      - name: Download Godot 4.7
+        run: |
+          wget https://github.com
+          unzip Godot_v4.7-stable_macos.universal.zip -d godot
+          sudo mv godot/Godot.app /Applications/Godot.app
+          sudo ln -s /Applications/Godot.app/Contents/MacOS/Godot /usr/local/bin/godot
+
+      - name: Download Godot 4.7 Export Templates
+        run: |
+          mkdir -p ~/Library/Application\ Support/Godot/export_templates/4.7.stable
+          wget https://github.com
+          
+          tar -xzf Godot_v4.7-stable_export_templates.tpz -C ~/Library/Application\ Support/Godot/export_templates/4.7.stable
+          
+          cd ~/Library/Application\ Support/Godot/export_templates/4.7.stable
+          mv templates/* .
+          rm -rf templates Godot_v4.7-stable_export_templates.tpz
+
+      - name: Create build directory
+        run: mkdir -p build
+
+      - name: Export iOS project
+        run: godot --headless --export-release "iOS" "build/Pronoun Palace.xcodeproj"
+
+      - name: Build iOS project
+        run: |
+          xcodebuild -project "build/Pronoun Palace.xcodeproj" \
+                     -scheme "Pronoun Palace" \
+                     -configuration Development \
+                     -archivePath "build/Pronoun Palace.xcarchive" archive \
+                     CODE_SIGN_IDENTITY="" \
+                     CODE_SIGNING_REQUIRED=NO \
+                     CODE_SIGNING_ALLOWED=NO
+
+      - name: Export IPA
+        run: |
+          cd "build/Pronoun Palace.xcarchive/Products/Applications"
+          mkdir Payload
+          mv "Pronoun Palace.app" Payload/
+          zip -r ../../../App.ipa Payload/
+
+      - name: Upload IPA to GitHub Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: Ipa
+          path: build/App.ipa

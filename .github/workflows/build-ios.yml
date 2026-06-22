@@ -63,7 +63,7 @@ jobs:
                      CODE_SIGN_IDENTITY="" \
                      CODE_SIGNING_REQUIRED=NO \
                      CODE_SIGNING_ALLOWED=NO \
-                     OTHER_LDFLAGS="build/metal_cpp_impl.o -framework Foundation -framework QuartzCore -framework Metal -weak_framework MetalFX"
+                     OTHER_LDFLAGS="metal_cpp_impl.o -framework Foundation -framework QuartzCore -framework Metal -weak_framework MetalFX"
 
       - name: Export IPA
         run: |

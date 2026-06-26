@@ -598,6 +598,8 @@ textures/vram_compression/import_etc2_astc=true
 limits/global_shader_variables/buffer_size=4096
 environment/defaults/default_environment="res://default_env.tres"
 vram_compression/import_etc=true
+rendering_device/driver.ios="vulkan"
+renderer/rendering_method.ios="forward_plus"
 
 [steam]
 

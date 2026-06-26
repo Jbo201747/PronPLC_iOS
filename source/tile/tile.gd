@@ -1374,6 +1374,8 @@ func update_z_index():
 
 func initialize_drag():
  drag_handler.can_drag_func = can_drag
+ if Util.is_mobile():
+  drag_handler.can_drag = false
 
 
 func can_drag():

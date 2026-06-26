@@ -32,6 +32,7 @@ const CENTER_FRAME_VERTICAL = 6
 
 var is_pressed: = false
 var has_mouse: = false
+var mobile_touch_active: = false
 var base_size: Vector2
 var selected_position: Vector2:
  set(value):
@@ -65,6 +66,9 @@ func _on_tile_ready() -> void :
   set_focus_enabled(false)
   tile.hover_handler.stop()
   return
+
+ if Util.is_mobile():
+  mouse_filter = Control.MOUSE_FILTER_STOP
 
  tile.hover_handler.hover_condition = func(): return tile.word_holder_hovered
  tile.hover_handler.pressed_condition = func(): return is_pressed
@@ -112,17 +116,38 @@ func _gui_input(event: InputEvent) -> void :
    accept_event()
    return
 
- if Input.is_action_just_pressed("click_tile"):
+ var press: = false
+ var release: = false
+
+ if Util.is_mobile() and event is InputEventScreenTouch:
+  var local_touch: InputEventScreenTouch = event.duplicate()
+  make_input_local(local_touch)
+  if event.pressed:
+   if get_rect().has_point(local_touch.position):
+    press = true
+    selected_position = local_touch.position.clamp(Vector2.ZERO, base_size)
+  elif mobile_touch_active or is_pressed:
+   release = true
+ elif event.is_action_pressed("click_tile"):
+  press = true
+ elif event.is_action_released("click_tile"):
+  release = true
+
+ if press:
   AudioManager.play_sound(Sounds.UI.TILE_CLICK)
   is_pressed = true
+  mobile_touch_active = Util.is_mobile()
   tile.hover_handler.hover_for_state()
- elif event.is_action_released("click_tile") and is_pressed:
+  accept_event()
+ elif release and (is_pressed or mobile_touch_active):
   is_pressed = false
+  mobile_touch_active = false
   tile.hover_handler.hover_for_state()
   var allow_click: = Util.is_mobile() or ( not InputManager.is_mouse_mode() or has_mouse) or has_focus(true)
   if allow_click:
    if not tile.click_tile():
     tile.play_tile_sound()
+  accept_event()
 
 
 func get_selected_position(center: = true) -> Vector2:
@@ -255,6 +280,7 @@ func _focus_exited() -> void :
  update_selected_region()
  Game.tile_deselected.emit()
  is_pressed = false
+ mobile_touch_active = false
 
 
 func _mouse_entered() -> void :

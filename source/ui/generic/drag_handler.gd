@@ -25,9 +25,14 @@ var can_drag_func: Callable = Callable()
 
 func _ready() -> void :
  InputManager.mouse_position_changed.connect(_on_mouse_position_changed)
+ if Util.is_mobile():
+  can_drag = false
 
 
 func _unhandled_input(event: InputEvent) -> void :
+ if Util.is_mobile():
+  return
+
  if event is not InputEventMouseMotion and not event.is_action("primary_button"):
   return
 
@@ -56,6 +61,9 @@ func _unhandled_input(event: InputEvent) -> void :
 
 
 func _on_mouse_position_changed() -> void :
+ if Util.is_mobile():
+  return
+
  if InputManager.has_non_mouse_focus():
   return
 

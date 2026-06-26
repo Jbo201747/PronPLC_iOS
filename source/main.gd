@@ -265,7 +265,10 @@ func start_run():
     and Game.debug_spawn_enemy == ""
     and Game.difficulty == 0
   ):
-   tutorial.start_tutorial()
+   if Util.is_mobile():
+    SaveManager.get_save().set_viewed_tutorial(true)
+   else:
+    tutorial.start_tutorial()
 
   if Game.new_run_seed != null:
    rng.game.set_seed(Game.new_run_seed)

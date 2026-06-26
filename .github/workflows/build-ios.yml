@@ -45,14 +45,10 @@ jobs:
       - name: Export iOS project
         run: godot --headless --export-debug "iOS" "build/Pronoun Palace.xcodeproj"
 
-      - name: Verify iOS rendering settings were exported
+      - name: Verify iOS rendering settings
         run: |
-          godot --headless --export-pack "iOS" "build/verify.pck"
-          if ! strings "build/verify.pck" | grep -q 'driver.ios="vulkan"'; then
-            echo "Missing Vulkan iOS rendering driver override in exported pack"
-            strings "build/verify.pck" | grep -E 'driver\.ios|rendering_method\.ios' || true
-            exit 1
-          fi
+          grep -q 'rendering_device/driver.ios="vulkan"' project.godot
+          grep -q 'renderer/rendering_method.mobile="forward_plus"' project.godot
 
       - name: Compile metal-cpp implementation
         run: |

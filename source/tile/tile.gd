@@ -1377,6 +1377,9 @@ func initialize_drag():
 
 
 func can_drag():
+ if Util.is_mobile():
+  return false
+
  return (
   not is_preview
   and (state == State.IDLE or state == State.DRAGGING)

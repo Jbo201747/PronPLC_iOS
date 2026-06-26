@@ -100,10 +100,8 @@ var remove_tile_cooldown: float = 0.0
 var removing_tiles: = false
 
 var mobile_touch_tile: Tile = null
+var mobile_tap_pending: = false
 var last_mobile_tile_activation_time: int = 0
-
-const MOBILE_TILE_TAP_RADIUS: float = 14.0
-const MOBILE_SPELL_TAP_RADIUS: float = 36.0
 
 var active_joypad: int = -1
 
@@ -476,55 +474,50 @@ func _sync_pointer_from_touch(event: InputEventScreenTouch) -> void :
  mouse_position_changed.emit()
 
 
-func _get_canvas_pointer_position() -> Vector2:
- if Game.tile_board != null:
-  return Game.tile_board.get_global_mouse_position()
+func _find_tile_from_control(control: Control) -> Tile:
+ var node: Node = control
+ while node != null:
+  if node is TileCollision:
+   return node.tile
+  node = node.get_parent()
 
- var viewport: = get_viewport()
- return viewport.get_canvas_transform().affine_inverse() * viewport.get_mouse_position()
-
-
-func _get_board_tile_at_pointer(max_distance: float = MOBILE_TILE_TAP_RADIUS) -> Tile:
- var pointer: Vector2 = _get_canvas_pointer_position()
- var result: Tile = null
- var closest_distance: float = max_distance
- for tile in Game.tile_board.get_tiles({sorted = true, in_word = false}):
-  var distance: float = tile.global_position.distance_to(pointer)
-  if distance <= closest_distance:
-   closest_distance = distance
-   result = tile
-
- return result
+ return null
 
 
-func _get_player_spell_at_pointer(max_distance: float = MOBILE_SPELL_TAP_RADIUS) -> PlayerSpell:
- if Game.spell_container == null:
+func _find_player_spell_from_control(control: Control) -> PlayerSpell:
+ var node: Node = control
+ while node != null:
+  if node is PlayerSpell:
+   return node
+  node = node.get_parent()
+
+ return null
+
+
+func _get_touched_player_spell() -> PlayerSpell:
+ var hovered: Control = get_viewport().gui_get_hovered_control()
+ if hovered == null:
   return null
 
- var pointer: Vector2 = _get_canvas_pointer_position()
- var result: PlayerSpell = null
- var closest_distance: float = max_distance
- for player_spell in Game.spell_container.player_spells:
-  var distance: float = player_spell.global_position.distance_to(pointer)
-  if distance <= closest_distance:
-   closest_distance = distance
-   result = player_spell
-
- return result
+ return _find_player_spell_from_control(hovered)
 
 
-func _can_activate_board_tile(tile: Tile) -> bool:
- if not Tile.is_tile_valid(tile) or not tile.is_idle():
-  return false
+func _get_touched_board_tile() -> Tile:
+ var hovered: Control = get_viewport().gui_get_hovered_control()
+ if hovered != null:
+  var tile: = _find_tile_from_control(hovered)
+  if tile != null and not tile.in_word():
+   return tile
 
- if Game.player.is_selecting(Game.player.Selection.TILE):
-  return Game.player.passes_selection_condition(tile)
+ var focused: = Tile.get_focused_tile()
+ if focused != null and not focused.in_word():
+  return focused
 
- return Game.main.is_player_turn
+ return null
 
 
 func _activate_board_tile(tile: Tile) -> bool:
- if not _can_activate_board_tile(tile):
+ if tile == null or not Tile.is_tile_valid(tile) or not tile.is_idle():
   return false
 
  var now: = Time.get_ticks_msec()
@@ -538,15 +531,18 @@ func _activate_board_tile(tile: Tile) -> bool:
   if not tile.click_tile():
    tile.play_tile_sound()
  elif Game.player.is_selecting(Game.player.Selection.TILE):
+  if not Game.player.passes_selection_condition(tile):
+   return false
   tile.click_tile()
- else:
+ elif Game.main.is_player_turn:
   Game.word_builder.try_add_tile(tile)
+ else:
+  return false
 
  return true
 
 
-func _try_activate_spell_at_pointer() -> bool:
- var player_spell: PlayerSpell = _get_player_spell_at_pointer()
+func _try_activate_spell(player_spell: PlayerSpell) -> bool:
  if player_spell == null or player_spell.spell_paper.button.disabled:
   return false
 
@@ -569,44 +565,60 @@ func _try_activate_spell_at_pointer() -> bool:
  return true
 
 
-func _handle_mobile_game_touch(event: InputEvent) -> bool:
+func _complete_mobile_tap() -> void :
  if not _can_handle_mobile_game_touch():
-  return false
+  mobile_tap_pending = false
+  return
 
- var is_release: = false
- if event is InputEventScreenTouch:
-  _sync_pointer_from_touch(event)
-  if event.pressed:
-   mobile_touch_tile = _get_board_tile_at_pointer()
-   return false
-  is_release = true
- elif event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
-  if event.is_pressed():
-   mouse_position = event.global_position
-   mobile_touch_tile = _get_board_tile_at_pointer()
-   return false
-  if event.is_released():
-   mouse_position = event.global_position
-   is_release = true
- else:
-  return false
+ mobile_tap_pending = false
 
- if not is_release:
-  return false
-
- if _try_activate_spell_at_pointer():
-  get_viewport().set_input_as_handled()
-  return true
+ var player_spell: PlayerSpell = _get_touched_player_spell()
+ if _try_activate_spell(player_spell):
+  return
 
  var tile: Tile = mobile_touch_tile
  mobile_touch_tile = null
  if tile == null:
-  tile = Tile.get_focused_tile()
- if tile == null:
-  tile = _get_board_tile_at_pointer()
+  tile = _get_touched_board_tile()
  if _activate_board_tile(tile):
+  return
+
+
+func _handle_mobile_game_touch(event: InputEvent) -> bool:
+ if not _can_handle_mobile_game_touch():
+  return false
+
+ if event is InputEventScreenTouch:
+  _sync_pointer_from_touch(event)
+  if event.pressed:
+   mobile_touch_tile = _get_touched_board_tile()
+   mobile_tap_pending = false
+   return false
+
+  if mobile_tap_pending:
+   return false
+
+  mobile_tap_pending = true
+  call_deferred("_complete_mobile_tap")
   get_viewport().set_input_as_handled()
   return true
+
+ if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
+  if event.is_pressed():
+   mouse_position = event.global_position
+   mobile_touch_tile = _get_touched_board_tile()
+   mobile_tap_pending = false
+   return false
+
+  if event.is_released():
+   mouse_position = event.global_position
+   if mobile_tap_pending:
+    return false
+
+   mobile_tap_pending = true
+   call_deferred("_complete_mobile_tap")
+   get_viewport().set_input_as_handled()
+   return true
 
  return false
 

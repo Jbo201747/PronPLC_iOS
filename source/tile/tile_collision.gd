@@ -76,13 +76,10 @@ func _on_tile_ready() -> void :
 
 
 func _gui_input(event: InputEvent) -> void :
- if Util.is_mobile():
-  return
-
  if get_viewport().gui_get_focus_owner() is LineEdit:
   return
 
- if not tile.is_clickable():
+ if not tile.is_clickable() and not Util.is_mobile():
   return
 
  if event is InputEventMouse:
@@ -151,8 +148,6 @@ func _gui_input(event: InputEvent) -> void :
   is_pressed = true
   mobile_touch_active = Util.is_mobile()
   tile.hover_handler.hover_for_state()
-  if Util.is_mobile():
-   call_deferred("_complete_tile_click")
   accept_event()
  elif release and (is_pressed or mobile_touch_active):
   is_pressed = false
@@ -164,14 +159,25 @@ func _gui_input(event: InputEvent) -> void :
 
 
 func _complete_tile_click() -> void :
- if not tile.is_clickable():
+ if Util.is_mobile():
+  if not tile.is_idle():
+   return
+
+  if Game.player.is_selecting(Game.player.Selection.TILE):
+   tile.click_tile()
+   return
+
+  if not Game.main.is_player_turn:
+   return
+
+  if tile.in_word():
+   tile.click_tile()
+  else:
+   Game.word_builder.try_add_tile(tile)
   return
 
- if Util.is_mobile():
-  var now: = Time.get_ticks_msec()
-  if now - last_mobile_click_time < 150:
-   return
-  last_mobile_click_time = now
+ if not tile.is_clickable():
+  return
 
  var allow_click: = Util.is_mobile() or ( not InputManager.is_mouse_mode() or has_mouse) or has_focus(true)
  if allow_click:

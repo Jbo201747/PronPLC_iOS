@@ -24,6 +24,8 @@ func _ready() -> void :
   spell = get_parent()
   Game.player.selection_started.connect(_on_player_selection_started)
   Game.player.selection_finished.connect(_on_player_selection_finished)
+  if Util.is_mobile():
+   button.gui_input.connect(_on_mobile_button_gui_input)
  else:
   hover_handler.stop(true)
 
@@ -85,6 +87,13 @@ func _on_anim_player_current_animation_changed(_name: String) -> void :
 func _on_button_pressed() -> void :
  anim_player.play("press")
  pressed.emit()
+
+
+func _on_mobile_button_gui_input(event: InputEvent) -> void :
+ if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.is_released():
+  if not button.disabled:
+   _on_button_pressed()
+   button.accept_event()
 
 
 func _on_player_selection_started() -> void :

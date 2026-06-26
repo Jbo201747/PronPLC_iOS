@@ -33,6 +33,7 @@ const CENTER_FRAME_VERTICAL = 6
 var is_pressed: = false
 var has_mouse: = false
 var mobile_touch_active: = false
+var last_mobile_click_time: = 0
 var base_size: Vector2
 var selected_position: Vector2:
  set(value):
@@ -119,15 +120,24 @@ func _gui_input(event: InputEvent) -> void :
  var press: = false
  var release: = false
 
- if Util.is_mobile() and event is InputEventScreenTouch:
-  var local_touch: InputEventScreenTouch = event.duplicate()
-  make_input_local(local_touch)
-  if event.pressed:
-   if get_rect().has_point(local_touch.position):
+ if Util.is_mobile():
+  if event is InputEventScreenTouch:
+   var local_touch: InputEventScreenTouch = event.duplicate()
+   make_input_local(local_touch)
+   if event.pressed:
+    if get_rect().has_point(local_touch.position):
+     press = true
+     selected_position = local_touch.position.clamp(Vector2.ZERO, base_size)
+   elif mobile_touch_active or is_pressed:
+    release = true
+  elif event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
+   if event.pressed and get_rect().has_point(event.position):
     press = true
-    selected_position = local_touch.position.clamp(Vector2.ZERO, base_size)
-  elif mobile_touch_active or is_pressed:
-   release = true
+    selected_position = event.position.clamp(Vector2.ZERO, base_size)
+   elif event.is_released() and (mobile_touch_active or is_pressed):
+    release = true
+  else:
+   return
  elif event.is_action_pressed("click_tile"):
   press = true
  elif event.is_action_released("click_tile"):
@@ -138,16 +148,32 @@ func _gui_input(event: InputEvent) -> void :
   is_pressed = true
   mobile_touch_active = Util.is_mobile()
   tile.hover_handler.hover_for_state()
+  if Util.is_mobile():
+   call_deferred("_complete_tile_click")
   accept_event()
  elif release and (is_pressed or mobile_touch_active):
   is_pressed = false
   mobile_touch_active = false
   tile.hover_handler.hover_for_state()
-  var allow_click: = Util.is_mobile() or ( not InputManager.is_mouse_mode() or has_mouse) or has_focus(true)
-  if allow_click:
-   if not tile.click_tile():
-    tile.play_tile_sound()
+  if not Util.is_mobile():
+   _complete_tile_click()
   accept_event()
+
+
+func _complete_tile_click() -> void :
+ if not tile.is_clickable():
+  return
+
+ if Util.is_mobile():
+  var now: = Time.get_ticks_msec()
+  if now - last_mobile_click_time < 150:
+   return
+  last_mobile_click_time = now
+
+ var allow_click: = Util.is_mobile() or ( not InputManager.is_mouse_mode() or has_mouse) or has_focus(true)
+ if allow_click:
+  if not tile.click_tile():
+   tile.play_tile_sound()
 
 
 func get_selected_position(center: = true) -> Vector2:

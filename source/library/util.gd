@@ -5,7 +5,7 @@ static var _mobile_browser_cache: Variant = null
 
 
 static func is_mobile() -> bool:
- return OS.has_feature("mobile")
+ return OS.has_feature("mobile") or OS.has_feature("ios") or OS.has_feature("android")
 
 
 static func is_mobile_browser() -> bool:

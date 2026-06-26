@@ -158,7 +158,10 @@ func update_daily_button():
 
  if not Bridge.dailies_available:
   daily_button.set_icons_visible(false)
-  daily_button.set_description(StringManager.get_string("menu/leaderboard/unavailable"))
+  if Util.is_mobile():
+   daily_button.set_description("")
+  else:
+   daily_button.set_description(StringManager.get_string("menu/leaderboard/unavailable"))
   daily_button.set_disabled(true)
   return
 

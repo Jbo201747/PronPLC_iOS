@@ -586,6 +586,10 @@ load_achievements_from_steam={
 ]
 }
 
+[input_devices]
+
+pointing/emulate_mouse_from_touch=true
+
 [internationalization]
 
 rendering/root_node_layout_direction=1

@@ -119,7 +119,8 @@ func _gui_input(event: InputEvent) -> void :
  elif event.is_action_released("click_tile") and is_pressed:
   is_pressed = false
   tile.hover_handler.hover_for_state()
-  if ( not InputManager.is_mouse_mode() or has_mouse) or has_focus(true):
+  var allow_click: = Util.is_mobile() or ( not InputManager.is_mouse_mode() or has_mouse) or has_focus(true)
+  if allow_click:
    if not tile.click_tile():
     tile.play_tile_sound()
 

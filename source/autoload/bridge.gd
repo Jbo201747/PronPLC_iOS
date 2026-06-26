@@ -57,6 +57,11 @@ var dev_console: Window = null
 
 
 func _ready():
+ StringManager.ensure_loaded()
+
+ if Util.is_mobile():
+  leaderboards_available = false
+
  if has_steam():
   var steam_manager = load("res://source/autoload/steam_manager.gd").new()
   add_child(steam_manager)

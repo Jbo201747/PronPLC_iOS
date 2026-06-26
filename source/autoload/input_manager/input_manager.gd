@@ -137,6 +137,9 @@ func _ready() -> void :
  SaveManager.updated_cursor_scale.connect(update_cursor_size)
  update_actions()
 
+ if Util.is_mobile():
+  set_input_mode(InputMode.MOUSE)
+
  if Bridge.is_debug_build():
   for device in Input.get_connected_joypads():
    print(Input.get_joy_info(device), " ", Input.get_joy_name(device))
@@ -266,8 +269,11 @@ func _unhandled_input(event: InputEvent) -> void :
 
 
 func _input(event: InputEvent) -> void :
- if not get_window().has_focus():
+ if not Util.is_mobile() and not get_window().has_focus():
   return
+
+ if Util.is_mobile() and event is InputEventScreenTouch:
+  set_input_mode(InputMode.MOUSE)
 
  if event is InputEventMouseButton:
   if event.button_index == MOUSE_BUTTON_LEFT:

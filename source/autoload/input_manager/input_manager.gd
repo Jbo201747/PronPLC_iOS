@@ -484,13 +484,7 @@ func _can_activate_board_tile(tile: Tile) -> bool:
  if not Tile.is_tile_valid(tile) or not tile.is_idle():
   return false
 
- if tile.is_clickable():
-  return true
-
- if tile.in_word():
-  return false
-
- return tile.is_hoverable() and Game.main.is_game_actionable()
+ return tile.is_hoverable()
 
 
 func _activate_board_tile(tile: Tile) -> bool:
@@ -503,8 +497,14 @@ func _activate_board_tile(tile: Tile) -> bool:
  last_mobile_tile_activation_time = now
 
  tile.tile_collision.grab_focus(true)
- if not tile.click_tile():
-  tile.play_tile_sound()
+
+ if tile.in_word():
+  if not tile.click_tile():
+   tile.play_tile_sound()
+ elif Game.player.is_selecting(Game.player.Selection.TILE):
+  tile.click_tile()
+ else:
+  Game.word_builder.try_add_tile(tile)
 
  return true
 

@@ -115,7 +115,7 @@ func is_game_actionable(include_spell_select: = false, include_summary_continue:
  if is_paused() or player.is_using_spell() or player.is_selecting() or not tile_board.idle or not word_builder.is_idle() or forfeit_quitting:
   return false
 
- if tutorial.active and tutorial.prevent_game_action and not include_tutorial:
+ if tutorial.active and tutorial.blocks_game_actions() and not include_tutorial:
   return false
 
  if summary_menu.active:

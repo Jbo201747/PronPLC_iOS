@@ -76,6 +76,9 @@ func _on_tile_ready() -> void :
 
 
 func _gui_input(event: InputEvent) -> void :
+ if Util.is_mobile():
+  return
+
  if get_viewport().gui_get_focus_owner() is LineEdit:
   return
 

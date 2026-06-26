@@ -102,6 +102,9 @@ var removing_tiles: = false
 var mobile_touch_tile: Tile = null
 var last_mobile_tile_activation_time: int = 0
 
+const MOBILE_TILE_TAP_RADIUS: float = 14.0
+const MOBILE_SPELL_TAP_RADIUS: float = 36.0
+
 var active_joypad: int = -1
 
 var ui_pressed_states: Dictionary[Direction, bool] = {}
@@ -270,6 +273,9 @@ func _unhandled_input(event: InputEvent) -> void :
    set_process(true)
    get_viewport().set_input_as_handled()
 
+ if Util.is_mobile() and _handle_mobile_game_touch(event):
+  get_viewport().set_input_as_handled()
+
 
 func _input(event: InputEvent) -> void :
  if not Util.is_mobile() and not get_window().has_focus():
@@ -295,7 +301,7 @@ func _input(event: InputEvent) -> void :
  if focus_owner is LineEdit:
   return
 
- if _handle_mobile_board_tile_input(event):
+ if _handle_mobile_game_touch(event):
   return
 
  if event.is_action_pressed("any_controller"):
@@ -452,7 +458,7 @@ func get_mouse_position(real_only: = false) -> Vector2:
  return virtual_cursor.get_position_without_offset()
 
 
-func _can_handle_mobile_board_tile_input() -> bool:
+func _can_handle_mobile_game_touch() -> bool:
  if not Util.is_mobile() or not Game.is_in_run():
   return false
 
@@ -462,20 +468,47 @@ func _can_handle_mobile_board_tile_input() -> bool:
  return true
 
 
-func _screen_position_to_canvas(screen_pos: Vector2) -> Vector2:
+func _sync_pointer_from_touch(event: InputEventScreenTouch) -> void :
  var viewport: = get_viewport()
- return viewport.get_canvas_transform().affine_inverse() * viewport.get_screen_transform() * screen_pos
+ var viewport_pos: Vector2 = viewport.get_screen_transform().affine_inverse() * event.position
+ viewport.warp_mouse(viewport_pos)
+ mouse_position = viewport.get_canvas_transform().affine_inverse() * viewport_pos
+ mouse_position_changed.emit()
 
 
-func _get_board_tile_at_canvas_position(canvas_pos: Vector2) -> Tile:
+func _get_canvas_pointer_position() -> Vector2:
+ if Game.tile_board != null:
+  return Game.tile_board.get_global_mouse_position()
+
+ var viewport: = get_viewport()
+ return viewport.get_canvas_transform().affine_inverse() * viewport.get_mouse_position()
+
+
+func _get_board_tile_at_pointer(max_distance: float = MOBILE_TILE_TAP_RADIUS) -> Tile:
+ var pointer: Vector2 = _get_canvas_pointer_position()
  var result: Tile = null
- var best_z: int = -1
+ var closest_distance: float = max_distance
  for tile in Game.tile_board.get_tiles({sorted = true, in_word = false}):
-  if not tile.tile_collision.get_global_rect().has_point(canvas_pos):
-   continue
-  if tile.z_index > best_z:
-   best_z = tile.z_index
+  var distance: float = tile.global_position.distance_to(pointer)
+  if distance <= closest_distance:
+   closest_distance = distance
    result = tile
+
+ return result
+
+
+func _get_player_spell_at_pointer(max_distance: float = MOBILE_SPELL_TAP_RADIUS) -> PlayerSpell:
+ if Game.spell_container == null:
+  return null
+
+ var pointer: Vector2 = _get_canvas_pointer_position()
+ var result: PlayerSpell = null
+ var closest_distance: float = max_distance
+ for player_spell in Game.spell_container.player_spells:
+  var distance: float = player_spell.global_position.distance_to(pointer)
+  if distance <= closest_distance:
+   closest_distance = distance
+   result = player_spell
 
  return result
 
@@ -484,7 +517,10 @@ func _can_activate_board_tile(tile: Tile) -> bool:
  if not Tile.is_tile_valid(tile) or not tile.is_idle():
   return false
 
- return tile.is_hoverable()
+ if Game.player.is_selecting(Game.player.Selection.TILE):
+  return Game.player.passes_selection_condition(tile)
+
+ return Game.main.is_player_turn
 
 
 func _activate_board_tile(tile: Tile) -> bool:
@@ -509,31 +545,68 @@ func _activate_board_tile(tile: Tile) -> bool:
  return true
 
 
-func _handle_mobile_board_tile_input(event: InputEvent) -> bool:
- if not _can_handle_mobile_board_tile_input():
+func _try_activate_spell_at_pointer() -> bool:
+ var player_spell: PlayerSpell = _get_player_spell_at_pointer()
+ if player_spell == null or player_spell.spell_paper.button.disabled:
   return false
 
+ if not player_spell.spell.is_usable():
+  return false
+
+ if Game.player.active_spell != null and not player_spell.spell.is_active():
+  return false
+
+ if not Game.main.is_player_turn and not player_spell.spell.is_active():
+  return false
+
+ var now: = Time.get_ticks_msec()
+ if now - last_mobile_tile_activation_time < 200:
+  return false
+ last_mobile_tile_activation_time = now
+
+ player_spell.spell_paper.button.grab_focus(true)
+ player_spell._on_spell_paper_pressed()
+ return true
+
+
+func _handle_mobile_game_touch(event: InputEvent) -> bool:
+ if not _can_handle_mobile_game_touch():
+  return false
+
+ var is_release: = false
  if event is InputEventScreenTouch:
+  _sync_pointer_from_touch(event)
   if event.pressed:
-   mobile_touch_tile = _get_board_tile_at_canvas_position(_screen_position_to_canvas(event.position))
+   mobile_touch_tile = _get_board_tile_at_pointer()
    return false
-
-  var tile: Tile = mobile_touch_tile
-  mobile_touch_tile = null
-  if tile == null:
-   tile = Tile.get_focused_tile()
-  if _activate_board_tile(tile):
-   get_viewport().set_input_as_handled()
-   return true
+  is_release = true
+ elif event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
+  if event.is_pressed():
+   mouse_position = event.global_position
+   mobile_touch_tile = _get_board_tile_at_pointer()
+   return false
+  if event.is_released():
+   mouse_position = event.global_position
+   is_release = true
+ else:
   return false
 
- if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.is_released():
-  var tile: Tile = Tile.get_focused_tile()
-  if tile == null or tile.in_word():
-   tile = _get_board_tile_at_canvas_position(event.position)
-  if _activate_board_tile(tile):
-   get_viewport().set_input_as_handled()
-   return true
+ if not is_release:
+  return false
+
+ if _try_activate_spell_at_pointer():
+  get_viewport().set_input_as_handled()
+  return true
+
+ var tile: Tile = mobile_touch_tile
+ mobile_touch_tile = null
+ if tile == null:
+  tile = Tile.get_focused_tile()
+ if tile == null:
+  tile = _get_board_tile_at_pointer()
+ if _activate_board_tile(tile):
+  get_viewport().set_input_as_handled()
+  return true
 
  return false
 

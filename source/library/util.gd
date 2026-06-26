@@ -4,6 +4,10 @@ class_name Util
 static var _mobile_browser_cache: Variant = null
 
 
+static func is_mobile() -> bool:
+ return OS.has_feature("mobile")
+
+
 static func is_mobile_browser() -> bool:
  if not OS.has_feature("web"):
   return false

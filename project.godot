@@ -54,6 +54,7 @@ window/subwindows/embed_subwindows=false
 window/stretch/mode="canvas_items"
 window/stretch/scale_mode="integer"
 window/dpi/allow_hidpi=false
+window/handheld/orientation=4
 
 [editor]
 
@@ -596,7 +597,6 @@ textures/canvas_textures/default_texture_filter=0
 textures/vram_compression/import_etc2_astc=true
 limits/global_shader_variables/buffer_size=4096
 environment/defaults/default_environment="res://default_env.tres"
-quality/driver/driver_name="GLES2"
 vram_compression/import_etc=true
 
 [steam]

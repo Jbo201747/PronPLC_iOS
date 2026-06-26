@@ -39,8 +39,23 @@ jobs:
       - name: Create build directory
         run: mkdir -p build
 
+      - name: Import project resources
+        run: godot --headless --import
+
       - name: Export iOS project
         run: godot --headless --export-debug "iOS" "build/Pronoun Palace.xcodeproj"
+
+      - name: Compile metal-cpp implementation
+        run: |
+          curl -sL "https://codeload.github.com/godotengine/godot/tar.gz/4.7-stable" | tar xz godot-4.7-stable/thirdparty/metal-cpp
+          mv godot-4.7-stable/thirdparty/metal-cpp .
+          clang++ -c metal-cpp/metal_cpp.cpp \
+            -Imetal-cpp \
+            -std=c++17 \
+            -arch arm64 \
+            -isysroot "$(xcrun --sdk iphoneos --show-sdk-path)" \
+            -miphoneos-version-min=14.0 \
+            -o build/metal_cpp_impl.o
 
       - name: Build iOS project
         run: |
@@ -50,7 +65,8 @@ jobs:
                      -archivePath "build/Pronoun Palace.xcarchive" archive \
                      CODE_SIGN_IDENTITY="" \
                      CODE_SIGNING_REQUIRED=NO \
-                     CODE_SIGNING_ALLOWED=NO
+                     CODE_SIGNING_ALLOWED=NO \
+                     OTHER_LDFLAGS="metal_cpp_impl.o -framework Foundation -framework QuartzCore -framework Metal -weak_framework MetalFX"
 
       - name: Export IPA
         run: |

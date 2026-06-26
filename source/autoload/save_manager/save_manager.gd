@@ -123,6 +123,8 @@ func set_default_options():
  var defaults = OPTIONS_DEFAULTS.duplicate()
  if Bridge.is_steam_deck:
   defaults.resolution = Vector2i(1280, 800)
+ elif Util.is_mobile():
+  defaults.fullscreen_setting = false
 
  Util.deep_default(options, defaults)
 
@@ -265,6 +267,9 @@ func update_fps() -> void :
 
 
 func update_window(is_initial: bool = false) -> void :
+ if Util.is_mobile():
+  return
+
  var target_monitors: = get_target_monitors()
  last_monitor_count = target_monitors.size()
  if options.monitor not in target_monitors:

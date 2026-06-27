@@ -100,13 +100,22 @@ func _on_mobile_button_gui_input(event: InputEvent) -> void :
  if spell == null or not spell.is_clickable():
   return
 
+ activate_mobile_tap()
+ button.accept_event()
+
+
+func activate_mobile_tap() -> bool:
+ if spell == null or not spell.is_clickable():
+  return false
+
  var now: = Time.get_ticks_msec()
  if now - last_mobile_tap_msec < MOBILE_TAP_DEDUPE_MS:
-  return
+  return false
 
  last_mobile_tap_msec = now
+ button.grab_focus(true)
  _on_button_pressed()
- button.accept_event()
+ return true
 
 
 func _is_mobile_press_event(event: InputEvent) -> bool:

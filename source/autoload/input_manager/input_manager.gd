@@ -99,6 +99,8 @@ var window_size_changed_cooldown: = 0.0
 var remove_tile_cooldown: float = 0.0
 var removing_tiles: = false
 
+var mobile_tap_viewport_position: Vector2 = Vector2.ZERO
+
 var active_joypad: int = -1
 
 var ui_pressed_states: Dictionary[Direction, bool] = {}
@@ -287,6 +289,14 @@ func _input(event: InputEvent) -> void :
    mouse_pressed = false
    update_cursor_image()
 
+ if Util.is_mobile():
+  if event is InputEventScreenTouch and event.pressed:
+   mobile_tap_viewport_position = event.position
+   call_deferred("_complete_mobile_control_tap")
+  elif event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+   mobile_tap_viewport_position = event.position
+   call_deferred("_complete_mobile_control_tap")
+
  if should_regrab_focus(event):
   grab_initial_focus()
   get_viewport().set_input_as_handled()
@@ -447,6 +457,129 @@ func get_mouse_position(real_only: = false) -> Vector2:
   return mouse_position
 
  return virtual_cursor.get_position_without_offset()
+
+
+func _can_complete_mobile_control_tap() -> bool:
+ if not Util.is_mobile() or not Game.is_in_run():
+  return false
+
+ if Game.main.is_paused() or Game.main.menu_controller.is_active():
+  return false
+
+ if get_viewport().gui_get_focus_owner() is LineEdit:
+  return false
+
+ return true
+
+
+func _find_tile_collision_from_control(control: Control) -> TileCollision:
+ var node: Node = control
+ while node != null:
+  if node is TileCollision:
+   return node
+  node = node.get_parent()
+
+ return null
+
+
+func _find_player_spell_from_control(control: Control) -> PlayerSpell:
+ var node: Node = control
+ while node != null:
+  if node is PlayerSpell:
+   return node
+  node = node.get_parent()
+
+ return null
+
+
+func _control_contains_mobile_point(control: Control, viewport_pos: Vector2) -> bool:
+ if control == null or not control.is_visible_in_tree():
+  return false
+
+ var viewport: Viewport = get_viewport()
+ var points: Array[Vector2] = [
+  viewport_pos,
+  viewport.get_screen_transform().affine_inverse() * viewport_pos,
+  viewport.get_canvas_transform().affine_inverse() * viewport_pos,
+ ]
+
+ for point in points:
+  var local_point: Vector2 = control.get_global_transform_with_canvas().affine_inverse() * point
+  if Rect2(Vector2.ZERO, control.size).has_point(local_point):
+   return true
+
+  if control.get_global_rect().has_point(point):
+   return true
+
+ return false
+
+
+func _pick_mobile_player_spell(viewport_pos: Vector2) -> PlayerSpell:
+ if Game.spell_container == null:
+  return null
+
+ for player_spell: PlayerSpell in Game.spell_container.player_spells:
+  if not is_instance_valid(player_spell):
+   continue
+
+  if _control_contains_mobile_point(player_spell.spell_paper.button, viewport_pos):
+   return player_spell
+
+ return null
+
+
+func _pick_mobile_tile_collision(viewport_pos: Vector2) -> TileCollision:
+ var best_collision: TileCollision = null
+ var best_area: float = INF
+
+ for tile: Tile in Game.tile_board.get_tiles():
+  if not Tile.is_tile_valid(tile):
+   continue
+
+  var collision: TileCollision = tile.tile_collision
+  if not _control_contains_mobile_point(collision, viewport_pos):
+   continue
+
+  var area: float = collision.size.x * collision.size.y
+  if area < best_area:
+   best_area = area
+   best_collision = collision
+
+ return best_collision
+
+
+func _complete_mobile_control_tap() -> void :
+ if not _can_complete_mobile_control_tap():
+  return
+
+ var hovered: Control = get_viewport().gui_get_hovered_control()
+ if hovered != null:
+  var hovered_spell: PlayerSpell = _find_player_spell_from_control(hovered)
+  if hovered_spell != null and hovered_spell.spell_paper.activate_mobile_tap():
+   return
+
+  var hovered_tile_collision: TileCollision = _find_tile_collision_from_control(hovered)
+  if hovered_tile_collision != null and hovered_tile_collision.activate_mobile_tap():
+   return
+
+  if hovered is Button:
+   return
+
+ var picked_spell: PlayerSpell = _pick_mobile_player_spell(mobile_tap_viewport_position)
+ if picked_spell != null and picked_spell.spell_paper.activate_mobile_tap():
+  return
+
+ var picked_tile_collision: TileCollision = _pick_mobile_tile_collision(mobile_tap_viewport_position)
+ if picked_tile_collision != null and picked_tile_collision.activate_mobile_tap():
+  return
+
+ var focused_tile: Tile = Tile.get_focused_tile()
+ if focused_tile == null:
+  return
+
+ var focused_collision: TileCollision = focused_tile.tile_collision
+ if focused_collision.has_mouse or _control_contains_mobile_point(focused_collision, mobile_tap_viewport_position):
+  focused_collision.activate_mobile_tap()
 
 
 func try_drag_tile() -> void :

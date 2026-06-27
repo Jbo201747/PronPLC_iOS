@@ -149,7 +149,7 @@ func _gui_input(event: InputEvent) -> void :
   mobile_touch_active = Util.is_mobile()
   tile.hover_handler.hover_for_state()
   if Util.is_mobile():
-   _complete_mobile_tile_tap()
+   activate_mobile_tap()
   accept_event()
  elif release and (is_pressed or mobile_touch_active):
   is_pressed = false
@@ -164,29 +164,32 @@ func _has_local_point(point: Vector2) -> bool:
  return Rect2(Vector2.ZERO, size).has_point(point)
 
 
-func _complete_mobile_tile_tap() -> void :
+func activate_mobile_tap() -> bool:
  var now: = Time.get_ticks_msec()
  if now - last_mobile_tap_msec < MOBILE_TAP_DEDUPE_MS:
-  return
+  return false
 
  last_mobile_tap_msec = now
 
  if not Tile.is_tile_valid(tile) or not tile.is_idle():
-  return
+  return false
 
  grab_focus(true)
 
  if tile.is_clickable():
   if not tile.click_tile():
    tile.play_tile_sound()
-  return
+  return true
 
  if Game.player.is_selecting(Game.player.Selection.TILE) and tile.is_selectable():
   tile.click_tile()
-  return
+  return true
 
  if Game.main.is_player_turn and not tile.in_word():
   Game.word_builder.try_add_tile(tile)
+  return true
+
+ return false
 
 
 func _complete_tile_click() -> void :

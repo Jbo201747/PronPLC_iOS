@@ -33,7 +33,6 @@ const CENTER_FRAME_VERTICAL = 6
 var is_pressed: = false
 var has_mouse: = false
 var mobile_touch_active: = false
-var last_mobile_click_time: = 0
 var base_size: Vector2
 var selected_position: Vector2:
  set(value):
@@ -148,34 +147,18 @@ func _gui_input(event: InputEvent) -> void :
   is_pressed = true
   mobile_touch_active = Util.is_mobile()
   tile.hover_handler.hover_for_state()
-  accept_event()
+  if not Util.is_mobile():
+   accept_event()
  elif release and (is_pressed or mobile_touch_active):
   is_pressed = false
   mobile_touch_active = false
   tile.hover_handler.hover_for_state()
   if not Util.is_mobile():
    _complete_tile_click()
-  accept_event()
+   accept_event()
 
 
 func _complete_tile_click() -> void :
- if Util.is_mobile():
-  if not tile.is_idle():
-   return
-
-  if Game.player.is_selecting(Game.player.Selection.TILE):
-   tile.click_tile()
-   return
-
-  if not Game.main.is_player_turn:
-   return
-
-  if tile.in_word():
-   tile.click_tile()
-  else:
-   Game.word_builder.try_add_tile(tile)
-  return
-
  if not tile.is_clickable():
   return
 

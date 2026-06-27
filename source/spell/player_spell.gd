@@ -61,7 +61,7 @@ func update() -> void :
 
  if is_clickable():
   spell_paper.enable_button()
- elif Util.is_mobile() and Game.main.is_player_turn and spell.is_usable() and player.active_spell == null:
+ elif Util.is_mobile() and Game.main.is_player_turn and spell.is_usable():
   spell_paper.enable_button()
  else:
   spell_paper.disable_button()

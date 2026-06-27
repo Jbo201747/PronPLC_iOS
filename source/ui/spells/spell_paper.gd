@@ -25,6 +25,7 @@ func _ready() -> void :
   Game.player.selection_started.connect(_on_player_selection_started)
   Game.player.selection_finished.connect(_on_player_selection_finished)
   if Util.is_mobile():
+   button.mouse_filter = Control.MOUSE_FILTER_STOP
    button.gui_input.connect(_on_mobile_button_gui_input)
  else:
   hover_handler.stop(true)
@@ -90,10 +91,20 @@ func _on_button_pressed() -> void :
 
 
 func _on_mobile_button_gui_input(event: InputEvent) -> void :
- if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.is_released():
-  if not button.disabled:
-   _on_button_pressed()
-   button.accept_event()
+ if not (event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT):
+  return
+
+ if not event.pressed and not event.is_released():
+  return
+
+ if spell == null or not spell.spell.is_usable():
+  return
+
+ if not Game.main.is_player_turn and not spell.spell.is_active():
+  return
+
+ _on_button_pressed()
+ button.accept_event()
 
 
 func _on_player_selection_started() -> void :

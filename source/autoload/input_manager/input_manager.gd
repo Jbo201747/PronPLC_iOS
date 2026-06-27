@@ -100,6 +100,7 @@ var remove_tile_cooldown: float = 0.0
 var removing_tiles: = false
 
 var mobile_tap_viewport_position: Vector2 = Vector2.ZERO
+var mobile_tap_global_position: Vector2 = Vector2.ZERO
 
 var active_joypad: int = -1
 
@@ -292,10 +293,12 @@ func _input(event: InputEvent) -> void :
  if Util.is_mobile():
   if event is InputEventScreenTouch and event.pressed:
    mobile_tap_viewport_position = event.position
-   call_deferred("_complete_mobile_control_tap")
+   mobile_tap_global_position = event.position
+   _queue_mobile_control_tap()
   elif event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
    mobile_tap_viewport_position = event.position
-   call_deferred("_complete_mobile_control_tap")
+   mobile_tap_global_position = event.global_position
+   _queue_mobile_control_tap()
 
  if should_regrab_focus(event):
   grab_initial_focus()
@@ -492,16 +495,59 @@ func _find_player_spell_from_control(control: Control) -> PlayerSpell:
  return null
 
 
+func _add_mobile_tap_candidate(points: Array[Vector2], point: Vector2) -> void :
+ if not is_finite(point.x) or not is_finite(point.y):
+  return
+
+ for existing_point in points:
+  if existing_point.distance_squared_to(point) < 0.01:
+   return
+
+ points.append(point)
+
+
+func _get_mobile_tap_candidates() -> Array[Vector2]:
+ var viewport: Viewport = get_viewport()
+ var candidates: Array[Vector2] = []
+ var raw_points: Array[Vector2] = [
+  mobile_tap_viewport_position,
+  mobile_tap_global_position,
+  viewport.get_mouse_position(),
+  mouse_position,
+ ]
+
+ for point in raw_points:
+  _add_mobile_tap_candidate(candidates, point)
+
+ var screen_inverse: Transform2D = viewport.get_screen_transform().affine_inverse()
+ var canvas_inverse: Transform2D = viewport.get_canvas_transform().affine_inverse()
+ for point in raw_points:
+  var viewport_point: Vector2 = screen_inverse * point
+  _add_mobile_tap_candidate(candidates, viewport_point)
+  _add_mobile_tap_candidate(candidates, canvas_inverse * point)
+  _add_mobile_tap_candidate(candidates, canvas_inverse * viewport_point)
+
+ var visible_size: Vector2 = viewport.get_visible_rect().size
+ if visible_size.x > 0.0 and visible_size.y > 0.0:
+  var design_size: = Vector2(
+   ProjectSettings.get_setting("display/window/size/viewport_width"),
+   ProjectSettings.get_setting("display/window/size/viewport_height")
+  )
+  for point in raw_points:
+   _add_mobile_tap_candidate(candidates, Vector2(
+    point.x / visible_size.x * design_size.x,
+    point.y / visible_size.y * design_size.y
+   ))
+
+ return candidates
+
+
 func _control_contains_mobile_point(control: Control, viewport_pos: Vector2) -> bool:
  if control == null or not control.is_visible_in_tree():
   return false
 
- var viewport: Viewport = get_viewport()
- var points: Array[Vector2] = [
-  viewport_pos,
-  viewport.get_screen_transform().affine_inverse() * viewport_pos,
-  viewport.get_canvas_transform().affine_inverse() * viewport_pos,
- ]
+ var points: Array[Vector2] = _get_mobile_tap_candidates()
+ _add_mobile_tap_candidate(points, viewport_pos)
 
  for point in points:
   var local_point: Vector2 = control.get_global_transform_with_canvas().affine_inverse() * point
@@ -548,9 +594,50 @@ func _pick_mobile_tile_collision(viewport_pos: Vector2) -> TileCollision:
  return best_collision
 
 
+func _pick_mobile_tile_collision_by_center() -> TileCollision:
+ var best_collision: TileCollision = null
+ var best_distance_squared: float = INF
+ var max_distance_squared: float = pow(Game.tile_board.GRID_SIZE * 0.75, 2.0)
+
+ for point in _get_mobile_tap_candidates():
+  for tile: Tile in Game.tile_board.get_tiles():
+   if not Tile.is_tile_valid(tile):
+    continue
+
+   var distance_squared: float = tile.global_position.distance_squared_to(point)
+   if distance_squared <= max_distance_squared and distance_squared < best_distance_squared:
+    best_distance_squared = distance_squared
+    best_collision = tile.tile_collision
+
+ return best_collision
+
+
+func _queue_mobile_control_tap() -> void :
+ call_deferred("_complete_mobile_control_tap")
+ call_deferred("_complete_mobile_control_tap_after_frame")
+
+
+func _complete_mobile_control_tap_after_frame() -> void :
+ await get_tree().process_frame
+ _complete_mobile_control_tap()
+
+
 func _complete_mobile_control_tap() -> void :
  if not _can_complete_mobile_control_tap():
   return
+
+ var focus_owner: Control = get_viewport().gui_get_focus_owner()
+ if focus_owner != null:
+  var focused_spell: PlayerSpell = _find_player_spell_from_control(focus_owner)
+  if focused_spell != null and focused_spell.spell_paper.activate_mobile_tap():
+   return
+
+  var focused_tile_collision: TileCollision = _find_tile_collision_from_control(focus_owner)
+  if focused_tile_collision != null and focused_tile_collision.activate_mobile_tap():
+   return
+
+  if focus_owner is Button:
+   return
 
  var hovered: Control = get_viewport().gui_get_hovered_control()
  if hovered != null:
@@ -573,13 +660,15 @@ func _complete_mobile_control_tap() -> void :
  if picked_tile_collision != null and picked_tile_collision.activate_mobile_tap():
   return
 
+ var centered_tile_collision: TileCollision = _pick_mobile_tile_collision_by_center()
+ if centered_tile_collision != null and centered_tile_collision.activate_mobile_tap():
+  return
+
  var focused_tile: Tile = Tile.get_focused_tile()
  if focused_tile == null:
   return
 
- var focused_collision: TileCollision = focused_tile.tile_collision
- if focused_collision.has_mouse or _control_contains_mobile_point(focused_collision, mobile_tap_viewport_position):
-  focused_collision.activate_mobile_tap()
+ focused_tile.tile_collision.activate_mobile_tap()
 
 
 func try_drag_tile() -> void :

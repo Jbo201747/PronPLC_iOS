@@ -474,12 +474,6 @@ func _sync_pointer_from_touch(event: InputEventScreenTouch) -> void :
  mouse_position_changed.emit()
 
 
-func _canvas_position_from_screen(screen_pos: Vector2) -> Vector2:
- var viewport: Viewport = get_viewport()
- var viewport_pos: Vector2 = viewport.get_screen_transform().affine_inverse() * screen_pos
- return viewport.get_canvas_transform().affine_inverse() * viewport_pos
-
-
 func _find_player_spell_from_control(control: Control) -> PlayerSpell:
  var node: Node = control
  while node != null:

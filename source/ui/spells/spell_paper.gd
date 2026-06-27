@@ -6,8 +6,11 @@ signal focus_exited
 
 var spell: PlayerSpell = null
 
+const MOBILE_TAP_DEDUPE_MS = 150
+
 var normal_texture: = preload("res://arte/ui/spell_paper.png")
 var cursed_texture: = preload("res://arte/ui/spell_paper_cursed.png")
+var last_mobile_tap_msec: = 0
 
 @onready var sprite: Sprite2D = %Sprite
 @onready var overlay_sprite: Sprite2D = %SpellPaperOverlay
@@ -91,20 +94,26 @@ func _on_button_pressed() -> void :
 
 
 func _on_mobile_button_gui_input(event: InputEvent) -> void :
- if not (event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT):
+ if not _is_mobile_press_event(event):
   return
 
- if not event.pressed and not event.is_released():
+ if spell == null or not spell.is_clickable():
   return
 
- if spell == null or not spell.spell.is_usable():
+ var now: = Time.get_ticks_msec()
+ if now - last_mobile_tap_msec < MOBILE_TAP_DEDUPE_MS:
   return
 
- if not Game.main.is_player_turn and not spell.spell.is_active():
-  return
-
+ last_mobile_tap_msec = now
  _on_button_pressed()
  button.accept_event()
+
+
+func _is_mobile_press_event(event: InputEvent) -> bool:
+ if event is InputEventScreenTouch:
+  return event.pressed
+
+ return event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed
 
 
 func _on_player_selection_started() -> void :

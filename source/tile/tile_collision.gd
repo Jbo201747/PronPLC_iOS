@@ -29,10 +29,12 @@ const REGION_FRAMES_WITHOUT_CENTER = {
 
 const CENTER_FRAME_HORIZONTAL = 1
 const CENTER_FRAME_VERTICAL = 6
+const MOBILE_TAP_DEDUPE_MS = 150
 
 var is_pressed: = false
 var has_mouse: = false
 var mobile_touch_active: = false
+var last_mobile_tap_msec: = 0
 var base_size: Vector2
 var selected_position: Vector2:
  set(value):
@@ -121,16 +123,15 @@ func _gui_input(event: InputEvent) -> void :
 
  if Util.is_mobile():
   if event is InputEventScreenTouch:
-   var local_touch: InputEventScreenTouch = event.duplicate()
-   make_input_local(local_touch)
+   var local_touch: InputEventScreenTouch = make_input_local(event) as InputEventScreenTouch
    if event.pressed:
-    if get_rect().has_point(local_touch.position):
+    if _has_local_point(local_touch.position):
      press = true
      selected_position = local_touch.position.clamp(Vector2.ZERO, base_size)
    elif mobile_touch_active or is_pressed:
     release = true
   elif event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
-   if event.pressed and get_rect().has_point(event.position):
+   if event.pressed and _has_local_point(event.position):
     press = true
     selected_position = event.position.clamp(Vector2.ZERO, base_size)
    elif event.is_released() and (mobile_touch_active or is_pressed):
@@ -147,15 +148,45 @@ func _gui_input(event: InputEvent) -> void :
   is_pressed = true
   mobile_touch_active = Util.is_mobile()
   tile.hover_handler.hover_for_state()
-  if not Util.is_mobile():
-   accept_event()
+  if Util.is_mobile():
+   _complete_mobile_tile_tap()
+  accept_event()
  elif release and (is_pressed or mobile_touch_active):
   is_pressed = false
   mobile_touch_active = false
   tile.hover_handler.hover_for_state()
   if not Util.is_mobile():
    _complete_tile_click()
-   accept_event()
+  accept_event()
+
+
+func _has_local_point(point: Vector2) -> bool:
+ return Rect2(Vector2.ZERO, size).has_point(point)
+
+
+func _complete_mobile_tile_tap() -> void :
+ var now: = Time.get_ticks_msec()
+ if now - last_mobile_tap_msec < MOBILE_TAP_DEDUPE_MS:
+  return
+
+ last_mobile_tap_msec = now
+
+ if not Tile.is_tile_valid(tile) or not tile.is_idle():
+  return
+
+ grab_focus(true)
+
+ if tile.is_clickable():
+  if not tile.click_tile():
+   tile.play_tile_sound()
+  return
+
+ if Game.player.is_selecting(Game.player.Selection.TILE) and tile.is_selectable():
+  tile.click_tile()
+  return
+
+ if Game.main.is_player_turn and not tile.in_word():
+  Game.word_builder.try_add_tile(tile)
 
 
 func _complete_tile_click() -> void :

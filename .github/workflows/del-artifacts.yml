@@ -1,7 +1,10 @@
 name: Delete All Artifacts
 
 on:
-  workflow_dispatch:  # allows manual triggering
+  workflow_dispatch:
+
+permissions:
+  actions: write  # needed to list and delete artifacts
 
 jobs:
   cleanup:

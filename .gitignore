@@ -1,0 +1,8 @@
+# Godot editor cache
+.godot/
+
+# Local dev tooling (MCP toolkit + Godot Git plugin) — not part of the game export
+addons/godot_mcp_toolkit/
+godot-git-plugin-v3.2.1/
+.mcp.json
+.freebuff/

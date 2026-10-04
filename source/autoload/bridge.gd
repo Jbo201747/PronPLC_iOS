@@ -57,11 +57,16 @@ var dev_console: Window = null
 
 
 func _ready():
+ StringManager.ensure_loaded()
+
+ if Util.is_mobile():
+  leaderboards_available = false
+
  if has_steam():
   var steam_manager = load("res://source/autoload/steam_manager.gd").new()
   add_child(steam_manager)
 
- if is_debug_build():
+ if is_debug_build() and not Util.is_mobile():
   var debug_scene: PackedScene = load("res://source/autoload/debug/debug.tscn")
   add_child(debug_scene.instantiate())
 

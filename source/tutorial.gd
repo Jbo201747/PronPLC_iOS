@@ -18,6 +18,26 @@ var current_line_flags: PackedStringArray = []
 var sequence: Array[PackedStringArray] = []
 
 
+func blocks_game_actions() -> bool:
+ if not active or not prevent_game_action:
+  return false
+
+ if Util.is_mobile():
+  return false
+
+ if speech_bubble == null or not is_instance_valid(speech_bubble):
+  return false
+
+ if not speech_bubble.is_visible_in_tree():
+  return false
+
+ var label: RichTextLabel = speech_bubble.label
+ if label.text.is_empty() and not speech_bubble.is_typing_text():
+  return false
+
+ return true
+
+
 func start_tutorial() -> void :
  active = true
  prevent_saving = true
@@ -157,6 +177,7 @@ func advance() -> void :
  if not sequence.is_empty():
   play_tutorial_line()
  else:
+  prevent_game_action = false
   await speech_bubble.disappear()
 
   if end_tutorial:

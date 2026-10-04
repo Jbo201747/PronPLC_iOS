@@ -6,8 +6,11 @@ signal focus_exited
 
 var spell: PlayerSpell = null
 
+const MOBILE_TAP_DEDUPE_MS = 150
+
 var normal_texture: = preload("res://arte/ui/spell_paper.png")
 var cursed_texture: = preload("res://arte/ui/spell_paper_cursed.png")
+var last_mobile_tap_msec: = 0
 
 @onready var sprite: Sprite2D = %Sprite
 @onready var overlay_sprite: Sprite2D = %SpellPaperOverlay
@@ -24,6 +27,9 @@ func _ready() -> void :
   spell = get_parent()
   Game.player.selection_started.connect(_on_player_selection_started)
   Game.player.selection_finished.connect(_on_player_selection_finished)
+  if Util.is_mobile():
+   button.mouse_filter = Control.MOUSE_FILTER_STOP
+   button.gui_input.connect(_on_mobile_button_gui_input)
  else:
   hover_handler.stop(true)
 
@@ -85,6 +91,38 @@ func _on_anim_player_current_animation_changed(_name: String) -> void :
 func _on_button_pressed() -> void :
  anim_player.play("press")
  pressed.emit()
+
+
+func _on_mobile_button_gui_input(event: InputEvent) -> void :
+ if not _is_mobile_press_event(event):
+  return
+
+ if spell == null or not spell.is_clickable():
+  return
+
+ activate_mobile_tap()
+ button.accept_event()
+
+
+func activate_mobile_tap() -> bool:
+ if spell == null or not spell.is_clickable():
+  return false
+
+ var now: = Time.get_ticks_msec()
+ if now - last_mobile_tap_msec < MOBILE_TAP_DEDUPE_MS:
+  return false
+
+ last_mobile_tap_msec = now
+ button.grab_focus(true)
+ _on_button_pressed()
+ return true
+
+
+func _is_mobile_press_event(event: InputEvent) -> bool:
+ if event is InputEventScreenTouch:
+  return event.pressed
+
+ return event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed
 
 
 func _on_player_selection_started() -> void :

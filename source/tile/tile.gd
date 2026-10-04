@@ -1292,7 +1292,7 @@ func is_hoverable() -> bool:
  if is_preview or is_projectile or Tile.any_tile_dragging():
   return false
 
- return is_idle() and (main.is_game_actionable(false, false, true) or player.is_selecting(player.Selection.TILE))
+ return is_idle() and (main.is_game_actionable() or player.is_selecting(player.Selection.TILE))
 
 
 func is_selectable() -> bool:
@@ -1374,9 +1374,14 @@ func update_z_index():
 
 func initialize_drag():
  drag_handler.can_drag_func = can_drag
+ if Util.is_mobile():
+  drag_handler.can_drag = false
 
 
 func can_drag():
+ if Util.is_mobile():
+  return false
+
  return (
   not is_preview
   and (state == State.IDLE or state == State.DRAGGING)

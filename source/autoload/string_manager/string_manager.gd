@@ -20,6 +20,7 @@ const LETTERS_USING_AN: Array[String] = [
 static var STRINGS: StringGroup = StringGroup.new()
 static var data_sources: Dictionary[String, Dictionary] = {}
 static var file_modified_timestamps: Dictionary[String, int] = {}
+static var _loaded: bool = false
 
 const STRING_TXT_FILES: PackedStringArray = [
  "res://strings/achievements.txt",
@@ -41,7 +42,10 @@ const STRING_TXT_FILES: PackedStringArray = [
 ]
 
 
-static func _static_init() -> void :
+static func ensure_loaded() -> void :
+ if _loaded:
+  return
+
  load_strings()
 
 
@@ -100,8 +104,11 @@ static func load_strings() -> void :
   if current_string != "":
    add_string(current_string, string_path)
 
+ _loaded = true
+
 
 static func check_reload_strings() -> void :
+ ensure_loaded()
  if not Engine.is_editor_hint():
   if not OS.is_debug_build() or OS.has_feature("web"):
    return
@@ -121,6 +128,9 @@ static func check_reload_strings() -> void :
 
 
 static func get_string_file_paths() -> PackedStringArray:
+ if Util.is_mobile() or OS.has_feature("web"):
+  return STRING_TXT_FILES.duplicate()
+
  var string_file_paths: = Util.get_file_paths_recursive("res://strings", ".txt")
  if string_file_paths.is_empty():
   return STRING_TXT_FILES.duplicate()

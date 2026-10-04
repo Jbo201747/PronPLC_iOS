@@ -35,8 +35,6 @@ Game="*res://source/autoload/game.gd"
 InputManager="*uid://cly0bhskjloqx"
 AudioManager="*res://source/autoload/audio_manager.tscn"
 DailyManager="*uid://ddl08n4eyioo0"
-MCPRuntimeServer="*res://addons/godot_mcp_toolkit/runtime/mcp_runtime_server.gd"
-TapProbe="*res://_tap_probe.gd"
 
 [debug]
 
@@ -56,12 +54,11 @@ window/subwindows/embed_subwindows=false
 window/stretch/mode="canvas_items"
 window/stretch/scale_mode="integer"
 window/dpi/allow_hidpi=false
+window/handheld/orientation=4
 
 [editor]
 
 script/templates_search_path="res://source/script_templates"
-version_control/plugin_name="GitPlugin"
-version_control/autoload_on_startup=true
 
 [editor_overrides]
 
@@ -69,7 +66,7 @@ text_editor/behavior/indent/type=1
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/export_build_include/plugin.cfg", "res://addons/godot_mcp_toolkit/plugin.cfg")
+enabled=PackedStringArray("res://addons/export_build_include/plugin.cfg")
 
 [global_group]
 
@@ -589,6 +586,10 @@ load_achievements_from_steam={
 ]
 }
 
+[input_devices]
+
+pointing/emulate_mouse_from_touch=true
+
 [internationalization]
 
 rendering/root_node_layout_direction=1
@@ -600,8 +601,9 @@ textures/canvas_textures/default_texture_filter=0
 textures/vram_compression/import_etc2_astc=true
 limits/global_shader_variables/buffer_size=4096
 environment/defaults/default_environment="res://default_env.tres"
-quality/driver/driver_name="GLES2"
 vram_compression/import_etc=true
+rendering_device/driver.ios="vulkan"
+renderer/rendering_method.mobile="forward_plus"
 
 [steam]
 

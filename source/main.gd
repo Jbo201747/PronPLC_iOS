@@ -115,7 +115,7 @@ func is_game_actionable(include_spell_select: = false, include_summary_continue:
  if is_paused() or player.is_using_spell() or player.is_selecting() or not tile_board.idle or not word_builder.is_idle() or forfeit_quitting:
   return false
 
- if tutorial.active and tutorial.prevent_game_action and not include_tutorial:
+ if tutorial.active and tutorial.blocks_game_actions() and not include_tutorial:
   return false
 
  if summary_menu.active:
@@ -265,7 +265,10 @@ func start_run():
     and Game.debug_spawn_enemy == ""
     and Game.difficulty == 0
   ):
-   tutorial.start_tutorial()
+   if Util.is_mobile():
+    SaveManager.get_save().set_viewed_tutorial(true)
+   else:
+    tutorial.start_tutorial()
 
   if Game.new_run_seed != null:
    rng.game.set_seed(Game.new_run_seed)

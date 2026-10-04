@@ -1476,7 +1476,10 @@ func using_dialogue_cutscene_controls() -> bool:
 
 
 func _unhandled_input(event):
- if get_viewport().gui_get_focus_owner() is LineEdit or not get_window().has_focus():
+ if get_viewport().gui_get_focus_owner() is LineEdit:
+  return
+
+ if not Util.is_mobile() and not get_window().has_focus():
   return
 
  if menu_controller.is_active():
@@ -1487,7 +1490,7 @@ func _unhandled_input(event):
    toggle_pause()
 
  if not is_paused():
-  if event.is_action_pressed("advance_cutscene") and Input.is_action_just_pressed("advance_cutscene"):
+  if (event.is_action_pressed("advance_cutscene") and Input.is_action_just_pressed("advance_cutscene")) or Util.is_mobile_tap(event):
    if tutorial.active:
     tutorial.try_advance()
    elif enemy != null and is_instance_valid(enemy) and enemy.is_playing_cutscene:

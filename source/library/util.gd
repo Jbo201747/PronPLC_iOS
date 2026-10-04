@@ -2,6 +2,7 @@ class_name Util
 
 
 static var _mobile_browser_cache: Variant = null
+static var _last_mobile_tap_msec: int = -1000000
 
 
 static func is_mobile() -> bool:
@@ -12,6 +13,25 @@ static func is_mobile() -> bool:
   or OS.get_name() == "iOS"
   or OS.get_name() == "Android"
  )
+
+
+static func is_mobile_tap(event: InputEvent, dedupe_ms: int = 150) -> bool:
+ if not is_mobile():
+  return false
+
+ var is_tap: bool = (
+  (event is InputEventScreenTouch and event.pressed)
+  or (event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT)
+ )
+ if not is_tap:
+  return false
+
+ var now: int = Time.get_ticks_msec()
+ if now - _last_mobile_tap_msec < dedupe_ms:
+  return false
+
+ _last_mobile_tap_msec = now
+ return true
 
 
 static func is_mobile_browser() -> bool:

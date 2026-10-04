@@ -469,10 +469,21 @@ func _can_complete_mobile_control_tap() -> bool:
  if Game.main.is_paused() or Game.main.menu_controller.is_active():
   return false
 
+ if Game.main.using_dialogue_cutscene_controls() or is_cutscene_active():
+  return false
+
  if get_viewport().gui_get_focus_owner() is LineEdit:
   return false
 
  return true
+
+
+func is_cutscene_active() -> bool:
+ for cutscene_player: CutscenePlayer in get_tree().get_nodes_in_group("cutscene"):
+  if cutscene_player.cutscene or cutscene_player.visible:
+   return true
+
+ return false
 
 
 func _find_tile_collision_from_control(control: Control) -> TileCollision:

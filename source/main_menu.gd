@@ -48,9 +48,6 @@ func _ready():
 
  AudioManager.kill_effects()
 
- if Util.is_mobile():
-  AudioManager.play_music(Globals.MUSIC.AUTHOR)
-
  if SaveManager.has_valid_selected_save() and Bridge.leaderboards_available:
   var save: = SaveManager.get_save()
   save.try_upload_stored_scores()
@@ -59,13 +56,10 @@ func _ready():
   print_debug_reports()
 
  if not Game.exiting_to_menu and not Game.debug_character_select:
-  if Util.is_mobile():
-   screen_wipe.uncover()
-  else:
-   screen_wipe.cover()
-   cutscene.play_cutscene("vanity")
-   await cutscene.finished
-   screen_wipe.wipe_out()
+  screen_wipe.cover()
+  cutscene.play_cutscene("vanity")
+  await cutscene.finished
+  screen_wipe.wipe_out()
  else:
   Game.exiting_to_menu = false
   screen_wipe.wipe_out()
@@ -77,8 +71,7 @@ func _ready():
  else:
   menu_controller.set_menu( %TitleMenu)
 
- if not Util.is_mobile():
-  AudioManager.play_music(Globals.MUSIC.AUTHOR)
+ AudioManager.play_music(Globals.MUSIC.AUTHOR)
 
 
 func _process(delta):

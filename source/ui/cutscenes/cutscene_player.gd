@@ -28,11 +28,18 @@ func _process(delta: float) -> void :
 
 
 func _gui_input(event: InputEvent) -> void :
- if event.is_action_pressed("advance_cutscene") and Input.is_action_just_pressed("advance_cutscene") and cutscene:
+ if cutscene and _is_advance_event(event):
   cutscene.try_advance()
 
  if not (event.is_action("toggle_console") or event.is_action("toggle_fullscreen") or event.is_action("toggle_mute")):
   accept_event()
+
+
+func _is_advance_event(event: InputEvent) -> bool:
+ if event.is_action_pressed("advance_cutscene") and Input.is_action_just_pressed("advance_cutscene"):
+  return true
+
+ return Util.is_mobile_tap(event)
 
 
 func _cutscene_finished() -> void :

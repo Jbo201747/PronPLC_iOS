@@ -113,13 +113,23 @@ func _gui_input(event: InputEvent) -> void :
    return
 
  if Input.is_action_just_pressed("click_tile"):
-  AudioManager.play_sound(Sounds.UI.TILE_CLICK)
-  is_pressed = true
-  tile.hover_handler.hover_for_state()
+  if not is_pressed:
+   AudioManager.play_sound(Sounds.UI.TILE_CLICK)
+   is_pressed = true
+   tile.hover_handler.hover_for_state()
  elif event.is_action_released("click_tile") and is_pressed:
   is_pressed = false
   tile.hover_handler.hover_for_state()
-  if ( not InputManager.is_mouse_mode() or has_mouse) or has_focus(true):
+
+  # Touch devices emulate the press as a mouse button, but no mouse motion is
+  # generated, so mouse_entered never fires and has_mouse/focus stay false.
+  # Fall back to the release position so taps still count as clicks.
+  var pointer_over_tile: = has_mouse
+  if event is InputEventMouse:
+   var tile_size: Vector2 = base_size if base_size != Vector2.ZERO else size
+   pointer_over_tile = Rect2(Vector2.ZERO, tile_size).grow(3).has_point(event.position)
+
+  if ( not InputManager.is_mouse_mode() or pointer_over_tile) or has_focus(true):
    if not tile.click_tile():
     tile.play_tile_sound()
 

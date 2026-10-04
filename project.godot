@@ -35,6 +35,8 @@ Game="*res://source/autoload/game.gd"
 InputManager="*uid://cly0bhskjloqx"
 AudioManager="*res://source/autoload/audio_manager.tscn"
 DailyManager="*uid://ddl08n4eyioo0"
+MCPRuntimeServer="*res://addons/godot_mcp_toolkit/runtime/mcp_runtime_server.gd"
+TapProbe="*res://_tap_probe.gd"
 
 [debug]
 
@@ -58,6 +60,8 @@ window/dpi/allow_hidpi=false
 [editor]
 
 script/templates_search_path="res://source/script_templates"
+version_control/plugin_name="GitPlugin"
+version_control/autoload_on_startup=true
 
 [editor_overrides]
 
@@ -65,7 +69,7 @@ text_editor/behavior/indent/type=1
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/export_build_include/plugin.cfg")
+enabled=PackedStringArray("res://addons/export_build_include/plugin.cfg", "res://addons/godot_mcp_toolkit/plugin.cfg")
 
 [global_group]
 
